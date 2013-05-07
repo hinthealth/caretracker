@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Passport-Local Example</title>
+        <style>
+            #strength {
+                text-align: center;
+                font-weight: bold;
+            }
+            #strength.weak {
+                color: red;
+                border-color: indianred;
+            }
+            #strength.so-so {
+                color: darkorange;
+                border-color: orange;
+            }
+            #strength.strong {
+                color: green;
+                border-color: lightgreen;
+            }
+        </style>
+	</head>
+	<body>
+		<% if (!user) { %>
+			<p>
+			<a href="/">Home</a> | 
+			<a href="/secure/admin">Admin Page</a> |
+			<a href="/dmz/login">Log In</a> |
+            <a href="/dmz/signup">Sign up</a>
+			</p>
+		<% } else { %>
+			<p>
+			<a href="/">Home</a> | 
+			<a href="/secure/admin">Admin Page</a> |
+			<a href="/secure/account">Account</a> |
+			<a href="/dmz/logout">Log Out</a>
+			</p>
+		<% } %>

@@ -1,0 +1,7 @@
+<ul>
+    <li><a href="/">Home</a></li>
+    <li ng-show="security.isAuthenticated()"><a href="/account">Account</a></li>
+    <li ng-show="!security.isAuthenticated()"><a ng-click="security.showLogin()">Log In</a></li>
+    <li ng-show="!security.isAuthenticated()"><a ng-click="security.showSignup()">Sign up</a></li>
+    <li ng-show="security.isAuthenticated()"><a ng-click="security.logout()">Log out</a></li>
+</ul>

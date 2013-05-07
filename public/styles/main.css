@@ -1,0 +1,24 @@
+.password-strength-0 {
+    text-align: center;
+    font-weight: bold;
+}
+.password-strength-0, .password-strength-1 {
+    background-color: red;
+    border-color: indianred;
+}
+.password-strength-0, .password-strength-1 {
+    border-color: indianred;
+    background-color: indianred;
+}
+.password-strength-2 {
+    background-color: darkorange;
+    border-color: orange;
+}
+.password-strength-3, .password-strength-4 {
+    border-color: lightgreen;
+    background-color: lightgreen;
+}
+.password-strength-3, .password-strength-4 {
+    background-color: green;
+    border-color: green;
+}
