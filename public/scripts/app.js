@@ -14,12 +14,12 @@ var javascriptApp = angular.module('javascriptApp', [])
             .otherwise({
                 redirectTo: '/'
             });
-        // configure html5 to get links working on jsfiddle
         $locationProvider.html5Mode(true);
     })
     .controller('MainCtrl', function ($scope, Security) {
         $scope.security = Security;
     })
+
 javascriptApp.factory('Security', function ($location) {
     return {
         showLogin: function () {
@@ -35,7 +35,6 @@ javascriptApp.factory('Security', function ($location) {
         login: function (username, password) {
             this.currentUser = {username: username, email: username+"@example.com" };
             this.isLoginShown = false;
-
         },
         signup: function (username, email, password1, password2) {
             this.currentUser = {username: username, email: email};
@@ -64,8 +63,6 @@ javascriptApp.directive("login", function () {
     }
 });
 
-
-
 javascriptApp.directive("loginToolbar", function () {
     return {
         restrict: "E",
@@ -79,7 +76,6 @@ javascriptApp.directive("loginToolbar", function () {
         }
     }
 });
-
 
 javascriptApp.directive("signup", function () {
     return {

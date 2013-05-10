@@ -22,3 +22,27 @@
     background-color: green;
     border-color: green;
 }
+
+ul {
+    list-style:none;
+    margin: 0;
+    padding: 0;
+}
+ul:after {
+}
+
+ul > li {
+    display: inline-block;
+    margin-right: 0.5em;
+    border: 1pt solid black;
+    padding: 0.5em;
+    width: 6em;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+ul > li > a {
+    display: inline-block;
+    width: 100%;
+}
