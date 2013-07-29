@@ -1,7 +1,7 @@
 var passport = require('passport')
   , LocalStrategy = require('passport-local').Strategy
   , db = require('../config/dbschema')
-    , zxcvbn = require("zxcvbn");
+  , zxcvbn = require("zxcvbn");
 
 // Minimum password score based on scale from zxcvbn:
 // [0,1,2,3,4] if crack time (in seconds) is less than

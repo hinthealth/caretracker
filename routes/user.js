@@ -20,24 +20,24 @@ exports.admin = function(req, res) {
 //   which, in this example, will redirect the user to the home page.
 //
 //   curl -v -d "username=bob&password=secret" http://127.0.0.1:3000/login
-//   
+//
 /***** This version has a problem with flash messages
-app.post('/login', 
+app.post('/login',
   passport.authenticate('local', { failureRedirect: '/login', failureFlash: true }),
   function(req, res) {
     res.redirect('/');
   });
 */
-  
+
 // POST /login
 //   This is an alternative implementation that uses a custom callback to
 //   acheive the same functionality.
 exports.postlogin = function(req, res, next) {
   passport.authenticate('local', function(err, user, info) {
-    if (err) { return next(err) }
+    if (err) { return next(err); }
     if (!user) {
       req.session.messages =  [info.message];
-      return res.redirect('/login')
+      return res.redirect('/login');
     }
     req.logIn(user, function(err) {
       if (err) { return next(err); }
@@ -69,6 +69,6 @@ exports.signup = function (req, res) {
                 if (err) return next(err);
                 // successful login
                 res.redirect('/');
-            })
-        })
-}
+            });
+        });
+};

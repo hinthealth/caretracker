@@ -1,4 +1,6 @@
-###This example is derived from 
+# Goji!
+Goji is the best way for care providers to collaborate on patient care, and
+to manage the daily schedule of multiple patients.
 
 #### 1. app.js is now split up into multiple files
 
@@ -16,7 +18,7 @@ You can now run npm install without fear and you won't run into ejs errors when 
 #### 3. Added check for admin
 You can check roles or for admin by modifying the ensureAdmin method in config/pass.js to ensureRole('admin').  Simply add it as an additional middleware as shown in the '/admin' path in app.js
 
-#### 4. You will need to install grunt to seed and drop the database.  
+#### 4. You will need to install grunt to seed and drop the database.
 
 http://gruntjs.com/
 
@@ -24,7 +26,7 @@ http://gruntjs.com/
 npm install -g grunt-cli
 ```
 
-You will then be able to run 
+You will then be able to run
 
 ```
 grunt --version
