@@ -1,18 +1,19 @@
+var env = process.env.NODE_ENV || 'development';
 var mongoose = require('mongoose'),
-	bcrypt = require('bcrypt'),
-	SALT_WORK_FACTOR = 10;
+  bcrypt = require('bcrypt'),
+  SALT_WORK_FACTOR = 10;
 exports.mongoose = mongoose;
 
 // Database connect
-var uristring = 
-  process.env.MONGOLAB_URI || 
-  process.env.MONGOHQ_URL || 
-  'mongodb://localhost/secure-spa-part-3';
+var uristring =
+  process.env.MONGOLAB_URI ||
+  process.env.MONGOHQ_URL ||
+  'mongodb://localhost/goji-' + env;
 
 var mongoOptions = { db: { safe: true }};
 
 mongoose.connect(uristring, mongoOptions, function (err, res) {
-  if (err) { 
+  if (err) {
     console.log ('ERROR connecting to: ' + uristring + '. ' + err);
   } else {
     console.log ('Successfully connected to: ' + uristring);
@@ -33,27 +34,27 @@ var userSchema = new Schema({
 
 // Bcrypt middleware
 userSchema.pre('save', function(next) {
-	var user = this;
+  var user = this;
 
-	if(!user.isModified('password')) return next();
+  if(!user.isModified('password')) return next();
 
-	bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
-		if(err) return next(err);
+  bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
+    if(err) return next(err);
 
-		bcrypt.hash(user.password, salt, function(err, hash) {
-			if(err) return next(err);
-			user.password = hash;
-			next();
-		});
-	});
+    bcrypt.hash(user.password, salt, function(err, hash) {
+      if(err) return next(err);
+      user.password = hash;
+      next();
+    });
+  });
 });
 
 // Password verification
 userSchema.methods.comparePassword = function(candidatePassword, cb) {
-	bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
-		if(err) return cb(err);
-		cb(null, isMatch);
-	});
+  bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
+    if(err) return cb(err);
+    cb(null, isMatch);
+  });
 };
 
 // Export user model
