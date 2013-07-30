@@ -13,7 +13,6 @@ var matches_confirmation = [function(value){
   }, "Passwords do not match"];
 // User schema
 var UserSchema = new Schema({
-  _id: ObjectId,
   username: { type: String, required: true, unique: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true, validate: matches_confirmation},
