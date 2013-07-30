@@ -30,10 +30,10 @@ exports.create = function(req, res, next){
     });
   })(req, res, next);
 };
-exports.new = function(req, res, next){
+exports.new = function(req, res){
   res.render('login', { user: req.user, message: req.session.messages });
 };
-exports.destroy = function(req, res, next){
+exports.destroy = function(req, res){
   req.logout();
   res.redirect('/');
 };

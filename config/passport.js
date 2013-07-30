@@ -10,7 +10,7 @@ var passport = require('passport')
 // [10**2, 10**4, 10**6, 10**8, Infinity].
 // (useful for implementing a strength bar.)
 
-const MIN_PASSWORD_SCORE = 2;
+const MIN_PASSWORD_SCORE = 0;
 
 passport.serializeUser(function(user, done) {
   done(null, user.id);
@@ -37,23 +37,8 @@ passport.use(new LocalStrategy(function(username, password, done) {
   });
 }));
 
-// Simple route middleware to ensure user is authenticated.  Otherwise send to login page.
-exports.ensureAuthenticated = function ensureAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) { return next(); }
-  res.redirect('/login');
-};
-
-
-// Check for admin middleware, this is unrelated to passport.js
-// You can delete this if you use different method to check for admins or don't need admins
-exports.ensureAdmin = function ensureAdmin(req, res, next) {
-        if(req.user && req.user.admin === true)
-            next();
-        else
-            res.send(403);
-};
-
 // Helper function to create a new user
+// TODO: Kill this
 exports.createUser = function(username, emailaddress, password1, password2, adm, done) {
     // convert adm string to bool
 
@@ -75,3 +60,5 @@ exports.createUser = function(username, emailaddress, password1, password2, adm,
     });
 
 };
+
+module.exports = passport;

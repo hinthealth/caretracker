@@ -4,9 +4,9 @@ var express = require('express')
     , app = express()
     // Initialize database & models
     , models = require('./models')
-    , pass = require('./config/pass')
-    , passport = require('passport')
+    , passport = require('./config/passport')
     , routes = require('./routes')
+    , middlewares = require('./middlewares')
     , api = require('./routes/api');
 
 app.set('views', __dirname + '/views');
@@ -28,8 +28,8 @@ app.use('/', express.static('public'));
 app.use('/zxcvbn', express.static('node_modules/zxcvbn'));
 
 // set up our security to be enforced on all requests to secure paths
-app.all('/secure', pass.ensureAuthenticated);
-app.all('/secure/admin', pass.ensureAdmin);
+app.all('/secure', middlewares.auth.requireUser);
+app.all('/secure/admin', middlewares.auth.requireAdmin);
 
 // Basic pages
 // app.get('/', routes.index);
