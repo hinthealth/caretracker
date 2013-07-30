@@ -1,4 +1,5 @@
-var mongoose = require('mongoose')
+var mongoose = require('mongoose'),
+  , HealthRecord = mongoose.model('HealthRecord'),
   , Schema = mongoose.Schema
   , ObjectId = Schema.ObjectId
   , Bcrypt = require('bcrypt')
@@ -6,6 +7,7 @@ var mongoose = require('mongoose')
 
 // User schema
 var UserSchema = new Schema({
+  _id: ObjectId,
   username: { type: String, required: true, unique: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true},
@@ -28,6 +30,28 @@ UserSchema.pre('save', function(next) {
     });
   });
 });
+
+var CCDA = require("./../lib/ccda_service");
+UserSchema.methods.updateHealthRecords = function(){
+  if(!self.email) return "No email";
+  var service = CCDA.Service(CCDA.server_url, self.email);
+  service.retrieveAll(function(error, attributes, xml){
+    var record = HealthRecord.findOne({direct_address: self.email, key: attributes.key}).exec(function(error, found){
+      if(record){
+        record.created = attributes.created;
+      } else {
+        record = new HealthRecord(attributes);
+      }
+      record.save(function(error){
+        if(error) console.log("Error saving health record", error);
+      });
+    });
+  });
+};
+
+UserSchema.methods.healthRecord = function(done){
+  HealthRecord.findOne({direct_address: self.email}).sort('-created').exec(done);
+}
 
 // Password verification
 UserSchema.methods.comparePassword = function(candidatePassword, cb) {

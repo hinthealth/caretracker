@@ -2,23 +2,28 @@
 Goji is the best way for care providers to collaborate on patient care, and
 to manage the daily schedule of multiple patients.
 
-#### 1. app.js is now split up into multiple files
+## Application setup
+1. Install NPM (follow instructions on their website)
+2. clone this repository ```git clone git@github.com:healthio/caretracker.git```
+3. Install the npm packages (npm install)
+4. Run tests to make sure you're setup: ```npm test```
+5. Run the server! ```npm start```
+6. Visit your new server at localhost:3000
 
-config/dbschema.js - mongoose database schema
-config/pass.js - contains most of the passport configuration, also contains an additional admin middleware function
+## Contributing code
+0. Create a new branch for your code ```git checkout master && git pull && git checkout -b 'feature/my_feature_name'```
+1. Write a new feature test in ./test/acceptance, or write a test for a bug in ./test/models or ./test/routes
+2. Run the test with ```npm test``` (or ```make test```)
+3. See it fail
+4. Code till it passes
+5. Push your code up (```git push origin feature/my_feature_name```), then login to github and create a pull request.
 
-routes/basic.js - basic routes paths
-routes/user.js - user paths (login, account, etc)
+## Deploying to production
+### *TBD*
 
-app.js - main server code
 
-#### 2. Updated package.json file
-You can now run npm install without fear and you won't run into ejs errors when rendering layouts.  The layout was changed to a header and a footer.
-
-#### 3. Added check for admin
-You can check roles or for admin by modifying the ensureAdmin method in config/pass.js to ensureRole('admin').  Simply add it as an additional middleware as shown in the '/admin' path in app.js
-
-#### 4. You will need to install grunt to seed and drop the database.
+## Database setup 
+#### You will need to install grunt to seed and drop the database.
 
 http://gruntjs.com/
 

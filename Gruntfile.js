@@ -12,9 +12,9 @@ module.exports = function(grunt) {
     adm = (adm === "true");
 
     var user = new db.userModel({ username: usr
-    				, email: emailaddress
-    				, password: pass
-    				, admin: adm });
+            , email: emailaddress
+            , password: pass
+            , admin: adm });
 
     // save call is async, put grunt into async mode to work
     var done = this.async();

@@ -48,7 +48,18 @@ app.get('/secure/account', user_routes.account);
 //admin pages
 app.get('/secure/admin', user_routes.admin);
 
-app.listen(3000, function () {
-    console.log('Express server listening on port 3000');
+
+app.configure('development', function() {
+  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+});
+
+app.configure('production', function() {
+  app.use(express.errorHandler());
+});
+
+
+var port = process.env.PORT || 3000;
+app.listen(port, function () {
+    console.log('Express server listening on port '+ port);
 });
 
