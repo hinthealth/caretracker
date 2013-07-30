@@ -1,0 +1,9 @@
+<p> There are {{events.length}} journal entries </p>
+<div ng-repeat='event in events' %>
+  <h3> {{event.name}} </h3>
+  <a href='/events/{{post.id}}')> More </a>
+  |  -
+  <a href='/events/{{post.id}}/edit'> Edit </a>
+  |  -
+  <a href='/events/{{post.id}}/delete'> Delete </a>
+<a href='/events/add'>Add new event</a>

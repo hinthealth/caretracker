@@ -26,17 +26,21 @@ app.use(passport.session());
 
 // Allow flash messages
 app.use(flash());
-app.use(app.router);
-// clearly denote public content
+
+// Prefer static assets to routed paths
 app.use('/', express.static('public'));
-app.use('/zxcvbn', express.static('node_modules/zxcvbn'));
+
+// Route!
+app.use(app.router);
+
+// app.use('/zxcvbn', express.static('node_modules/zxcvbn'));
 
 // set up our security to be enforced on all requests to secure paths
 app.all('/account', middlewares.auth.requireUser);
 app.all('/api/*', middlewares.auth.requireUser);
 
-// Basic pages
-// app.get('/', routes.index);
+// Pages for angular
+app.get('/partials/:model/:view', routes.partials);
 
 // Login pages
 app.get('/login', routes.sessions.new);

@@ -8,5 +8,12 @@ exports.index = function(req, res) {
     res.render('index', { user: req.user });
   }
 };
+
+exports.partials = function (req, res) {
+  var model_name = req.params.model;
+  var view_name = req.params.view;
+  res.render('partials/' + model_name + '/' + view_name);
+};
+
 exports.users = require('./users');
 exports.sessions = require('./sessions');
