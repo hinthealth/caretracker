@@ -18,6 +18,6 @@ mongoose.connect(uristring, mongoOptions, function (err, res) {
   }
 });
 
-exports.events = require('./../models/events');
-exports.health_records = require('./../models/health_records');
-exports.users = require('./../models/users');
+exports.Event = require('./../models/events');
+exports.HealthRecord = require('./../models/health_records');
+exports.User = require('./../models/users');

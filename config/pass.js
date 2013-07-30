@@ -1,6 +1,7 @@
 var passport = require('passport')
   , LocalStrategy = require('passport-local').Strategy
   , db = require('../config/database')
+  , User = db.User
 // TODO: This library is arbitrary and sucks. Replace with something !obnoxious
   , zxcvbn = require("zxcvbn");
 
@@ -16,13 +17,13 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(id, done) {
-  db.model('User').findById(id, function (err, user) {
+  User.findById(id, function (err, user) {
     done(err, user);
   });
 });
 
 passport.use(new LocalStrategy(function(username, password, done) {
-  db.model('User').findOne({ username: username }, function(err, user) {
+  User.findOne({ username: username }, function(err, user) {
     if (err) { return done(err); }
     if (!user) { return done(null, false, { message: 'Unknown user ' + username }); }
     user.comparePassword(password, function(err, isMatch) {
@@ -60,7 +61,7 @@ exports.createUser = function(username, emailaddress, password1, password2, adm,
     console.log(typeof zxcvbn);
     var result = zxcvbn(password1);
     if (result.score < MIN_PASSWORD_SCORE) return done(new Error("Password is too simple"));
-    var user = new db.model('User')({ username: username
+    var user = new User({ username: username
         , email: emailaddress
         , password: password1
         , admin: adm });

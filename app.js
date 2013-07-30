@@ -6,6 +6,7 @@ var express = require('express')
     , pass = require('./config/pass')
     , passport = require('passport')
     , routes = require('./routes')
+    , sessions = require('./routes/session')
     , routes_user = require('./routes/user')
     , routes_basic = require('./routes/basic')
     , api = require('./routes/api');
@@ -33,12 +34,12 @@ app.all('/secure', pass.ensureAuthenticated);
 app.all('/secure/admin', pass.ensureAdmin);
 
 // Basic pages
-app.get('/', routes_basic.index);
+// app.get('/', routes.index);
 
 // Login pages
-app.get('/dmz/login', routes_user.getlogin);
-app.post('/dmz/login', routes_user.postlogin);
-app.get('/dmz/logout', routes_user.logout);
+app.get('/login', sessions.new);
+app.post('/login', sessions.create);
+app.get('/logout', sessions.destroy);
 
 // Signup pages
 app.get('/dmz/signup', routes_user.getsignup);
