@@ -18,7 +18,7 @@ app.use(express.bodyParser());
 app.use(express.methodOverride());
 
 // use express.session before passport, so that passport session will work
-app.use(express.session({ secret: 'keyboard cat' }));
+app.use(express.session({ secret: 'OF0rMlqo2kdRv0zYSqLabBPAeLtbKEQJ27G' }));
 // Initialize Passport!  Also use passport.session() middleware, to support
 // persistent login sessions (recommended).
 app.use(passport.initialize());
@@ -32,8 +32,8 @@ app.use('/', express.static('public'));
 app.use('/zxcvbn', express.static('node_modules/zxcvbn'));
 
 // set up our security to be enforced on all requests to secure paths
-app.all('/secure', middlewares.auth.requireUser);
-app.all('/secure/admin', middlewares.auth.requireAdmin);
+app.all('/account', middlewares.auth.requireUser);
+app.all('/api/*', middlewares.auth.requireUser);
 
 // Basic pages
 // app.get('/', routes.index);
@@ -46,8 +46,7 @@ app.get('/logout', routes.sessions.destroy);
 // Signup pages
 app.get('/signup', routes.users.new);
 app.post('/signup', routes.users.create);
-app.get('/secure/account', routes.users.account);
-app.get('/secure/admin', routes.users.admin);
+app.get('/account', routes.users.account);
 
 // Events api for angular
 app.get('/api/events', api.events.index);

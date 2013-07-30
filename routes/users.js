@@ -9,7 +9,7 @@ exports.admin = function(req, res) {
 };
 
 exports.new = function(req, res) {
-  res.render('signup', { user: new User(), message: req.session.messages });
+  res.render('signup', { user: {}, message: req.session.messages });
 };
 
 exports.create = function (req, res, next) {

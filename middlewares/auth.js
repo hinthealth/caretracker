@@ -1,5 +1,9 @@
 exports.requireUser = function (req, res, next) {
-  if (req.isAuthenticated()) return next();
+  console.log("Running require user");
+  if (req.isAuthenticated() && req.user){
+    console.log("passed...");
+    return next();
+  }
   res.redirect('/login');
 };
 exports.requireAdmin = function(req, res, next) {

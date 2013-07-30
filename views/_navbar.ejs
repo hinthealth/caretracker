@@ -1,15 +1,13 @@
 <% if (!user) { %>
   <p>
   <a href="/">Home</a> |
-  <a href="/secure/admin">Admin Page</a> |
   <a href="/login">Log In</a> |
   <a href="/signup">Sign up</a>
   </p>
 <% } else { %>
   <p>
   <a href="/">Home</a> |
-  <a href="/secure/admin">Admin Page</a> |
-  <a href="/secure/account">Account</a> |
+  <a href="/account">My Account</a> |
   <a href="/logout">Log Out</a>
   </p>
 <% } %>
