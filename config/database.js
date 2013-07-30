@@ -17,3 +17,7 @@ mongoose.connect(uristring, mongoOptions, function (err, res) {
     console.log ('Successfully connected to: ' + uristring);
   }
 });
+
+exports.events = require('./../models/events');
+exports.health_records = require('./../models/health_records');
+exports.users = require('./../models/users');

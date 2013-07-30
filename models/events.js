@@ -1,0 +1,14 @@
+var mongoose  = require('mongoose')
+  , Schema    = mongoose.Schema
+  , ObjectId  = Schema.Types.ObjectId;
+
+// User schema
+var EventSchema = new Schema({
+  name: String,
+  user_id: ObjectId,
+  created_at: { type: Date, default: Date.now },
+  completed_at: Date,
+  completed_by: ObjectId
+});
+
+module.exports = mongoose.model('Event', EventSchema);

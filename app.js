@@ -5,8 +5,10 @@ var express = require('express')
     , db = require('./config/database')
     , pass = require('./config/pass')
     , passport = require('passport')
-    , basic_routes = require('./routes/basic')
-    , user_routes = require('./routes/user');
+    , routes = require('./routes')
+    , routes_user = require('./routes/user')
+    , routes_basic = require('./routes/basic')
+    , api = require('./routes/api');
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
@@ -31,23 +33,32 @@ app.all('/secure', pass.ensureAuthenticated);
 app.all('/secure/admin', pass.ensureAdmin);
 
 // Basic pages
-app.get('/', basic_routes.index);
+app.get('/', routes_basic.index);
 
 // Login pages
-app.get('/dmz/login', user_routes.getlogin);
-app.post('/dmz/login', user_routes.postlogin);
-app.get('/dmz/logout', user_routes.logout);
+app.get('/dmz/login', routes_user.getlogin);
+app.post('/dmz/login', routes_user.postlogin);
+app.get('/dmz/logout', routes_user.logout);
 
 // Signup pages
-app.get('/dmz/signup', user_routes.getsignup);
-app.post('/dmz/signup', user_routes.signup);
+app.get('/dmz/signup', routes_user.getsignup);
+app.post('/dmz/signup', routes_user.signup);
 
 // secure pages
-app.get('/secure/account', user_routes.account);
+app.get('/secure/account', routes_user.account);
 
 //admin pages
-app.get('/secure/admin', user_routes.admin);
+app.get('/secure/admin', routes_user.admin);
 
+// Events api for angular
+app.get('/api/events', api.events);
+app.get('/api/event/:event_id', api.event);
+app.post('/api/events', api.eventAdd);
+app.put('/api/event/:event_id', api.eventEdit);
+app.delete('/api/event/:event_id', api.eventDelete);
+
+// Enables back button
+app.get('*', routes.index);
 
 app.configure('development', function() {
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));

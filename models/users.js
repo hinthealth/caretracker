@@ -1,5 +1,5 @@
-var mongoose = require('mongoose'),
-  , HealthRecord = mongoose.model('HealthRecord'),
+var mongoose = require('mongoose')
+  , HealthRecord = mongoose.model('HealthRecord')
   , Schema = mongoose.Schema
   , ObjectId = Schema.ObjectId
   , Bcrypt = require('bcrypt')
@@ -51,7 +51,12 @@ UserSchema.methods.updateHealthRecords = function(){
 
 UserSchema.methods.healthRecord = function(done){
   HealthRecord.findOne({direct_address: self.email}).sort('-created').exec(done);
-}
+};
+
+UserSchema.methods.canAccess = function(){
+  return [self.id];
+};
+
 
 // Password verification
 UserSchema.methods.comparePassword = function(candidatePassword, cb) {

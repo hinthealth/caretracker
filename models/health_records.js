@@ -10,3 +10,5 @@ var HealthRecordSchema = new Schema({
   created: Number,
   data: {}
 });
+
+module.exports = mongoose.model('HealthRecord', HealthRecordSchema);
