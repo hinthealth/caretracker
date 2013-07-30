@@ -1,5 +1,4 @@
-var passport = require('passport')
-  , pass = require("../config/pass");
+var passport = require('passport');
 
 
 // POST /login
@@ -32,7 +31,7 @@ exports.create = function(req, res, next){
   })(req, res, next);
 };
 exports.new = function(req, res, next){
-  res.render('signup', { user: req.user, message: req.session.messages });
+  res.render('login', { user: req.user, message: req.session.messages });
 };
 exports.destroy = function(req, res, next){
   req.logout();

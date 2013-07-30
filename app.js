@@ -2,13 +2,11 @@ var env = process.env.NODE_ENV || 'development';
 
 var express = require('express')
     , app = express()
-    , db = require('./config/database')
+    // Initialize database & models
+    , models = require('./models')
     , pass = require('./config/pass')
     , passport = require('passport')
     , routes = require('./routes')
-    , sessions = require('./routes/session')
-    , routes_user = require('./routes/user')
-    , routes_basic = require('./routes/basic')
     , api = require('./routes/api');
 
 app.set('views', __dirname + '/views');
@@ -37,26 +35,22 @@ app.all('/secure/admin', pass.ensureAdmin);
 // app.get('/', routes.index);
 
 // Login pages
-app.get('/login', sessions.new);
-app.post('/login', sessions.create);
-app.get('/logout', sessions.destroy);
+app.get('/login', routes.sessions.new);
+app.post('/login', routes.sessions.create);
+app.get('/logout', routes.sessions.destroy);
 
 // Signup pages
-app.get('/dmz/signup', routes_user.getsignup);
-app.post('/dmz/signup', routes_user.signup);
-
-// secure pages
-app.get('/secure/account', routes_user.account);
-
-//admin pages
-app.get('/secure/admin', routes_user.admin);
+app.get('/signup', routes.users.new);
+app.post('/signup', routes.users.create);
+app.get('/secure/account', routes.users.account);
+app.get('/secure/admin', routes.users.admin);
 
 // Events api for angular
-app.get('/api/events', api.events);
-app.get('/api/event/:event_id', api.event);
-app.post('/api/events', api.eventAdd);
-app.put('/api/event/:event_id', api.eventEdit);
-app.delete('/api/event/:event_id', api.eventDelete);
+app.get('/api/events', api.events.index);
+app.get('/api/event/:event_id', api.events.show);
+app.post('/api/events', api.events.create);
+app.put('/api/event/:event_id', api.events.update);
+app.delete('/api/event/:event_id', api.events.destroy);
 
 // Enables back button
 app.get('*', routes.index);

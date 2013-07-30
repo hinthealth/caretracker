@@ -1,4 +1,4 @@
-var db = require('./config/database');
+var db = require('./models');
 
 module.exports = function(grunt) {
 
@@ -11,7 +11,7 @@ module.exports = function(grunt) {
     // convert adm string to bool
     adm = (adm === "true");
 
-    var user = new db.userModel({ username: usr
+    var user = new db.users({ username: usr
             , email: emailaddress
             , password: pass
             , admin: adm });

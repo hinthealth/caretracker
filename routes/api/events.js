@@ -1,6 +1,7 @@
 var mongoose = require('mongoose')
   , Event = mongoose.model('Event');
-exports.events = function (req, res) {
+
+exports.index = function (req, res) {
   // TODO: Scope by current user access
   Event.find({user_id: {$in: req.user.canAccess()}}, function(error, events){
     if(error) return res.json(false);
@@ -8,7 +9,7 @@ exports.events = function (req, res) {
   });
 };
 
-exports.event = function (req, res) {
+exports.show = function (req, res) {
   // TODO: Scope by current user access
   Event.findById(req.params.id, function(error, event){
     if(error) return res.json(false);
@@ -18,7 +19,7 @@ exports.event = function (req, res) {
 
 // POST
 
-exports.eventAdd = function (req, res) {
+exports.create = function (req, res) {
   // TODO: Scope by current user access
   Event.create(req.body, function(error, event){
     if(error) return res.json(false);
@@ -28,7 +29,7 @@ exports.eventAdd = function (req, res) {
 
 // PUT
 
-exports.eventEdit = function (req, res) {
+exports.update = function (req, res) {
   // TODO: Scope by current user access
   Event.findById(req.params.id, function(error, event){
     if(error) return res.json(false);
@@ -46,7 +47,7 @@ exports.eventEdit = function (req, res) {
 
 // DELETE
 
-exports.eventDelete = function (req, res) {
+exports.destroy = function (req, res) {
   // TODO: Scope by current user access
   Event.findByIdAndRemove(req.params.id, function(error, event){
     if(error) return res.json(false);

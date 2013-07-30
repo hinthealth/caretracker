@@ -1,7 +1,7 @@
 var passport = require('passport')
   , LocalStrategy = require('passport-local').Strategy
-  , db = require('../config/database')
-  , User = db.User
+  , db = require('./../models')
+  , User = db.users
 // TODO: This library is arbitrary and sucks. Replace with something !obnoxious
   , zxcvbn = require("zxcvbn");
 
