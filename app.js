@@ -2,7 +2,7 @@ var env = process.env.NODE_ENV || 'development';
 
 var express = require('express')
     , app = express()
-    , db = require('./config/dbschema')
+    , db = require('./config/database')
     , pass = require('./config/pass')
     , passport = require('passport')
     , basic_routes = require('./routes/basic')

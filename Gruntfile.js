@@ -1,4 +1,4 @@
-var db = require('./config/dbschema');
+var db = require('./config/database');
 
 module.exports = function(grunt) {
 
@@ -15,7 +15,7 @@ module.exports = function(grunt) {
     				, email: emailaddress
     				, password: pass
     				, admin: adm });
-    
+
     // save call is async, put grunt into async mode to work
     var done = this.async();
 
@@ -34,7 +34,7 @@ module.exports = function(grunt) {
     // async mode
     var done = this.async();
 
-    db.mongoose.connection.on('open', function () { 
+    db.mongoose.connection.on('open', function () {
       db.mongoose.connection.db.dropDatabase(function(err) {
         if(err) {
           console.log('Error: ' + err);

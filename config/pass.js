@@ -1,12 +1,14 @@
 var passport = require('passport')
   , LocalStrategy = require('passport-local').Strategy
-  , db = require('../config/dbschema')
+  , db = require('../config/database')
+// TODO: This library is arbitrary and sucks. Replace with something !obnoxious
   , zxcvbn = require("zxcvbn");
 
 // Minimum password score based on scale from zxcvbn:
 // [0,1,2,3,4] if crack time (in seconds) is less than
 // [10**2, 10**4, 10**6, 10**8, Infinity].
 // (useful for implementing a strength bar.)
+
 const MIN_PASSWORD_SCORE = 2;
 
 passport.serializeUser(function(user, done) {
@@ -14,13 +16,13 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(id, done) {
-  db.userModel.findById(id, function (err, user) {
+  db.model('User').findById(id, function (err, user) {
     done(err, user);
   });
 });
 
 passport.use(new LocalStrategy(function(username, password, done) {
-  db.userModel.findOne({ username: username }, function(err, user) {
+  db.model('User').findOne({ username: username }, function(err, user) {
     if (err) { return done(err); }
     if (!user) { return done(null, false, { message: 'Unknown user ' + username }); }
     user.comparePassword(password, function(err, isMatch) {
@@ -37,7 +39,7 @@ passport.use(new LocalStrategy(function(username, password, done) {
 // Simple route middleware to ensure user is authenticated.  Otherwise send to login page.
 exports.ensureAuthenticated = function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
-  res.redirect('/login')
+  res.redirect('/login');
 };
 
 
@@ -58,7 +60,7 @@ exports.createUser = function(username, emailaddress, password1, password2, adm,
     console.log(typeof zxcvbn);
     var result = zxcvbn(password1);
     if (result.score < MIN_PASSWORD_SCORE) return done(new Error("Password is too simple"));
-    var user = new db.userModel({ username: username
+    var user = new db.model('User')({ username: username
         , email: emailaddress
         , password: password1
         , admin: adm });
