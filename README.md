@@ -1,5 +1,5 @@
-# Goji!
-Goji is the best way for care providers to collaborate on patient care, and
+# Caretracker!
+Caretracker is the best way for care providers to collaborate on patient care, and
 to manage the daily schedule of multiple patients.
 
 #### 1. app.js is now split up into multiple files
