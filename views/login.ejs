@@ -1,7 +1,10 @@
 <% include _header %>
-<% if (message) { %>
-<p><%= message %></p>
-<% } %>
+<% if (messages) { %>
+  <% messages.forEach(function(message){ %>
+    <p><%= message %></p>
+  <% }); %>
+<% }; %>
+
 <form action="/login" method="post">
 	<div>
 	<label>Username:</label>

@@ -1,29 +1,29 @@
 <% include _header %>
 <% if (message) { %>
-<p><%= message %></p>
-<% } %>
+  <p><%= message %>.</p>
+<% }; %>
 <script src="/zxcvbn/zxcvbn-async.js"></script>
 <form action="/signup" method="post">
-	<div>
-	<label>Username:</label>
-	<input type="text" required name="username"/><br/>
-	</div>
-	<div>
-	<label>Email:</label>
-	<input type="email" required name="email"/><br/>
-	</div>
-	<div>
-	<label>Password:</label>
-	<input id="password" type="password" required name="password"/>
-	<input id="strength" class="weak" type="text" value="weak" disabled />
-	</div>
-	<div>
-	<label>Repeat password:</label>
-	<input type="password" required name="password2"/>
-	</div>
-	<div>
-	<input id="submit" type="submit" value="Submit" />
-	</div>
+  <div>
+  <label>Username:</label>
+  <input type="text" required name="username" value="<%= user.username || '' %>" /><br/>
+  </div>
+  <div>
+  <label>Email:</label>
+  <input type="email" required name="email" value="<%= user.email  || '' %>"/><br/>
+  </div>
+  <div>
+  <label>Password:</label>
+  <input id="password" type="password" required name="password" value="<%= user.password || '' %>"/>
+  <input id="strength" class="weak" type="text" value="weak" disabled />
+  </div>
+  <div>
+  <label>Repeat password:</label>
+  <input type="password" required name="password_confirmation" value="<%= user.password_confirmation || '' %>"/>
+  </div>
+  <div>
+  <input id="submit" type="submit" value="Submit" />
+  </div>
 </form>
 <script src="/scripts/check-password.js"></script>
 <p><small>Hint - some strong password are correcthorsebatterystaple, rWibMFACxAUGZmxhVncy, Ba9ZyWABu99[BK#6MBgbH88Tofv)vs$w</small></p>

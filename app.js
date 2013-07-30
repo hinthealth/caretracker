@@ -1,6 +1,7 @@
 var env = process.env.NODE_ENV || 'development';
 
-var express = require('express')
+var flash = require('connect-flash')
+    , express = require('express')
     , app = express()
     // Initialize database & models
     , models = require('./models')
@@ -22,6 +23,9 @@ app.use(express.session({ secret: 'keyboard cat' }));
 // persistent login sessions (recommended).
 app.use(passport.initialize());
 app.use(passport.session());
+
+// Allow flash messages
+app.use(flash());
 app.use(app.router);
 // clearly denote public content
 app.use('/', express.static('public'));

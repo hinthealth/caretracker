@@ -25,40 +25,16 @@ passport.deserializeUser(function(id, done) {
 passport.use(new LocalStrategy(function(username, password, done) {
   User.findOne({ username: username }, function(err, user) {
     if (err) { return done(err); }
-    if (!user) { return done(null, false, { message: 'Unknown user ' + username }); }
+    if (!user) { return done(null, false, new Error('Unknown user ' + username)); }
     user.comparePassword(password, function(err, isMatch) {
       if (err) return done(err);
       if(isMatch) {
         return done(null, user);
       } else {
-        return done(null, false, { message: 'Invalid password' });
+        return done(null, false, new Error('Invalid password') );
       }
     });
   });
 }));
-
-// Helper function to create a new user
-// TODO: Kill this
-exports.createUser = function(username, emailaddress, password1, password2, adm, done) {
-    // convert adm string to bool
-
-    if (password1 !== password2) return done(new Error("Passwords must match"));
-    console.log(typeof zxcvbn);
-    var result = zxcvbn(password1);
-    if (result.score < MIN_PASSWORD_SCORE) return done(new Error("Password is too simple"));
-    var user = new User({ username: username
-        , email: emailaddress
-        , password: password1
-        , admin: adm });
-
-    user.save(function(err) {
-        if(err) {
-            done(err);
-        } else {
-            done(null, user);
-        }
-    });
-
-};
 
 module.exports = passport;
