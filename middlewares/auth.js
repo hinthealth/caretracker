@@ -1,7 +1,5 @@
 exports.requireUser = function (req, res, next) {
-  console.log("Running require user");
   if (req.isAuthenticated() && req.user){
-    console.log("passed...");
     return next();
   }
   res.redirect('/login');

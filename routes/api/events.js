@@ -21,6 +21,7 @@ exports.show = function (req, res) {
 
 exports.create = function (req, res) {
   // TODO: Scope by current user access
+  req.body.user_id = req.user.id;
   Event.create(req.body, function(error, event){
     if(error) return res.json(false);
     res.json({event: event});

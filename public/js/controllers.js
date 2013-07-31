@@ -10,7 +10,7 @@ angular.module('caretracker.controllers', []).
     }]).
   controller('AddEventCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
     $scope.form = {};
-    $scope.submitEvent = function () {
+    $scope.createEvent = function () {
       $http.post('/api/events', $scope.form).
         success(function(data) {
           $location.path('/events');
