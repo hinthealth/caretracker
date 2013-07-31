@@ -19,7 +19,7 @@ angular.module('caretracker', ['caretracker.filters', 'caretracker.services', 'c
         templateUrl: '/partials/events/edit',
         controller: 'EditEventCtrl'
       }).
-      when('/event/:id/delete', {
+      when('/events/:id/delete', {
         templateUrl: '/partials/events/destroy_confirm',
         controller: 'DeleteEventCtrl'
       }).

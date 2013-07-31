@@ -39,9 +39,9 @@ angular.module('caretracker.controllers', []).
   }])
   .controller('DeleteEventCtrl', ['$scope', '$http', '$location', '$routeParams', function($scope, $http, $location, $routeParams){
     $http.get('/api/events/' + $routeParams.id).
-        success(function(data) {
-          $scope.event = data.event;
-        });
+      success(function(data) {
+        $scope.event = data.event;
+      });
 
     $scope.deleteEvent = function () {
       $http.delete('/api/events/' + $routeParams.id).

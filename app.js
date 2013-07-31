@@ -54,10 +54,10 @@ app.get('/account', routes.users.account);
 
 // Events api for angular
 app.get('/api/events', api.events.index);
-app.get('/api/event/:event_id', api.events.show);
+app.get('/api/events/:id', api.events.show);
 app.post('/api/events', api.events.create);
-app.put('/api/event/:event_id', api.events.update);
-app.delete('/api/event/:event_id', api.events.destroy);
+app.put('/api/events/:id', api.events.update);
+app.delete('/api/events/:id', api.events.destroy);
 
 // Enables back button
 app.get('*', routes.index);
