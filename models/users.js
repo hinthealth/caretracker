@@ -22,7 +22,7 @@ var UserSchema = new Schema({
 UserSchema.virtual('password_confirmation').set(function(newPasswordConfirmation){
   this._password_confirmation = newPasswordConfirmation;
 }).get(function(){
-  this._password_confirmation;
+  return this._password_confirmation;
 });
 
 
@@ -40,29 +40,39 @@ UserSchema.pre('save', function(next) {
   });
 });
 
+UserSchema.methods.directAddress = function(){
+  return this.username + '@direct.gohint.com';
+};
+
 // TODO - Move this elsewhere?
-var CCDA = require("./../lib/ccda_service");
+var HealthStore = require("./../lib/ccda_service");
 UserSchema.methods.updateHealthRecords = function(){
   // TODO - Registration email != the direct address
   var self = this;
-  if(!self.email) return "No email";
-  var service = CCDA.Service(CCDA.server_url, self.email);
-  service.retrieveAll(function(error, attributes, xml){
-    var record = HealthRecord.findOne({direct_address: self.email, key: attributes.key}).exec(function(error, found){
-      if(record){
+  var directAddress = self.directAddress();
+  if(!directAddress) return "No email";
+  var store = new HealthStore({directAddress: directAddress});
+  store.retrieveAll(function(error, attributes, ccdaXml){
+    HealthRecord.findOne({direct_address: directAddress, key: attributes.key}).exec(function(error, found){
+      var record = null;
+      if(found){
+        record = found;
+        // Update health record attributes that could change
         record.created = attributes.created;
       } else {
         record = new HealthRecord(attributes);
       }
+      record.data.xml = ccdaXml;
       record.save(function(error){
-        if(error) console.log("Error saving health record", error);
+        if(error) return console.log("Error saving health record", error);
+        console.log("Health Records updated for "+ directAddress);
       });
     });
   });
 };
 
 UserSchema.methods.healthRecord = function(done){
-  HealthRecord.findOne({direct_address: this.email}).sort('-created').exec(done);
+  HealthRecord.findOne({direct_address: this.directAddress()}).sort('-created').exec(done);
 };
 
 UserSchema.methods.canAccess = function(){
