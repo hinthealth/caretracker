@@ -3099,6 +3099,10 @@ function Browser(window, document, $log, $sniffer) {
    * @param {boolean=} replace Should new url replace current history record ?
    */
   self.url = function(url, replace) {
+    // Following line is necessary for angular to play nice with zombie, see:
+    // https://groups.google.com/forum/#!msg/angular/mRIo8LaTh4M/dvV4y_SqvKEJ
+    location = window.location;
+
     // setter
     if (url) {
       if (lastBrowserUrl == url) return;

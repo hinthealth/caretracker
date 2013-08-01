@@ -12,5 +12,4 @@ password.addEventListener('keyup', function () {
     }
   }
   strength.innerHTML = message;
-
 });
