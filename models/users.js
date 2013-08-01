@@ -5,6 +5,18 @@ var mongoose = require('mongoose')
   , Bcrypt = require('bcrypt')
   , SALT_WORK_FACTOR = 10;
 
+var generateKey = function(length){
+  length = length || 6;
+  // arr = [];
+  // while(length--){
+  //   arr[length] = Math.floor(Math.random() * 16).toString(16); }
+  // };
+  // return arr.join('');
+  // or
+  return (new Array(length + 1)).join('n').replace(/n/g, function(){
+    return Math.floor(Math.random()*16).toString(16);
+  });
+};
 
 var matches_confirmation = [function(value){
     if(this.isSelected('password_confirmation')){
@@ -16,7 +28,8 @@ var UserSchema = new Schema({
   username: { type: String, required: true, unique: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true, validate: matches_confirmation},
-  admin: { type: Boolean, required: true }
+  admin: { type: Boolean, required: true, default: false },
+  directPrefix: {type: String, default: generateKey, unique: true}
 });
 
 UserSchema.virtual('password_confirmation').set(function(newPasswordConfirmation){
@@ -47,7 +60,6 @@ UserSchema.methods.directAddress = function(){
 // TODO - Move this elsewhere?
 var HealthStore = require("./../lib/ccda_service");
 UserSchema.methods.updateHealthRecords = function(){
-  // TODO - Registration email != the direct address
   var self = this;
   var directAddress = self.directAddress();
   if(!directAddress) return "No email";
