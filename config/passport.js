@@ -22,10 +22,13 @@ passport.deserializeUser(function(id, done) {
   });
 });
 
-passport.use(new LocalStrategy(function(username, password, done) {
-  User.findOne({ username: username }, function(err, user) {
+passport.use(new LocalStrategy({
+    usernameField: 'email',
+    passwordField: 'password'
+  }, function(email, password, done) {
+  User.findOne({ email: email }, function(err, user) {
     if (err) { return done(err); }
-    if (!user) { return done(null, false, new Error('Unknown user ' + username)); }
+    if (!user) { return done(null, false, new Error('Unknown user ' + email)); }
     user.comparePassword(password, function(err, isMatch) {
       if (err) return done(err);
       if(isMatch) {

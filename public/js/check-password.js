@@ -1,22 +1,16 @@
 var password = document.getElementById("password"),
-    strength = document.getElementById("strength"),
-    submit = document.getElementById("submit");
+    strength = document.getElementById("strength-bar");
 password.addEventListener('keyup', function () {
-    var score = zxcvbn(password.value).score;
-    if (score === 0) {
-        strength.value = strength.className = "weakest";
-        submit.disabled = false;
+  var message = "";
+  if(password.value){
+    var passCheck = zxcvbn(password.value);
+    var display = passCheck.crack_time_display;
+    if(display == 'instant'){
+       message = "It would take seconds for a computer to guess your password."
+    }else{
+      message = "It would take " + display + " for a computer to guess your password." ;
     }
-    if (score === 1) {
-        strength.value = strength.className = "weaker";
-        submit.disabled = false;
-    }
-    if (score === 2) {
-        strength.value = strength.className = "stronger";
-        submit.disabled = false;
-    }
-    if (score > 2) {
-        strength.value = strength.className = "strongest";
-        submit.disabled = false;
-    }
+  }
+  strength.innerHTML = message;
+
 });

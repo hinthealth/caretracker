@@ -7,54 +7,82 @@ var mongoose = require('mongoose')
 
 var generateKey = function(length){
   length = length || 6;
-  // arr = [];
-  // while(length--){
-  //   arr[length] = Math.floor(Math.random() * 16).toString(16); }
-  // };
-  // return arr.join('');
-  // or
   return (new Array(length + 1)).join('n').replace(/n/g, function(){
     return Math.floor(Math.random()*16).toString(16);
   });
 };
 
-var matches_confirmation = [function(value){
-    if(this.isSelected('password_confirmation')){
-      return value != this.get('password_confirmation');
-    }
-  }, "Passwords do not match"];
 // User schema
 var UserSchema = new Schema({
-  username: { type: String, required: true, unique: true },
+  name: { first: String, last: String},
   email: { type: String, required: true, unique: true },
-  password: { type: String, required: true, validate: matches_confirmation},
-  admin: { type: Boolean, required: true, default: false },
-  directPrefix: {type: String, default: generateKey, unique: true}
+  passwordHash: { type: String, required: true}
 });
 
-UserSchema.virtual('password_confirmation').set(function(newPasswordConfirmation){
+UserSchema.virtual('name.full')
+.get(function () {
+  return [this.name.first, this.name.last].filter(function(i){return i;}).join(' ');
+}).set(function (setFullNameTo) {
+  var split = setFullNameTo.split(' ')
+    , firstName = split[0]
+    , lastName = split.slice(1,split.length).join(' ');
+
+  this.set('name.first', firstName);
+  this.set('name.last', lastName);
+});
+
+UserSchema.virtual('password').set(function(newPassword){
+  // Bcrypt middleware
+  var salt = Bcrypt.genSaltSync(SALT_WORK_FACTOR)
+    , hash = Bcrypt.hashSync(newPassword, salt);
+  this.passwordHash = hash;
+
+  this._password = newPassword;
+  this.markModified('password');
+
+}).get(function(){
+  return this._password;
+});
+
+UserSchema.virtual('passwordConfirmation').set(function(newPasswordConfirmation){
   this._password_confirmation = newPasswordConfirmation;
+  this.markModified('passwordConfirmation');
 }).get(function(){
   return this._password_confirmation;
 });
 
+// var Validator = require('validator').Validator
+//   , val = new Validator()
+//   , check = val.check;
+var validations = {
+  user: [
+    function(){
+      if(this.isNew && !this.password){
+        this.invalidate('password', 'required');
+      }
+      if(this.isModified('password')){
+        if(this.password.length < 6){
+          this.invalidate('password', 'must be at least 6 characters.');
+        }
+        if(this.isModified('passwordConfirmation') && this.password !== this.passwordConfirmation){
+          this.invalidate('passwordConfirmation', 'must be the same');
+        }
+      }
+    }
+  ]
+};
 
-// Bcrypt middleware
-UserSchema.pre('save', function(next) {
-  var user = this;
-  if(!user.isModified('password')) return next();
-  Bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
-    if(err) return next(err);
-    Bcrypt.hash(user.password, salt, function(err, hash) {
-      if(err) return next(err);
-      user.password = hash;
-      next();
-    });
-  });
-});
+UserSchema.path('passwordHash').validate(validations.user[0], null);
+
+var matches_confirmation = [function(value){
+    if(this.isModified('passwordConfirmation')){
+      return value != this.get('passwordConfirmation');
+    }
+  }, "Passwords do not match"];
+
 
 UserSchema.methods.directAddress = function(){
-  return this.username + '@direct.gohint.com';
+  return this.email.replace(/@.+$/,'') + '@direct.gohint.com';
 };
 
 // TODO - Move this elsewhere?

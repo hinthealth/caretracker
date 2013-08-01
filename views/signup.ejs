@@ -5,8 +5,8 @@
 <script src="/zxcvbn/zxcvbn-async.js"></script>
 <form action="/signup" method="post">
   <div>
-  <label>Username:</label>
-  <input type="text" required name="username" value="<%= user.username || '' %>" /><br/>
+  <label>Name:</label>
+  <input type="text" required name="name[full]" value="<%= user.name.full || '' %>" /><br/>
   </div>
   <div>
   <label>Email:</label>
@@ -15,16 +15,15 @@
   <div>
   <label>Password:</label>
   <input id="password" type="password" required name="password" value="<%= user.password || '' %>"/>
-  <input id="strength" class="weak" type="text" value="weak" disabled />
   </div>
   <div>
   <label>Repeat password:</label>
-  <input type="password" required name="password_confirmation" value="<%= user.password_confirmation || '' %>"/>
+  <input type="password" required name="passwordConfirmation" value="<%= user.passwordConfirmation || '' %>"/>
   </div>
+  <div id="strength-bar"></div>
   <div>
-  <input id="submit" type="submit" value="Submit" />
+  <input id="submit" type="submit" value="Sign up" />
   </div>
 </form>
-<script src="/scripts/check-password.js"></script>
-<p><small>Hint - some strong password are correcthorsebatterystaple, rWibMFACxAUGZmxhVncy, Ba9ZyWABu99[BK#6MBgbH88Tofv)vs$w</small></p>
+<script src="/js/check-password.js"></script>
 <% include _footer %>

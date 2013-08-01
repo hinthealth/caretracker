@@ -1,4 +1,8 @@
-var env = process.env.NODE_ENV || 'development';
+const NODE_ENV = process.env.NODE_ENV || 'development';
+
+// Setup analytics before the other libraries get included.
+var analytics = require('analytics-node');
+analytics.init({secret: process.env.SEGMENT_IO_SECRET || 'vxd6e6zsh5e6oc82j9ab'});
 
 var flash = require('connect-flash')
     , express = require('express')
@@ -9,6 +13,7 @@ var flash = require('connect-flash')
     , routes = require('./routes')
     , middlewares = require('./middlewares')
     , api = require('./routes/api');
+
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
@@ -30,10 +35,11 @@ app.use(flash());
 // Prefer static assets to routed paths
 app.use('/', express.static('public'));
 
+app.use('/zxcvbn', express.static('node_modules/zxcvbn'));
+
 // Route!
 app.use(app.router);
 
-// app.use('/zxcvbn', express.static('node_modules/zxcvbn'));
 
 // set up our security to be enforced on all requests to secure paths
 app.all('/account', middlewares.auth.requireUser);

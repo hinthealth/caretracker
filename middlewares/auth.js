@@ -1,6 +1,18 @@
+
+var analytics = require('analytics-node');
+function identify(user){
+    analytics.identify({
+        userId    : user.id,
+        traits    : {
+            name             : user.name.full,
+            email            : user.email
+        }
+    });
+}
 exports.requireUser = function (req, res, next) {
   if (req.isAuthenticated() && req.user){
-    console.log("Authenticated!");
+    identify(req.user);
+    console.log("Authenticated & Identified!");
     return next();
   }
   console.log("Rejected, need a user...");

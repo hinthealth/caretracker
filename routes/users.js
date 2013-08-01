@@ -9,19 +9,21 @@ exports.admin = function(req, res) {
 };
 
 exports.new = function(req, res) {
-  res.render('signup', { user: {}, message: req.session.messages });
+  res.render('signup', { user: new User(), message: req.session.messages });
 };
 
 exports.create = function (req, res, next) {
   var user = new User(
-    { username: req.body.username
+    { name: req.body.name
     , email: req.body.email
     , password: req.body.password
-    , password_confirmation: req.body.password_confirmation
-    , admin: false
+    , passwordConfirmation: req.body.passwordConfirmation
   });
   user.save(function(error){
-    if(error) return res.render('signup', {user: user, message: error.code == 11000 ? "You already have an account" : error.message });
+    if(error){
+      console.log(error);
+      return res.render('signup', {user: user, message: error.code == 11000 ? "You already have an account" : error.message });
+    }
     req.login(user, function(error){
       if(error) return next(error);
       // TODO: Redirect to initial route

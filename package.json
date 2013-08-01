@@ -2,7 +2,8 @@
   "name": "goji",
   "version": "0.0.1",
   "scripts": {
-    "start": "node app.js",
+    "start": "node_modules/.bin/supervisor app.js",
+    "console": "node_modules/.bin/supervisor --exec node",
     "test":  "make test"
   },
   "dependencies": {
@@ -13,6 +14,7 @@
     "connect-flash": "~0.1.1",
     "mongoose": "~3.5.5",
     "bcrypt": "~0.7.3",
+    "analytics-node": "~0.5.0",
     "zxcvbn": "git://github.com/studds/zxcvbn.git",
     "bluebutton": "git://github.com/blue-button/bluebutton.js.git"
   },
@@ -21,6 +23,7 @@
     "should": "~1.2.2",
     "zombie": "~2.0.0",
     "better-stack-traces": "~1.0.0",
-    "grunt": "~0.4.1"
+    "grunt": "~0.4.1",
+    "supervisor": "~0.5.3"
   }
 }
