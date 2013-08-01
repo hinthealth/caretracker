@@ -1,9 +1,6 @@
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
 // Setup analytics before the other libraries get included.
-var analytics = require('analytics-node');
-analytics.init({secret: process.env.SEGMENT_IO_SECRET || 'vxd6e6zsh5e6oc82j9ab'});
-
 var flash = require('connect-flash')
     , express = require('express')
     , app = express()

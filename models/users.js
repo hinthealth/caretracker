@@ -5,13 +5,6 @@ var mongoose = require('mongoose')
   , Bcrypt = require('bcrypt')
   , SALT_WORK_FACTOR = 10;
 
-var generateKey = function(length){
-  length = length || 6;
-  return (new Array(length + 1)).join('n').replace(/n/g, function(){
-    return Math.floor(Math.random()*16).toString(16);
-  });
-};
-
 // User schema
 var UserSchema = new Schema({
   name: { first: String, last: String},
@@ -122,7 +115,7 @@ UserSchema.methods.canAccess = function(){
 
 // Password verification
 UserSchema.methods.comparePassword = function(candidatePassword, done) {
-  Bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
+  Bcrypt.compare(candidatePassword, this.passwordHash, function(err, isMatch) {
     if(err) return done(err);
     done(null, isMatch);
   });

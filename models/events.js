@@ -3,6 +3,7 @@ var mongoose  = require('mongoose')
   , ObjectId  = Schema.Types.ObjectId;
 
 // User schema
+// TODO: Camelize these
 var EventSchema = new Schema({
   name: String,
   user_id: ObjectId,

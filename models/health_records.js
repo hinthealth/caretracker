@@ -3,7 +3,8 @@ var mongoose  = require('mongoose')
   , ObjectId  = Schema.Types.ObjectId
   , BBParser = require("./../node_modules/bluebutton/build/bluebutton.js");
 
-// User schema
+// HealthRecord schema
+// TODO: Camelize these variables
 var HealthRecordSchema = new Schema({
   direct_address: String,
   content_url: String,

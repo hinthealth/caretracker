@@ -1,4 +1,5 @@
-var User = require('./../models').users;
+var User = require('./../models').users
+  , analytics = require('./../middlewares/analytics');
 
 exports.account = function(req, res) {
   res.render('account', { user: req.user });
@@ -26,6 +27,8 @@ exports.create = function (req, res, next) {
     }
     req.login(user, function(error){
       if(error) return next(error);
+      // Identify user when they create an account
+      analytics.identify(user);
       // TODO: Redirect to initial route
       res.redirect('/');
     });
