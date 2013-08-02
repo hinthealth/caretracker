@@ -18,11 +18,23 @@ var generateDirectAddress = function(){
 }
 // CarePlan schema
 var CarePlanSchema = new Schema({
-  name: String, // Required, but overwritten by user account name
-  photo: {}, // Overwritten by user account name
-  userId: ObjectId, // Optional, overwrites name and photo
-  directAddress: {type: String, required: true, default: generateDirectAddress }
+  name: String, // Required, but overwritten by patient account name
+  photo: {}, // Overwritten by patient account name
+  directAddress: {type: String, required: true, default: generateDirectAddress },
+  ownerId: {type: ObjectId, required: true},
+  careTeamIds: [{type: ObjectId}]
 });
 
+CarePlanSchema.static('ownedBy', function(user){
+  return this.where({ownerId: user.id});
+});
+
+CarePlanSchema.static('for', function(user){
+  return this.findOne({id: user.carePlanId });
+});
+
+CarePlanSchema.static('accessibleTo', function(user){
+  return this.where().or([{ownerId: user.id}, {_id: user.carePlanId }, {careTeamIds: user.id}])
+});
 
 module.exports = mongoose.model('CarePlan', CarePlanSchema);
