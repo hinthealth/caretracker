@@ -1,22 +1,25 @@
 <% include _header %>
+
 <% if (messages) { %>
   <% messages.forEach(function(message){ %>
     <p><%= message %></p>
   <% }); %>
 <% }; %>
 
-<form action="/login" method="post">
-	<div>
-	<label>Email:</label>
-	<input type="text" name="email"/><br/>
-	</div>
-	<div>
-	<label>Password:</label>
-	<input type="password" name="password"/>
-	</div>
-	<div>
-	<input type="submit" value="Sign in"/>
-	</div>
+<form action="" method="post">
+  <div>
+    <label>Email address</label>
+    <input type="text" name="email">
+  </div>
+  <div>
+    <label>Password</label>
+    <input type="password" name="password">
+  </div>
+    <input type="submit" value="Sign in">
+  </div>
+  <div>
+    <a href="/signup">Sign up!</a>
+  </div>
 </form>
-<p><small>Hint - bob:secret</small></p>
+
 <% include _footer %>

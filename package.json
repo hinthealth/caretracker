@@ -1,28 +1,29 @@
 {
-  "name": "goji",
-  "version": "0.0.1",
+  "name": "caretracker",
+  "version": "0.0.5",
   "scripts": {
     "start": "node_modules/.bin/supervisor app.js",
     "test":  "make test"
   },
   "dependencies": {
-    "express": "~3.1.0",
+    "analytics-node": "~0.5.0",
+    "bcrypt": "~0.7.3",
+    "bluebutton": "git://github.com/blue-button/bluebutton.js.git",
+    "connect-flash": "~0.1.1",
     "ejs": "~0.8.3",
+    "express": "~3.1.0",
+    "less": "~1.4.0",
+    "mongoose": "~3.5.5",
     "passport": "~0.1.15",
     "passport-local": "~0.1.6",
-    "connect-flash": "~0.1.1",
-    "mongoose": "~3.5.5",
-    "bcrypt": "~0.7.3",
-    "analytics-node": "~0.5.0",
-    "zxcvbn": "git://github.com/studds/zxcvbn.git",
-    "bluebutton": "git://github.com/blue-button/bluebutton.js.git"
+    "zxcvbn": "git://github.com/studds/zxcvbn.git"
   },
   "devDependencies": {
-    "mocha": "~1.12",
-    "should": "~1.2.2",
-    "zombie": "~2.0.0",
     "better-stack-traces": "~1.0.0",
     "grunt": "~0.4.1",
-    "supervisor": "~0.5.3"
+    "mocha": "~1.12",
+    "should": "~1.2.2",
+    "supervisor": "~0.5.3",
+    "zombie": "~2.0.0"
   }
 }
