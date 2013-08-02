@@ -26,7 +26,7 @@ describe("new user signup", function(){
     done();
   });
   it("should create a user and let me login with valid email/pass", function(done){
-    this.timeout(6000);
+    this.timeout(10000);
     var self = this;
     this.browser.
     fill('name[full]', 'Mary Jane').
@@ -39,7 +39,7 @@ describe("new user signup", function(){
     });
   });
   it("should not allow signup if password doesn't match", function(done){
-    this.timeout(6000);
+    this.timeout(10000);
     var self = this;
     this.browser.
     fill('name[full]', 'Mary Jane').

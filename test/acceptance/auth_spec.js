@@ -30,7 +30,7 @@ describe("signing in", function(){
   });
   it("should show the users name if authentication succeeds", function(done){
     var self = this;
-    this.timeout(6000);
+    this.timeout(10000);
     // Test takes about 5000 ms on my machine... WTF?!
     // Approx. 4750ms of this is insantiating an empty angular app in zombie.
     // Commenting out only the js/app.js include results in a ~300ms test.
