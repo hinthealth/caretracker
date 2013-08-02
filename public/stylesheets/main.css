@@ -1,3 +1,7 @@
+/**
+ * TODO(healthio-dev): Move all this to a less file.
+ */
+
 .password-strength-0 {
     text-align: center;
     font-weight: bold;
@@ -27,7 +31,7 @@ body {
   background: #efefef;
   font-family: 'Helvetica Neue', arial, sans-serif;
   font-weight: 200;
-  margin: 45px 0 0 0;
+  padding: 45px 0 0 0;
 }
 
 header {
@@ -107,28 +111,50 @@ section.title .name {
   padding: 20px;
 }
 
-section.main {
+section.main,
+section.messages {
   margin: 15px;
+}
+
+section.messages p {
+  background: #D35400;
+  border-radius: 3px;
+  padding: 10px;
+  color: #fff;
 }
 
 .button {
   background: #1086dc;
   box-sizing: border-box;
+  border: none;
   border-radius: 3px;
   color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Helvetica Neue', arial, sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  margin: 0;
   text-align: center;
+}
+
+a.button {
+  text-decoration: none;
+}
+
+label {
+  display: block;
 }
 
 section.main .button {
   border-bottom: 3px solid #3b82b6;
   margin-bottom: 10px;
-  padding: 20px;
+  padding: 10px 20px;
 }
 
 section.main .button.button-secondary {
   background: #374a5d;
   border-bottom: 3px solid #2e3e4f;
-  padding: 14px 20px 12px;
 }
 
 section.timeline-day {
@@ -188,4 +214,43 @@ section.timeline .icon-avatar {
 
 section.timeline .content {
   float: left;
+}
+
+input[type=text],
+input[type=email],
+input[type=password] {
+  -webkit-backface-visibility: hidden;
+  border-radius: 3px;
+  border: 1px solid #bdc3c7;
+  box-sizing: border-box;
+  color: #34495e;
+  font-size: 14px;
+  padding: 8px 5px;
+  text-indent: 6px;
+  transition: border .25s linear, color .25s linear;
+}
+
+/**
+ * Login page.
+ */
+
+.login-page .buttons {
+  margin-top: 10px;
+}
+
+.login-page .buttons input[type=submit] {
+  margin-bottom: 10px;
+}
+
+.login-page input[type=text],
+.login-page input[type=password] {
+  min-width: 260px;
+}
+
+.login-page form > div {
+  margin-bottom: 5px;
+}
+
+.login-page .button {
+  min-width: 260px;
 }

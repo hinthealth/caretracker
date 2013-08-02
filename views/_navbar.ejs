@@ -1,4 +1,8 @@
 <header>
+  <!-- TODO(healthio-dev): Remove this hack. -->
+  <% if (locals.newUser) { %>
+    <a href="/" class="button">Back</a>
+  <% } %>
   <% if (user) { %>
     <a href="/">Home</a> |
     <a href="/account">Settings</a> |
