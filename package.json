@@ -1,8 +1,7 @@
 {
-  "name": "goji",
-  "version": "0.0.1",
+  "name": "caretracker",
+  "version": "0.0.5",
   "scripts": {
-    "console": "node_modules/.bin/supervisor --exec node",
     "start": "node_modules/.bin/supervisor app.js",
     "test":  "make test"
   },

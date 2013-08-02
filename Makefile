@@ -10,7 +10,7 @@ test-w:
 	@NODE_ENV=test ./node_modules/.bin/mocha \
     --reporter $(REPORTER) \
 		--require should \
-    --growl \
+		--recursive \
     --watch
 
 .PHONY: test test-w

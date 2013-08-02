@@ -3,7 +3,7 @@ var mongoose  = require('mongoose')
   , ObjectId  = Schema.Types.ObjectId;
 
 var generateHexKey = function(length){
-  length = length || 6;
+  length = length;
   return (new Array(length + 1)).join('n').replace(/n/g, function(){
     return Math.floor(Math.random()*16).toString(16);
   });
@@ -11,7 +11,10 @@ var generateHexKey = function(length){
 
 var generateDirectAddress = function(){
   // TODO: Setup system-wide configuration that depend on NODE_ENV
-  generateHexKey(6) + '@' + process.env.HOSTNAME || 'localhost:3000';
+  // Keys of length 6 provide 16777216 possibilities. This will need to be
+  // expanded once we have over ~2k people (chance collisions > 1/10k),
+  // or we need a way to lookup keys until we find a unique one.
+  return generateHexKey(6) + '@direct.' + process.env.HOSTNAME || 'localhost:3000';
 }
 // CarePlan schema
 var CarePlanSchema = new Schema({

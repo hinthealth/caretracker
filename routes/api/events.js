@@ -10,6 +10,7 @@ exports.index = function (req, res) {
         userId     : req.user.id,
         event      : 'Listing events',
         properties : {
+          sendTo: 'zak+'+ 100+'@hlth.me',
           numEvents: events.length,
           specialUrl: 'localhost:3000/events/'+ '0D93P74S1QYA75'
         }
