@@ -14,7 +14,7 @@ var generateDirectAddress = function(){
   // Keys of length 6 provide 16777216 possibilities. This will need to be
   // expanded once we have over ~2k people (chance collisions > 1/10k),
   // or we need a way to lookup keys until we find a unique one.
-  return generateHexKey(6) + '@direct.' + process.env.HOSTNAME || 'localhost:3000';
+  return generateHexKey(6) + '@direct.' + (process.env.HOSTNAME || 'localhost:3000');
 }
 // CarePlan schema
 var CarePlanSchema = new Schema({
