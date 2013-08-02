@@ -71,7 +71,29 @@ describe("CarePlan", function(){
         });
       });
     });
-
+    describe("as part of a query", function(){
+      beforeEach(function(done){
+        this.user = new User();
+        this.carePlan.ownerId = this.user.id;
+        this.carePlan.save(done);
+      });
+      it("should be queryable by the id", function(done){
+        var self = this;
+        CarePlan.accessibleTo(this.user).find({_id: this.carePlan.id}).findOne(function(error, plan){
+          should.not.exist(error);
+          plan.id.should.equal(self.carePlan.id);
+          done();
+        });
+      });
+      it("should not match a different id", function(done){
+        var self = this;
+        CarePlan.accessibleTo(this.user).find({_id: new CarePlan().id}).findOne(function(error, plan){
+          should.not.exist(error);
+          should.not.exist(plan);
+          done();
+        });
+      });
+    });
   });
   describe("#directAddress", function(){
     it("should exist for new plans", function(){

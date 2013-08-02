@@ -1,0 +1,9 @@
+<h3>
+  <a href='/journal'>Your timeline</a>
+</h3>
+<ul ng-repeat='carePlan in carePlans' %>
+  <li class='patient-care-plan'>
+    <a href='/care_plans/{{carePlan._id}}'> {{carePlan.name}} </a>
+  </li>
+</ul>
+<a href='/care_plans/add'>Add a patient</a>

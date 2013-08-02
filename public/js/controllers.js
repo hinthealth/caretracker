@@ -2,6 +2,33 @@
 
 /* Controllers */
 angular.module('caretracker.controllers', []).
+  // CarePlan Controllers
+  controller('IndexCarePlansCtrl', ['$scope', '$http', function($scope, $http){
+    $http.get('/api/care_plans').
+      success(function(data, status, headers, config) {
+        $scope.carePlans = data.carePlans;
+      });
+  }]).
+  controller('AddCarePlanCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
+    $scope.form = {};
+    $scope.createCarePlan = function () {
+      $http.post('/api/care_plans', $scope.form).
+        success(function(data) {
+          if(data.carePlan.email){
+            $location.path('/care_plans/'+ data.carePlan._id + '/verify');
+          }else{
+            $location.path('/care_plans/'+ data.carePlan._id + '/finished');
+          }
+        });
+    };
+  }]).
+  controller('ShowCarePlanCtrl', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams){
+    $http.get('/api/care_plans/' + $routeParams.id).
+      success(function(data) {
+        $scope.carePlan = data.carePlan;
+      });
+  }]).
+  // Events Controllers
   controller('IndexEventsCtrl', ['$scope', '$http', function($scope, $http){
     $http.get('/api/events').
       success(function(data, status, headers, config) {

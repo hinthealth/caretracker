@@ -15,7 +15,7 @@ exports.index = function (req, res) {
 // GET care_plan/:id
 exports.show = function (req, res) {
   // TODO: Scope by current user access
-  CarePlan.accessibleTo(req.user).findById(req.params.id, function(error, carePlan){
+  CarePlan.accessibleTo(req.user).find({_id: req.params.id}).findOne(function(error, carePlan){
     if(error) return res.json(false);
     res.json({carePlan: carePlan});
   });
@@ -33,7 +33,7 @@ exports.create = function (req, res) {
 
 // PUT
 exports.update = function (req, res) {
-  CarePlan.accessibleTo(req.user).findById(req.params.id, function(error, carePlan){
+  CarePlan.accessibleTo(req.user).find({_id: req.params.id}).findOne(function(error, carePlan){
     if(error) return res.json(false);
     if(carePlan.ownerId == req.user.id){
       // Allow elevated access, like managing the careteam
@@ -50,7 +50,7 @@ exports.update = function (req, res) {
 
 // DELETE
 exports.destroy = function (req, res) {
-  CarePlan.ownedBy(req.user).findByIdAndRemove(req.params.id, function(error, carePlan){
+  CarePlan.ownedBy(req.user).find({_id: req.params.id}).findOneAndRemove(function(error, carePlan){
     if(error) return res.json(false);
     res.json(true);
   });
