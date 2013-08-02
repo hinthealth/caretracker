@@ -23,26 +23,169 @@
     border-color: green;
 }
 
-ul {
-    list-style:none;
-    margin: 0;
-    padding: 0;
-}
-ul:after {
-}
-
-ul > li {
-    display: inline-block;
-    margin-right: 0.5em;
-    border: 1pt solid black;
-    padding: 0.5em;
-    width: 6em;
-    text-align: center;
-    font-weight: bold;
-    cursor: pointer;
+body {
+  background: #efefef;
+  font-family: 'Helvetica Neue', arial, sans-serif;
+  font-weight: 200;
+  margin: 45px 0 0 0;
 }
 
-ul > li > a {
-    display: inline-block;
-    width: 100%;
+header {
+  background: #479982;
+  color: #fff;
+  height: 45px;
+  left: 0;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+header h1 {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 45px;
+}
+
+header .button {
+  background: #54b59a;
+  float: left;
+  height: 30px;
+  margin: 7px 15px;
+  width: 30px;
+}
+
+header .button.button-right {
+  float: right;
+}
+
+h1,
+h2,
+h3 {
+  box-sizing: border-box;
+  font-weight: normal;
+  margin: 0;
+}
+
+section.title {
+  background: #fff;
+  box-sizing: border-box;
+}
+
+section.title:after {
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  line-height: 0;
+  visibility: hidden;
+}
+
+section.title .avatar,
+section.title .name {
+  box-sizing: border-box;
+  height: 100px;
+  float: left;
+  width: 50%;
+}
+
+section.title .avatar {
+  background: #edf0f1;
+}
+
+section.title .avatar .image {
+  background: url('avatar.png') no-repeat center center;
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+}
+
+section.title .name {
+  color: #479982;
+  padding: 20px;
+}
+
+section.main {
+  margin: 15px;
+}
+
+.button {
+  background: #1086dc;
+  box-sizing: border-box;
+  border-radius: 3px;
+  color: #fff;
+  text-align: center;
+}
+
+section.main .button {
+  border-bottom: 3px solid #3b82b6;
+  margin-bottom: 10px;
+  padding: 20px;
+}
+
+section.main .button.button-secondary {
+  background: #374a5d;
+  border-bottom: 3px solid #2e3e4f;
+  padding: 14px 20px 12px;
+}
+
+section.timeline-day {
+  background: #54b59a;
+  color: #fff;
+  padding: 20px;
+}
+
+section.timeline ul,
+section.timeline li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+section.timeline ul {
+  margin: 20px;
+}
+
+section.timeline li {
+  margin: 0 0 20px 0;
+}
+
+section.timeline li:after {
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  line-height: 0;
+  visibility: hidden;
+}
+
+.icon-avatar {
+  background: #dedede;
+  border-radius: 50px;
+  border: 3px solid #fff;
+  height: 50px;
+  width: 50px;
+}
+
+.checkmark {
+  background: #66b558;
+  border-radius: 50px;
+  height: 50px;
+  width: 50px;
+}
+
+section.timeline .checkmark {
+  float: right;
+  margin-left: 15px;
+}
+
+section.timeline .icon-avatar {
+  float: left;
+  margin-right: 15px;
+}
+
+section.timeline .content {
+  float: left;
 }

@@ -1,18 +1,21 @@
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
-// Setup analytics before the other libraries get included.
-var flash = require('connect-flash')
-    , express = require('express')
-    , app = express()
-    // Initialize database & models
-    , models = require('./models')
-    , passport = require('./config/passport')
-    , routes = require('./routes')
-    , middlewares = require('./middlewares')
-    , api = require('./routes/api');
+// Set up analytics before the other libraries get included.
+var flash = require('connect-flash');
+var express = require('express');
 
+// Initialize database and models.
+var models = require('./models');
+var passport = require('./config/passport');
+var routes = require('./routes');
+var middlewares = require('./middlewares');
+var path = require('path');
+var api = require('./routes/api');
 
-app.set('views', __dirname + '/views');
+// Express app.
+var app = express();
+
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.logger());
 app.use(express.cookieParser());
@@ -30,7 +33,7 @@ app.use(passport.session());
 app.use(flash());
 
 // Prefer static assets to routed paths
-app.use('/', express.static('public'));
+app.use('/public', express.static(path.join(__dirname, '/public')));
 
 app.use('/zxcvbn', express.static('node_modules/zxcvbn'));
 
@@ -78,4 +81,3 @@ var port = process.env.PORT || 3000;
 app.listen(port, function () {
     console.log('Express server listening on port '+ port);
 });
-
