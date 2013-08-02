@@ -50,7 +50,7 @@ describe("signing in", function(){
     fill('email', 'mary@example.com').
     fill('password', 'incorrect').
     pressButton('Sign in', function(){
-      self.browser.text().should.include('Validation failed');
+      self.browser.text().should.include('Invalid username or password.');
       done();
     });
   });

@@ -1,29 +1,28 @@
 <% include _header %>
+
 <% if (message) { %>
   <p><%= message %>.</p>
 <% }; %>
+
 <script src="/zxcvbn/zxcvbn-async.js"></script>
 <form action="/signup" method="post">
   <div>
-  <label>Name:</label>
-  <input type="text" required name="name[full]" value="<%= user.name.full || '' %>" /><br/>
+    <input type="text" required name="name[full]" value="<%= user.name.full || '' %>" placeholder="Full name">
   </div>
   <div>
-  <label>Email:</label>
-  <input type="email" required name="email" value="<%= user.email  || '' %>"/><br/>
+    <input type="email" required name="email" value="<%= user.email || '' %>" placeholder="Email">
   </div>
   <div>
-  <label>Password:</label>
-  <input id="password" type="password" required name="password" value="<%= user.password || '' %>"/>
+    <input id="password" type="password" required name="password" value="<%= user.password || '' %>" placeholder="Password">
   </div>
   <div>
-  <label>Repeat password:</label>
-  <input type="password" required name="passwordConfirmation" value="<%= user.passwordConfirmation || '' %>"/>
+    <input type="password" required name="passwordConfirmation" value="<%= user.passwordConfirmation || '' %>" placeholder="Password (again)">
   </div>
   <div id="strength-bar"></div>
   <div>
-  <input id="submit" type="submit" value="Sign up" />
+    <input id="submit" type="submit" value="Sign up" class="button">
   </div>
 </form>
-<script src="/js/check-password.js"></script>
+<script src="/public/js/check-password.js"></script>
+
 <% include _footer %>

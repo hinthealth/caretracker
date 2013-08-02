@@ -1,7 +1,9 @@
 exports.index = function(req, res) {
   if (req.user) {
     // We have a user, render the main app.
-    res.render('main', { user: req.user });
+    res.render('main', {
+      user: req.user
+    });
   } else {
     res.redirect('/login');
   }

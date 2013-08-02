@@ -1,25 +1,35 @@
 <% include _header %>
 
-<% if (messages) { %>
-  <% messages.forEach(function(message){ %>
-    <p><%= message %></p>
-  <% }); %>
-<% }; %>
+<!-- TODO(healthio-dev): Move header/footer to a base template and add class with an argument to an extends tag. Is that possible? -->
+<div class="login-page">
 
-<form action="" method="post">
-  <div>
-    <label>Email address</label>
-    <input type="text" name="email">
-  </div>
-  <div>
-    <label>Password</label>
-    <input type="password" name="password">
-  </div>
-    <input type="submit" value="Sign in">
-  </div>
-  <div>
-    <a href="/signup">Sign up!</a>
-  </div>
-</form>
+  <% if (messages) { %>
+    <section class="messages">
+      <% messages.forEach(function(message){ %>
+        <p><%= message %></p>
+      <% }); %>
+    </section>
+  <% }; %>
+
+  <section class="main">
+    <form action="" method="post">
+      <div>
+        <input type="text" name="email" placeholder="Email">
+      </div>
+      <div>
+        <input type="password" name="password" placeholder="Password">
+      </div>
+      <div class="buttons">
+        <div>
+          <input type="submit" value="Sign in" class="button">
+        </div>
+        <div>
+          <a href="/signup" class="button button-secondary">Sign up</a>
+        </div>
+      </div>
+    </form>
+  </section>
+
+</div>
 
 <% include _footer %>
