@@ -6,6 +6,7 @@ body {
   background: #efefef;
   font-family: 'Helvetica Neue', arial, sans-serif;
   font-weight: 200;
+  margin: 0;
   padding: 45px 0 0 0;
 }
 
@@ -140,6 +141,10 @@ section.main .button.button-secondary {
   border-bottom: 3px solid #2e3e4f;
 }
 
+/**
+ * Timeline.
+ */
+
 section.timeline-day {
   background: #54b59a;
   color: #fff;
@@ -179,10 +184,15 @@ section.timeline li:after {
 }
 
 .checkmark {
-  background: #66b558;
+  background: #a6a8ab;
   border-radius: 50px;
+  cursor: pointer;
   height: 50px;
   width: 50px;
+}
+
+.checkmark.checked {
+  background: #66b558;
 }
 
 section.timeline .checkmark {

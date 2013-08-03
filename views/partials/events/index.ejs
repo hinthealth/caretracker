@@ -1,12 +1,39 @@
-<p> There are {{events.length}} journal entries </p>
-<ul ng-repeat='event in events' %>
-  <li>
-    <span>{{event.name}} [{{event.completed_at || "Not completed"}}]</span>
-    <a href='/events/{{event._id}}')> More </a>
-    |
-    <a href='/events/{{event._id}}/edit'> Edit </a>
-    |
-    <a href='/events/{{event._id}}/delete'> Delete </a>
-  </li>
-</ul>
-<a href='/events/add'>Add new entry</a>
+<section class="">
+  <ul>
+    <li><a href="#">Journal</a>
+    <li><a href="#">Care Team</a>
+    <li><a href="#">Record</a>
+  </ul>
+</section>
+
+<section class="title">
+  <div class="avatar">
+    <div class="image"></div>
+  </div>
+  <div class="name">
+    <h2>John Hilber</h2>
+  </div>
+</section>
+
+<section class="main">
+  <p><a href='/events/add'>Add new entry</a>
+</section>
+
+<section class="timeline-day">
+  There are {{events.length}} journal entries
+</section>
+
+<section class="timeline">
+  <ul ng-repeat='event in events' %>
+    <li>
+      <div class="checkmark" ng-class="{checked:if event.completed_at}"></div>
+      <div class="icon-avatar"></div>
+      <div class="content">
+        <a href='/events/{{event._id}}')>{{event.name}}</a>
+        <br>
+        <a href='/events/{{event._id}}/edit'> Edit </a>
+        | <a href='/events/{{event._id}}/delete'> Delete </a>
+      </div>
+    </li>
+  </ul>
+</section>
