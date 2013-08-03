@@ -28,6 +28,30 @@ angular.module('caretracker.controllers', []).
         $scope.carePlan = data.carePlan;
       });
   }]).
+
+  // CareTeam Controllers
+  controller('IndexCareTeamCtrl', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams){
+    $http.get('/api/care_plans/' + $routeParams.id + '/care_team' ).
+      success(function(data, status, headers, config) {
+        $scope.careTeam = data.careTeam;
+        $scope.carePlan = data.carePlan;
+      });
+  }]).
+  controller('AddCareTeamCtrl', ['$scope', '$http', '$routeParams', '$location', function($scope, $http, $routeParams, $location){
+    $scope.form = {};
+    $http.get('/api/care_plans/' + $routeParams.id + '/care_team' ).
+      success(function(data, status, headers, config) {
+        $scope.careTeam = data.careTeam;
+        $scope.carePlan = data.carePlan;
+      });
+    $scope.addToCareTeam = function(){
+      $http.post('/api/care_plans/'+ $routeParams.id +'/care_team', $scope.form).
+        success(function(data){
+          $location.path('/care_plans/'+ $routeParams.id +'/care_team');
+        });
+    };
+  }]).
+
   // Events Controllers
   controller('IndexEventsCtrl', ['$scope', '$http', function($scope, $http){
     $http.get('/api/events').

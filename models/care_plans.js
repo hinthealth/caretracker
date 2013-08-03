@@ -8,7 +8,9 @@ var generateHexKey = function(length){
     return Math.floor(Math.random()*16).toString(16);
   });
 };
-
+var generateInvitationKey = function(){
+  return generateHexKey(10);
+}
 var generateDirectAddress = function(){
   // TODO: Setup system-wide configuration that depend on NODE_ENV
   // Keys of length 6 provide 16777216 possibilities. This will need to be
@@ -22,7 +24,13 @@ var CarePlanSchema = new Schema({
   photo: {}, // Overwritten by patient account name
   directAddress: {type: String, required: true, default: generateDirectAddress },
   ownerId: {type: ObjectId, required: true},
-  careTeamIds: [{type: ObjectId}]
+  careTeam: [
+    { userId: ObjectId
+    , name: String
+    , relation: String
+    , email: String
+    , invitationKey: {type: String, default: generateInvitationKey}
+  }]
 });
 
 CarePlanSchema.static('ownedBy', function(user){
@@ -34,7 +42,7 @@ CarePlanSchema.static('for', function(user){
 });
 
 CarePlanSchema.static('accessibleTo', function(user){
-  return this.where().or([{ownerId: user.id}, {_id: user.carePlanId }, {careTeamIds: user.id}])
+  return this.where().or([{ownerId: user.id}, {_id: user.carePlanId }, {careTeam: {$elemMatch: {userId: user.id}}}])
 });
 
 module.exports = mongoose.model('CarePlan', CarePlanSchema);
