@@ -24,7 +24,7 @@ describe("CarePlan", function(){
     describe("the careTeam", function(){
       beforeEach(function(done){
         this.user = new User();
-        this.carePlan.careTeamIds = [this.user.id]
+        this.carePlan.careTeam = [{userId: this.user.id}, {invitationKey: 'This shit is bananas'}]
         this.carePlan.save(done);
       });
       it("should be accessible", function(done){
