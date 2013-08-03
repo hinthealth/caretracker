@@ -1,28 +1,32 @@
 <% include _header %>
 
 <% if (message) { %>
-  <p><%= message %>.</p>
+  <section class="messages">
+    <p><%= message %>
+  </section>
 <% }; %>
 
-<script src="/zxcvbn/zxcvbn-async.js"></script>
-<form action="/signup" method="post">
-  <div>
-    <input type="text" required name="name[full]" value="<%= user.name.full || '' %>" placeholder="Full name">
-  </div>
-  <div>
-    <input type="email" required name="email" value="<%= user.email || '' %>" placeholder="Email">
-  </div>
-  <div>
-    <input id="password" type="password" required name="password" value="<%= user.password || '' %>" placeholder="Password">
-  </div>
-  <div>
-    <input type="password" required name="passwordConfirmation" value="<%= user.passwordConfirmation || '' %>" placeholder="Password (again)">
-  </div>
-  <div id="strength-bar"></div>
-  <div>
-    <input id="submit" type="submit" value="Sign up" class="button">
-  </div>
-</form>
-<script src="/public/js/check-password.js"></script>
+<section class="main">
+  <script src="/zxcvbn/zxcvbn-async.js"></script>
+  <form action="/signup" method="post">
+    <div>
+      <input type="text" required name="name[full]" value="<%= user.name.full || '' %>" placeholder="Full name">
+    </div>
+    <div>
+      <input type="email" required name="email" value="<%= user.email || '' %>" placeholder="Email">
+    </div>
+    <div>
+      <input id="password" type="password" required name="password" value="<%= user.password || '' %>" placeholder="Password">
+    </div>
+    <div>
+      <input type="password" required name="passwordConfirmation" value="<%= user.passwordConfirmation || '' %>" placeholder="Password (again)">
+    </div>
+    <div id="strength-bar"></div>
+    <div>
+      <input id="submit" type="submit" value="Sign up" class="button">
+    </div>
+  </form>
+  <script src="/public/js/check-password.js"></script>
+</section>
 
 <% include _footer %>

@@ -1,31 +1,6 @@
 /**
- * TODO(healthio-dev): Move all this to a less file.
+ * TODO(healthio-dev): Move all this to a less file and make it more modular.
  */
-
-.password-strength-0 {
-    text-align: center;
-    font-weight: bold;
-}
-.password-strength-0, .password-strength-1 {
-    background-color: red;
-    border-color: indianred;
-}
-.password-strength-0, .password-strength-1 {
-    border-color: indianred;
-    background-color: indianred;
-}
-.password-strength-2 {
-    background-color: darkorange;
-    border-color: orange;
-}
-.password-strength-3, .password-strength-4 {
-    border-color: lightgreen;
-    background-color: lightgreen;
-}
-.password-strength-3, .password-strength-4 {
-    background-color: green;
-    border-color: green;
-}
 
 body {
   background: #efefef;
@@ -51,6 +26,14 @@ header h1 {
   font-size: 16px;
   font-weight: 300;
   line-height: 45px;
+}
+
+header .header-left {
+  float: left;
+}
+
+header .header-right {
+  float: right;
 }
 
 header .button {
@@ -253,4 +236,28 @@ input[type=password] {
 
 .login-page .button {
   min-width: 260px;
+}
+
+/**
+ * Icons.
+ */
+
+.button-icon {
+  line-height: 20px;
+}
+
+.icon {
+  background-size: 100% 100%;
+  display: inline-block;
+  height: 20px;
+  margin: 5px;
+  width: 20px;
+}
+
+.icon-back {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAcRJREFUeNrs2+1NwzAQBmD3FoBNYAQ2YIR2BEboJjBKR6CbtBOkrqA/I6jv831dS/czivXEcnLny2ZZlvYY60NA573r8foAWsf57HGIQBJQnOt4ikASUJwWhSTAOCFIAo7jjiQEOK5IQoLjhiREOC5IQoZjjiSEOKZIQopjhiTEOCZIQo6jRpIJcFRIMgkO3CadgXPu8dbjuzoQDE4GEBRONBAcTiQQJE4UECxOBBA0jjcQPI4nEAWOFxANjgcQFY41EB2OJRAljhUQLY4FEDWOFogeRwM0Bc4o0DQ4I0BT4YwAfSTM8ZCFMwJ0fZLH4Dm+9/hCATolIW2zkEY26amQRl/z0yBpPhSnQNKmGvRIFskqNZJVuYMWybJgRolkXXKlQ/Io2lMheR370CB5HhxSIHkfPcMjRTQvQCNFtb/AIkU2UEEiRbfgwSFlNHFmIu3vvWiT+N/8c/upN78E3e/4+2BO1VdQxkoawskGikIaxqkA5I2kwqkC5IWkxqkEZI1kglMNyArJDKcikBbJFKcq0CiSOU5loHuRXHCqA/0XyQ0HAegvJFccFKA1JHec7GRVk+C2CBxEoBtSi8BBBQodFwEGAEMz1dniVWSJAAAAAElFTkSuQmCC);
+}
+
+.icon-settings {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABBFJREFUeNrsXNFx2zAMZXT5NzcwO4HVCaIN6g2sbOBu4G6gTlB1groT1JmgygbyBvIErngHXhWFImkRgGw5uMPFOVkk9AiAAAj54Xw+iw8apuQDAjc9TjCnbDlvOYPPXUpbXsDnU8tV59qh5bLlmlPYB2YTS+FBFyPvP8EY9VxNbB8BjoB7d3PVIL3yfxHGOVlMcxYatEYaZwFgf+xiDsrmCJBCNtdZ+SAFW/YCccxPHLsZhwZJhN1raEeUtw6QhLhnRTD2CsZOrwmg9AIHmYMJrAjlNyBtAxYqA77MF2ofFMCy5cP5Len/c7hmvqda3rZcn/mphrlVT57S8t2yJ/cghzppnQNtHNePLS+vKAzQwWTjkek1xDyTQFPZeL5zTeCYYHIZYJ7etMWnQRTb87WRM1xIAkxrzuAInxa5NEjnTr/EfdCgFiWObbEQ90PlpSa2vULHS0lPQ/GdzcQkqNtC3Be92EB6HNAeTnBeIRpu4K+J2BUIvGLWooNPgxoGgE5g90VARq5g0XIGud4Hj73QOmdICfa9dCCUFdxLTXl33r4QJfHk2xHAcC9i3Z2Ps6L4jBQ6lDAWFS3fmFlvdTIOtUXifAoTo5i4JADHcEG9kNSr04TWXUayRKw9WbU8cdj5Z9iOY6iAsIGKGoFz0vo8mG4Q2jm19nS5iZCzcI0dUu44Rpw6NEw75D4iYN3FVhTHTn5gDCH2ESFDEwtQPXLymhGgigrYhHDyihGgmkpGyki6EddPzZQApTcAkMIAaOyDSsYHzagWkRKgjBGgsTLmsQBpLRjbGba+AQ364gPXB1ARUcVbMfkhBQ8aUz6RYwDSN24ihd8yABSbi5kOERmai0nk0mZGmIOliHI2MJ63u2MfqbJ9OoKpYcdFEgI9zPO7E5hsM2RiOTI4poRJkZftBf7h5qK/syWXBk4kdn655uixnohklS6AKNODJxHfU5gSg/MeA8vZEwcVFxbTFMORlCHF7aRd9BM04mDJyBUEgGtmed74IBtAWqg/EyWPx45jn4Le9QnZAkW9mi8TCbicEJyftrrSUIcZ1qtLt0TWLrPEUWn7fkfgWLXHpUEmHqjF/BupnK95Jp54YHsH2rMTjpp2SKd9Jfi6vLjJ220f2mk/V9PyPlvouxp6oB8BDk5BYDel3/oNWl93Ak2bPMPn8SMAMg+/6yS0Wghbj6Ep0xaMQJ1gvqFmiTWAZcypEIGnsZSvZJpm9A0xOC/i/7tp6MTxzqrLPNFzJ2zi6FHUdv71FsHh0qBujodVx6Eq406iQd0yCuZYLGf/nABVyNrIQtw/j4M1GcuPCnBrkAniMPxPzSUwN0BYnfZirgBp3/EtcmtnfROS2wd1KYNo23cMVMGOVYkJutamBOgm6J8AAwByuvkwN9wirgAAAABJRU5ErkJggg==);
 }

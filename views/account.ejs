@@ -1,4 +1,10 @@
 <% include _header %>
-<p>Username: <%= user.username %></p>
-<p>Email: <%= user.email %></p>
+
+<h2>Settings</h2>
+<label>Email</label>
+<p><%= user.email %></p>
+
+<h2>Sign out</h2>
+<a href="/logout">Sign out</a> from the application.
+
 <% include _footer %>

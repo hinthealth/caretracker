@@ -28,7 +28,7 @@ describe("signing in", function(){
     this.browser.query('input[name="email"]').should.be.ok;
     this.browser.query('input[name="password"]').should.be.ok;
   });
-  it("should show the users name if authentication succeeds", function(done){
+  it("should show flag in comment if user is logged in", function(done){
     var self = this;
     this.timeout(10000);
     // Test takes about 5000 ms on my machine... WTF?!
@@ -40,7 +40,7 @@ describe("signing in", function(){
     fill('email', 'mary@example.com').
     fill('password', 'p4ssw0rd').
     pressButton('Sign in', function(){
-      self.browser.text().should.include('Log Out');
+      self.browser.html().should.include('<!-- User is logged in. -->');
       done();
     });
   });

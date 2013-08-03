@@ -34,7 +34,7 @@ describe("new user signup", function(){
     fill('password', 'p4ssw0rd').
     fill('passwordConfirmation', 'p4ssw0rd').
     pressButton('Sign up', function(){
-      self.browser.text().should.include('Log Out');
+      self.browser.html().should.include('<!-- User is logged in. -->');
       User.findOne({email: 'mary@example.com'}, done);
     });
   });
@@ -47,7 +47,7 @@ describe("new user signup", function(){
     fill('password', 'p4ssw0rd').
     fill('passwordConfirmation', 'p4ssw0rdNoMatchy').
     pressButton('Sign up', function(){
-      self.browser.text().should.include('Validation failed.');
+      self.browser.text().should.include('Validation failed');
       done();
     });
   });
