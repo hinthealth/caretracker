@@ -9,7 +9,8 @@ var mongoose = require('mongoose')
 var UserSchema = new Schema({
   name: { first: String, last: String},
   email: { type: String, required: true, unique: true },
-  passwordHash: { type: String, required: true}
+  passwordHash: { type: String, required: true },
+  carePlanId: { type: ObjectId }
 });
 
 UserSchema.virtual('name.full')

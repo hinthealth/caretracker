@@ -58,12 +58,35 @@ app.get('/signup', routes.users.new);
 app.post('/signup', routes.users.create);
 app.get('/account', routes.users.account);
 
-// Events api for angular
+/**********
+ * JSON API, primarily for angular to interact with.
+ * Note: This is very formulaic, perhaps we could standardize or
+ *       find a plugin that makes this less boilerplate.
+ **/
+
+// Events
 app.get('/api/events', api.events.index);
 app.get('/api/events/:id', api.events.show);
 app.post('/api/events', api.events.create);
 app.put('/api/events/:id', api.events.update);
 app.delete('/api/events/:id', api.events.destroy);
+
+// CarePlans
+app.get('/api/care_plans', api.care_plans.index);
+app.get('/api/care_plans/:id', api.care_plans.show);
+app.post('/api/care_plans', api.care_plans.create);
+app.put('/api/care_plans/:id', api.care_plans.update);
+app.delete('/api/care_plans/:id', api.care_plans.destroy);
+
+// CarePlan Sharing (available to owner - and patient?)
+// app.get('/api/care_plans/:care_plan_id/care_team', api.care_team.index);
+// app.get('/api/care_plans/:care_plan_id/care_team/:id', api.care_team.show);
+// app.delete('/api/care_plans/:care_plan_id/care_team/:id', api.care_team.destroy);
+
+// CarePlan Invitations (available to owner - and patient?)
+// Include type=(patient|careteam) to specify the type of invitation. Default is careteam
+// app.post('/api/care_plans/:care_plan_id/invitations', api.invitations.create);
+
 
 // Enables back button
 app.get('*', routes.index);

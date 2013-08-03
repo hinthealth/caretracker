@@ -1,5 +1,7 @@
 var models = require('./../../models')
-  , CarePlan = models.care_plans;
+  , CarePlan = models.care_plans
+  , User = models.users
+  , should = require('should');
 
 describe("CarePlan", function(){
   beforeEach(function(done){
@@ -7,7 +9,91 @@ describe("CarePlan", function(){
   });
   beforeEach(function(){
     // TODO: Involve some kind of factory obj generation?
-    this.carePlan = new CarePlan();
+    this.carePlan = new CarePlan({ownerId: new User().id});
+  });
+  describe("validations", function(){
+    it("default plan should be valid", function(done){
+      this.carePlan.save(function(err){
+        should.not.exist(err);
+        done();
+      })
+    });
+  });
+
+  describe(".accessibleTo", function(){
+    describe("the careTeam", function(){
+      beforeEach(function(done){
+        this.user = new User();
+        this.carePlan.careTeamIds = [this.user.id]
+        this.carePlan.save(done);
+      });
+      it("should be accessible", function(done){
+        var self = this;
+        CarePlan.accessibleTo(self.user).exec(function(err, result){
+          should.not.exist(err);
+          result.map(function(o){return o.id}).should.include(self.carePlan.id);
+          done();
+        });
+      });
+    });
+    describe("the owner", function(){
+      beforeEach(function(done){
+        this.user = new User();
+        this.carePlan.ownerId = this.user.id;
+        this.carePlan.save(done);
+      });
+      it("should be accessible", function(done){
+        var self = this;
+        CarePlan.accessibleTo(self.user).exec(function(err, result){
+          should.not.exist(err);
+          result.map(function(o){return o.id}).should.include(self.carePlan.id);
+          done();
+        });
+      });
+    });
+    describe("the patient", function(){
+      beforeEach(function(done){
+        var self = this;
+        this.user = new User({carePlanId: this.carePlan.id});
+        this.user.save(function(err){
+          self.carePlan.save(function(err){
+            self.user.carePlanId.equals(self.carePlan.id).should.be_true;
+            done();
+          });
+        });
+      });
+      it("should be accessible", function(done){
+        var self = this;
+        CarePlan.accessibleTo(self.user).exec(function(err, result){
+          should.not.exist(err);
+          result.map(function(o){return o.id}).should.include(self.carePlan.id);
+          done();
+        });
+      });
+    });
+    describe("as part of a query", function(){
+      beforeEach(function(done){
+        this.user = new User();
+        this.carePlan.ownerId = this.user.id;
+        this.carePlan.save(done);
+      });
+      it("should be queryable by the id", function(done){
+        var self = this;
+        CarePlan.accessibleTo(this.user).find({_id: this.carePlan.id}).findOne(function(error, plan){
+          should.not.exist(error);
+          plan.id.should.equal(self.carePlan.id);
+          done();
+        });
+      });
+      it("should not match a different id", function(done){
+        var self = this;
+        CarePlan.accessibleTo(this.user).find({_id: new CarePlan().id}).findOne(function(error, plan){
+          should.not.exist(error);
+          should.not.exist(plan);
+          done();
+        });
+      });
+    });
   });
   describe("#directAddress", function(){
     it("should exist for new plans", function(){

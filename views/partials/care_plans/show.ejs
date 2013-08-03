@@ -1,0 +1,24 @@
+<h2>{{carePlan.name}}</h2>
+<nav>
+  <ul class='nav nav-bar'>
+    <li class="active"><a href="/care_plans/{{carePlan._id}}">Journal</a></li>
+    <li class=""><a href="/care_plans/{{carePlan._id}}/care_team">Care Team</a></li>
+    <li class=""><a href="/care_plans/{{carePlan._id}}/health_record">Record</a></li>
+  </ul>
+</nav>
+Direct Address: {{carePlan.directAddress}}
+<div class="btn-group">
+  <a href="/events/new" class='btn'>
+    <i class="icon-plus"></i>
+    Add new task
+  </a>
+</div>
+<section class="journal">
+  <h3 class="sub-head">
+    Today, Saturday, August 3rd
+  </h3>
+  <ul class="tasks">
+    <li class="completed"><span class="time">9:00am</span>Lipitor</li>
+    <li class=""><span class="time">9:30am</span>Take a walk</li>
+  </ul>
+</section>

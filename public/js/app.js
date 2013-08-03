@@ -3,6 +3,36 @@
 angular.module('caretracker', ['caretracker.filters', 'caretracker.services', 'caretracker.directives', 'caretracker.controllers']).
   config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider.
+      // Care Plans
+      when('/care_plans', {
+        templateUrl: '/partials/care_plans/index',
+        controller: 'IndexCarePlansCtrl'
+      }).
+      when('/care_plans/add', {
+        templateUrl: '/partials/care_plans/new',
+        controller: 'AddCarePlanCtrl'
+      }).
+      when('/care_plans/:id/verify', {
+        templateUrl: '/partials/care_plans/create_verify',
+        controller: 'ShowCarePlanCtrl'
+      }).
+      when('/care_plans/:id/finished', {
+        templateUrl: '/partials/care_plans/create_finished',
+        controller: 'ShowCarePlanCtrl'
+      }).
+      when('/care_plans/:id', {
+        templateUrl: '/partials/care_plans/show',
+        controller: 'ShowCarePlanCtrl'
+      }).
+      // when('/care_plans/:id/edit', {
+      //   templateUrl: '/partials/care_plans/edit',
+      //   controller: 'EditCarePlanCtrl'
+      // }).
+      // when('/care_plans/:id/delete', {
+      //   templateUrl: '/partials/care_plans/destroy_confirm',
+      //   controller: 'DeleteCarePlanCtrl'
+      // }).
+      // Events
       when('/events', {
         templateUrl: '/partials/events/index',
         controller: 'IndexEventsCtrl'
@@ -24,7 +54,7 @@ angular.module('caretracker', ['caretracker.filters', 'caretracker.services', 'c
         controller: 'DeleteEventCtrl'
       }).
       otherwise({
-        redirectTo: '/events'
+        redirectTo: '/care_plans'
       });
     $locationProvider.html5Mode(true);
 }]);
