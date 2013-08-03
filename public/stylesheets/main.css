@@ -2,25 +2,35 @@
  * TODO(healthio-dev): Move all this to a less file and make it more modular.
  */
 
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
 body {
   background: #efefef;
-  font-family: 'Helvetica Neue', arial, sans-serif;
+  bottom: 0;
+  font-family: 'Roboto', 'Helvetica Neue', arial, sans-serif;
   font-weight: 200;
+  left: 0;
   margin: 0;
-  padding: 45px 0 0 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+a {
+  color: #666;
+  font-weight: 400;
+  text-decoration: none;
 }
 
 header {
   background: #479982;
   color: #fff;
   height: 45px;
-  left: 0;
   position: fixed;
-  right: 0;
   text-align: center;
   top: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 1;
 }
 
 header h1 {
@@ -38,11 +48,16 @@ header .header-right {
 }
 
 header .button {
-  background: #54b59a;
+  background-color: transparent;
+  transition: background-color 150ms;
   float: left;
   height: 30px;
-  margin: 7px 15px;
+  margin: 7px;
   width: 30px;
+}
+
+header .button:hover {
+  background-color: #54b59a;
 }
 
 header .button.button-right {
@@ -82,6 +97,7 @@ section.navbar ul a {
 
 section.title {
   background: #fff;
+  border-bottom: 3px solid #ddd;
   box-sizing: border-box;
 }
 
@@ -138,7 +154,7 @@ section.messages p {
   color: #fff;
   cursor: pointer;
   display: inline-block;
-  font-family: 'Helvetica Neue', arial, sans-serif;
+  font-family: 'Roboto', 'Helvetica Neue', arial, sans-serif;
   font-size: 14px;
   font-weight: 300;
   margin: 0;
@@ -162,6 +178,63 @@ section.main .button {
 section.main .button.button-secondary {
   background: #374a5d;
   border-bottom: 3px solid #2e3e4f;
+}
+
+/**
+ * Hamburger menu.
+ */
+
+nav.hamburger-menu {
+  background: linear-gradient(to bottom, #3e3c3d 0%,#2d2c2d 100%);
+  display: none;
+  height: 100%;
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 70%;
+  z-index: 0;
+}
+
+nav.hamburger-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav.hamburger-menu ul li a {
+  border-bottom: 1px solid #333;
+  color: #dedede;
+  display: block;
+  padding: 12px 15px;
+}
+
+nav.hamburger-menu ul li a:hover {
+  background: #333;
+  color: #fff;
+}
+
+div.hamburger-main {
+  background: #fff;
+  height: 100%;
+  margin-top: 45px;
+  position: relative;
+}
+
+div.hamburger-mask {
+  display: none;
+  height: 100%;
+  min-height: 1062px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 30%;
+  z-index: 5;
+}
+
+div.hamburger-container {
+  height: 100%;
 }
 
 /**
@@ -245,34 +318,70 @@ input[type=password] {
   box-sizing: border-box;
   color: #34495e;
   font-size: 14px;
+  font-family: 'Roboto', 'Helvetica Neue', arial, sans-serif;
   padding: 8px 5px;
   text-indent: 6px;
   transition: border .25s linear, color .25s linear;
 }
 
 /**
+ * Signup page.
+ */
+
+.signup-page {
+  margin-top: 80px;
+}
+
+/**
  * Login page.
  */
 
-.login-page .buttons {
+.login-page {
+  text-align: center;
+}
+
+.login-page .logo {
+  background-image: url('/public/images/logo.png');
+  background-size: 100%;
+  display: block;
+  height: 150px;
+  margin: 50px auto 0;
+  width: 150px;
+}
+
+.login-page h1 {
+  padding: 20px 0;
+}
+
+/**
+ * Form page (login page, signup page, settings, etc.)
+ */
+
+.form-page .buttons {
   margin-top: 10px;
 }
 
-.login-page .buttons input[type=submit] {
+.form-page .buttons input[type=submit] {
   margin-bottom: 10px;
 }
 
-.login-page input[type=text],
-.login-page input[type=password] {
+.form-page input[type=text],
+.form-page input[type=email],
+.form-page input[type=password] {
   min-width: 260px;
 }
 
-.login-page form > div {
+.form-page form > div {
   margin-bottom: 5px;
 }
 
-.login-page .button {
+.form-page .button {
   min-width: 260px;
+  padding: 10px 20px;
+}
+
+.form-page section.main {
+  text-align: center;
 }
 
 /**
@@ -297,4 +406,8 @@ input[type=password] {
 
 .icon-settings {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABBFJREFUeNrsXNFx2zAMZXT5NzcwO4HVCaIN6g2sbOBu4G6gTlB1groT1JmgygbyBvIErngHXhWFImkRgGw5uMPFOVkk9AiAAAj54Xw+iw8apuQDAjc9TjCnbDlvOYPPXUpbXsDnU8tV59qh5bLlmlPYB2YTS+FBFyPvP8EY9VxNbB8BjoB7d3PVIL3yfxHGOVlMcxYatEYaZwFgf+xiDsrmCJBCNtdZ+SAFW/YCccxPHLsZhwZJhN1raEeUtw6QhLhnRTD2CsZOrwmg9AIHmYMJrAjlNyBtAxYqA77MF2ofFMCy5cP5Len/c7hmvqda3rZcn/mphrlVT57S8t2yJ/cghzppnQNtHNePLS+vKAzQwWTjkek1xDyTQFPZeL5zTeCYYHIZYJ7etMWnQRTb87WRM1xIAkxrzuAInxa5NEjnTr/EfdCgFiWObbEQ90PlpSa2vULHS0lPQ/GdzcQkqNtC3Be92EB6HNAeTnBeIRpu4K+J2BUIvGLWooNPgxoGgE5g90VARq5g0XIGud4Hj73QOmdICfa9dCCUFdxLTXl33r4QJfHk2xHAcC9i3Z2Ps6L4jBQ6lDAWFS3fmFlvdTIOtUXifAoTo5i4JADHcEG9kNSr04TWXUayRKw9WbU8cdj5Z9iOY6iAsIGKGoFz0vo8mG4Q2jm19nS5iZCzcI0dUu44Rpw6NEw75D4iYN3FVhTHTn5gDCH2ESFDEwtQPXLymhGgigrYhHDyihGgmkpGyki6EddPzZQApTcAkMIAaOyDSsYHzagWkRKgjBGgsTLmsQBpLRjbGba+AQ364gPXB1ARUcVbMfkhBQ8aUz6RYwDSN24ihd8yABSbi5kOERmai0nk0mZGmIOliHI2MJ63u2MfqbJ9OoKpYcdFEgI9zPO7E5hsM2RiOTI4poRJkZftBf7h5qK/syWXBk4kdn655uixnohklS6AKNODJxHfU5gSg/MeA8vZEwcVFxbTFMORlCHF7aRd9BM04mDJyBUEgGtmed74IBtAWqg/EyWPx45jn4Le9QnZAkW9mi8TCbicEJyftrrSUIcZ1qtLt0TWLrPEUWn7fkfgWLXHpUEmHqjF/BupnK95Jp54YHsH2rMTjpp2SKd9Jfi6vLjJ220f2mk/V9PyPlvouxp6oB8BDk5BYDel3/oNWl93Ak2bPMPn8SMAMg+/6yS0Wghbj6Ep0xaMQJ1gvqFmiTWAZcypEIGnsZSvZJpm9A0xOC/i/7tp6MTxzqrLPNFzJ2zi6FHUdv71FsHh0qBujodVx6Eq406iQd0yCuZYLGf/nABVyNrIQtw/j4M1GcuPCnBrkAniMPxPzSUwN0BYnfZirgBp3/EtcmtnfROS2wd1KYNo23cMVMGOVYkJutamBOgm6J8AAwByuvkwN9wirgAAAABJRU5ErkJggg==);
+}
+
+.icon-hamburger {
+  background-image: url(data:image/png;base64,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);
 }

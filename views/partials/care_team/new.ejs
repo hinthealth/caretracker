@@ -1,9 +1,19 @@
-<h2> Add to {{carePlan.name}}'s Care Team</h2>
-<p>Share {{carePlan.name}}'s health data with another person (such as a family member or caregiver).</p>
-<p>Everyone can keep track of {{carePlan.name}}'s care, share messages, and view his health record.</p>
-<fieldset>
-  <input type="text" name="name" ng-model="form.name" placeholder="Name" required/>
-  <input type="text" name="name" ng-model="form.relation" placeholder="Relation to patient" required />
-  <input type="text" name="email" ng-model="form.email" placeholder="Email address" required />
-  <button ng-click='addToCareTeam()' class='btn btn-primary'>Share {{carePlan.name}}'s Journal</button>
-</fieldset>
+<div class="form-page">
+
+  <h2> Add to {{carePlan.name}}'s Care Team</h2>
+  <p>Share {{carePlan.name}}'s health data with another person (such as a family member or caregiver).</p>
+  <p>Everyone can keep track of {{carePlan.name}}"s care, share messages, and view his health record.</p>
+  <form>
+    <div>
+      <input type="text" name="name" ng-model="form.name" placeholder="Name" required/>
+    </div>
+    <div>
+      <input type="text" name="name" ng-model="form.relation" placeholder="Relation to patient" required />
+    </div>
+    <div>
+      <input type="text" name="email" ng-model="form.email" placeholder="Email address" required />
+    </div>
+    <button ng-click="addToCareTeam()" class="button">Share {{carePlan.name}}"s Journal</button>
+  </form>
+
+</div>

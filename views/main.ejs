@@ -1,22 +1,54 @@
 <% include _header %>
 
-<div ng-app="caretracker">
+<div class="hamburger-container" id="hamburger-container">
 
-  <!-- Add your site or application content here -->
-  <div class="container" ng-view></div>
+  <header>
+    <div class="header-left">
+      <!-- TODO(healthio-dev): Move this to be within the Angular app, and use an Angular controller. -->
+      <div href="/" class="button button-icon hamburger-button" title="Menu" class="icon"><span class="icon icon-hamburger"></span></div>
+    </div>
+    <div class="header-right">
+      <a href="/account" class="button button-icon" title="Settings"><span class="icon icon-settings"></span></a>
+    </div>
+  </header>
 
-  <script src="/public/js/lib/angular/angular.js"></script>
-  <script src="/public/js/lib/angular-resource/angular-resource.js"></script>
-  <script src="/public/js/lib/angular-cookies/angular-cookies.js"></script>
-  <script src="/public/js/lib/angular-sanitize/angular-sanitize.js"></script>
+  <nav class="hamburger-menu">
+    <ul>
+      <li><a href="/care_plans">Your care plans</a>
+    </ul>
+    <!-- TODO(healthio-dev): Care plans here. -->
+    <ul ng-repeat="carePlan in carePlans">
+      <li><a href="#">Care Plan 1</a>
+      <li><a href="#">Care Plan 2</a>
+    </ul>
+    <ul>
+      <li><a href="/care_plans/add">Add a patient</a>
+    </ul>
+  </nav>
+  <div class="hamburger-mask"></div>
 
-  <!-- build:js scripts/scripts.js -->
-  <script src="/public/js/services.js"></script>
-  <script src="/public/js/controllers.js"></script>
-  <script src="/public/js/filters.js"></script>
-  <script src="/public/js/directives.js"></script>
-  <script src="/public/js/app.js"></script>
-  <!-- endbuild -->
+  <div class="hamburger-main" ng-app="caretracker">
+
+    <!-- Add your site or application content here -->
+    <div class="container" ng-view></div>
+
+    <script src="/public/js/lib/angular/angular.js"></script>
+    <script src="/public/js/lib/angular-resource/angular-resource.js"></script>
+    <script src="/public/js/lib/angular-cookies/angular-cookies.js"></script>
+    <script src="/public/js/lib/angular-sanitize/angular-sanitize.js"></script>
+
+    <!-- build:js scripts/scripts.js -->
+    <script src="/public/js/services.js"></script>
+    <script src="/public/js/controllers.js"></script>
+    <script src="/public/js/filters.js"></script>
+    <script src="/public/js/directives.js"></script>
+    <script src="/public/js/app.js"></script>
+    <!-- endbuild -->
+
+  </div>
 </div>
+
+<script src="/public/js/lib/jquery.min.js"></script>
+<script src="/public/js/hamburger.js"></script>
 
 <% include _footer %>

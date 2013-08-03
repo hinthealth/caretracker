@@ -1,24 +1,42 @@
-<h2>{{carePlan.name}}</h2>
-<nav>
-  <ul class='nav nav-bar'>
+<section class="navbar">
+  <ul>
     <li class="active"><a href="/care_plans/{{carePlan._id}}">Journal</a></li>
-    <li class=""><a href="/care_plans/{{carePlan._id}}/care_team">Care Team</a></li>
-    <li class=""><a href="/care_plans/{{carePlan._id}}/health_record">Record</a></li>
+    <li><a href="/care_plans/{{carePlan._id}}/care_team">Care Team</a></li>
+    <li><a href="/care_plans/{{carePlan._id}}/health_record">Record</a></li>
   </ul>
-</nav>
-Direct Address: {{carePlan.directAddress}}
-<div class="btn-group">
-  <a href="/events/new" class='btn'>
-    <i class="icon-plus"></i>
-    Add new task
-  </a>
-</div>
-<section class="journal">
-  <h3 class="sub-head">
+</section>
+
+<section class="title">
+  <div class="avatar">
+    <div class="image"></div>
+  </div>
+  <div class="name">
+    <h2>{{carePlan.name}}</h2>
+  </div>
+</section>
+
+<section class="main">
+  <p>Direct Address: {{carePlan.directAddress}}
+  <div>
+    <a href="/events/new" class="button">
+      <i class="icon-plus"></i>
+      Add new task
+    </a>
+  </div>
+</section>
+
+<section class="timeline">
+  <section class="timeline-day">
     Today, Saturday, August 3rd
-  </h3>
+  </section>
+
   <ul class="tasks">
-    <li class="completed"><span class="time">9:00am</span>Lipitor</li>
-    <li class=""><span class="time">9:30am</span>Take a walk</li>
+    <li>
+      <div class="checkmark" ng-class="{event.completed_at:'checked'}"></div>
+      <div class="icon-avatar"></div>
+      <div class="content">
+        <a href='/events/{{event._id}}')>Task name</a>
+      </div>
   </ul>
+
 </section>
