@@ -20,7 +20,7 @@ describe('Schedule', function() {
   describe('validation', function() {
     it('should save', function(done) {
       var schedule = new Schedule({
-        care_plan: this.carePlan.id,
+        carePlan: this.carePlan.id,
         frequency: 86400000,  // Once per day.
         start: new Date('2013-01-01').getTime()
       });
@@ -34,7 +34,7 @@ describe('Schedule', function() {
   describe('#getTasks', function() {
     beforeEach(function() {
       this.schedule = new Schedule({
-        care_plan: this.carePlan.id,
+        carePlan: this.carePlan.id,
         frequency: 86400000,  // Once per day.
         start: new Date('2013-01-01').getTime()
       });

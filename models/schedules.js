@@ -4,7 +4,7 @@ var mongoose  = require('mongoose')
   , ObjectId  = Schema.Types.ObjectId;
 
 var ScheduleSchema = new Schema({
-  care_plan: ObjectId,
+  carePlan: ObjectId,
   end: Number,
   frequency: Number,  // Frequency in seconds.
   start: Number
@@ -23,7 +23,7 @@ ScheduleSchema.methods.getTasks = function(startBoundary, endBoundary) {
   // Map start times to generated tasks.
   while (start < endBoundary) {
     startTimesToTasks[start] = new Task({
-      care_plan: this.care_plan,
+      carePlan: this.carePlan,
       start: start
     });
     start += this.frequency;
@@ -39,7 +39,7 @@ ScheduleSchema.methods.getTasks = function(startBoundary, endBoundary) {
     });
   };
   Task.find()
-      .where('care_plan', this.care_plan)
+      .where('carePlan', this.carePlan)
       .where('start').gte(startBoundary).lte(endBoundary)
       .exec(callback);
 
