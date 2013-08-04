@@ -39,4 +39,4 @@ HealthRecordSchema.virtual('data.json')
   this.markModified('data');
 });
 
-module.exports = mongoose.model('HealthRecord', HealthRecordSchema);
+mongoose.model('HealthRecord', HealthRecordSchema);

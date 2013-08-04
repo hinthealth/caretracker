@@ -1,6 +1,6 @@
-var models = require('./../../models')
-  , User = models.users
-  , helper = require('./test_helper');
+var helper = require('./acceptance_helper')
+  , mongoose = require('mongoose')
+  , User = mongoose.model('User');
 
 
 describe("new user signup", function(){

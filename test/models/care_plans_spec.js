@@ -1,12 +1,18 @@
-var models = require('./../../models')
-  , CarePlan = models.care_plans
-  , User = models.users
+var helper = require('./../test_helper') // Always require first, sets up test db
+  , mongoose = require('mongoose')
+  , CarePlan = mongoose.model('CarePlan')
+  , User = mongoose.model('User')
+  , clearModels = [User, CarePlan]
   , should = require('should');
 
 describe("CarePlan", function(){
-  beforeEach(function(done){
-    CarePlan.remove({}, done);
+  var self = this;
+  clearModels.forEach(function(model){
+    self.beforeEach(function(done){
+      model.remove({}, done);
+    });
   });
+
   beforeEach(function(){
     // TODO: Involve some kind of factory obj generation?
     this.carePlan = new CarePlan({ownerId: new User().id});
@@ -21,10 +27,12 @@ describe("CarePlan", function(){
   });
 
   describe(".accessibleTo", function(){
-    describe("the careTeam", function(){
+    describe("the careProviders", function(){
       beforeEach(function(done){
-        this.user = new User();
-        this.carePlan.careTeam = [{userId: this.user.id}, {invitationKey: 'This shit is bananas'}]
+        this.user = new User({name: "That guy", email: "that.guy@example.com"});
+        var careProvider1 = {name: this.user.name, email: this.user.email, userId: this.user.id, relation: "brother"};
+        var careProvider2 = {name: "Samual L Jackson", email: "sammyj@example.com", relation: "Awesome"};
+        this.carePlan.careProviders = [careProvider1, careProvider2];
         this.carePlan.save(done);
       });
       it("should be accessible", function(done){

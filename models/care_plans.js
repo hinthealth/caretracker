@@ -1,36 +1,21 @@
-var mongoose  = require('mongoose')
-  , Schema    = mongoose.Schema
-  , ObjectId  = Schema.Types.ObjectId;
+var mongoose      = require('mongoose')
+  , CareProvider  = mongoose.model('CareProvider')
+  , Schema        = mongoose.Schema
+  , ObjectId      = Schema.Types.ObjectId
+  , Util          = require('./../lib/util');
 
-var generateHexKey = function(length){
-  length = length;
-  return (new Array(length + 1)).join('n').replace(/n/g, function(){
-    return Math.floor(Math.random()*16).toString(16);
-  });
-};
-var generateInvitationKey = function(){
-  return generateHexKey(10);
-}
-var generateDirectAddress = function(){
-  // TODO: Setup system-wide configuration that depend on NODE_ENV
-  // Keys of length 6 provide 16777216 possibilities. This will need to be
-  // expanded once we have over ~2k people (chance collisions > 1/10k),
-  // or we need a way to lookup keys until we find a unique one.
-  return generateHexKey(6) + '@direct.' + (process.env.HOSTNAME || 'localhost:3000');
-}
-// CarePlan schema
+/****************************************************
+ * CarePlan
+ *
+ * Care plans represent the shared set of tasks/events associated
+ * with a patients care,
+ ****************************************************/
 var CarePlanSchema = new Schema({
   name: String, // Required, but overwritten by patient account name
   photo: {}, // Overwritten by patient account name
-  directAddress: {type: String, required: true, default: generateDirectAddress },
+  directAddress: {type: String, required: true, default: Util.generateDirectAddress },
   ownerId: {type: ObjectId, required: true},
-  careTeam: [
-    { userId: ObjectId
-    , name: String
-    , relation: String
-    , email: String
-    , invitationKey: {type: String, default: generateInvitationKey}
-  }]
+  careProviders: [CareProvider.schema]
 });
 
 CarePlanSchema.static('ownedBy', function(user){
@@ -42,7 +27,7 @@ CarePlanSchema.static('for', function(user){
 });
 
 CarePlanSchema.static('accessibleTo', function(user){
-  return this.where().or([{ownerId: user.id}, {_id: user.carePlanId }, {careTeam: {$elemMatch: {userId: user.id}}}])
+  return this.where().or([{ownerId: user.id}, {_id: user.carePlanId }, {careProviders: {$elemMatch: {userId: user.id}}}])
 });
 
-module.exports = mongoose.model('CarePlan', CarePlanSchema);
+mongoose.model('CarePlan', CarePlanSchema);
