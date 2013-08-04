@@ -1,5 +1,7 @@
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
+require('better-stack-traces').install();
+
 // Set up analytics before the other libraries get included.
 var flash = require('connect-flash');
 var express = require('express');
@@ -45,7 +47,6 @@ app.use('/zxcvbn', express.static('node_modules/zxcvbn'));
 
 // Route!
 app.use(app.router);
-
 
 // set up our security to be enforced on all requests to secure paths
 app.all('/account', middlewares.auth.requireUser);
@@ -100,7 +101,6 @@ app.post('/api/care_plans/:care_plan_id/care_providers', api.care_providers.crea
 // Include type=(patient|careteam) to specify the type of invitation. Default is careteam
 // app.post('/api/care_plans/:care_plan_id/invitations', api.invitations.create);
 
-
 // Needed for angular (??)
 app.get('*', routes.index);
 
@@ -112,8 +112,7 @@ app.configure('production', function() {
   app.use(express.errorHandler());
 });
 
-
 var port = process.env.PORT || 3000;
 app.listen(port, function () {
-    console.log('Express server listening on port '+ port);
+  console.log('Express server listening on port '+ port);
 });

@@ -1,6 +1,7 @@
 var mongoose = require('mongoose')
   , Event = mongoose.model('Event')
   , analytics = require('../../middlewares/analytics');
+
 exports.index = function (req, res) {
   // TODO: Scope by current user access
   Event.find({user_id: {$in: req.user.canAccess()}}, function(error, events){
