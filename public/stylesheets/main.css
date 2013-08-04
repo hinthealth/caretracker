@@ -13,12 +13,6 @@ section.navbar{background:#54b59a;color:#fff;padding:5px;text-align:center}
 section.navbar ul{list-style:none;margin:0;padding:0}
 section.navbar ul li{display:inline-block}
 section.navbar ul a{color:#fff;display:inline-block;padding:5px 10px}
-section.title{background:#fff;border-bottom:3px solid #ddd;box-sizing:border-box}
-section.title:after{clear:both;content:".";display:block;height:0;line-height:0;visibility:hidden}
-section.title .avatar,section.title .name{box-sizing:border-box;height:100px;float:left;width:50%}
-section.title .avatar{background:#edf0f1}
-section.title .avatar .image{background:url('avatar.png') no-repeat center center;margin:0 auto;height:100%;width:100%}
-section.title .name{color:#479982;padding:20px}
 section.main,section.messages{margin:15px}
 section.messages p{background:#D35400;border-radius:3px;padding:10px;color:#fff}
 .button{background:#1086dc;box-sizing:border-box;border:none;border-radius:3px;color:#fff;cursor:pointer;display:inline-block;font-family:'Roboto','Helvetica Neue',arial,sans-serif;font-size:14px;font-weight:300;margin:0;text-align:center}
@@ -50,6 +44,12 @@ div.hamburger-container{height:100%}
 .login-page .logo{background-image:url('/public/images/logo.png');background-size:100%;display:block;height:150px;margin:50px auto 0;width:150px}
 .login-page h1{padding:20px 0}
 .signup-page{margin-top:80px}
+section.title{background:#fff;border-bottom:3px solid #ddd;box-sizing:border-box}
+section.title:after{clear:both;content:".";display:block;height:0;line-height:0;visibility:hidden}
+section.title .avatar,section.title .name{box-sizing:border-box;height:100px;float:left;width:50%}
+section.title .avatar{background:#edf0f1}
+section.title .avatar .image{background:url('avatar.png') no-repeat center center;margin:0 auto;height:100%;width:100%}
+section.title .name{color:#479982;padding:20px}
 section.timeline-day{background:#54b59a;color:#fff;padding:20px}
 section.timeline ul,section.timeline li{list-style:none;margin:0;padding:0}
 section.timeline ul{margin:20px}
