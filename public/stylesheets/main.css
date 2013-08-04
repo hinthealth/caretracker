@@ -9,10 +9,6 @@ header .button{background-color:transparent;transition:background-color 150ms;fl
 header .button:hover{background-color:#54b59a}
 header .button.button-right{float:right}
 h1,h2,h3{box-sizing:border-box;font-weight:normal;margin:0}
-section.navbar{background:#54b59a;color:#fff;padding:5px;text-align:center}
-section.navbar ul{list-style:none;margin:0;padding:0}
-section.navbar ul li{display:inline-block}
-section.navbar ul a{color:#fff;display:inline-block;padding:5px 10px}
 section.main,section.messages{margin:15px}
 section.messages p{background:#D35400;border-radius:3px;padding:10px;color:#fff}
 .button{background:#1086dc;box-sizing:border-box;border:none;border-radius:3px;color:#fff;cursor:pointer;display:inline-block;font-family:'Roboto','Helvetica Neue',arial,sans-serif;font-size:14px;font-weight:300;margin:0;text-align:center}
@@ -21,12 +17,17 @@ label{display:block}
 section.main .button{border-bottom:3px solid #3b82b6;margin-bottom:10px;padding:10px 20px}
 section.main .button.button-secondary{background:#374a5d;border-bottom:3px solid #2e3e4f}
 input[type=text],input[type=email],input[type=password]{-webkit-backface-visibility:hidden;border-radius:3px;border:1px solid #bdc3c7;box-sizing:border-box;color:#34495e;font-size:14px;font-family:'Roboto','Helvetica Neue',arial,sans-serif;padding:8px 5px;text-indent:6px;transition:border .25s linear, color .25s linear}
+section.navbar{background:#54b59a;color:#fff;padding:5px;text-align:center}
+section.navbar ul{list-style:none;margin:0;padding:0}
+section.navbar ul li{display:inline-block}
+section.navbar ul a{color:#fff;display:inline-block;padding:5px 10px}
+section.navbar ul li.active a{font-weight:bold}
 .form-page .buttons{margin-top:10px}
 .form-page .buttons input[type=submit]{margin-bottom:10px}
 .form-page input[type=text],.form-page input[type=email],.form-page input[type=password]{min-width:260px}
 .form-page form>div{margin-bottom:5px}
 .form-page .button{min-width:260px;padding:10px 20px}
-.form-page section.main{text-align:center}
+.form-page section.main{margin:0 auto;max-width:260px}
 nav.hamburger-menu{background:linear-gradient(to bottom, #3e3c3d 0, #2d2c2d 100%);display:none;height:100%;left:0px;position:fixed;top:0px;width:70%;z-index:0}
 nav.hamburger-menu ul{list-style:none;margin:0;padding:0}
 nav.hamburger-menu ul li a{border-bottom:1px solid #333;color:#dedede;display:block;padding:12px 15px}

@@ -1,11 +1,27 @@
-<h3>
-  <a>{{carePlan.name}}'s Care Team</a>
-</h3>
-<div class='pull-right'><a href='/care_plans/{{carePlan._id}}/care_team/new'><i class="icon-plus">Add (+)</i></a></div>
-{{carePlan.name}}'s journal is shared with the following people:
-<ul ng-repeat='careProvider in careTeam' %>
-  <li class='care-provider'>
-    <p><strong> {{careProvider.name}} </strong></p>
-    <span> {{careProvider.relation}} </span>
-  </li>
-</ul>
+<section class="navbar">
+  <ul>
+    <li><a href="/care_plans/{{carePlan._id}}">Journal</a></li>
+    <li class="active"><a href="/care_plans/{{carePlan._id}}/care_team">Care Team</a></li>
+    <li><a href="/care_plans/{{carePlan._id}}/health_record">Record</a></li>
+  </ul>
+</section>
+
+<section class="main">
+  <div>
+    <a href="/care_plans/{{carePlan._id}}/care_team/new" class="button">Add person</a>
+  </div>
+  <div ng-switch on="careTeam">
+    <div ng-switch-when="careTeam.length">
+      {{carePlan.name}}'s journal is shared with the following people:
+      <ul ng-repeat="careProvider in careTeam">
+        <li class="care-provider">
+          <p><strong> {{careProvider.name}} </strong></p>
+          <span> {{careProvider.relation}} </span>
+        </li>
+      </ul>
+    </div>
+    <div ng-switch-default>
+      <p>{{carePlan.name}}'s journal is not shared with anyone.
+    </div>
+  </div>
+</section>
