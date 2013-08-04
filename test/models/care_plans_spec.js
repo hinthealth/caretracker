@@ -1,6 +1,7 @@
-var models = require('./../../models')
-  , CarePlan = models.care_plans
-  , User = models.users
+var helper = require('./../test_helper') // Always require first, sets up test db
+  , mongoose = require('mongoose')
+  , CarePlan = mongoose.model('CarePlan')
+  , User = mongoose.model('User')
   , should = require('should');
 
 describe("CarePlan", function(){
@@ -23,8 +24,10 @@ describe("CarePlan", function(){
   describe(".accessibleTo", function(){
     describe("the careTeam", function(){
       beforeEach(function(done){
-        this.user = new User();
-        this.carePlan.careTeam = [{userId: this.user.id}, {invitationKey: 'This shit is bananas'}]
+        this.user = new User({name: "That guy", email: "that.guy@example.com"});
+        var careProvider1 = {name: this.user.name, email: this.user.email, userId: this.user.id, relation: "brother"};
+        var careProvider2 = {name: "Samual L Jackson", email: "sammyj@example.com", relation: "Awesome"};
+        this.carePlan.careTeam = [careProvider1, careProvider2];
         this.carePlan.save(done);
       });
       it("should be accessible", function(done){

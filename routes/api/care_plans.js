@@ -1,7 +1,6 @@
 var mongoose = require('mongoose')
-  , CarePlan = mongoose.model('CarePlan');
-
-var analytics = require('../../middlewares/analytics');
+  , CarePlan = mongoose.model('CarePlan')
+  , analytics = require('../../middlewares/analytics');
 
 // GET care_plans/
 exports.index = function (req, res) {

@@ -1,11 +1,43 @@
-require("better-stack-traces").install();
-var models = require('./../../models')
-  , User = models.users
-  , helper = require('./test_helper');
+var helper = require('./acceptance_helper')
+  , mongoose = require('mongoose')
+  , User = mongoose.model('User');
 
-process.env.NODE_ENV = 'test';
-process.env.PORT = 7357;
 
+describe("visiting a link requiring authentication while not authenticated", function(){
+  beforeEach(function(done){
+    User.remove({}, function(err, result){
+      User.create({name: {full: "Mary Jane"}, email: 'mary@example.com', password: 'p4ssw0rd'}, done);
+    });
+  })
+
+  before(function(){
+    this.server =helper.app;
+    this.browser = new helper.Browser({ site: 'http://localhost:7357' });
+  });
+
+  beforeEach(function(done){
+    this.browser.visit('/account', done);
+  });
+
+  it("should ask you to log in first", function(){
+    this.browser.location.should == '/login'
+    this.browser.text().should.include("Please log in");
+  });
+  describe("after authenticating", function(){
+    beforeEach(function(done){
+      var self = this;
+      this.timeout(10000);
+      this.browser.
+      fill('email', 'mary@example.com').
+      fill('password', 'p4ssw0rd').
+      pressButton('Sign in', done);
+    });
+    it("should direct you to the page you requested", function(){
+      this.browser.location.should == '/account';
+    });
+  });
+
+});
 
 describe("signing in", function(){
   beforeEach(function(done){
@@ -22,6 +54,7 @@ describe("signing in", function(){
   beforeEach(function(done){
     this.browser.visit('/login', done);
   });
+
   it("should email, password fields", function(){
     console.log('this browser',this.browser.success);
     this.browser.success.should.be.ok;

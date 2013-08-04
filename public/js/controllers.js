@@ -33,16 +33,16 @@ angular.module('caretracker.controllers', []).
   controller('IndexCareTeamCtrl', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams){
     $http.get('/api/care_plans/' + $routeParams.id + '/care_team' ).
       success(function(data, status, headers, config) {
-        $scope.careTeam = data.careTeam;
         $scope.carePlan = data.carePlan;
+        $scope.careTeam = data.carePlan.careTeam;
       });
   }]).
   controller('AddCareTeamCtrl', ['$scope', '$http', '$routeParams', '$location', function($scope, $http, $routeParams, $location){
     $scope.form = {};
     $http.get('/api/care_plans/' + $routeParams.id + '/care_team' ).
       success(function(data, status, headers, config) {
-        $scope.careTeam = data.careTeam;
         $scope.carePlan = data.carePlan;
+        $scope.careTeam = data.carePlan.careTeam;
       });
     $scope.addToCareTeam = function(){
       $http.post('/api/care_plans/'+ $routeParams.id +'/care_team', $scope.form).
