@@ -22,8 +22,11 @@ var CareProviderSchema = new Schema({
     inviteKey: {type: String, default: Util.generateInviteKey}
 });
 
-CareProviderSchema.virtual('inviteUrl').get(function(hostname){
-  return (hostname || '') + '/join-team/' + this.inviteKey;
+CareProviderSchema.virtual('invitePath').get(function(){
+  return '/join-team/' + this.inviteKey;
 });
+CareProviderSchema.methods.inviteUrl = function(hostname){
+  return (hostname || '') + this.invitePath;
+};
 
 mongoose.model('CareProvider', CareProviderSchema);

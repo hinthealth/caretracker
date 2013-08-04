@@ -27,12 +27,12 @@ describe("CarePlan", function(){
   });
 
   describe(".accessibleTo", function(){
-    describe("the careTeam", function(){
+    describe("the careProviders", function(){
       beforeEach(function(done){
         this.user = new User({name: "That guy", email: "that.guy@example.com"});
         var careProvider1 = {name: this.user.name, email: this.user.email, userId: this.user.id, relation: "brother"};
         var careProvider2 = {name: "Samual L Jackson", email: "sammyj@example.com", relation: "Awesome"};
-        this.carePlan.careTeam = [careProvider1, careProvider2];
+        this.carePlan.careProviders = [careProvider1, careProvider2];
         this.carePlan.save(done);
       });
       it("should be accessible", function(done){

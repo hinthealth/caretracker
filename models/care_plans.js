@@ -15,7 +15,7 @@ var CarePlanSchema = new Schema({
   photo: {}, // Overwritten by patient account name
   directAddress: {type: String, required: true, default: Util.generateDirectAddress },
   ownerId: {type: ObjectId, required: true},
-  careTeam: [CareProvider.schema]
+  careProviders: [CareProvider.schema]
 });
 
 CarePlanSchema.static('ownedBy', function(user){
@@ -27,7 +27,7 @@ CarePlanSchema.static('for', function(user){
 });
 
 CarePlanSchema.static('accessibleTo', function(user){
-  return this.where().or([{ownerId: user.id}, {_id: user.carePlanId }, {careTeam: {$elemMatch: {userId: user.id}}}])
+  return this.where().or([{ownerId: user.id}, {_id: user.carePlanId }, {careProviders: {$elemMatch: {userId: user.id}}}])
 });
 
 mongoose.model('CarePlan', CarePlanSchema);
