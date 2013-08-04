@@ -17,3 +17,4 @@ exports.partials = function(req, res) {
 
 exports.users = require('./users');
 exports.sessions = require('./sessions');
+exports.care_team = require('./care_team');

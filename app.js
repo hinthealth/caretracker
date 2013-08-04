@@ -64,6 +64,9 @@ app.get('/signup', routes.users.new);
 app.post('/signup', routes.users.create);
 app.get('/account', routes.users.account);
 
+// Accept care team invitation
+app.get('/join-team/:id', routes.care_team.join)
+
 /**********
  * JSON API, primarily for angular to interact with.
  * Note: This is very formulaic, perhaps we could standardize or
