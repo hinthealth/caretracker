@@ -4,10 +4,10 @@ var mongoose  = require('mongoose')
 
 
 var TaskSchema = new Schema({
-  care_plan: ObjectId,
+  carePlan: ObjectId,
   comment: String,
-  completed_at: Number,
-  completed_by: ObjectId,
+  completedAt: Number,
+  completedBy: ObjectId,
   start: Number
 });
 mongoose.model('Task', TaskSchema);
