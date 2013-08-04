@@ -4,18 +4,18 @@ var helper = require('./acceptance_helper')
 
 
 describe("visiting a link requiring authentication while not authenticated", function(){
+  before(function(){
+    this.server = helper.app;
+  });
+
   beforeEach(function(done){
     User.remove({}, function(err, result){
       User.create({name: {full: "Mary Jane"}, email: 'mary@example.com', password: 'p4ssw0rd'}, done);
     });
   })
 
-  before(function(){
-    this.server =helper.app;
-    this.browser = new helper.Browser({ site: 'http://localhost:7357' });
-  });
-
   beforeEach(function(done){
+    this.browser = new helper.Browser({ site: 'http://localhost:7357' });
     this.browser.visit('/account', done);
   });
 
@@ -23,6 +23,7 @@ describe("visiting a link requiring authentication while not authenticated", fun
     this.browser.location.should == '/login'
     this.browser.text().should.include("Please log in");
   });
+
   describe("after authenticating", function(){
     beforeEach(function(done){
       var self = this;
@@ -32,7 +33,29 @@ describe("visiting a link requiring authentication while not authenticated", fun
       fill('password', 'p4ssw0rd').
       pressButton('Sign in', done);
     });
+
     it("should direct you to the page you requested", function(){
+      this.browser.location.should == '/account';
+    });
+  });
+
+  describe("after account creation", function(){
+    beforeEach(function(done){
+      var self = this;
+      this.timeout(10000);
+      this.browser.clickLink("Sign up", function(){
+        self.browser.location.should == '/signup';
+        self.browser.
+        fill('name[full]', 'Sue Zan').
+        fill('email', 'suez@example.com').
+        fill('password', 'p4ssw0rd1').
+        fill('passwordConfirmation', 'p4ssw0rd1').
+        pressButton('Sign up', done);
+      });
+    });
+    it("should direct you to the page you requested", function(){
+      console.log(this.browser);
+      console.log(this.browser.html());
       this.browser.location.should == '/account';
     });
   });
@@ -48,7 +71,7 @@ describe("signing in", function(){
   });
 
   before(function(){
-    this.server =helper.app;
+    this.server = helper.app;
     this.browser = new helper.Browser({ site: 'http://localhost:7357' });
   });
   beforeEach(function(done){

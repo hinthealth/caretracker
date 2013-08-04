@@ -12,6 +12,9 @@ exports.join = function(req, res, next){
     careProvider.inviteKey = null;
     careProvider.email = req.user.email;
     careProvider.name = req.user.name.full;
-    carePlan.save(done);
+    carePlan.save(function(error, result){
+      if(error) return next(error);
+      res.redirect('/care_plans/'+plan.id);
+    });
   });
 }
