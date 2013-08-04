@@ -1,7 +1,8 @@
-var mongoose  = require('mongoose')
-  , Schema    = mongoose.Schema
-  , ObjectId  = Schema.Types.ObjectId
-  , Util      = require('./../lib/util');
+var mongoose      = require('mongoose')
+  , CareProvider  = mongoose.model('CareProvider')
+  , Schema        = mongoose.Schema
+  , ObjectId      = Schema.Types.ObjectId
+  , Util          = require('./../lib/util');
 
 /****************************************************
  * CarePlan

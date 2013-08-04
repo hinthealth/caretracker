@@ -2,12 +2,17 @@ var helper = require('./../test_helper') // Always require first, sets up test d
   , mongoose = require('mongoose')
   , CarePlan = mongoose.model('CarePlan')
   , User = mongoose.model('User')
+  , clearModels = [User, CarePlan]
   , should = require('should');
 
 describe("CarePlan", function(){
-  beforeEach(function(done){
-    CarePlan.remove({}, done);
+  var self = this;
+  clearModels.forEach(function(model){
+    self.beforeEach(function(done){
+      model.remove({}, done);
+    });
   });
+
   beforeEach(function(){
     // TODO: Involve some kind of factory obj generation?
     this.carePlan = new CarePlan({ownerId: new User().id});

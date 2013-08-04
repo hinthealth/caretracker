@@ -49,6 +49,8 @@ app.use(app.router);
 
 // set up our security to be enforced on all requests to secure paths
 app.all('/account', middlewares.auth.requireUser);
+app.all('/join-team*', middlewares.auth.requireUser);
+
 app.all('/api/*', middlewares.auth.requireUser);
 
 // Pages for angular
@@ -99,7 +101,7 @@ app.post('/api/care_plans/:care_plan_id/care_team', api.care_team.create);
 // app.post('/api/care_plans/:care_plan_id/invitations', api.invitations.create);
 
 
-// Enables back button
+// Needed for angular (??)
 app.get('*', routes.index);
 
 app.configure('development', function() {
