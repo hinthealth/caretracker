@@ -18,11 +18,12 @@ mongoose.connect(uristring, mongoOptions, function (err, res) {
 });
 
 // Require all the models!
-
 require('./events');
 require('./health_records');
 require('./care_providers');
 require('./care_plans');
+require('./tasks');
+require('./schedules');
 require('./users');
 
 module.exports = mongoose;
