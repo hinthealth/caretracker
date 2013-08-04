@@ -8,6 +8,7 @@ var express = require('express');
 var models = require('./models');
 var passport = require('./config/passport');
 var routes = require('./routes');
+var lessMiddleware = require('less-middleware');
 var middlewares = require('./middlewares');
 var path = require('path');
 var api = require('./routes/api');
@@ -33,6 +34,11 @@ app.use(passport.session());
 app.use(flash());
 
 // Prefer static assets to routed paths
+
+app.use('/public', lessMiddleware({
+    src: path.join(__dirname, '/public'),
+    compress: true
+}));
 app.use('/public', express.static(path.join(__dirname, '/public')));
 
 app.use('/zxcvbn', express.static('node_modules/zxcvbn'));
