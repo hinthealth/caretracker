@@ -1,4 +1,4 @@
-var Invitation = require('./models').invitations;
+var Invitation = require('mongoose').model('Invitation');
 
 exports.new = function(req, res){
   res.render('invite', invite: new Invitation());

@@ -11,7 +11,7 @@ module.exports = function(grunt) {
     // convert adm string to bool
     adm = (adm === "true");
 
-    var user = new db.users({ username: usr
+    var user = new db.model('User')({ username: usr
             , email: emailaddress
             , password: pass
             , admin: adm });
@@ -34,8 +34,8 @@ module.exports = function(grunt) {
     // async mode
     var done = this.async();
 
-    db.mongoose.connection.on('open', function () {
-      db.mongoose.connection.db.dropDatabase(function(err) {
+    db.connection.on('open', function () {
+      db.connection.db.dropDatabase(function(err) {
         if(err) {
           console.log('Error: ' + err);
           done(false);

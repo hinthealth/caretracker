@@ -5,7 +5,7 @@ var flash = require('connect-flash');
 var express = require('express');
 
 // Initialize database and models.
-var models = require('./models');
+var db = require('./models');
 var passport = require('./config/passport');
 var routes = require('./routes');
 var lessMiddleware = require('less-middleware');

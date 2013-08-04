@@ -12,4 +12,4 @@ var EventSchema = new Schema({
   completed_by: ObjectId
 });
 
-module.exports = mongoose.model('Event', EventSchema);
+mongoose.model('Event', EventSchema);

@@ -1,4 +1,4 @@
-var User = require('./../models').users
+var User = require('mongoose').model('User')
   , analytics = require('./../middlewares/analytics');
 
 exports.account = function(req, res) {

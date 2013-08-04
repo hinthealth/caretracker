@@ -17,9 +17,4 @@ mongoose.connect(uristring, mongoOptions, function (err, res) {
   }
 });
 
-exports.mongoose = mongoose;
-exports.events = require('./events');
-exports.health_records = require('./health_records');
-exports.invitations = require('./invitations');
-exports.care_plans = require('./care_plans');
-exports.users = require('./users');
+module.exports = mongoose;
