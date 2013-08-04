@@ -90,8 +90,8 @@ app.put('/api/care_plans/:id', api.care_plans.update);
 app.delete('/api/care_plans/:id', api.care_plans.destroy);
 
 // CarePlan Sharing (available to owner - and patient?)
-app.get('/api/care_plans/:care_plan_id/care_team', api.care_team.index);
-app.post('/api/care_plans/:care_plan_id/care_team', api.care_team.create);
+app.get('/api/care_plans/:care_plan_id/care_providers', api.care_providers.index);
+app.post('/api/care_plans/:care_plan_id/care_providers', api.care_providers.create);
 
 // app.get('/api/care_plans/:care_plan_id/care_team/:id', api.care_team.show);
 // app.delete('/api/care_plans/:care_plan_id/care_team/:id', api.care_team.destroy);

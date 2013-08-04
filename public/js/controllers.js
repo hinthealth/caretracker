@@ -29,25 +29,25 @@ angular.module('caretracker.controllers', []).
       });
   }]).
 
-  // CareTeam Controllers
-  controller('IndexCareTeamCtrl', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams){
-    $http.get('/api/care_plans/' + $routeParams.id + '/care_team' ).
+  // CareProviders Controllers
+  controller('IndexCareProvidersCtrl', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams){
+    $http.get('/api/care_plans/' + $routeParams.id + '/care_providers' ).
       success(function(data, status, headers, config) {
         $scope.carePlan = data.carePlan;
-        $scope.careTeam = data.carePlan.careTeam;
+        $scope.careProviders = data.carePlan.careProviders;
       });
   }]).
-  controller('AddCareTeamCtrl', ['$scope', '$http', '$routeParams', '$location', function($scope, $http, $routeParams, $location){
+  controller('AddCareProvidersCtrl', ['$scope', '$http', '$routeParams', '$location', function($scope, $http, $routeParams, $location){
     $scope.form = {};
-    $http.get('/api/care_plans/' + $routeParams.id + '/care_team' ).
+    $http.get('/api/care_plans/' + $routeParams.id + '/care_providers' ).
       success(function(data, status, headers, config) {
         $scope.carePlan = data.carePlan;
-        $scope.careTeam = data.carePlan.careTeam;
+        $scope.careProviders = data.carePlan.careProviders;
       });
-    $scope.addToCareTeam = function(){
-      $http.post('/api/care_plans/'+ $routeParams.id +'/care_team', $scope.form).
+    $scope.createCareProvider = function(){
+      $http.post('/api/care_plans/'+ $routeParams.id +'/care_providers', $scope.form).
         success(function(data){
-          $location.path('/care_plans/'+ $routeParams.id +'/care_team');
+          $location.path('/care_plans/'+ $routeParams.id +'/care_providers');
         });
     };
   }]).
