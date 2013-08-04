@@ -5,16 +5,20 @@ var mongoose = require('mongoose')
 
 exports.join = function(req, res, next){
   var key = req.params.id;
-  CarePlan.findOne({careProviders: {$elemMatch: {inviteKey: key}}}, function(error, plan){
-    var careProvider = plan.careProviders.filter(function(elem){ return elem.inviteKey == self.careProvider.inviteKey})[0];
+  var self = this;
+  CarePlan.findOne({careProviders: {$elemMatch: {inviteKey: key}}}, function(error, carePlan){
     if(error) return next(error);
+    var careProvider = carePlan.careProviders.filter(function(elem){
+      console.log(elem, key);
+      return elem.inviteKey == key;
+    })[0];
     careProvider.userId = req.user.id;
     careProvider.inviteKey = null;
     careProvider.email = req.user.email;
     careProvider.name = req.user.name.full;
     carePlan.save(function(error, result){
       if(error) return next(error);
-      res.redirect('/care_plans/'+plan.id);
+      res.redirect('/care_plans/' + carePlan.id);
     });
   });
 }
