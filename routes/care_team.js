@@ -21,4 +21,4 @@ exports.join = function(req, res, next){
       res.redirect('/care_plans/' + carePlan.id);
     });
   });
-}
+};

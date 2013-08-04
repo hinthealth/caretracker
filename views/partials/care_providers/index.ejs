@@ -16,8 +16,16 @@
       {{carePlan.name}}'s journal is shared with the following people:
       <ul ng-repeat="careProvider in careProviders">
         <li class="care-provider">
-          <p><strong> {{careProvider.name}} </strong></p> -- (<a href="/join-team/{{careProvider.inviteKey}}" target="_self" >Invite URL</a> for testing)
+          <p>
+            <strong> {{careProvider.name}}</strong>
+          </p>
           <span> {{careProvider.relation}} </span>
+          <span ng-show="careProvider.inviteKey">
+            (<a href="/join-team/{{careProvider.inviteKey}}" target="_self" >Pending</a>)
+          </span>
+          <span ng-show="!careProvider.inviteKey">
+            (Accepted)
+          </span>
         </li>
       </ul>
     </div>

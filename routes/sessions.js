@@ -1,12 +1,5 @@
 var passport = require('passport');
 
-// exports.create = passport.authenticate('local', {
-//   successRedirect: '/',
-//   failureRedirect: '/login',
-//   failureFlash: 'Invalid username or password.'
-// });
-
-
 
 exports.create = function(req, res, next){
   passport.authenticate('local', function(err, user, info) {

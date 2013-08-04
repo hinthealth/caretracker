@@ -25,8 +25,12 @@ exports.create = function (req, res, next) {
   });
   user.save(function(error){
     if(error){
-      console.log(error);
-      return res.render('signup', {user: user, message: error.code == 11000 ? "You already have an account" : error.message });
+      if(error.code == 11000){
+        var message = "You already have an account";
+      }else{
+        var message = error.message;
+      }
+      return res.render('signup', {user: user, message: message});
     }
     req.login(user, function(error){
       if(error) return next(error);
