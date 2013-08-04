@@ -1,4 +1,4 @@
-var User = require('./../models').users
+var User = require('mongoose').model('User')
   , analytics = require('./../middlewares/analytics');
 
 exports.account = function(req, res) {
@@ -33,7 +33,12 @@ exports.create = function (req, res, next) {
       // Identify user when they create an account
       analytics.identify(user);
       // TODO: Redirect to initial route
-      res.redirect('/');
+      if(req.session.returnTo){
+        res.redirect(req.session.returnTo);
+        req.session.returnTo = null;
+      } else {
+        return res.redirect('/');
+      }
     });
   });
 };

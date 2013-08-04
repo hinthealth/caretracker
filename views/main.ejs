@@ -1,6 +1,6 @@
 <% include _header %>
-
-<div class="hamburger-container" id="hamburger-container">
+<!-- User is logged in. -->
+<div class="hamburger-container" id="hamburger-container" ng-app="caretracker">
 
   <header>
     <div class="header-left">
@@ -8,7 +8,7 @@
       <div href="/" class="button button-icon hamburger-button" title="Menu" class="icon"><span class="icon icon-hamburger"></span></div>
     </div>
     <div class="header-right">
-      <a href="/account" class="button button-icon" title="Settings"><span class="icon icon-settings"></span></a>
+      <a href="/account" class="button button-icon" title="Settings" target="_self"><span class="icon icon-settings"></span></a>
     </div>
   </header>
 
@@ -18,8 +18,7 @@
     </ul>
     <!-- TODO(healthio-dev): Care plans here. -->
     <ul ng-repeat="carePlan in carePlans">
-      <li><a href="#">Care Plan 1</a>
-      <li><a href="#">Care Plan 2</a>
+      <li><a href="/care_plans/{{carePlan._id}}">{{CarePlan.name}}</a>
     </ul>
     <ul>
       <li><a href="/care_plans/add">Add a patient</a>
@@ -27,7 +26,7 @@
   </nav>
   <div class="hamburger-mask"></div>
 
-  <div class="hamburger-main" ng-app="caretracker">
+  <div class="hamburger-main" >
 
     <!-- Add your site or application content here -->
     <div class="container" ng-view></div>

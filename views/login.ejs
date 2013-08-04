@@ -3,10 +3,18 @@
 <!-- TODO(healthio-dev): Move header/footer to a base template and add class with an argument to an extends tag. Is that possible? -->
 <div class="login-page form-page">
 
-  <% if (messages) { %>
-    <section class="messages">
-      <% messages.forEach(function(message){ %>
-        <p><%= message %>
+  <% if (messages.info) { %>
+    <section class="messages info">
+      <% messages.info.forEach(function(message){ %>
+        <p class="message"><%= message %>
+      <% }); %>
+    </section>
+  <% }; %>
+
+  <% if (messages.error) { %>
+    <section class="messages error">
+      <% messages.error.forEach(function(message){ %>
+        <p class="message"><%= message %>
       <% }); %>
     </section>
   <% }; %>

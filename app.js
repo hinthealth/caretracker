@@ -5,7 +5,7 @@ var flash = require('connect-flash');
 var express = require('express');
 
 // Initialize database and models.
-var models = require('./models');
+var db = require('./models');
 var passport = require('./config/passport');
 var routes = require('./routes');
 var lessMiddleware = require('less-middleware');
@@ -49,6 +49,8 @@ app.use(app.router);
 
 // set up our security to be enforced on all requests to secure paths
 app.all('/account', middlewares.auth.requireUser);
+app.all('/join-team*', middlewares.auth.requireUser);
+
 app.all('/api/*', middlewares.auth.requireUser);
 
 // Pages for angular
@@ -63,6 +65,9 @@ app.get('/logout', routes.sessions.destroy);
 app.get('/signup', routes.users.new);
 app.post('/signup', routes.users.create);
 app.get('/account', routes.users.account);
+
+// Accept care team invitation
+app.get('/join-team/:id', routes.care_team.join)
 
 /**********
  * JSON API, primarily for angular to interact with.
@@ -85,8 +90,8 @@ app.put('/api/care_plans/:id', api.care_plans.update);
 app.delete('/api/care_plans/:id', api.care_plans.destroy);
 
 // CarePlan Sharing (available to owner - and patient?)
-app.get('/api/care_plans/:care_plan_id/care_team', api.care_team.index);
-app.post('/api/care_plans/:care_plan_id/care_team', api.care_team.create);
+app.get('/api/care_plans/:care_plan_id/care_providers', api.care_providers.index);
+app.post('/api/care_plans/:care_plan_id/care_providers', api.care_providers.create);
 
 // app.get('/api/care_plans/:care_plan_id/care_team/:id', api.care_team.show);
 // app.delete('/api/care_plans/:care_plan_id/care_team/:id', api.care_team.destroy);
@@ -96,7 +101,7 @@ app.post('/api/care_plans/:care_plan_id/care_team', api.care_team.create);
 // app.post('/api/care_plans/:care_plan_id/invitations', api.invitations.create);
 
 
-// Enables back button
+// Needed for angular (??)
 app.get('*', routes.index);
 
 app.configure('development', function() {

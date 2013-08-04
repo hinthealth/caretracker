@@ -1,20 +1,10 @@
 var mongoose = require('mongoose')
-  , Event = mongoose.model('Event');
-
-var analytics = require('../../middlewares/analytics');
+  , Event = mongoose.model('Event')
+  , analytics = require('../../middlewares/analytics');
 exports.index = function (req, res) {
   // TODO: Scope by current user access
   Event.find({user_id: {$in: req.user.canAccess()}}, function(error, events){
     if(error) return res.json(false);
-    analytics.track({
-        userId     : req.user.id,
-        event      : 'Listing events',
-        properties : {
-          sendTo: 'zak+'+ 100+'@hlth.me',
-          numEvents: events.length,
-          specialUrl: 'localhost:3000/events/'+ '0D93P74S1QYA75'
-        }
-    });
     res.json({events: events});
   });
 };

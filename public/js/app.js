@@ -24,13 +24,13 @@ angular.module('caretracker', ['caretracker.filters', 'caretracker.services', 'c
         templateUrl: '/partials/care_plans/show',
         controller: 'ShowCarePlanCtrl'
       }).
-      when('/care_plans/:id/care_team', {
-        templateUrl: '/partials/care_team/index',
-        controller: 'IndexCareTeamCtrl'
+      when('/care_plans/:id/care_providers', {
+        templateUrl: '/partials/care_providers/index',
+        controller: 'IndexCareProvidersCtrl'
       }).
-      when('/care_plans/:id/care_team/new', {
-        templateUrl: '/partials/care_team/new',
-        controller: 'AddCareTeamCtrl'
+      when('/care_plans/:id/care_providers/new', {
+        templateUrl: '/partials/care_providers/new',
+        controller: 'AddCareProvidersCtrl'
       }).
       // when('/care_plans/:id/edit', {
       //   templateUrl: '/partials/care_plans/edit',
