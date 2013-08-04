@@ -26,7 +26,7 @@ describe("CareProvider", function(){
       CarePlan.findOne({careProviders: {$elemMatch: {inviteKey: key}}}, function(error, plan){
         plan.should.have.property('id');
         var careProvider = plan.careProviders.filter(function(elem){ return elem.inviteKey == self.careProvider.inviteKey})[0];
-        careProvider.id.should == self.careProvider.id;
+        careProvider.id.should.equal(self.careProvider.id);
         done();
       });
     });

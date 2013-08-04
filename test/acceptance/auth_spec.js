@@ -20,7 +20,7 @@ describe("visiting a link requiring authentication while not authenticated", fun
   });
 
   it("should ask you to log in first", function(){
-    this.browser.location.should == '/login'
+    this.browser.location.pathname.should.equal('/login');
     this.browser.text().should.include("Please log in");
   });
 
@@ -34,8 +34,9 @@ describe("visiting a link requiring authentication while not authenticated", fun
       pressButton('Sign in', done);
     });
 
-    it("should direct you to the page you requested", function(){
-      this.browser.location.should == '/account';
+    it("should direct you to the page you requested", function(done){
+      this.browser.location.pathname.should.equal('/account');
+      done();
     });
   });
 
@@ -44,7 +45,7 @@ describe("visiting a link requiring authentication while not authenticated", fun
       var self = this;
       this.timeout(10000);
       this.browser.clickLink("Sign up", function(){
-        self.browser.location.should == '/signup';
+        self.browser.location.pathname.should.equal('/signup');
         self.browser.
         fill('name[full]', 'Sue Zan').
         fill('email', 'suez@example.com').
@@ -53,10 +54,9 @@ describe("visiting a link requiring authentication while not authenticated", fun
         pressButton('Sign up', done);
       });
     });
-    it("should direct you to the page you requested", function(){
-      console.log(this.browser);
-      console.log(this.browser.html());
-      this.browser.location.should == '/account';
+    it("should direct you to the page you requested", function(done){
+      this.browser.location.pathname.should.equal('/account');
+      done();
     });
   });
 
@@ -79,7 +79,6 @@ describe("signing in", function(){
   });
 
   it("should email, password fields", function(){
-    console.log('this browser',this.browser.success);
     this.browser.success.should.be.ok;
     this.browser.query('input[name="email"]').should.be.ok;
     this.browser.query('input[name="password"]').should.be.ok;
