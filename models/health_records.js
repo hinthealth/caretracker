@@ -52,11 +52,14 @@ HealthRecordSchema.static('updateDirectAddress', function(directAddress){
       if(found){
         record = found;
         // Update health record attributes that could change
-        record.created = attributes.created;
+        if(record.created < attributes.created){
+          record.created = attributes.created;
+          record.data.xml = ccdaXml;
+        }
       } else {
         record = new self(attributes);
+        record.data.xml = ccdaXml;
       }
-      record.data.xml = ccdaXml;
       record.save(function(error){
         if(error) return console.log("Error saving health record", error);
         console.log("Health Records updated for "+ directAddress);
