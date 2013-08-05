@@ -36,12 +36,12 @@ exports.index = function(req, res) {
 exports.show = function(req, res, next) {
   CarePlan.accessibleTo(req.user).find({_id: req.params.care_plan_id}).findOne(function(error, carePlan) {
     if(error || !carePlan) return next(error || Error("Access denied"));
-    Schedule.findById(req.params.schedule_id)
-      .find({carePlanId: req.params.care_plan_id})
-      .exec(function(error, schedule){
+    Schedule.where('_id').equals(req.params.schedule_id)
+      .where('carePlanId').equals(req.params.care_plan_id)
+      .findOne(function(error, schedule){
       schedule.taskFor(req.params.taskStart, function(error, task){
         if(error) return next(error);
-        res.json({task: task});
+        res.json({task: task, schedule: schedule});
       })
     });
   });
@@ -53,16 +53,38 @@ exports.show = function(req, res, next) {
 exports.update = function(req, res, next) {
   CarePlan.accessibleTo(req.user).find({_id: req.params.care_plan_id}).findOne(function(error, carePlan) {
     if(error || !carePlan) return next(error || Error("Access denied"));
-    Schedule.findById(req.params.schedule_id)
-      .find({carePlanId: req.params.care_plan_id})
-      .exec(function(error, schedule){
+    Schedule.where('_id').equals(req.params.schedule_id)
+      .where('carePlanId').equals(req.params.care_plan_id)
+      .findOne(function(error, schedule){
       schedule.taskFor(req.params.taskStart, function(error, task){
         if(error) return next(error);
-        if(req.body.completed) { task.markCompleted(req.user) };
+        task.name = req.body.name;
         task.content = req.body.content;
         task.save(function(error){
           if(error) return next(error);
-          res.json({task: task});
+          res.json(true);
+        });
+      })
+    });
+  });
+};
+
+/**
+ * Completes a task.
+ */
+exports.toggle = function(req, res, next) {
+  CarePlan.accessibleTo(req.user).find({_id: req.params.care_plan_id}).findOne(function(error, carePlan) {
+    if(error || !carePlan) return next(error || Error("Access denied"));
+    Schedule.where('_id').equals(req.params.schedule_id)
+      .where('carePlanId').equals(req.params.care_plan_id)
+      .findOne(function(error, schedule){
+
+      schedule.taskFor(req.params.taskStart, function(error, task){
+        if(error) return next(error);
+        task.toggleCompleted(req.user);
+        task.save(function(error){
+          if(error) return next(error);
+          res.json(true);
         });
       })
     });

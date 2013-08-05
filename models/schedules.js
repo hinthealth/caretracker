@@ -27,8 +27,8 @@ ScheduleSchema.methods.tasksBetween = function(startBoundary, endBoundary, callb
 
   if(this.frequency){
     // Use maths to figure out where our timing should start within this period
-    var periodsSinceStart = (startBoundary - this.start) / this.frequency
-    var start = Math.ceil(periodsSinceStart) * this.frequency + this.start
+    var periodsSinceStart = (startBoundary - this.start) / (this.frequency * 1000);
+    var start = Math.ceil(periodsSinceStart) * this.frequency * 1000 + this.start
     while (start < endBoundary) {
       startTimesToTasks[start] = new Task({
         name: this.name,
@@ -47,10 +47,11 @@ ScheduleSchema.methods.tasksBetween = function(startBoundary, endBoundary, callb
   }
 
   // Clobber map with persistent tasks.
-  Task.where('carePlanId').equals(this.carePlanId)
+  Task.where('scheduleId').equals(this.id)
       .where('start').gt(startBoundary).lte(endBoundary)
       .exec(function(err, foundTasks) {
     if (err) { return callback(err); }
+    console.log("found", foundTasks);
     foundTasks.forEach(function(task) {
       startTimesToTasks[task.start] = task;
     });
@@ -83,7 +84,7 @@ ScheduleSchema.methods.taskFor = function(startTime, next){
   }
 
   // First look it up
-  Task.where('scheduleId').equals(this.scheduleId)
+  Task.where('scheduleId').equals(this.id)
   .where('start').equals(startTime).findOne(function(error, task){
     if(error) return next(error);
     // Return if we find it.

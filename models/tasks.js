@@ -25,7 +25,30 @@ var TaskSchema = new Schema({
   start: Number, // Primary key: start + scheduleId
   scheduleId: ObjectId,
   name: String,
+  note: String,
   completed: UserAction.schema.tree,
   comments: [Comment.schema]
 });
+
+TaskSchema.methods.toggleCompleted = function(user){
+  if(this.completed.at){
+    this.unmarkCompleted();
+  }else{
+    this.markCompleted(user);
+  }
+};
+TaskSchema.methods.unmarkCompleted = function(){
+  this.completed = {};
+  this.markModified('completed.at');
+  this.markModified('completed.userId');
+  this.markModified('completed.name');
+};
+TaskSchema.methods.markCompleted = function(user){
+  this.completed.at = new Date();
+  this.completed.userId = user.id;
+  this.completed.name = user.name.full;
+  this.markModified('completed.at');
+  this.markModified('completed.userId');
+  this.markModified('completed.name');
+};
 mongoose.model('Task', TaskSchema);
