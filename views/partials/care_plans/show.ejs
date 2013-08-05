@@ -11,7 +11,7 @@
     <div class="image"></div>
   </div>
   <div class="name">
-    <h2>{{carePlan.name}}</h2>
+    <h2>{{carePlan.patient.name}}</h2>
   </div>
 </section>
 
@@ -28,7 +28,7 @@
   </section>
   <ul class="tasks">
     <li ng-repeat="task in tasks">
-      <div class="checkmark" ng-class="{task.completedAt:'checked'}" ng-click="toggleCompleted()"></div>
+      <div class="checkmark" ng-class="{task.completed.at:'checked'}" ng-click="toggleCompleted()"></div>
       <div class="icon-avatar"></div>
       <div class="content">
         <span class="time">{{task.start | date:'shortTime'}}</span>

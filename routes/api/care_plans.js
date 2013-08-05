@@ -37,9 +37,8 @@ exports.update = function (req, res) {
     if(carePlan.ownerId == req.user.id){
       // Allow elevated access, like managing the careteam
     }
-    carePlan.name = req.body.name;
-    // TODO: Enable some actual photo abilities
-    carePlan.photo = req.body.photo;
+    carePlan.patient.name = req.body.patient.name;
+
     carePlan.save(function(error){
       if(error) return res.json({error: error});
       res.json({carePlan: carePlan});

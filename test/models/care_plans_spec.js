@@ -15,7 +15,7 @@ describe("CarePlan", function(){
 
   beforeEach(function(){
     // TODO: Involve some kind of factory obj generation?
-    this.carePlan = new CarePlan({ownerId: new User().id});
+    this.carePlan = new CarePlan({ownerId: new User().id, patient: {name: 'That guy'}});
   });
   describe("validations", function(){
     it("default plan should be valid", function(done){

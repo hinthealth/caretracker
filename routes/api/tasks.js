@@ -39,7 +39,7 @@ exports.show = function(req, res, next) {
     Schedule.findById(req.params.schedule_id)
       .find({carePlanId: req.params.care_plan_id})
       .exec(function(error, schedule){
-      Schedule.taskFor(req.params.taskStart, function(error, task){
+      schedule.taskFor(req.params.taskStart, function(error, task){
         if(error) return next(error);
         res.json({task: task});
       })

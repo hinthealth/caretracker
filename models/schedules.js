@@ -11,39 +11,13 @@ var ScheduleSchema = new Schema({
   frequency: {type: Number, default: 0}  // Frequency in seconds.
 });
 
-
-/**
- * Returns a task for the time given
- * @param {number} startTime The start time of the task
- */
-ScheduleSchema.methods.taskFor = function(startTime, next){
-  // First look it up
-  if(startTime < this.start) next(Error("Task cannot start before the schedule"));
-  if(this.end && startTime > this.end) next(Error("Task cannot end after the schedule"));
-  if(frequency && ((this.start - startTime) % this.frequency != 0)) next(Error("Task start time invalid for schedule"));
-
-  Task.where('scheduleId').equals(this.scheduleId)
-  .where('start').equals(startTime).findOne(function(error, task){
-    if(error) return next(error);
-    if(task) return next(null, task);
-    next(null,
-      new Task({
-        name: this.name,
-        scheduleId: this.id,
-        start: startTime
-      })
-    );
-  });
-}
-
 /**
  * Returns a set of tasks generated from a schedule, given a time range.
  * @param {number} startBoundary Start time.
  * @param {number} endBoundary End time.
  * @param {function(<Array.Task>)} callback Callback for found tasks.
  */
-ScheduleSchema.methods.tasksBetween =
-    function(startBoundary, endBoundary, callback) {
+ScheduleSchema.methods.tasksBetween = function(startBoundary, endBoundary, callback) {
   if (startBoundary > endBoundary) {
     return callback(Error('startBoundary must be less than endBoundary.'))
   }
@@ -89,6 +63,39 @@ ScheduleSchema.methods.tasksBetween =
       tasks.push(startTimesToTasks[startTime]);
     })
     callback(null, tasks);
+  });
+};
+
+/**
+ * Returns a task for the time given
+ * @param {number} startTime The start time of the task
+ */
+ScheduleSchema.methods.taskFor = function(startTime, next){
+  var self = this;
+  if(startTime < this.start){
+    return next(Error("Task cannot start before the schedule"));
+  }
+  if(this.end && startTime > this.end){
+    return next(Error("Task cannot end after the schedule"));
+  }
+  if(this.frequency && ((this.start - startTime) % this.frequency != 0)){
+    return next(Error("Task start time invalid for schedule"));
+  }
+
+  // First look it up
+  Task.where('scheduleId').equals(this.scheduleId)
+  .where('start').equals(startTime).findOne(function(error, task){
+    if(error) return next(error);
+    // Return if we find it.
+    if(task) return next(null, task);
+    // Otherwise generate a new one.
+    next(null,
+      new Task({
+        name: self.name,
+        scheduleId: self.id,
+        start: startTime
+      })
+    );
   });
 };
 
