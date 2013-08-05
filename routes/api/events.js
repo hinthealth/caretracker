@@ -4,7 +4,7 @@ var mongoose = require('mongoose')
 
 exports.index = function (req, res) {
   // TODO: Scope by current user access
-  Event.find({user_id: {$in: req.user.canAccess()}}, function(error, events){
+  Event.find({user_id: {$in: [req.user.id]}}, function(error, events){
     if(error) return res.json(false);
     res.json({events: events});
   });
