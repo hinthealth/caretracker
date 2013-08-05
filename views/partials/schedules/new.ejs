@@ -1,5 +1,19 @@
 <div class="form-page">
   <section class="main">
     <h2>Add a Schedule</h2>
+    <div>
+      <label for="name">Frequency (seconds)</label>
+      <input type="text" name="frequency" ng-model="form.frequency">
+    </div>
+    <div>
+      <label for="name">Start (unix timestamp)</label>
+      <input type="text" name="start" ng-model="form.start">
+    </div>
+    <div>
+      <label for="name">End (unix timestamp)</label>
+      <input type="text" name="end" ng-model="form.end">
+    </div>
+    <p>
+      <button ng-click="createSchedule()" class="button">Create schedule</button>
   </section>
 </div>

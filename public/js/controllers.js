@@ -71,10 +71,9 @@ angular.module('caretracker.controllers', []).
   controller('AddEventCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
     $scope.form = {};
     $scope.createEvent = function () {
-      $http.post('/api/events', $scope.form).
-        success(function(data) {
-          $location.path('/events');
-        });
+      $http.post('/api/events', $scope.form).success(function(data) {
+        $location.path('/events');
+      });
     };
   }]).
   controller('ShowEventCtrl', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams){
@@ -124,10 +123,18 @@ angular.module('caretracker.controllers', []).
 
   }]).
 
-
-  controller('AddSchedulesCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
+  controller('AddSchedulesCtrl', ['$scope', '$http', '$location', '$routeParams', function($scope, $http, $location, $routeParams) {
     $scope.form = {};
     $scope.createSchedule = function() {
-      // TODO(healthio-dev): Implement me.
+      var path = '/api/care_plans/' + $routeParams.id + '/schedules';
+      $http.post(path, $scope.form).success(function(data) {
+        $location.path('/care_plans/' + $routeParams.id +
+            '/schedules/' + data.schedule._id + '/finished');
+      });
     };
+  }]).
+  controller('ShowScheduleCtrl', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
+    $http.get('/api/care_plans/' + $routeParams.id).success(function(data) {
+      $scope.carePlan = data.carePlan;
+    });
   }]);
