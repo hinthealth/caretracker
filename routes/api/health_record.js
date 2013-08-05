@@ -12,7 +12,6 @@ exports.show = function(req, res) {
     });
     carePlan.healthRecord(function(error, healthRecord){
       if(error) return next(error);
-      console.log("got record:", healthRecord);
       res.json({carePlan: carePlan, healthRecord: healthRecord});
     });
   });
