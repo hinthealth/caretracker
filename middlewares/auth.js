@@ -9,7 +9,8 @@ exports.requireUser = function (req, res, next) {
   res.format({
     html: function(){
       req.flash('info', 'Please log in.');
-      req.session.returnTo = req.url;
+      // Prevent subsequent calls from messing up the original.
+      if(!req.session.returnTo) req.session.returnTo = req.url;
       res.redirect('/login');
     },
     json: function(){

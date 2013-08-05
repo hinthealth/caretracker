@@ -2,6 +2,14 @@
 
 /* Controllers */
 angular.module('caretracker.controllers', []).
+  // MenuController
+  controller('MenuController', ['$scope', '$http', function($scope, $http){
+    $http.get('/api/care_plans').
+      success(function(data, status, headers, config) {
+        $scope.carePlans = data.carePlans;
+      });
+  }]).
+
   // CarePlan Controllers
   controller('IndexCarePlansCtrl', ['$scope', '$http', function($scope, $http){
     $http.get('/api/care_plans').success(function(data) {

@@ -4,15 +4,15 @@ var mongoose = require('mongoose')
   , User = mongoose.model('User')
   , analytics = require('../../middlewares/analytics');
 
-// GET care_plans/
+// GET care_plan/ID/care_providers
 exports.index = function (req, res) {
-  // TODO: Scope by current user access
   CarePlan.accessibleTo(req.user).find({_id: req.params.care_plan_id}).findOne(function(error, carePlan){
     if(error) return res.json(false);
     res.json({carePlan: carePlan});
   });
 };
 
+// POST care_plan/ID/care_providers
 exports.create = function (req, res) {
   var newCareProvider = new CareProvider({
     name: req.body.name,
