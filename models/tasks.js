@@ -22,8 +22,8 @@ var Comment = mongoose.model('Comment', CommentSchema);
 */
 
 var TaskSchema = new Schema({
-  eventId: ObjectId,
-  start: Number,
+  start: Number, // Primary key: start + scheduleId
+  scheduleId: ObjectId,
   name: String,
   completed: UserAction.schema.tree,
   comments: [Comment.schema]

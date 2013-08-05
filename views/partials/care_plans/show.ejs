@@ -18,7 +18,7 @@
 <section class="main">
   <p>Direct Address: {{carePlan.directAddress}}
   <div>
-    <a href="/care_plans/{{carePlan._id}}/schedules/new" class="button">Add tasks</a>
+    <a href="/care_plans/{{carePlan._id}}/schedules/new" class="button">+ Add new task</a>
   </div>
 </section>
 
@@ -28,10 +28,13 @@
   </section>
   <ul class="tasks">
     <li ng-repeat="task in tasks">
-      <div class="checkmark" ng-class="{task.completedAt:'checked'}"></div>
+      <div class="checkmark" ng-class="{task.completedAt:'checked'}" ng-click="toggleCompleted()"></div>
       <div class="icon-avatar"></div>
       <div class="content">
-        <a href="">{{task.name}}</a>
+        <span class="time">{{task.start | date:'shortTime'}}</span>
+        <a href="/care_plans/{{carePlan._id}}/schedules/{{task.scheduleId}}/tasks/{{task.start}}">
+          {{task.name}}
+        </a>
       </div>
   </ul>
 </section>

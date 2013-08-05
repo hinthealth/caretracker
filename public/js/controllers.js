@@ -45,7 +45,7 @@ angular.module('caretracker.controllers', []).
       $scope.formattedDay = current.format('dddd, MMMM Do');
       if(current.isSame(moment(), 'day')){
         // Special code for "today"
-        $scope.formattedDay = "Today " + $scope.formattedDay;
+        $scope.formattedDay = "Today, " + $scope.formattedDay;
       }
       $scope.tasks = data.tasks;
       $scope.carePlan = data.carePlan;
@@ -96,20 +96,6 @@ angular.module('caretracker.controllers', []).
         $scope.event = data.event;
       });
   }]).
-  controller('EditEventCtrl', ['$scope', '$http', '$location', '$routeParams', function($scope, $http, $location, $routeParams){
-    $scope.form = {};
-    $http.get('/api/events/' + $routeParams.id).
-      success(function(data) {
-        $scope.form = data.event;
-      });
-
-    $scope.editEvent = function () {
-      $http.put('/api/events/' + $routeParams.id, $scope.form).
-        success(function(data) {
-          $location.url('/events/' + $routeParams.id);
-        });
-    };
-  }]).
   controller('DeleteEventCtrl', ['$scope', '$http', '$location', '$routeParams', function($scope, $http, $location, $routeParams){
     $http.get('/api/events/' + $routeParams.id).
       success(function(data) {
@@ -137,6 +123,7 @@ angular.module('caretracker.controllers', []).
 
   }]).
 
+  // Schedules Controllers
   controller('AddSchedulesCtrl', ['$scope', '$http', '$location', '$routeParams', function($scope, $http, $location, $routeParams) {
     $scope.form = {start: new Date().getTime()};
     $scope.createSchedule = function() {
@@ -151,4 +138,22 @@ angular.module('caretracker.controllers', []).
     $http.get('/api/care_plans/' + $routeParams.id).success(function(data) {
       $scope.carePlan = data.carePlan;
     });
+  }]).
+    // Tasks Controllers
+  controller('EditTasksCtrl', ['$scope', '$http', '$location', '$routeParams', function($scope, $http, $location, $routeParams){
+    var baseUrl = '/api/care_plans/'+ $routeParams.carePlanId
+                + '/schedules/' + $routeParams.scheduleId
+                + '/tasks/';
+    $scope.form = {};
+    $http.get(baseUrl + $routeParams.id).
+      success(function(data) {
+        $scope.form = data.task;
+      });
+
+    $scope.saveTask = function () {
+      $http.put(baseUrl + $routeParams.id, $scope.form).
+        success(function(data) {
+          $location.url('/care_plans/', $routeParams.carePlanId);
+        });
+    };
   }]);

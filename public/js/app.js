@@ -35,9 +35,13 @@ angular.module('caretracker', ['caretracker.filters', 'caretracker.services', 'c
         templateUrl: '/partials/schedules/new',
         controller: 'AddSchedulesCtrl'
       }).
-      when('/care_plans/:id/schedules/:schedule_id/finished', {
-        templateUrl: '/partials/care_plans/create_finished',
-        controller: 'ShowScheduleCtrl'
+      when('/care_plans/:carePlanId/schedules/:scheduleId/tasks/:id', {
+        templateUrl: '/partials/tasks/edit',
+        controller: 'EditTasksCtrl'
+      }).
+      when('/care_plans/:id/schedules', {
+        templateUrl: '/partials/schedules/edit',
+        controller: 'EditScheduleCtrl'
       }).
       // when('/care_plans/:id/edit', {
       //   templateUrl: '/partials/care_plans/edit',

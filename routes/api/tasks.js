@@ -30,12 +30,41 @@ exports.index = function(req, res) {
   });
 };
 
-
+/**
+ * Gets a specific task.
+ */
+exports.show = function(req, res, next) {
+  CarePlan.accessibleTo(req.user).find({_id: req.params.care_plan_id}).findOne(function(error, carePlan) {
+    if(error || !carePlan) return next(error || Error("Access denied"));
+    Schedule.findById(req.params.schedule_id)
+      .find({carePlanId: req.params.care_plan_id})
+      .exec(function(error, schedule){
+      Schedule.taskFor(req.params.taskStart, function(error, task){
+        if(error) return next(error);
+        res.json({task: task});
+      })
+    });
+  });
+};
 
 /**
  * Updates a specific task.
  */
-exports.update = function(req, res) {
-  // TODO(healthio-dev): Permissions.
-  // TODO(healthio-dev): Implement.
+exports.update = function(req, res, next) {
+  CarePlan.accessibleTo(req.user).find({_id: req.params.care_plan_id}).findOne(function(error, carePlan) {
+    if(error || !carePlan) return next(error || Error("Access denied"));
+    Schedule.findById(req.params.schedule_id)
+      .find({carePlanId: req.params.care_plan_id})
+      .exec(function(error, schedule){
+      schedule.taskFor(req.params.taskStart, function(error, task){
+        if(error) return next(error);
+        if(req.body.completed) { task.markCompleted(req.user) };
+        task.content = req.body.content;
+        task.save(function(error){
+          if(error) return next(error);
+          res.json({task: task});
+        });
+      })
+    });
+  });
 };

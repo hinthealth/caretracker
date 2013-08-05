@@ -13,6 +13,30 @@ var ScheduleSchema = new Schema({
 
 
 /**
+ * Returns a task for the time given
+ * @param {number} startTime The start time of the task
+ */
+ScheduleSchema.methods.taskFor = function(startTime, next){
+  // First look it up
+  if(startTime < this.start) next(Error("Task cannot start before the schedule"));
+  if(this.end && startTime > this.end) next(Error("Task cannot end after the schedule"));
+  if(frequency && ((this.start - startTime) % this.frequency != 0)) next(Error("Task start time invalid for schedule"));
+
+  Task.where('scheduleId').equals(this.scheduleId)
+  .where('start').equals(startTime).findOne(function(error, task){
+    if(error) return next(error);
+    if(task) return next(null, task);
+    next(null,
+      new Task({
+        name: this.name,
+        scheduleId: this.id,
+        start: startTime
+      })
+    );
+  });
+}
+
+/**
  * Returns a set of tasks generated from a schedule, given a time range.
  * @param {number} startBoundary Start time.
  * @param {number} endBoundary End time.
@@ -34,7 +58,7 @@ ScheduleSchema.methods.tasksBetween =
     while (start < endBoundary) {
       startTimesToTasks[start] = new Task({
         name: this.name,
-        carePlanId: this.carePlanId,
+        scheduleId: this.id,
         start: start
       });
       start += this.frequency * 1000; // It's all milliseconds

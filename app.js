@@ -109,7 +109,8 @@ app.delete('/api/care_plans/:care_plan_id/schedules/:id', api.schedules.destroy)
 
 // CarePlan tasks.
 app.get('/api/care_plans/:care_plan_id/tasks', api.tasks.index);
-app.put('/api/care_plans/:care_plan_id/tasks/:id', api.tasks.update);
+app.get('/api/care_plans/:care_plan_id/schedules/:schedule_id/tasks/:taskStart', api.tasks.show);
+app.put('/api/care_plans/:care_plan_id/schedules/:schedule_id/tasks/:taskStart', api.tasks.update);
 
 // app.get('/api/care_plans/:care_plan_id/care_team/:id', api.care_team.show);
 // app.delete('/api/care_plans/:care_plan_id/care_team/:id', api.care_team.destroy);
