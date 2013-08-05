@@ -26,6 +26,25 @@ exports.create = function (req, res) {
   req.body.ownerId = req.user.id;
   CarePlan.create(req.body, function(error, carePlan){
     if(error) return res.json(false);
+
+    if(carePlan.patient.email){
+      // Send patient invite
+      analytics.track({
+        userId     : req.user.id,
+        event      : 'Patient Invitation Created',
+        properties : {
+          sendEmail: true,
+          fromFirstName: req.user.name.first,
+          fromLastName: req.user.name.first,
+          fromEmail: req.user.email,
+          toName: carePlan.patient.name,
+          toEamil: carePlan.patient.email,
+          inviteKey: carePlan.patient.invitePath,
+          inviteUrl: carePlan.invitePatientUrl(req.headers.host)
+        }
+      });
+
+    }
     res.json({carePlan: carePlan});
   });
 };
