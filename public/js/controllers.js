@@ -114,6 +114,17 @@ angular.module('caretracker.controllers', []).
       $location.url('/');
     };
   }]).
+  controller('ShowHealthRecordCtrl', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams){
+    $http.get('/api/care_plans/' + $routeParams.id + '/health_record').
+      success(function(data) {
+        $scope.carePlan = data.carePlan;
+        $scope.demographics = data.healthRecord.data.demographics;
+        $scope.medications = data.healthRecord.data.medications;
+      });
+
+  }]).
+
+
   controller('AddSchedulesCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
     $scope.form = {};
     $scope.createSchedule = function() {

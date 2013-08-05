@@ -1,5 +1,6 @@
 var mongoose      = require('mongoose')
   , CareProvider  = mongoose.model('CareProvider')
+  , HealthRecord  = mongoose.model('HealthRecord')
   , Schedule      = mongoose.model('Schedule')
   , Schema        = mongoose.Schema
   , ObjectId      = Schema.Types.ObjectId
@@ -63,5 +64,8 @@ CarePlanSchema.methods.findTasks =
   });
 };
 
+CarePlanSchema.methods.healthRecord = function(done){
+  HealthRecord.findOne({direct_address: this.directAddress}).sort('-created').exec(done);
+};
 
 mongoose.model('CarePlan', CarePlanSchema);

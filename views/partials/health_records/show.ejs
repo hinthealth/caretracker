@@ -1,0 +1,38 @@
+<section class="navbar">
+  <ul>
+    <li><a href="/care_plans/{{carePlan._id}}">Journal</a></li>
+    <li><a href="/care_plans/{{carePlan._id}}/care_providers">Care Team</a></li>
+    <li class="active"><a href="/care_plans/{{carePlan._id}}/health_record">Health Record</a></li>
+  </ul>
+</section>
+
+<section class="title">
+  <div class="avatar">
+    <div class="image"></div>
+  </div>
+  <div class="name">
+    <h2>{{carePlan.name}}</h2>
+  </div>
+</section>
+<section class="demograhics">
+  <dl>
+    <dd>Date of Birth</dd>
+    <dt>{{demographics.dob}}</dt>
+    <dd>Gender</dd>
+    <dt>{{demographics.gender}}</dt>
+    <dd>Marital Status</dd>
+    <dt>{{demographics.marital_status}}</dt>
+  </dl>
+</section>
+<section class="medications">
+  <ng:switch on="!!medications.length">
+    <div ng:switch-when="true">
+      <li ng-repeat="medication in medications">
+        {{medication.dose_quantity.value}} {{medication.dose_quantity.unit}} {{medication.product.name}}
+      </li>
+    </div>
+    <div ng:switch-when="false">
+      No medications listed.
+    </div>
+  </ng:switch>
+</section>

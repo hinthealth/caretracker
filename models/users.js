@@ -74,46 +74,6 @@ var matches_confirmation = [function(value){
     }
   }, "Passwords do not match"];
 
-
-UserSchema.methods.directAddress = function(){
-  return this.email.replace(/@.+$/,'') + '@direct.gohint.com';
-};
-
-// TODO - Move this elsewhere?
-var HealthStore = require("./../lib/ccda_service");
-UserSchema.methods.updateHealthRecords = function(){
-  var self = this;
-  var directAddress = self.directAddress();
-  if(!directAddress) return "No email";
-  var store = new HealthStore({directAddress: directAddress});
-  store.retrieveAll(function(error, attributes, ccdaXml){
-    HealthRecord.findOne({direct_address: directAddress, key: attributes.key}).exec(function(error, found){
-      var record = null;
-      if(found){
-        record = found;
-        // Update health record attributes that could change
-        record.created = attributes.created;
-      } else {
-        record = new HealthRecord(attributes);
-      }
-      record.data.xml = ccdaXml;
-      record.save(function(error){
-        if(error) return console.log("Error saving health record", error);
-        console.log("Health Records updated for "+ directAddress);
-      });
-    });
-  });
-};
-
-UserSchema.methods.healthRecord = function(done){
-  HealthRecord.findOne({direct_address: this.directAddress()}).sort('-created').exec(done);
-};
-
-UserSchema.methods.canAccess = function(){
-  return [this.id];
-};
-
-
 // Password verification
 UserSchema.methods.comparePassword = function(candidatePassword, done) {
   Bcrypt.compare(candidatePassword, this.passwordHash, function(err, isMatch) {
