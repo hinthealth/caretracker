@@ -23,20 +23,27 @@ $('.hamburger-button').click(function() {
     duration: 300
   });
 });
+Hamburger = {}
+Hamburger.close = function(){
+  $('.hamburger-container').unbind('touchmove');
+  $('.hamburger-container').animate({'marginLeft': ['0']}, {
+      duration: 300,
+      complete: function() {
+          $('.hamburger-menu').css('display', 'none');
+          $('.hamburger-main').css('width', 'auto');
+          $('.hamburger-mask').css('display', 'none');
+      }
+  });
+}
+
+
+/**
+ * Closes when a menu item is clicked
+ */
+$('.hamburger-menu').on('click', 'a', Hamburger.close);
 
 
 /**
  * Closes the menu when the mask is clicked.
  */
-$('.hamburger-mask').click(function() {
-    $('.hamburger-container').unbind('touchmove');
-    //set margin for the whole container back to original state with a jquery UI animation
-    $('.hamburger-container').animate({'marginLeft': ['0']}, {
-        duration: 300,
-        complete: function() {
-            $('.hamburger-menu').css('display', 'none');
-            $('.hamburger-main').css('width', 'auto');
-            $('.hamburger-mask').css('display', 'none');
-        }
-    });
-});
+$('.hamburger-mask').click(Hamburger.close);

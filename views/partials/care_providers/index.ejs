@@ -17,15 +17,15 @@
       <ul ng-repeat="careProvider in careProviders">
         <li class="care-provider">
           <p>
-            <strong> {{careProvider.name}}</strong>
+            <strong> {{careProvider.name}}</strong> <a href="mailto:{{careProvider.email}}">{{careProvider.email}}</a> -
+            <span ng-show="careProvider.inviteKey">
+              (<a href="/join-team/{{careProvider.inviteKey}}" target="_self" >Pending</a>)
+            </span>
+            <span ng-show="!careProvider.inviteKey">
+              (Accepted)
+            </span>
           </p>
           <span> {{careProvider.relation}} </span>
-          <span ng-show="careProvider.inviteKey">
-            (<a href="/join-team/{{careProvider.inviteKey}}" target="_self" >Pending</a>)
-          </span>
-          <span ng-show="!careProvider.inviteKey">
-            (Accepted)
-          </span>
         </li>
       </ul>
     </div>
