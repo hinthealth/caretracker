@@ -30,19 +30,25 @@ angular.module('caretracker.controllers', []).
   }]).
   controller('ShowCarePlanCtrl', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
     // By default, get today's tasks.
-    var start = new Date();
-    start.setDate(start.getDate() - 1);
-    var end = new Date();
-    end.setDate(start.getDate() + 1);
+    var current = moment();
+    var start = moment(current).startOf('day');
+    var end = moment(current).endOf('day');
 
-    $http.get('/api/care_plans/' + $routeParams.id).success(function(data) {
-      $scope.carePlan = data.carePlan;
-    });
+    // $http.get('/api/care_plans/' + $routeParams.id).success(function(data) {
+    //   $scope.carePlan = data.carePlan;
+    // });
     $http.get('/api/care_plans/' + $routeParams.id + '/tasks', {
-      params: {start: start.getTime(), end: end.getTime()}
+      params: {start: start.valueOf(), end: end.valueOf()}
     }).success(
           function(data) {
+
+      $scope.formattedDay = current.format('dddd, MMMM Do');
+      if(current.isSame(moment(), 'day')){
+        // Special code for "today"
+        $scope.formattedDay = "Today " + $scope.formattedDay;
+      }
       $scope.tasks = data.tasks;
+      $scope.carePlan = data.carePlan;
     });
   }]).
 
@@ -132,7 +138,7 @@ angular.module('caretracker.controllers', []).
   }]).
 
   controller('AddSchedulesCtrl', ['$scope', '$http', '$location', '$routeParams', function($scope, $http, $location, $routeParams) {
-    $scope.form = {};
+    $scope.form = {start: new Date().getTime()};
     $scope.createSchedule = function() {
       var path = '/api/care_plans/' + $routeParams.id + '/schedules';
       $http.post(path, $scope.form).success(function(data) {

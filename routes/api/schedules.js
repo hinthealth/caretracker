@@ -30,16 +30,17 @@ exports.show = function(req, res) {
 /**
  * Creates a new schedule.
  */
-exports.create = function(req, res) {
+exports.create = function(req, res, next) {
   // TODO(healthio-dev): Permissions.
   var schedule = new Schedule({
     carePlanId: req.params.care_plan_id,
     end: req.body.end,
     frequency: req.body.frequency,
+    name: req.body.name,
     start: req.body.start
   });
   schedule.save(function(error, schedule) {
-    if (error) { return res.json(false); }
+    if (error) { return next(error); }
     res.json({schedule: schedule});
   });
 };

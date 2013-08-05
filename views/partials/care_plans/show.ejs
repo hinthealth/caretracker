@@ -18,20 +18,20 @@
 <section class="main">
   <p>Direct Address: {{carePlan.directAddress}}
   <div>
-    <a href="/care_plans/{{carePlan._id}}/schedules/new" class="button">Add new schedule</a>
+    <a href="/care_plans/{{carePlan._id}}/schedules/new" class="button">Add tasks</a>
   </div>
 </section>
 
 <section class="timeline">
   <section class="timeline-day">
-    Today, Saturday, August 3rd
+    {{formattedDay}}
   </section>
   <ul class="tasks">
     <li ng-repeat="task in tasks">
       <div class="checkmark" ng-class="{task.completedAt:'checked'}"></div>
       <div class="icon-avatar"></div>
       <div class="content">
-        <a href="">Task name</a>
+        <a href="">{{task.name}}</a>
       </div>
   </ul>
 </section>

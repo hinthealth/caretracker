@@ -41,9 +41,15 @@ app.use('/public', lessMiddleware({
     src: path.join(__dirname, '/public'),
     compress: true
 }));
+
 app.use('/public', express.static(path.join(__dirname, '/public')));
 
-app.use('/zxcvbn', express.static('node_modules/zxcvbn'));
+app.get('/public/js/lib/zxcvbn-async.js',function(req,res) {
+  res.sendfile(path.join(__dirname,'node_modules','zxcvbn','zxcvbn-async.js'));
+});
+app.get('/public/js/lib/moment.js',function(req,res) {
+  res.sendfile(path.join(__dirname,'node_modules','moment','min','moment.min.js'));
+});
 
 // Route!
 app.use(app.router);

@@ -10,7 +10,7 @@
   <% }; %>
 
   <section class="main">
-    <script src="/zxcvbn/zxcvbn-async.js"></script>
+    <script src="/public/js/lib/zxcvbn-async.js"></script>
     <form action="/signup" method="post">
       <div>
         <input type="text" required name="name[full]" value="<%= user.name.full || '' %>" placeholder="Full name" autofocus>

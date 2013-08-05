@@ -3,20 +3,29 @@ var CarePlan = mongoose.model('CarePlan');
 var Schedule = mongoose.model('Schedule');
 var Task = mongoose.model('Task');
 
-
 /**
  * Lists tasks within a time boundary.
  */
 exports.index = function(req, res) {
+  var d = new Date();
+  d.setHours(0); d.setMinutes(0); d.setSeconds(0); d.setMilliseconds(0);
+
+  var beginningOfToday = new Date(d);
+  d.setHours(24);
+  var endOfToday = new Date(d);
+
+  var start = req.query.start || beginningOfToday.valueOf();
+  var end = req.query.start || endOfToday.valueOf();
   // TODO(healthio-dev): Permissions.
-  CarePlan.findById(req.params.care_plan_id, function(error, carePlan) {
+  CarePlan.accessibleTo(req.user).find({_id: req.params.care_plan_id}).findOne(function(error, carePlan) {
     // TODO(healthio-dev): Issue a 400 when start/end are not present.
-    if (error || !req.query.start || !req.query.end) {
-      return res.json(false);
+    if (error) {
+      return res.json({error: error.message}, 400);
     }
     carePlan.findTasks(parseInt(req.query.start), parseInt(req.query.end),
-        function(tasks) {
-      res.json({tasks: tasks});
+        function(error, tasks) {
+      if(error){ return res.json({error: error.message}, 400); }
+      res.json({tasks: tasks, carePlan: carePlan});
     });
   });
 };

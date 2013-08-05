@@ -5,9 +5,10 @@ var mongoose  = require('mongoose')
 
 var ScheduleSchema = new Schema({
   carePlanId: ObjectId,
+  name: {type: String, required: true},
+  start: {type: Number, required: true}, // <-- Date is a valid database type?
   end: Number,
-  frequency: Number,  // Frequency in seconds.
-  start: Number
+  frequency: {type: Number, default: 0}  // Frequency in seconds.
 });
 
 
@@ -17,44 +18,53 @@ var ScheduleSchema = new Schema({
  * @param {number} endBoundary End time.
  * @param {function(<Array.Task>)} callback Callback for found tasks.
  */
-ScheduleSchema.methods.findTasks =
+ScheduleSchema.methods.tasksBetween =
     function(startBoundary, endBoundary, callback) {
   if (startBoundary > endBoundary) {
-    throw 'startBoundary must be less than endBoundary.';
-  }
-  // TODO(healthio-dev): Raise an error here due to bad data.
-  if (!this.frequency) {
-    return [];
+    return callback(Error('startBoundary must be less than endBoundary.'))
   }
 
   // Map start times to generated tasks.
   var startTimesToTasks = {};
-  var start = startBoundary;
-  while (start < endBoundary) {
-    startTimesToTasks[start] = new Task({
+
+  if(this.frequency){
+    // Use maths to figure out where our timing should start within this period
+    var periodsSinceStart = (startBoundary - this.start) / this.frequency
+    var start = Math.ceil(periodsSinceStart) * this.frequency + this.start
+    while (start < endBoundary) {
+      startTimesToTasks[start] = new Task({
+        name: this.name,
+        carePlanId: this.carePlanId,
+        start: start
+      });
+      start += this.frequency * 1000; // It's all milliseconds
+    }
+  }else if(this.start >= startBoundary && this.start < endBoundary){
+    // A frequency of 0 (or any false value) indicates a 1 time task
+    startTimesToTasks[this.start] = new Task({
+      name: this.name,
       carePlanId: this.carePlanId,
-      start: start
+      start: this.start
     });
-    start += this.frequency;
   }
 
   // Clobber map with persistent tasks.
   Task.where('carePlanId').equals(this.carePlanId)
-      .where('start').gte(startBoundary)
-      .where('end').lte(endBoundary)
+      .where('start').gt(startBoundary).lte(endBoundary)
       .exec(function(err, foundTasks) {
-    if (err) { throw err; }
+    if (err) { return callback(err); }
     foundTasks.forEach(function(task) {
       startTimesToTasks[task.start] = task;
     });
-
     // Convert the task mapping to an array sorted by start time.
     // TODO(healthio-dev): Sort this.
     var tasks = [];
-    for (startTime in startTimesToTasks) {
+    Object.keys(startTimesToTasks).sort(function(a,b){
+      return a-b;
+    }).forEach(function(startTime){
       tasks.push(startTimesToTasks[startTime]);
-    }
-    callback(tasks);
+    })
+    callback(null, tasks);
   });
 };
 
