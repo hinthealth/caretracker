@@ -49,17 +49,24 @@ CarePlanSchema.static('accessibleTo', function(user){
  */
 CarePlanSchema.methods.findTasks =
     function(startBoundary, endBoundary, callback) {
-  Schedule.find()
-      .where('carePlanId', this.carePlanId)
-      .where('start').gte(startBoundary).lte(endBoundary)
+  // TODO(healthio-dev): Sort results.
+  Schedule.where('carePlanId').equals(this.id)
+      .where('start').gte(startBoundary)
+      .where('end').lte(endBoundary)
       .exec(function(err, foundSchedules) {
-    // TODO(healthio-dev): Sort.
+    if (err) { throw err; }
+    // No schedules found, return immediately.
+    if (!foundSchedules.length) { return callback([]); }
     var tasks = [];
-    foundSchedules = foundSchedules || [];
-    foundSchedules.forEach(function(schedule) {
-      tasks.concat(schedule.findTasks(startBoundary, endBoundary));
+    foundSchedules.forEach(function(schedule, i) {
+      schedule.findTasks(startBoundary, endBoundary, function(foundTasks) {
+        tasks = tasks.concat(foundTasks);
+        // Invoke the callback at the last iteration of the loop.
+        if (i == foundSchedules.length - 1) {
+          callback(tasks);
+        }
+      });
     });
-    callback(tasks);
   });
 };
 

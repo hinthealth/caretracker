@@ -10,8 +10,12 @@ var Task = mongoose.model('Task');
 exports.index = function(req, res) {
   // TODO(healthio-dev): Permissions.
   CarePlan.findById(req.params.care_plan_id, function(error, carePlan) {
-    if (error) { return res.json(false); }
-    carePlan.findTasks(req.query.start, req.query.end, function(tasks) {
+    // TODO(healthio-dev): Issue a 400 when start/end are not present.
+    if (error || !req.query.start || !req.query.end) {
+      return res.json(false);
+    }
+    carePlan.findTasks(parseInt(req.query.start), parseInt(req.query.end),
+        function(tasks) {
       res.json({tasks: tasks});
     });
   });

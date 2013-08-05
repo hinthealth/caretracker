@@ -20,19 +20,27 @@ angular.module('caretracker.controllers', []).
     $scope.form = {};
     $scope.createCarePlan = function() {
       $http.post('/api/care_plans', $scope.form).success(function(data) {
-          if(data.carePlan.email){
-            $location.path('/care_plans/'+ data.carePlan._id + '/verify');
-          }else{
-            $location.path('/care_plans/'+ data.carePlan._id + '/finished');
-          }
+        if (data.carePlan.email) {
+          $location.path('/care_plans/'+ data.carePlan._id + '/verify');
+        } else {
+          $location.path('/care_plans/'+ data.carePlan._id + '/finished');
+        }
       });
     };
   }]).
-  controller('ShowCarePlanCtrl', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams){
+  controller('ShowCarePlanCtrl', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
+    // By default, get today's tasks.
+    var start = new Date();
+    start.setDate(start.getDate() - 1);
+    var end = new Date();
+    end.setDate(start.getDate() + 1);
+
     $http.get('/api/care_plans/' + $routeParams.id).success(function(data) {
       $scope.carePlan = data.carePlan;
     });
-    $http.get('/api/care_plans/' + $routeParams.id + '/tasks').success(
+    $http.get('/api/care_plans/' + $routeParams.id + '/tasks', {
+      params: {start: start.getTime(), end: end.getTime()}
+    }).success(
           function(data) {
       $scope.tasks = data.tasks;
     });
@@ -54,10 +62,10 @@ angular.module('caretracker.controllers', []).
         $scope.careProviders = data.carePlan.careProviders;
       });
     $scope.createCareProvider = function(){
-      $http.post('/api/care_plans/'+ $routeParams.id +'/care_providers', $scope.form).
-        success(function(data){
-          $location.path('/care_plans/'+ $routeParams.id +'/care_providers');
-        });
+      $http.post('/api/care_plans/' + $routeParams.id +
+          '/care_providers', $scope.form).success(function(data) {
+        $location.path('/care_plans/' + $routeParams.id + '/care_providers');
+      });
     };
   }]).
 
@@ -71,10 +79,9 @@ angular.module('caretracker.controllers', []).
   controller('AddEventCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
     $scope.form = {};
     $scope.createEvent = function () {
-      $http.post('/api/events', $scope.form).
-        success(function(data) {
-          $location.path('/events');
-        });
+      $http.post('/api/events', $scope.form).success(function(data) {
+        $location.path('/events');
+      });
     };
   }]).
   controller('ShowEventCtrl', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams){
@@ -114,9 +121,18 @@ angular.module('caretracker.controllers', []).
       $location.url('/');
     };
   }]).
-  controller('AddSchedulesCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
+  controller('AddSchedulesCtrl', ['$scope', '$http', '$location', '$routeParams', function($scope, $http, $location, $routeParams) {
     $scope.form = {};
     $scope.createSchedule = function() {
-      // TODO(healthio-dev): Implement me.
+      var path = '/api/care_plans/' + $routeParams.id + '/schedules';
+      $http.post(path, $scope.form).success(function(data) {
+        $location.path('/care_plans/' + $routeParams.id +
+            '/schedules/' + data.schedule._id + '/finished');
+      });
     };
+  }]).
+  controller('ShowScheduleCtrl', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
+    $http.get('/api/care_plans/' + $routeParams.id).success(function(data) {
+      $scope.carePlan = data.carePlan;
+    });
   }]);
