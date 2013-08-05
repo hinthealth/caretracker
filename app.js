@@ -113,6 +113,7 @@ app.put('/api/care_plans/:care_plan_id/tasks/:id', api.tasks.update);
 // app.post('/api/care_plans/:care_plan_id/invitations', api.invitations.create);
 
 // Needed for angular (??)
+app.get('*', middlewares.auth.requireUser);
 app.get('*', routes.index);
 
 app.configure('development', function() {

@@ -12,16 +12,15 @@
     </div>
   </header>
 
-  <nav class="hamburger-menu">
+  <nav class="hamburger-menu" ng-controller="MenuController">
     <ul>
-      <li><a href="/care_plans">Your care plans</a>
+      <li><a href="/care_plans">Your patients</a>
     </ul>
-    <!-- TODO(healthio-dev): Care plans here. -->
     <ul ng-repeat="carePlan in carePlans">
-      <li><a href="/care_plans/{{carePlan._id}}">{{CarePlan.name}}</a>
+      <li><a href="/care_plans/{{carePlan._id}}">{{carePlan.name}}</a>
     </ul>
     <ul>
-      <li><a href="/care_plans/add">Add a patient</a>
+      <li><a href="/care_plans/add">+ Add a patient</a>
     </ul>
   </nav>
   <div class="hamburger-mask"></div>
@@ -31,22 +30,21 @@
     <!-- Add your site or application content here -->
     <div class="container" ng-view></div>
 
-    <script src="/public/js/lib/angular/angular.js"></script>
-    <script src="/public/js/lib/angular-resource/angular-resource.js"></script>
-    <script src="/public/js/lib/angular-cookies/angular-cookies.js"></script>
-    <script src="/public/js/lib/angular-sanitize/angular-sanitize.js"></script>
-
-    <!-- build:js scripts/scripts.js -->
-    <script src="/public/js/services.js"></script>
-    <script src="/public/js/controllers.js"></script>
-    <script src="/public/js/filters.js"></script>
-    <script src="/public/js/directives.js"></script>
-    <script src="/public/js/app.js"></script>
-    <!-- endbuild -->
-
   </div>
 </div>
 
+<script src="/public/js/lib/angular/angular.js"></script>
+<script src="/public/js/lib/angular-resource/angular-resource.js"></script>
+<script src="/public/js/lib/angular-cookies/angular-cookies.js"></script>
+<script src="/public/js/lib/angular-sanitize/angular-sanitize.js"></script>
+
+<!-- build:js scripts/scripts.js -->
+<script src="/public/js/services.js"></script>
+<script src="/public/js/controllers.js"></script>
+<script src="/public/js/filters.js"></script>
+<script src="/public/js/directives.js"></script>
+<script src="/public/js/app.js"></script>
+<!-- endbuild -->
 <script src="/public/js/lib/jquery.min.js"></script>
 <script src="/public/js/hamburger.js"></script>
 
