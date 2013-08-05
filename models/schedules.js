@@ -19,10 +19,17 @@ var ScheduleSchema = new Schema({
  */
 ScheduleSchema.methods.findTasks =
     function(startBoundary, endBoundary, callback) {
-  var start = startBoundary;
-  var startTimesToTasks = {};
+  if (startBoundary > endBoundary) {
+    throw 'startBoundary must be less than endBoundary.';
+  }
+  // TODO(healthio-dev): Raise an error here due to bad data.
+  if (!this.frequency) {
+    return [];
+  }
 
   // Map start times to generated tasks.
+  var startTimesToTasks = {};
+  var start = startBoundary;
   while (start < endBoundary) {
     startTimesToTasks[start] = new Task({
       carePlanId: this.carePlanId,
@@ -32,9 +39,9 @@ ScheduleSchema.methods.findTasks =
   }
 
   // Clobber map with persistent tasks.
-  Task.find()
-      .where('carePlanId', this.carePlanId)
-      .where('start').gte(startBoundary).lte(endBoundary)
+  Task.where('carePlanId').equals(this.carePlanId)
+      .where('start').gte(startBoundary)
+      .where('end').lte(endBoundary)
       .exec(function(err, foundTasks) {
     if (err) { throw err; }
     foundTasks.forEach(function(task) {
