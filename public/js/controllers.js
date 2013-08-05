@@ -88,8 +88,8 @@ angular.module('caretracker.controllers', []).
           $location.url('/events/' + $routeParams.id);
         });
     };
-  }])
-  .controller('DeleteEventCtrl', ['$scope', '$http', '$location', '$routeParams', function($scope, $http, $location, $routeParams){
+  }]).
+  controller('DeleteEventCtrl', ['$scope', '$http', '$location', '$routeParams', function($scope, $http, $location, $routeParams){
     $http.get('/api/events/' + $routeParams.id).
       success(function(data) {
         $scope.event = data.event;
@@ -104,5 +104,11 @@ angular.module('caretracker.controllers', []).
 
     $scope.home = function () {
       $location.url('/');
+    };
+  }]).
+  controller('AddSchedulesCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
+    $scope.form = {};
+    $scope.createSchedule = function() {
+      // TODO(healthio-dev): Implement me.
     };
   }]);
