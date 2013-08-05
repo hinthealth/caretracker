@@ -34,9 +34,9 @@ exports.create = function(req, res) {
   // TODO(healthio-dev): Permissions.
   var schedule = new Schedule({
     carePlanId: req.params.care_plan_id,
-    end: req.params.end,
-    frequency: req.params.frequency,
-    start: req.params.start
+    end: req.body.end,
+    frequency: req.body.frequency,
+    start: req.body.start
   });
   schedule.save(function(error, schedule) {
     if (error) { return res.json(false); }
@@ -51,9 +51,9 @@ exports.create = function(req, res) {
 exports.update = function(req, res) {
   Schedule.findById(req.params.id, function(error, schedule) {
     if (error) { return res.json(false); }
-    schedule.end = req.params.end;
-    schedule.frequency = req.params.frequency;
-    req.start = req.params.start;
+    schedule.end = req.body.end;
+    schedule.frequency = req.body.frequency;
+    req.start = req.body.start;
     req.save(function(error) {
       if (error) { return res.json({error: error}); }
       res.json({schedule: schedule});
