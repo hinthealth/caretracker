@@ -38,6 +38,11 @@ describe('Schedule', function() {
         frequency: 86400000,  // Once per day.
         start: new Date('2013-01-01').getTime()
       });
+      this.frequentSchedule = new Schedule({
+        carePlan: this.carePlan.id,
+        frequency: 43200000,  // Twice per day.
+        start: new Date('2013-01-01').getTime()
+      });
     });
 
     it('should return one tasks within one day', function(done) {
@@ -45,6 +50,8 @@ describe('Schedule', function() {
       var endBoundary = new Date('2013-02-02').getTime();
       var tasks = this.schedule.getTasks(startBoundary, endBoundary);
       tasks.length.should.equal(1);
+      tasks = this.frequentSchedule.getTasks(startBoundary, endBoundary);
+      tasks.length.should.equal(2);
       done();
     });
 
@@ -53,6 +60,8 @@ describe('Schedule', function() {
       var endBoundary = new Date('2013-02-03').getTime();
       var tasks = this.schedule.getTasks(startBoundary, endBoundary);
       tasks.length.should.equal(2);
+      tasks = this.frequentSchedule.getTasks(startBoundary, endBoundary);
+      tasks.length.should.equal(4);
       done();
     });
   });

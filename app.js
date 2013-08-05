@@ -83,7 +83,7 @@ app.post('/api/events', api.events.create);
 app.put('/api/events/:id', api.events.update);
 app.delete('/api/events/:id', api.events.destroy);
 
-// CarePlans
+// CarePlans.
 app.get('/api/care_plans', api.care_plans.index);
 app.get('/api/care_plans/:id', api.care_plans.show);
 app.post('/api/care_plans', api.care_plans.create);
@@ -93,6 +93,17 @@ app.delete('/api/care_plans/:id', api.care_plans.destroy);
 // CarePlan Sharing (available to owner - and patient?)
 app.get('/api/care_plans/:care_plan_id/care_providers', api.care_providers.index);
 app.post('/api/care_plans/:care_plan_id/care_providers', api.care_providers.create);
+
+// CarePlan schedules.
+app.get('/api/care_plans/:care_plan_id/schedules', api.schedules.index);
+app.get('/api/care_plans/:care_plan_id/schedules/:id', api.schedules.show);
+app.post('/api/care_plans/:care_plan_id/schedules', api.schedules.create);
+app.put('/api/care_plans/:care_plan_id/schedules/:id', api.schedules.update);
+app.delete('/api/care_plans/:care_plan_id/schedules/:id', api.schedules.destroy);
+
+// CarePlan tasks.
+app.get('/api/care_plans/:care_plan_id/tasks', api.tasks.index);
+app.put('/api/care_plans/:care_plan_id/tasks/:id', api.tasks.update);
 
 // app.get('/api/care_plans/:care_plan_id/care_team/:id', api.care_team.show);
 // app.delete('/api/care_plans/:care_plan_id/care_team/:id', api.care_team.destroy);
