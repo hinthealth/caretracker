@@ -64,6 +64,11 @@ angular.module('caretracker', ['caretracker.filters', 'caretracker.services', 'c
         templateUrl: '/partials/events/destroy_confirm',
         controller: 'DeleteEventCtrl'
       }).
+      // Health Record!
+      when('/care_plans/:id/health_record', {
+        templateUrl: '/partials/health_records/show',
+        controller: 'ShowHealthRecordCtrl'
+      }).
       otherwise({
         redirectTo: '/care_plans'
       });

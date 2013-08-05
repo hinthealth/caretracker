@@ -112,6 +112,11 @@ app.put('/api/care_plans/:care_plan_id/tasks/:id', api.tasks.update);
 // Include type=(patient|careteam) to specify the type of invitation. Default is careteam
 // app.post('/api/care_plans/:care_plan_id/invitations', api.invitations.create);
 
+app.get('/api/care_plans/:care_plan_id/health_record', api.health_record.show)
+
+
+
+
 // Any reqests that haven't matched so far are assumed to be for angular.
 // Require a valid user then send them on to our angular app (routes.index).
 app.get('*', middlewares.auth.requireUser);
