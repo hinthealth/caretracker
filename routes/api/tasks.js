@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var CarePlan = mongoose.model('CarePlan');
 var Schedule = mongoose.model('Schedule');
 var Task = mongoose.model('Task');
 
@@ -8,10 +9,11 @@ var Task = mongoose.model('Task');
  */
 exports.index = function(req, res) {
   // TODO(healthio-dev): Permissions.
-  Schedule.find({carePlanId: req.params.care_plan_id},
-      function(error, schedules) {
+  CarePlan.findById(req.params.care_plan_id, function(error, carePlan) {
     if (error) { return res.json(false); }
-    res.json({schedules: schedules});
+    carePlan.findTasks(req.query.start, req.query.end, function(tasks) {
+      res.json({tasks: tasks});
+    });
   });
 };
 
@@ -22,14 +24,5 @@ exports.index = function(req, res) {
  */
 exports.update = function(req, res) {
   // TODO(healthio-dev): Permissions.
-  Schedule.findById(req.params.id, function(error, schedule) {
-    if (error) { return res.json(false); }
-    schedule.end = req.params.end;
-    schedule.frequency = req.params.frequency;
-    req.start = req.params.start;
-    req.save(function(error) {
-      if (error) { return res.json({error: error}); }
-      res.json({schedule: schedule});
-    });
-  });
+  // TODO(healthio-dev): Implement.
 };

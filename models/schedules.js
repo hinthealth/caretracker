@@ -15,8 +15,10 @@ var ScheduleSchema = new Schema({
  * Returns a set of tasks generated from a schedule, given a time range.
  * @param {number} startBoundary Start time.
  * @param {number} endBoundary End time.
+ * @param {function(<Array.Task>)} callback Callback for found tasks.
  */
-ScheduleSchema.methods.getTasks = function(startBoundary, endBoundary) {
+ScheduleSchema.methods.findTasks =
+    function(startBoundary, endBoundary, callback) {
   var start = startBoundary;
   var startTimesToTasks = {};
 
@@ -30,26 +32,23 @@ ScheduleSchema.methods.getTasks = function(startBoundary, endBoundary) {
   }
 
   // Clobber map with persistent tasks.
-  var callback = function(err, foundTasks) {
-    if (err) {
-      throw err;
-    }
-    foundTasks.forEach(function(task) {
-      startTimesToTasks[task.start] = task;
-    });
-  };
   Task.find()
       .where('carePlanId', this.carePlanId)
       .where('start').gte(startBoundary).lte(endBoundary)
-      .exec(callback);
+      .exec(function(err, foundTasks) {
+    if (err) { throw err; }
+    foundTasks.forEach(function(task) {
+      startTimesToTasks[task.start] = task;
+    });
 
-  // Convert the task mapping to an array sorted by start time.
-  // TODO(healthio-dev): Sort this.
-  var tasks = [];
-  for (startTime in startTimesToTasks) {
-    tasks.push(startTimesToTasks[startTime]);
-  }
-  return tasks;
+    // Convert the task mapping to an array sorted by start time.
+    // TODO(healthio-dev): Sort this.
+    var tasks = [];
+    for (startTime in startTimesToTasks) {
+      tasks.push(startTimesToTasks[startTime]);
+    }
+    callback(tasks);
+  });
 };
 
 mongoose.model('Schedule', ScheduleSchema);

@@ -31,7 +31,7 @@ describe('Schedule', function() {
     });
   });
 
-  describe('#getTasks', function() {
+  describe('#findTasks', function() {
     beforeEach(function() {
       this.schedule = new Schedule({
         carePlan: this.carePlan.id,
@@ -48,21 +48,31 @@ describe('Schedule', function() {
     it('should return one tasks within one day', function(done) {
       var startBoundary = new Date('2013-02-01').getTime();
       var endBoundary = new Date('2013-02-02').getTime();
-      var tasks = this.schedule.getTasks(startBoundary, endBoundary);
-      tasks.length.should.equal(1);
-      tasks = this.frequentSchedule.getTasks(startBoundary, endBoundary);
-      tasks.length.should.equal(2);
-      done();
+      this.schedule.findTasks(startBoundary, endBoundary, function(tasks) {
+        tasks.length.should.equal(1);
+        // TODO(healthio-dev): Avoid multiple dones.
+        // done();
+      });
+      this.frequentSchedule.findTasks(startBoundary, endBoundary,
+          function(tasks) {
+        tasks.length.should.equal(2);
+        done();
+      });
     });
 
     it('should return two tasks between two days', function(done) {
       var startBoundary = new Date('2013-02-01').getTime();
       var endBoundary = new Date('2013-02-03').getTime();
-      var tasks = this.schedule.getTasks(startBoundary, endBoundary);
-      tasks.length.should.equal(2);
-      tasks = this.frequentSchedule.getTasks(startBoundary, endBoundary);
-      tasks.length.should.equal(4);
-      done();
+      this.schedule.findTasks(startBoundary, endBoundary, function(tasks) {
+        tasks.length.should.equal(2);
+        // TODO(healthio-dev): Avoid multiple dones.
+        // done();
+      });
+      this.frequentSchedule.findTasks(startBoundary, endBoundary,
+          function(tasks) {
+        tasks.length.should.equal(4);
+        done();
+      });
     });
   });
 });

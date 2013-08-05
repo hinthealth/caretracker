@@ -21,9 +21,9 @@ mongoose.connect(uristring, mongoOptions, function (err, res) {
 require('./events');
 require('./health_records');
 require('./care_providers');
-require('./care_plans');
 require('./tasks');
 require('./schedules');
+require('./care_plans');
 require('./users');
 
 module.exports = mongoose;
