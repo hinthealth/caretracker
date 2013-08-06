@@ -1,6 +1,5 @@
 <section class="main">
-  <p>We just sent an email to <b>{{carePlan.patient.email}}</b>.
-  <p>{{carePlan.patient.name}} needs to click the link in the email, then create an account or log in.
-  <p>The patient's Journal will be synchronized to everyone who had added them.
-  <p><a class="button" href="/care_plans/{{carePlan._id}}">Go to {{carePlan.patient.name}}'s Journal</a>
+  <p>We just sent an email invite to <b>{{carePlan.patient.email}}</b>.</p>
+  <p>{{carePlan.patient.name}}'s journal will be syncronized with the care team once they have created an account.</p>
+  <p><a class="button" href="/care_plans/{{carePlan._id}}">Go to {{carePlan.patient.name}}'s Journal</a></p>
 </section>

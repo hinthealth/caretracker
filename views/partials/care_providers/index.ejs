@@ -9,20 +9,21 @@
 <section class="main">
   <ng:switch on="!!careProviders.length" >
     <div ng:switch-when="true">
-      The following people have been invited to {{carePlan.name}}'s care team:
+      The following people have been invited to {{carePlan.patient.name}}'s care team:
       <ul ng-repeat="careProvider in careProviders">
         <li class="care-provider">
           <p>
-            <strong> {{careProvider.name}}</strong> ({{careProvider.relation}})
-            <br/>
-
-            <a href="mailto:{{careProvider.email}}">{{careProvider.email}}</a>
+            <strong> {{careProvider.name}}</strong> ({{careProvider.relation}}) 
             <span ng-show="careProvider.inviteKey"> -
-              <a href="/join-team/{{careProvider.inviteKey}}" target="_self" >pending</a>
+            <a href="/join-team/{{careProvider.inviteKey}}" target="_self" >pending</a>
             </span>
             <span ng-show="!careProvider.inviteKey">
               accepted
             </span>
+            <br/>
+
+            <a href="mailto:{{careProvider.email}}">{{careProvider.email}}</a>
+         
           </p>
         </li>
       </ul>
@@ -32,6 +33,6 @@
     </div>
   </ng:switch>
   <div>
-    <a href="/care_plans/{{carePlan._id}}/care_providers/new" class="button">Add person to care team</a>
+    <a href="/care_plans/{{carePlan._id}}/care_providers/new" class="button">Add to Care Team</a>
   </div>
 </section>

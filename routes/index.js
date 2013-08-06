@@ -4,6 +4,11 @@ exports.index = function(req, res) {
   });
 };
 
+exports.privacyPolicy = function(req, res) {
+  res.render('privacy_policy', {
+  });
+};
+
 exports.partials = function(req, res) {
   var modelName = req.params.model;
   var viewName = req.params.view;
