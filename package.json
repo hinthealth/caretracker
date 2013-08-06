@@ -1,9 +1,9 @@
 {
   "name": "caretracker",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "scripts": {
     "start": "node_modules/.bin/supervisor app.js",
-    "test":  "make test"
+    "test": "make test"
   },
   "dependencies": {
     "analytics-node": "~0.5.0",
@@ -27,5 +27,9 @@
     "should": "~1.2.2",
     "supervisor": "~0.5.3",
     "zombie": "~2.0.0"
+  },
+  "subdomain": "caretracker-test",
+  "engines": {
+    "node": "0.8.x"
   }
 }
