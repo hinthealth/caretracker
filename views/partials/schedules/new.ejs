@@ -10,11 +10,11 @@
       <input type="text" name="startTime" ng-model="virtualForm.startTime" placeholder="5:00pm" required>
 
       <label for="startDate">starting</label>
-      <select name="startDate" ng-model="virtualForm.startDate" ng-options="d.label for d in day">
+      <select name="startDate" ng-model="virtualForm.startDate" ng-options="d.name for d in days">
       </select>
     </div>
     <div>
-      <label for="value">Add to schedule every</label>
+      <label for="value">Repeat this every</label>
       <input type="text" name="value" ng-model="virtualForm.value" placeholder="1">
       <select name="unit" ng-model="virtualForm.unit" ng-options="u.name for u in units">
       </select>
@@ -24,11 +24,8 @@
       <input type="text" name="endDate" ng-model="virtualForm.endDate" required>
       -->
     </div>
-    <div>
-      <label for="end">End (unix timestamp)</label>
-      <input type="text" name="end" ng-model="form.end">
-    </div>
     <p>
       <button ng-click="createSchedule()" class="button">Create schedule</button>
+    </p>
   </section>
 </div>

@@ -142,10 +142,37 @@ angular.module('caretracker.controllers', []).
       {name: 'Week(s)', value: 604800},
       {name: 'No repeat', value: 0}
     ]
-    $scope.virtualForm = {unit: $scope.units[1], value: 1};
+    var today = moment().startOf('day');
+    $scope.days = [
+      {name: 'Today', value: today.valueOf()},
+      {name: 'Tomorrow', value: moment(today).add(1, 'day').valueOf()}
+    ].concat(
+      [2,3,4,5,6,7].map(function(i){
+        var day = moment().startOf('day').add(i, 'day');
+        return {name: day.format('ddd, MMM Do'), value: day.valueOf()};
+      })
+    );
+    $scope.virtualForm = {startDate: $scope.days[0], unit: $scope.units[1], value: 1};
     $scope.createSchedule = function() {
       var path = '/api/care_plans/' + $routeParams.id + '/schedules';
-      $scope.form.frequency
+      console.log($scope.virtualForm);
+      var startDate = moment($scope.virtualForm.startDate.value);
+
+      // THERE MUST BE A BETTER WAY
+      var dateFormat = "YYYY-MM-DD"
+      var formats = [
+        dateFormat + " h:mA",
+        dateFormat + " h:ma",
+        dateFormat + " h:m a",
+        dateFormat + " h:m A",
+        dateFormat + " HH:mm"
+      ];
+      console.log("parsing", startDate.format(dateFormat) + ' ' + $scope.virtualForm.startTime);
+      var start = moment(startDate.format(dateFormat) + ' ' + $scope.virtualForm.startTime, formats);
+
+      $scope.form.frequency = parseInt($scope.virtualForm.value) * $scope.virtualForm.unit.value;
+      $scope.form.start = start.valueOf();
+
       $http.post(path, $scope.form).success(function(data) {
         $location.path('/care_plans/' + $routeParams.id );
       });
