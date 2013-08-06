@@ -1,3 +1,8 @@
+.form-page {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
 .form-page .buttons {
   margin-top: 10px;
 }
@@ -9,7 +14,8 @@
 .form-page input[type=text],
 .form-page input[type=email],
 .form-page input[type=password] {
-  min-width: 260px;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .form-page form > div {
@@ -17,11 +23,10 @@
 }
 
 .form-page .button {
-  min-width: 260px;
   padding: 10px 20px;
+  width: 100%;
 }
 
 .form-page section.main {
   margin: 0 auto;
-  max-width: 260px;
 }

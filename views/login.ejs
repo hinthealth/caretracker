@@ -3,7 +3,7 @@
 <!-- TODO(healthio-dev): Move header/footer to a base template and add class with an argument to an extends tag. Is that possible? -->
 <div class="login-page form-page">
 
-  <% if (messages.info) { %>
+  <% if (messages.info.length) { %>
     <section class="messages info">
       <% messages.info.forEach(function(message){ %>
         <p class="message"><%= message %>
@@ -11,7 +11,7 @@
     </section>
   <% }; %>
 
-  <% if (messages.error) { %>
+  <% if (messages.error.length) { %>
     <section class="messages error">
       <% messages.error.forEach(function(message){ %>
         <p class="message"><%= message %>
@@ -35,7 +35,7 @@
           <input type="submit" value="Sign in" class="button">
         </div>
         <div>
-          <a href="/signup" class="button button-secondary">Sign up</a>
+          <a href="/signup" class="button button-secondary">Create new account</a>
         </div>
       </div>
     </form>

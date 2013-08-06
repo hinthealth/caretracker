@@ -2,20 +2,19 @@
  * Opens the menu when the button is clicked.
  */
 $('.hamburger-button').click(function() {
-  // Prevent the content from scaling while animating.
+  // Prevents the content from scaling while animating.
   var width = $('.hamburger-main').width();
   $('.hamburger-main').css('width', width);
 
-  //display a layer to disable clicking and scrolling on the content while menu is shown
   // Toggle a mask on top of the content.
   $('.hamburger-mask').css('display', 'block');
 
-  //disable all scrolling on mobile devices while menu is shown
+  // Disables scrolling on mobile devices when the menu is shown.
   $('.hamburger-container').bind('touchmove', function(e) {
       e.preventDefault()
   });
 
-  //set margin for the whole container with a jquery UI animation
+  // Sets the margin for the container.
   $('.hamburger-menu').css('display', 'block');
   $('#hamburger-container').animate({
       'marginLeft': ['70%']
@@ -23,16 +22,20 @@ $('.hamburger-button').click(function() {
     duration: 300
   });
 });
+
+
 Hamburger = {}
+
+
 Hamburger.close = function(){
   $('.hamburger-container').unbind('touchmove');
   $('.hamburger-container').animate({'marginLeft': ['0']}, {
-      duration: 300,
-      complete: function() {
-          $('.hamburger-menu').css('display', 'none');
-          $('.hamburger-main').css('width', 'auto');
-          $('.hamburger-mask').css('display', 'none');
-      }
+    duration: 300,
+    complete: function() {
+        $('.hamburger-menu').css('display', 'none');
+        $('.hamburger-main').css('width', 'auto');
+        $('.hamburger-mask').css('display', 'none');
+    }
   });
 }
 
