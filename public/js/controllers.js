@@ -136,8 +136,16 @@ angular.module('caretracker.controllers', []).
   // Schedules Controllers
   controller('AddSchedulesCtrl', ['$scope', '$http', '$location', '$routeParams', function($scope, $http, $location, $routeParams) {
     $scope.form = {start: new Date().getTime()};
+    $scope.units = [
+      {name: 'Hour(s)', value: 3600},
+      {name: 'Day(s)', value: 86400},
+      {name: 'Week(s)', value: 604800},
+      {name: 'No repeat', value: 0}
+    ]
+    $scope.virtualForm = {unit: $scope.units[1], value: 1};
     $scope.createSchedule = function() {
       var path = '/api/care_plans/' + $routeParams.id + '/schedules';
+      $scope.form.frequency
       $http.post(path, $scope.form).success(function(data) {
         $location.path('/care_plans/' + $routeParams.id );
       });
