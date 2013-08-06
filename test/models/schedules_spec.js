@@ -162,4 +162,20 @@ describe('Schedule', function() {
     });
 
   });
+  describe(".newFromMedication", function(){
+    before(function(){
+      this.medications = helper.fixtures.medications()['encounter_based_c_cda_ccd___08_06_2012__jones__isabella___170314e2__xml'];
+    });
+    beforeEach(function(){
+      // every 12 hours
+      // CLARITHROMYCIN, 500MG (Oral Tablet)
+      this.schedule = Schedule.newFromMedication(this.medications[0]);
+    });
+    it("should have a frequency of every 12 hours", function(){
+      this.schedule.frequency.should.equal(12 * 60 * 60);
+    });
+    it("should have a name of 'CLARITHROMYCIN, 500MG (Oral Tablet)'", function(){
+      this.schedule.name.should.equal("1 Tablet of CLARITHROMYCIN, 500MG (Oral Tablet)");
+    });
+  });
 });
