@@ -3,13 +3,14 @@
 <div class="hamburger-container" id="hamburger-container" ng-app="caretracker">
 
   <header>
+    <div class="header-right">
+      <a href="/account" class="button button-icon" title="Settings" target="_self"><span class="icon icon-settings"></span></a>
+    </div>
     <div class="header-left">
       <!-- TODO(healthio-dev): Move this to be within the Angular app, and use an Angular controller. -->
       <div href="/" class="button button-icon hamburger-button" title="Menu" class="icon"><span class="icon icon-hamburger"></span></div>
     </div>
-    <div class="header-right">
-      <a href="/account" class="button button-icon" title="Settings" target="_self"><span class="icon icon-settings"></span></a>
-    </div>
+    <div class="header-title">{{title}}</div>
   </header>
 
   <nav class="hamburger-menu" ng-controller="MenuController">
@@ -22,14 +23,14 @@
     <ul>
       <li><a href="/care_plans/add">+ Add a patient</a>
     </ul>
+    <div class="footer">
+      <a href="/logout">Sign out from CareTracker</a>.
+    </div>
   </nav>
   <div class="hamburger-mask"></div>
 
   <div class="hamburger-main" >
-
-    <!-- Add your site or application content here -->
     <div class="container" ng-view></div>
-
   </div>
 </div>
 

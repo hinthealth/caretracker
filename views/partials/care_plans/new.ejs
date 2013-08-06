@@ -1,6 +1,5 @@
 <div class="form-page">
   <section class="main">
-    <h2>Add a patient</h2>
     <form>
       <div>
         <input type="text" name="patient[name]" ng-model="form.patient.name" placeholder="Patient's display name">
@@ -10,7 +9,7 @@
       </div>
     </form>
     <p class="hint">
-      Without a patient email address we cannot sync your updates to the patient's journal.
+      We will use the patient's email address to sync updates to their Journal.
     </p>
     <button ng-click="createCarePlan()" class="button">Add patient</button>
   </section>

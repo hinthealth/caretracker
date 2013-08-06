@@ -36,8 +36,8 @@ app.use(flash());
 // Prefer static assets to routed paths
 
 app.use('/public', lessMiddleware({
-    src: path.join(__dirname, '/public'),
-    compress: true
+  src: path.join(__dirname, '/public'),
+  compress: true
 }));
 
 app.use('/public', express.static(path.join(__dirname, '/public')));

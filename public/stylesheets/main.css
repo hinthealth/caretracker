@@ -1,14 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
-body{background:#efefef;bottom:0;font-family:'Roboto','Helvetica Neue',arial,sans-serif;font-weight:200;left:0;margin:0;position:fixed;right:0;top:0}
+body{background:#d3d6db;bottom:0;font-family:'Roboto','Helvetica Neue',arial,sans-serif;font-weight:200;left:0;margin:0;position:fixed;right:0;top:0}
+.hint{font-size:.75em;font-weight:bold;color:#555;margin:10px 0 15px}
 p{margin-top:0}
 a{color:#666;font-weight:400;text-decoration:none}
-header{background:#479982;color:#fff;height:45px;position:fixed;text-align:center;top:0;width:100%;z-index:1}
-header h1{font-size:16px;font-weight:300;line-height:45px}
-header .header-left{float:left}
-header .header-right{float:right}
-header .button{background-color:transparent;transition:background-color 150ms;float:left;height:30px;margin:7px;width:30px}
-header .button:hover{background-color:#54b59a}
-header .button.button-right{float:right}
 h1,h2,h3{box-sizing:border-box;font-weight:normal;margin-top:0}
 section.main,section.messages{padding:15px}
 section.messages p{background:#D35400;border-radius:3px;padding:10px;color:#fff}
@@ -23,23 +17,34 @@ section.navbar ul{list-style:none;margin:0;padding:0}
 section.navbar ul li{display:inline-block}
 section.navbar ul a{color:#fff;display:inline-block;padding:5px 10px}
 section.navbar ul li.active a{font-weight:bold}
-section.table ul{border-top:1px solid #dedede;list-style:none;margin:0;padding:0}
+section.table ul{background:#fff;border:1px solid #dedede;border-bottom:0;border-radius:3px;list-style:none;margin:0 15px 15px 15px;padding:0}
 section.table ul li{border-collapse:collapse;border-bottom:1px solid #dedede}
 section.table ul li a{display:block;padding:10px 15px}
 section.table ul li a:hover{background:#efefef}
+.form-page{max-width:400px;margin:0 auto}
 .form-page .buttons{margin-top:10px}
 .form-page .buttons input[type=submit]{margin-bottom:10px}
-.form-page input[type=text],.form-page input[type=email],.form-page input[type=password]{min-width:260px}
+.form-page input[type=text],.form-page input[type=email],.form-page input[type=password]{box-sizing:border-box;width:100%}
 .form-page form>div{margin-bottom:5px}
-.form-page .button{min-width:260px;padding:10px 20px}
-.form-page section.main{margin:0 auto;max-width:260px}
+.form-page .button{padding:10px 20px;width:100%}
+.form-page section.main{margin:0 auto}
 nav.hamburger-menu{background:linear-gradient(to bottom, #3e3c3d 0, #2d2c2d 100%);display:none;height:100%;left:0px;position:fixed;top:0px;width:70%;z-index:0}
 nav.hamburger-menu ul{list-style:none;margin:0;padding:0}
 nav.hamburger-menu ul li a{border-bottom:1px solid #333;color:#dedede;display:block;padding:12px 15px}
 nav.hamburger-menu ul li a:hover{background:#333;color:#fff}
-div.hamburger-main{background:#fff;height:100%;margin-top:45px;position:relative}
+div.hamburger-main{background:#d3d6db;height:100%;margin-top:45px;position:relative}
 div.hamburger-mask{display:none;height:100%;min-height:1062px;overflow-x:hidden;overflow-y:auto;position:absolute;right:0;top:0;width:30%;z-index:5}
-div.hamburger-container{height:100%}
+nav.hamburger-menu .footer{padding:15px;font-size:.9em}
+nav.hamburger-menu .footer a:hover{transition:color 200ms;color:#efefef}
+.hamburger-container{height:100%}
+header{background:#479982;color:#fff;height:45px;position:fixed;text-align:center;top:0;width:100%;z-index:1}
+header h1{font-size:16px;font-weight:300;line-height:45px}
+header .header-left{float:left}
+header .header-title{font-weight:400;line-height:44px;text-shadow:rgba(0,0,0,0.5) 0 -1px 0}
+header .header-right{float:right}
+header .button{background-color:transparent;transition:background-color 150ms;float:left;height:30px;margin:7px;width:30px}
+header .button:hover{background-color:#54b59a}
+header .button.button-right{float:right}
 .health-record table{border-collapse:collapse;margin:0 0 15px 0}
 .button-icon{line-height:20px}
 .icon{background-size:100% 100%;display:inline-block;height:20px;margin:5px;width:20px}
@@ -49,7 +54,7 @@ div.hamburger-container{height:100%}
 .icon-hamburger{background-image:url(data:image/png;base64,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)}
 .login-page{text-align:center}
 .login-page .logo{background-image:url('/public/images/logo.png');background-size:100%;display:block;height:150px;margin:50px auto 0;width:150px}
-.login-page h1{padding:20px 0}
+.login-page h1{padding:20px 0;margin:0}
 .signup-page{margin-top:80px}
 section.title{background:#fff;border-bottom:3px solid #ddd;box-sizing:border-box}
 section.title:after{clear:both;content:".";display:block;height:0;line-height:0;visibility:hidden}
