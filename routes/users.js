@@ -28,6 +28,7 @@ exports.create = function (req, res, next) {
       if(error.code == 11000){
         var message = "You already have an account";
       }else{
+        console.log("ERROR SIGNING UP:", error);
         var message = error.message;
       }
       return res.render('signup', {user: user, message: message});
