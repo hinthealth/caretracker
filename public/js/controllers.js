@@ -11,9 +11,10 @@ angular.module('caretracker.controllers', []).
   }]).
 
   // CarePlan Controllers
-  controller('IndexCarePlansCtrl', ['$scope', '$http', function($scope, $http){
+  controller('IndexCarePlansCtrl', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams){
+    $scope.showWelcomeMessage = 'welcome' in $routeParams;
     $http.get('/api/care_plans').success(function(data) {
-        $scope.carePlans = data.carePlans;
+      $scope.carePlans = data.carePlans;
     });
   }]).
   controller('AddCarePlanCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){

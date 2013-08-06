@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 body{background:#efefef;bottom:0;font-family:'Roboto','Helvetica Neue',arial,sans-serif;font-weight:200;left:0;margin:0;position:fixed;right:0;top:0}
+p{margin-top:0}
 a{color:#666;font-weight:400;text-decoration:none}
 header{background:#479982;color:#fff;height:45px;position:fixed;text-align:center;top:0;width:100%;z-index:1}
 header h1{font-size:16px;font-weight:300;line-height:45px}
@@ -8,8 +9,8 @@ header .header-right{float:right}
 header .button{background-color:transparent;transition:background-color 150ms;float:left;height:30px;margin:7px;width:30px}
 header .button:hover{background-color:#54b59a}
 header .button.button-right{float:right}
-h1,h2,h3{box-sizing:border-box;font-weight:normal;margin:0}
-section.main,section.messages{margin:15px}
+h1,h2,h3{box-sizing:border-box;font-weight:normal;margin-top:0}
+section.main,section.messages{padding:15px}
 section.messages p{background:#D35400;border-radius:3px;padding:10px;color:#fff}
 .button{background:#1086dc;box-sizing:border-box;border:none;border-radius:3px;color:#fff;cursor:pointer;display:inline-block;font-family:'Roboto','Helvetica Neue',arial,sans-serif;font-size:14px;font-weight:300;margin:0;text-align:center}
 a.button{text-decoration:none}
@@ -22,6 +23,10 @@ section.navbar ul{list-style:none;margin:0;padding:0}
 section.navbar ul li{display:inline-block}
 section.navbar ul a{color:#fff;display:inline-block;padding:5px 10px}
 section.navbar ul li.active a{font-weight:bold}
+section.table ul{border-top:1px solid #dedede;list-style:none;margin:0;padding:0}
+section.table ul li{border-collapse:collapse;border-bottom:1px solid #dedede}
+section.table ul li a{display:block;padding:10px 15px}
+section.table ul li a:hover{background:#efefef}
 .form-page .buttons{margin-top:10px}
 .form-page .buttons input[type=submit]{margin-bottom:10px}
 .form-page input[type=text],.form-page input[type=email],.form-page input[type=password]{min-width:260px}
@@ -35,6 +40,7 @@ nav.hamburger-menu ul li a:hover{background:#333;color:#fff}
 div.hamburger-main{background:#fff;height:100%;margin-top:45px;position:relative}
 div.hamburger-mask{display:none;height:100%;min-height:1062px;overflow-x:hidden;overflow-y:auto;position:absolute;right:0;top:0;width:30%;z-index:5}
 div.hamburger-container{height:100%}
+.health-record table{border-collapse:collapse;margin:0 0 15px 0}
 .button-icon{line-height:20px}
 .icon{background-size:100% 100%;display:inline-block;height:20px;margin:5px;width:20px}
 .icon-avatar{background:#dedede;border-radius:50px;border:3px solid #fff;height:50px;width:50px}
