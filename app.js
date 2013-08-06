@@ -41,9 +41,15 @@ app.use('/public', lessMiddleware({
     src: path.join(__dirname, '/public'),
     compress: true
 }));
+
 app.use('/public', express.static(path.join(__dirname, '/public')));
 
-app.use('/zxcvbn', express.static('node_modules/zxcvbn'));
+app.get('/public/js/lib/zxcvbn-async.js',function(req,res) {
+  res.sendfile(path.join(__dirname,'node_modules','zxcvbn','zxcvbn-async.js'));
+});
+app.get('/public/js/lib/moment.js',function(req,res) {
+  res.sendfile(path.join(__dirname,'node_modules','moment','min','moment.min.js'));
+});
 
 // Route!
 app.use(app.router);
@@ -103,7 +109,9 @@ app.delete('/api/care_plans/:care_plan_id/schedules/:id', api.schedules.destroy)
 
 // CarePlan tasks.
 app.get('/api/care_plans/:care_plan_id/tasks', api.tasks.index);
-app.put('/api/care_plans/:care_plan_id/tasks/:id', api.tasks.update);
+app.get('/api/care_plans/:care_plan_id/schedules/:schedule_id/tasks/:taskStart', api.tasks.show);
+app.put('/api/care_plans/:care_plan_id/schedules/:schedule_id/tasks/:taskStart', api.tasks.update);
+app.put('/api/care_plans/:care_plan_id/schedules/:schedule_id/tasks/:taskStart/toggle', api.tasks.toggle);
 
 // app.get('/api/care_plans/:care_plan_id/care_team/:id', api.care_team.show);
 // app.delete('/api/care_plans/:care_plan_id/care_team/:id', api.care_team.destroy);

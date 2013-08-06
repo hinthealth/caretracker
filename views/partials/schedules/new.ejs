@@ -1,5 +1,23 @@
 <div class="form-page">
   <section class="main">
-    <h2>Add a Schedule</h2>
+    <h2>Add a new task</h2>
+    <div>
+      <label for="name">Name</label>
+      <input type="text" name="name" ng-model="form.name" placeholder="Take Lipitor" required>
+    </div>
+    <div>
+      <label for="name">Repeat frequency (seconds)</label>
+      <input type="text" name="frequency" ng-model="form.frequency" placeholder="86400">
+    </div>
+    <div>
+      <label for="name">Start (unix timestamp)</label>
+      <input type="text" name="start" ng-model="form.start" required>
+    </div>
+    <div>
+      <label for="name">End (unix timestamp)</label>
+      <input type="text" name="end" ng-model="form.end">
+    </div>
+    <p>
+      <button ng-click="createSchedule()" class="button">Create schedule</button>
   </section>
 </div>

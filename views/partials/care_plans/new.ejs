@@ -1,14 +1,13 @@
-
 <div class="form-page">
   <section class="main">
     <h2>Add a Patient</h2>
-    <label for="name">Display Name</label>
-    <input type="text" name="name" ng-model="form.name" placeholder="Mary Hilber">
-    <label for="name">Email Address (optional)</label>
+    <label for="patient[name]">Display Name</label>
+    <input type="text" name="patient[name]" ng-model="form.patient.name" placeholder="Mary Hilber">
+    <label for="patient[email]">Email Address (optional)</label>
     <p class="hint">
       Enter their email address to keep your journal and their journal in sync.
     <div>
-      <input type="text" name="email" ng-model="form.email" placeholder="mary@example.com">
+      <input type="text" name="patient[email]" ng-model="form.patient.email" placeholder="mary@example.com">
     </div>
     <p>
       <button ng-click="createCarePlan()" class="button">Add</button>

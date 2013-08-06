@@ -17,7 +17,7 @@ describe("CareProvider", function(){
     beforeEach(function(done){
       this.careProvider = new CareProvider({email: 'joe@example.com', name: 'Joe Shmoe', relation: 'That guy'});
       var otherProvider = {email: 'other@example.com', name: 'Other one', relation: 'None'};
-      this.carePlan = new CarePlan({name: 'e-Patient dave', careProviders: [this.careProvider.toObject(), otherProvider], ownerId: new CarePlan().id});
+      this.carePlan = new CarePlan({patient: {name: 'e-Patient dave'}, careProviders: [this.careProvider.toObject(), otherProvider], ownerId: new CarePlan().id});
       this.carePlan.save(done);
     });
     it("should allow the careplan to be found", function(done){

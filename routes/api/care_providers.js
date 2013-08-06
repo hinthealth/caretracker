@@ -33,7 +33,7 @@ exports.create = function (req, res) {
             sendEmail: true,
             fromName: req.user.name.full,
             fromEmail: req.user.email,
-            patientName: carePlan.name,
+            patientName: carePlan.patient.name,
             toEmail: newCareProvider.email,
             toName: newCareProvider.name,
             relation: newCareProvider.relation,
