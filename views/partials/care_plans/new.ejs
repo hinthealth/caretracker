@@ -1,13 +1,17 @@
 <div class="form-page">
   <section class="main">
-    <h2>Add a Patient</h2>
-    <input type="text" name="patient[name]" ng-model="form.patient.name" placeholder="Patient Display Name">
-    <div>
-      <input type="text" name="patient[email]" ng-model="form.patient.email" placeholder="Patient Email (optional)">
-    </div>
+    <h2>Add a patient</h2>
+    <form>
+      <div>
+        <input type="text" name="patient[name]" ng-model="form.patient.name" placeholder="Patient's display name">
+      </div>
+      <div>
+        <input type="text" name="patient[email]" ng-model="form.patient.email" placeholder="Patient's email address (optional)">
+      </div>
+    </form>
     <p class="hint">
       Without a patient email address we cannot sync your updates to the patient's journal.
     </p>
-    <button ng-click="createCarePlan()" class="button">Add</button>
+    <button ng-click="createCarePlan()" class="button">Add patient</button>
   </section>
 </div>

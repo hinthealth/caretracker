@@ -2,11 +2,16 @@
 <% include _navbar-back %>
 
 <section class="main">
+  <br/><br/>
   <h1>Account Settings</h1>
-  <h2>Email</h2>
-  <p><%= user.email %></p>
-  <h2>Sign out</h2>
-  <a href="/logout">Sign out</a> from Carefull.
+  <p>Email: <%= user.email %></p><br/>
+	
+	<div class="buttons">
+	<div>
+	  <a href="/logout" class="button">Sign out</a>
+	</div>
+	</div>
+
 </section>
 
 <% include _footer %>

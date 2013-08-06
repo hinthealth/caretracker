@@ -42,7 +42,7 @@ exports.create = function (req, res, next) {
         res.redirect(req.session.returnTo);
         req.session.returnTo = null;
       } else {
-        return res.redirect('/');
+        return res.redirect('/care_plans?welcome');
       }
     });
   });

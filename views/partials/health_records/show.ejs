@@ -14,25 +14,30 @@
     <h2>{{carePlan.patient.name}}</h2>
   </div>
 </section>
-<section class="demograhics">
-  <dl>
-    <dt>Date of Birth</dt>
-    <dd>{{demographics.dob}}</dd>
-    <dt>Gender</dt>
-    <dd>{{demographics.gender}}</dd>
-    <dt>Marital Status</dt>
-    <dd>{{demographics.marital_status}}</dd>
-  </dl>
-</section>
-<section class="medications">
-  <ng:switch on="!!medications.length">
-    <div ng:switch-when="true">
-      <li ng-repeat="medication in medications">
-        {{medication.dose_quantity.value}} {{medication.dose_quantity.unit}} {{medication.product.name}}
-      </li>
-    </div>
-    <div ng:switch-when="false">
-      No medications listed.
-    </div>
-  </ng:switch>
+<section class="main health-record">
+  <section class="demograhics">
+    <table>
+      <tr>
+        <td>Date of birth
+        <td>{{demographics.dob}}
+      <tr>
+        <td>Gender
+        <td>{{demographics.gender}}
+      <tr>
+        <td>Marital status
+        <td>{{demographics.marital_status}}
+    </table>
+  </section>
+  <section class="medications">
+    <ng:switch on="!!medications.length">
+      <div ng:switch-when="true">
+        <li ng-repeat="medication in medications">
+          {{medication.dose_quantity.value}} {{medication.dose_quantity.unit}} {{medication.product.name}}
+        </li>
+      </div>
+      <div ng:switch-when="false">
+        No medications listed.
+      </div>
+    </ng:switch>
+  </section>
 </section>

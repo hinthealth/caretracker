@@ -1,5 +1,7 @@
+
 var password = document.getElementById("password"),
     strength = document.getElementById("strength-bar");
+
 password.addEventListener('keyup', function () {
   var message = "";
   if(password.value){
