@@ -32,7 +32,7 @@ nav.hamburger-menu{background:linear-gradient(to bottom, #3e3c3d 0, #2d2c2d 100%
 nav.hamburger-menu ul{list-style:none;margin:0;padding:0}
 nav.hamburger-menu ul li a{border-bottom:1px solid #333;color:#dedede;display:block;padding:12px 15px}
 nav.hamburger-menu ul li a:hover{background:#333;color:#fff}
-div.hamburger-main{background:#fff;height:100%;margin-top:45px;position:relative;overflow:auto;overflow-y:auto}
+div.hamburger-main{background:#fff;height:100%;margin-top:45px;position:relative}
 div.hamburger-mask{display:none;height:100%;min-height:1062px;overflow-x:hidden;overflow-y:auto;position:absolute;right:0;top:0;width:30%;z-index:5}
 div.hamburger-container{height:100%}
 .button-icon{line-height:20px}
