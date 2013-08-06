@@ -2,7 +2,7 @@
   "name": "caretracker",
   "version": "0.1.0",
   "scripts": {
-    "start": "node_modules/.bin/supervisor app.js",
+    "start": "node app.js",
     "test": "make test"
   },
   "dependencies": {
