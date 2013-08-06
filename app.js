@@ -1,7 +1,5 @@
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
-require('better-stack-traces').install();
-
 // Set up analytics before the other libraries get included.
 var flash = require('connect-flash');
 var express = require('express');
