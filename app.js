@@ -83,13 +83,6 @@ app.get('/privacy-policy', routes.privacyPolicy);
  *       find a plugin that makes this less boilerplate.
  **/
 
-// Events
-app.get('/api/events', api.events.index);
-app.get('/api/events/:id', api.events.show);
-app.post('/api/events', api.events.create);
-app.put('/api/events/:id', api.events.update);
-app.delete('/api/events/:id', api.events.destroy);
-
 // CarePlans.
 app.get('/api/care_plans', api.care_plans.index);
 app.get('/api/care_plans/:id', api.care_plans.show);
