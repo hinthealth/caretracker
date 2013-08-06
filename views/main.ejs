@@ -17,7 +17,7 @@
       <li><a href="/care_plans">Your patients</a>
     </ul>
     <ul ng-repeat="carePlan in carePlans">
-      <li><a href="/care_plans/{{carePlan._id}}">{{carePlan.name}}</a>
+      <li><a href="/care_plans/{{carePlan._id}}">{{carePlan.patient.name}}</a>
     </ul>
     <ul>
       <li><a href="/care_plans/add">+ Add a patient</a>
@@ -45,6 +45,8 @@
 <script src="/public/js/directives.js"></script>
 <script src="/public/js/app.js"></script>
 <!-- endbuild -->
+
+<script src="/public/js/lib/moment.js"></script>
 <script src="/public/js/lib/jquery.min.js"></script>
 <script src="/public/js/hamburger.js"></script>
 

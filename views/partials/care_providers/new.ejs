@@ -1,9 +1,9 @@
 <div class="form-page">
   <section class="main">
 
-    <h2>Add to {{carePlan.name}}'s Care Team</h2>
-    <p>Share {{carePlan.name}}'s health data with another person (such as a family member or caregiver).</p>
-    <p>Everyone can keep track of {{carePlan.name}}"s care, share messages, and view his health record.</p>
+    <h2>Add to {{carePlan.patient.name}}'s Care Team</h2>
+    <p>Share {{carePlan.patient.name}}'s health data with another person (such as a family member or caregiver).</p>
+    <p>Everyone can keep track of {{carePlan.patient.name}}"s care, share messages, and view his health record.</p>
     <form>
       <div>
         <input type="text" name="name" ng-model="form.name" placeholder="Name" required/>
@@ -14,7 +14,7 @@
       <div>
         <input type="text" name="email" ng-model="form.email" placeholder="Email address" required />
       </div>
-      <button ng-click="createCareProvider()" class="button">Share {{carePlan.name}}"s Journal</button>
+      <button ng-click="createCareProvider()" class="button">Share {{carePlan.patient.name}}"s Journal</button>
     </form>
 
   </section>

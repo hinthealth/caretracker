@@ -9,7 +9,6 @@ exports.join = function(req, res, next){
   CarePlan.findOne({careProviders: {$elemMatch: {inviteKey: key}}}, function(error, carePlan){
     if(error) return next(error);
     var careProvider = carePlan.careProviders.filter(function(elem){
-      console.log(elem, key);
       return elem.inviteKey == key;
     })[0];
     careProvider.userId = req.user.id;
