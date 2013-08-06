@@ -155,7 +155,6 @@ angular.module('caretracker.controllers', []).
     $scope.virtualForm = {startDate: $scope.days[0], unit: $scope.units[1], value: 1};
     $scope.createSchedule = function() {
       var path = '/api/care_plans/' + $routeParams.id + '/schedules';
-      console.log($scope.virtualForm);
       var startDate = moment($scope.virtualForm.startDate.value);
 
       // THERE MUST BE A BETTER WAY
@@ -167,7 +166,6 @@ angular.module('caretracker.controllers', []).
         dateFormat + " h:m A",
         dateFormat + " HH:mm"
       ];
-      console.log("parsing", startDate.format(dateFormat) + ' ' + $scope.virtualForm.startTime);
       var start = moment(startDate.format(dateFormat) + ' ' + $scope.virtualForm.startTime, formats);
 
       $scope.form.frequency = parseInt($scope.virtualForm.value) * $scope.virtualForm.unit.value;
