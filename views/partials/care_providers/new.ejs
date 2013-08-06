@@ -1,22 +1,22 @@
 <div class="form-page">
   <section class="main">
-
-    <h2>Add to {{carePlan.patient.name}}'s Care Team</h2>
     <p>
       Members of this care team will be able to view and manage
       {{carePlan.name}}'s health record and journal.
     </p>
     <form>
       <div>
-        <input type="text" name="name" ng-model="form.name" placeholder="Caregiver name" required/>
+        <input type="text" name="name" ng-model="form.name" placeholder="Caregiver's name" required>
       </div>
       <div>
-        <input type="text" name="email" ng-model="form.email" placeholder="Caregiver email" required />
+        <input type="text" name="email" ng-model="form.email" placeholder="Caregiver email" required>
       </div>
       <div>
-        <input type="text" name="name" ng-model="form.relation" placeholder="Relation to patient" required />
+        <input type="text" name="name" ng-model="form.relation" placeholder="Relation to patient" required>
       </div>
-      <button ng-click="createCareProvider()" class="button">Sent Invite</button>
+      <p>
+        <button ng-click="createCareProvider()" class="button">Send invite to caregiver</button>
+      </p>
     </form>
   </section>
 </div>

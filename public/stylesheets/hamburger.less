@@ -28,7 +28,7 @@ nav.hamburger-menu ul li a:hover {
 }
 
 div.hamburger-main {
-  background: #fff;
+  background: #d3d6db;
   height: 100%;
   margin-top: 45px;
   position: relative;
@@ -47,6 +47,68 @@ div.hamburger-mask {
   z-index: 5;
 }
 
-div.hamburger-container {
+nav.hamburger-menu .footer {
+  padding: 15px;
+  font-size: .9em;
+}
+
+nav.hamburger-menu .footer a:hover {
+  transition: color 200ms;
+  color: #efefef;
+}
+
+.hamburger-container {
   height: 100%;
+}
+
+/**
+ * Header.
+ */
+
+header {
+  background: #479982;
+  color: #fff;
+  height: 45px;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+header h1 {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 45px;
+}
+
+header .header-left {
+  float: left;
+}
+
+header .header-title {
+  font-weight: 400;
+  line-height: 44px;
+  text-shadow: rgba(0, 0, 0, .50) 0 -1px 0;
+}
+
+header .header-right {
+  float: right;
+}
+
+header .button {
+  background-color: transparent;
+  transition: background-color 150ms;
+  float: left;
+  height: 30px;
+  margin: 7px;
+  width: 30px;
+}
+
+header .button:hover {
+  background-color: #54b59a;
+}
+
+header .button.button-right {
+  float: right;
 }
