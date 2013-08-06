@@ -37,7 +37,7 @@ exports.show = function(req, res) {
  */
 exports.create = function(req, res, next) {
   CarePlan.accessibleTo(req.user).find({_id: req.params.care_plan_id}).findOne(function(error, carePlan) {
-    if(error || !carePlan) return next(error || Error("Access denied"));
+    if(error || !carePlan) return next(error || Error("Access denied to "+ req.user.id + " for " + req.params.care_plan_id));
     var schedule = new Schedule({
       carePlanId: req.params.care_plan_id,
       end: req.body.end,
