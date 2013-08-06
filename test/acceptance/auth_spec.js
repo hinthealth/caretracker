@@ -44,7 +44,7 @@ describe("visiting a link requiring authentication while not authenticated", fun
     beforeEach(function(done){
       var self = this;
       this.timeout(10000);
-      this.browser.clickLink("Sign up", function(){
+      this.browser.clickLink("Create new account", function(){
         self.browser.location.pathname.should.equal('/signup');
         self.browser.
         fill('name[full]', 'Sue Zan').

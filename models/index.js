@@ -19,7 +19,6 @@ mongoose.connect(uristring, mongoOptions, function (err, res) {
 
 // Require all the models!
 require('./user_actions');
-require('./events');
 require('./health_records');
 require('./care_providers');
 require('./tasks');
