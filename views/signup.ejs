@@ -10,6 +10,10 @@
   <% }; %>
 
   <section class="main">
+    <p>
+      This application is not secure... yet. DO NOT upload real health data.
+    </p>
+    <script src="/public/js/lib/zxcvbn-async.js"></script>
     <form action="/signup" method="post">
       <div>
         <input type="text" required name="name[full]" value="<%= user.name.full || '' %>" placeholder="Full name" autofocus>
@@ -18,7 +22,7 @@
         <input type="email" required name="email" value="<%= user.email || '' %>" placeholder="Email">
       </div>
       <div>
-        <input id="password" type="password" minlength="6" required name="password" value="<%= user.password || '' %>" placeholder="Password">
+        <input id="password" type="password" required name="password" value="<%= user.password || '' %>" placeholder="Password">
       </div>
       <div>
         <input type="password" required name="passwordConfirmation" value="<%= user.passwordConfirmation || '' %>" placeholder="Password (again)">
@@ -28,23 +32,12 @@
         <input id="submit" type="submit" value="Sign up" class="button">
       </div>
     </form>
-    <script src="/public/js/lib/zxcvbn-async.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
-    <script src="/public/js/lib/jquery-validation.js"></script>
     <script src="/public/js/check-password.js"></script>
-    <script>
-      $('.main form').validate({
-        rules: {
-          passwordConfirmation: {
-            equalTo: '[name="password"]'
-          }
-        }
-      });
-    </script>
+  <p>
+    <center><a href="privacy-policy">Privacy Policy</a></center>
+  </p>
   </section>
 
 </div>
-
 
 <% include _footer %>
