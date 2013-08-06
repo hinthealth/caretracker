@@ -8,27 +8,29 @@
 
 <section class="main">
   <div>
-    <a href="/care_plans/{{carePlan._id}}/care_providers/new" class="button">Add person</a>
-  </div>
-
-  <div>
     <div ng-show="careProviders.length" >
-      {{carePlan.name}}'s journal is shared with the following people:
+      The following people have been invited to {{carePlan.name}}'s care team:
       <ul ng-repeat="careProvider in careProviders">
         <li class="care-provider">
           <p>
-            <strong> {{careProvider.name}}</strong> <a href="mailto:{{careProvider.email}}">{{careProvider.email}}</a> -
-            <span ng-show="careProvider.inviteKey">
-              (<a href="/join-team/{{careProvider.inviteKey}}" target="_self" >Pending</a>)
+            <strong> {{careProvider.name}}</strong> ({{careProvider.relation}})
+            <br/>
+        
+            <a href="mailto:{{careProvider.email}}">{{careProvider.email}}</a>
+            <span ng-show="careProvider.inviteKey"> - 
+              <a href="/join-team/{{careProvider.inviteKey}}" target="_self" >pending</a>
             </span>
             <span ng-show="!careProvider.inviteKey">
-              (Accepted)
+              accepted
             </span>
           </p>
-          <span> {{careProvider.relation}} </span>
         </li>
       </ul>
     </div>
+
+  <div>
+    <a href="/care_plans/{{carePlan._id}}/care_providers/new" class="button">Add person</a>
+  </div>
     <div ng-show="!careProviders.length" >
       <p>{{carePlan.name}}'s journal is not shared with anyone.
     </div>
