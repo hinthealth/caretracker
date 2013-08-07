@@ -37,8 +37,8 @@ CarePlanSchema.virtual('patient.invitePath').get(function(){
   return '/join-plan/' + this.patient.inviteKey;
 });
 
-CarePlanSchema.methods.invitePatientUrl = function(hostname){
-  return (hostname || '') + this.patient.invitePath;
+CarePlanSchema.methods.invitePatientUrl = function(url){
+  return (url || '') + this.patient.invitePath;
 };
 
 

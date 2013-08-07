@@ -1,5 +1,6 @@
-var mongoose = require('mongoose')
-  , CarePlan = mongoose.model('CarePlan')
+var mongoose  = require('mongoose')
+  , CarePlan  = mongoose.model('CarePlan')
+  , config    = require('../../config')
   , analytics = require('../../middlewares/analytics');
 
 // GET care_plans/
@@ -40,7 +41,7 @@ exports.create = function (req, res) {
           toName: carePlan.patient.name,
           toEamil: carePlan.patient.email,
           inviteKey: carePlan.patient.invitePath,
-          inviteUrl: carePlan.invitePatientUrl(req.headers.host)
+          inviteUrl: carePlan.invitePatientUrl(config.url)
         }
       });
 
