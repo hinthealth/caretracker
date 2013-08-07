@@ -91,8 +91,8 @@ var periodInSeconds = function(period){
   return mult == NaN ? 0 : mult;
 }
 
-HealthRecordSchema.methods.generateEvents = function(){
-  events = [];
+HealthRecordSchema.methods.generateTasks = function(){
+  schedules = [];
   self.data.toObject().medications.forEach(function(medication){
     // Medication fields should be:
     // date_range start, end
@@ -118,16 +118,17 @@ HealthRecordSchema.methods.generateEvents = function(){
     }
     var start = medication.date_range.start || new Date();
     var end = medication.date_range.end;
-    // Special case non-repeating events
+    // Special case non-repeating tasks
     if(period == 0 && !end){ end = start};
-    var sched = new Schedule({
+    var schedule = new Schedule({
+      name: name,
       starting: start,
       ending: end,
       period: period
     });
-    events.push(new Event({name: name, content: content, schedule: sched}));
+    schedules.push(schedule);
   });
-  return events;
+  return schedules;
 }
 
 mongoose.model('HealthRecord', HealthRecordSchema);
