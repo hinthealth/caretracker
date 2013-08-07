@@ -10,9 +10,16 @@
   <% }; %>
 
   <section class="main">
-    <p>
-      This application is not secure... yet. DO NOT upload real health data.
-    </p>
+    <div class='warning'>
+      <h3>Warning: This is a Test Server</h3>
+      <p class='well'>
+        All information will be sent unencrypted in plain text.
+      </p>
+      <p>
+        DO NOT USE ANY PERSONAL HEALTH
+        INFORMATION ON THIS SERVER.
+      </p>
+    </div>
     <script src="/public/js/lib/zxcvbn-async.js"></script>
     <form action="/signup" method="post">
       <div>
