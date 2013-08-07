@@ -48,21 +48,17 @@ grunt dbdrop
 _TODO: Move this kind of general documentation to the github wiki_
 
 ### A few conventions
-#### 1. Require an entire folder, utilizing that folders index.js
-When requiring someting into app.js, simply require a folder and have the folder/index.js require anything nested within. This way we simplify the app.js and have some nice, built-in namespacing for our app. An example of this is how we include models:
+#### 1. Use mongoose to access mongoose models, do so at the top of a file.
 
 ```
 // in ./models/index.js
+mongoose.model('User', UserSchema);
 ...
-exports.events = require('./events');
-exports.health_records = require('./health_records');
-exports.users = require('./users');
-
 // in ./app.js
 ...
-, models = require('./models')
 // Then you can do something like
-, User = models.users
+, mongoose = require('mongoose')
+, User = mongoose.model('User')
 ```
 #### 2. Application layout
 Express has little or no opinion as to how you structure our application. They can be as structured or unstructred as you like, and I expect this will be a major point of discussion throughout the development of the app. I've tried to start us off on a decent enough footing and cobbled together some apparant best practices I've seen from blogs and example applications, with some definite influence from Rails. Here's the current layout:

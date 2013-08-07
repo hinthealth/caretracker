@@ -90,44 +90,6 @@ angular.module('caretracker.controllers', []).
     };
   }]).
 
-  // Events Controllers
-  controller('IndexEventsCtrl', ['$scope', '$http', function($scope, $http){
-    $http.get('/api/events').
-      success(function(data, status, headers, config) {
-        $scope.events = data.events;
-      });
-    }]).
-  controller('AddEventCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
-    $scope.form = {};
-    $scope.createEvent = function () {
-      $http.post('/api/events', $scope.form).success(function(data) {
-        $location.path('/events');
-      });
-    };
-  }]).
-  controller('ShowEventCtrl', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams){
-    $http.get('/api/events/' + $routeParams.id).
-      success(function(data) {
-        $scope.event = data.event;
-      });
-  }]).
-  controller('DeleteEventCtrl', ['$scope', '$http', '$location', '$routeParams', function($scope, $http, $location, $routeParams){
-    $http.get('/api/events/' + $routeParams.id).
-      success(function(data) {
-        $scope.event = data.event;
-      });
-
-    $scope.deleteEvent = function () {
-      $http.delete('/api/events/' + $routeParams.id).
-        success(function(data) {
-          $location.url('/');
-        });
-    };
-
-    $scope.home = function () {
-      $location.url('/');
-    };
-  }]).
   controller('ShowHealthRecordCtrl', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams){
     $http.get('/api/care_plans/' + $routeParams.id + '/health_record').
       success(function(data) {
