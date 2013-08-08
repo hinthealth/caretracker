@@ -1,6 +1,6 @@
 var mongoose  = require('mongoose')
   , CarePlan  = mongoose.model('CarePlan')
-  , config    = require('../../config')
+  , AppConfig    = require('../../config/app')
   , analytics = require('../../middlewares/analytics');
 
 // GET care_plans/
@@ -50,28 +50,22 @@ exports.create = function (req, res) {
           toName: carePlan.patient.name,
           toEamil: carePlan.patient.email,
           inviteKey: carePlan.patient.invitePath,
-          inviteUrl: carePlan.invitePatientUrl(config.url)
+          inviteUrl: carePlan.invitePatientUrl(AppConfig.url)
         }
       });
-
+      console.log("Email sent to patient ", req.user.email, "with url", carePlan.invitePatientUrl(AppConfig.url));
     }
     res.json({carePlan: carePlan});
   });
 };
 
 // POST
-exports.create_for_me = function (req, res) {
+exports.create_for_me = function (req, res, next) {
   // TODO: Scope by current user access
-  var myPlanAttributes = {
-    ownerId: req.user.id,
-    patient: {
-      name: req.user.name.full,
-      email: req.user.email,
-      userId: req.user.id
-    }
-  };
-  CarePlan.create(myPlanAttributes, function(error, carePlan){
-    if(error) return res.json(false);
+  var carePlan = new CarePlan({ownerId: req.user.id});
+  carePlan.setPatient(req.user);
+  carePlan.save(function(error){
+    if(error) return next(error);
     res.json({carePlan: carePlan});
   });
 };
