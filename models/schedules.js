@@ -36,7 +36,6 @@ ScheduleSchema.methods.tasksBetween = function(startBoundary, endBoundary, callb
 
   this.existingTasksBetween(startBoundary, endBoundary, function(err, foundTasks){
     if (err) { return callback(err); }
-    console.log("Found", foundTasks.length, "tasks");
     foundTasks.forEach(function(task) {
       startTimesToTasks[task.start] = task;
     });
