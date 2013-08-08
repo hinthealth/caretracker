@@ -1,14 +1,21 @@
-<% include _navbar-back %>
-<h2>{{form.name}} at {{task.start | date:'shortTime'}}</h2>
-<ng:switch on="!!task.completed.at" >
-  <div ng:switch-when="true">
-    Marked complete by {{task.completed.name}} at {{task.completed.at | date:'medium'}}.
-  </div>
-  <div ng:switch-when="false">
-    Not completed.
-  </div>
-</ng:switch>
-<input type="text" name="name" ng-model="form.name" />
-<label for='note'>Note</label>
-<input class="longer" type="text" name="note" ng-model="form.note"/>
-<button ng-click='saveTask()' >Update</button>
+<div class="form-page">
+  <section class="main">
+    <form name="taskForm">
+      <h2>{{form.name}} at {{task.start | date:'shortTime'}}</h2>
+      <ng:switch on="!!task.completed.at" >
+        <div ng:switch-when="true">
+          Marked complete by {{task.completed.name}} at {{task.completed.at | date:'medium'}}.
+        </div>
+        <div ng:switch-when="false">
+          Not completed.
+        </div>
+      </ng:switch>
+      <input type="text" name="name" ng-model="form.name" />
+      <label for='note'>Note</label>
+      <input class="longer" type="text" name="note" ng-model="form.note"/>
+      <p>
+        <button ng-click='saveTask()' class='button'>Update</button>
+      </p>
+    </form>
+  </section>
+</div>
