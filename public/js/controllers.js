@@ -85,6 +85,7 @@ angular.module('caretracker.controllers', []).
       });
   }]).
   controller('AddCareProvidersCtrl', ['$scope', '$http', '$routeParams', '$location', '$rootScope', function($scope, $http, $routeParams, $location, $rootScope) {
+
     $scope.form = {};
     $http.get('/api/care_plans/' + $routeParams.id + '/care_providers' ).
       success(function(data, status, headers, config) {
