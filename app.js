@@ -1,4 +1,4 @@
-const NODE_ENV = process.env.NODE_ENV || 'development';
+var NODE_ENV = process.env.NODE_ENV || 'development';
 
 // require('better-stack-traces').install();
 
@@ -8,7 +8,8 @@ var express = require('express');
 
 // Initialize database and models.
 var db = require('./models');
-var passport = require('./config/passport');
+var config = require('./config');
+var passport = config.passport;
 var routes = require('./routes');
 var lessMiddleware = require('less-middleware');
 var middlewares = require('./middlewares');
