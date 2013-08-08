@@ -4,18 +4,19 @@
       Members of this care team will be able to view and manage
       {{carePlan.patient.name}}'s health record and journal.
     </p>
-    <form>
+    <form name="createProvider">
       <div>
         <input type="text" name="name" ng-model="form.name" placeholder="Caregiver's name" required>
       </div>
       <div>
-        <input type="text" name="email" ng-model="form.email" placeholder="Caregiver email" required>
+        <input type="email" name="email" ng-model="form.email" placeholder="Caregiver email" required>
+        <span ng-show="createProvider.email.$error.email">Not a valid email address.</span>
       </div>
       <div>
         <input type="text" name="name" ng-model="form.relation" placeholder="Relation to patient" required>
       </div>
       <p>
-        <button ng-click="createCareProvider()" class="button">Send invite to caregiver</button>
+        <button ng-click="createCareProvider()" class="button" ng-disabled="createProvider.$invalid" >Send invite to caregiver</button>
       </p>
     </form>
   </section>

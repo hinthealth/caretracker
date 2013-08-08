@@ -20,7 +20,6 @@
         INFORMATION ON THIS SERVER.
       </p>
     </div>
-    <script src="/public/js/lib/zxcvbn.js"></script>
     <form action="/signup" method="post">
       <div>
         <input type="text" required name="name[full]" value="<%= user.name.full || '' %>" placeholder="Full name" autofocus>
@@ -39,10 +38,23 @@
         <input id="submit" type="submit" value="Sign up" class="button">
       </div>
     </form>
+    <p>
+      <center><a href="privacy-policy">Privacy Policy</a></center>
+    </p>
     <script src="/public/js/check-password.js"></script>
-  <p>
-    <center><a href="privacy-policy">Privacy Policy</a></center>
-  </p>
+    <script src="/public/js/lib/zxcvbn.js"></script>
+    <script src="/public/js/lib/jquery.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    <script src="/public/js/check-password.js"></script>
+    <script>
+      $('.main form').validate({
+        rules: {
+          passwordConfirmation: {
+            equalTo: '[name="password"]'
+          }
+        }
+      });
+    </script>
   </section>
 
 </div>
