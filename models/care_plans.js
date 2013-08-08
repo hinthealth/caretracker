@@ -44,14 +44,14 @@ CarePlanSchema.static('ownedBy', function(user){
 
 
 CarePlanSchema.static('for', function(user){
-  return this.findOne({patient: {userId: user.id }});
+  return this.findOne({"patient.userId": user.id });
 });
 
 // TODO: Convert to patient.userId
 CarePlanSchema.static('accessibleTo', function(user){
   return this.where().or([
     {ownerId: user.id},
-    {patient: {userId: user.id }},
+    {"patient.userId": user.id },
     {careProviders: {$elemMatch: {userId: user.id}}}
   ]);
   // TODO: Query returns dupes, but setting .distinct breaks the world.

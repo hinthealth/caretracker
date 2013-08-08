@@ -22,6 +22,9 @@ exports.index = function(req, res) {
     if (error) {
       return res.json({error: error.message}, 400);
     }
+    if (!carePlan){
+      return res.json({error: "You do not have access to this care plan"}, 400);
+    }
     carePlan.findTasks(parseInt(req.query.start), parseInt(req.query.end),
         function(error, tasks) {
       if(error){ return res.json({error: error.message}, 400); }
