@@ -6,6 +6,7 @@ angular.module('caretracker.controllers', []).
   controller('MenuController', ['$scope', '$http', function($scope, $http) {
     $http.get('/api/care_plans').
       success(function(data, status, headers, config) {
+        $scope.myCarePlan = data.myCarePlan;
         $scope.carePlans = data.carePlans;
       });
   }]).
@@ -15,6 +16,7 @@ angular.module('caretracker.controllers', []).
     $scope.showWelcomeMessage = 'welcome' in $routeParams;
     $http.get('/api/care_plans').success(function(data) {
       $scope.carePlans = data.carePlans;
+      $scope.myCarePlan = data.myCarePlan;
     });
   }]).
   controller('AddCarePlanCtrl', ['$scope', '$http', '$location', '$rootScope', function($scope, $http, $location, $rootScope) {
@@ -28,6 +30,14 @@ angular.module('caretracker.controllers', []).
           $location.path('/care_plans/'+ data.carePlan._id + '/finished');
         }
       });
+    };
+  }]).
+  controller('AddPatientCarePlanCtrl', ['$scope', '$http', '$location', '$rootScope', function($scope, $http, $location, $rootScope) {
+    $rootScope.title = 'I am a patient';
+    $scope.createPatientCarePlan = function() {
+      $http.post('/api/care_plans/self').success(function(data) {
+        $location.path('/care_plans/'+ data.carePlan._id);
+     });
     };
   }]).
   controller('ShowCarePlanCtrl', ['$scope', '$http', '$routeParams', '$rootScope', function($scope, $http, $routeParams, $rootScope) {

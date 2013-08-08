@@ -14,8 +14,13 @@
   </header>
 
   <nav class="hamburger-menu" ng-controller="MenuController">
+    <ng:switch on="!!myCarePlan">
+      <ul ng:switch-when="true">
+        <li><a href="/care_plans/{{myCarePlan._id}}">My plan</a>
+      </ul>
+    </ng:switch>
     <ul>
-      <li><a href="/care_plans">Your patients</a>
+      <li><a href="/care_plans">Manage patients</a>
     </ul>
     <ul ng-repeat="carePlan in carePlans">
       <li><a href="/care_plans/{{carePlan._id}}">{{carePlan.patient.name}}</a>

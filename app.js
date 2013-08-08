@@ -1,5 +1,7 @@
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
+// require('better-stack-traces').install();
+
 // Set up analytics before the other libraries get included.
 var flash = require('connect-flash');
 var express = require('express');
@@ -88,6 +90,7 @@ app.get('/api/care_plans', api.care_plans.index);
 app.get('/api/care_plans/:id', api.care_plans.show);
 app.post('/api/care_plans', api.care_plans.create);
 app.put('/api/care_plans/:id', api.care_plans.update);
+app.post('/api/care_plans/self', api.care_plans.create_for_me);
 app.delete('/api/care_plans/:id', api.care_plans.destroy);
 
 // CarePlan Sharing (available to owner - and patient?)
