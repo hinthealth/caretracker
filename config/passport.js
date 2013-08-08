@@ -2,7 +2,6 @@ var passport = require('passport')
   , LocalStrategy = require('passport-local').Strategy
   , db = require('mongoose')
   , User = db.model('User')
-// TODO: This library is arbitrary and sucks. Replace with something !obnoxious
   , zxcvbn = require("zxcvbn");
 
 // Minimum password score based on scale from zxcvbn:

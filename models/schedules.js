@@ -11,6 +11,11 @@ var ScheduleSchema = new Schema({
   frequency: {type: Number, default: 0}  // Frequency in seconds.
 });
 
+
+
+
+
+
 /**
  * Returns a set of tasks generated from a schedule, given a time range.
  * @param {number} startBoundary Start time.
@@ -18,52 +23,69 @@ var ScheduleSchema = new Schema({
  * @param {function(<Array.Task>)} callback Callback for found tasks.
  */
 ScheduleSchema.methods.tasksBetween = function(startBoundary, endBoundary, callback) {
+  // Don't schedule events outside of schedule boundary, regardless of range.
   if (startBoundary > endBoundary) {
     return callback(Error('startBoundary must be less than endBoundary.'))
   }
 
-  // Map start times to generated tasks.
-  var startTimesToTasks = {};
 
+  var startTimesToTasks = {};
+  this.generateTasksBetween(startBoundary, endBoundary).forEach(function(task){
+    startTimesToTasks[task.start] = task;
+  });
+
+  this.existingTasksBetween(startBoundary, endBoundary, function(err, foundTasks){
+    if (err) { return callback(err); }
+    foundTasks.forEach(function(task) {
+      startTimesToTasks[task.start] = task;
+    });
+
+    callback(null,
+      Object.keys(startTimesToTasks).sort(function(a,b){
+        return a-b;
+      }).map(function(startTime){
+        return startTimesToTasks[startTime];
+      })
+    );
+  });
+};
+ScheduleSchema.methods.existingTasksBetween = function(start, end, callback){
+  // Clobber map with persistent tasks.
+  Task.where('scheduleId').equals(this.id)
+      .where('start').gt(start).lte(end)
+      .exec(callback);
+};
+
+ScheduleSchema.methods.generateTasksBetween = function(startBoundary, endBoundary){
+  if(this.start) startBoundary = Math.max(startBoundary, this.start);
+  if(this.end)   endBoundary   = Math.min(endBoundary, this.end);
+
+  var tasks = [];
   if(this.frequency){
     // Use maths to figure out where our timing should start within this period
     var periodsSinceStart = (startBoundary - this.start) / (this.frequency * 1000);
     var start = Math.ceil(periodsSinceStart) * this.frequency * 1000 + this.start
     while (start < endBoundary) {
-      startTimesToTasks[start] = new Task({
-        name: this.name,
-        scheduleId: this.id,
-        start: start
-      });
+      tasks.push(
+        new Task({
+          name: this.name,
+          scheduleId: this.id,
+          start: start
+        })
+      );
       start += this.frequency * 1000; // It's all milliseconds
     }
   }else if(this.start >= startBoundary && this.start < endBoundary){
     // A frequency of 0 (or any false value) indicates a 1 time task
-    startTimesToTasks[this.start] = new Task({
-      name: this.name,
-      carePlanId: this.carePlanId,
-      start: this.start
-    });
+    tasks.push(
+      new Task({
+        name: this.name,
+        carePlanId: this.carePlanId,
+        start: this.start
+      })
+    );
   }
-
-  // Clobber map with persistent tasks.
-  Task.where('scheduleId').equals(this.id)
-      .where('start').gt(startBoundary).lte(endBoundary)
-      .exec(function(err, foundTasks) {
-    if (err) { return callback(err); }
-    foundTasks.forEach(function(task) {
-      startTimesToTasks[task.start] = task;
-    });
-    // Convert the task mapping to an array sorted by start time.
-    // TODO(healthio-dev): Sort this.
-    var tasks = [];
-    Object.keys(startTimesToTasks).sort(function(a,b){
-      return a-b;
-    }).forEach(function(startTime){
-      tasks.push(startTimesToTasks[startTime]);
-    })
-    callback(null, tasks);
-  });
+  return tasks;
 };
 
 /**
@@ -73,7 +95,7 @@ ScheduleSchema.methods.tasksBetween = function(startBoundary, endBoundary, callb
 ScheduleSchema.methods.taskFor = function(startTime, next){
   var self = this;
   if(startTime < this.start){
-    return next(Error("Task cannot start before the schedule"));
+    return next(Error("Task cannot start before the schedule ("+startTime+" must be greater than "+ this.start+")"));
   }
   if(this.end && startTime > this.end){
     return next(Error("Task cannot end after the schedule"));

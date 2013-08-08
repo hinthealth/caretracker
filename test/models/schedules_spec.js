@@ -1,6 +1,7 @@
 var helper = require('./../test_helper');
 var mongoose = require('mongoose');
 var should = require('should');
+var moment = require('moment');
 
 var CarePlan = mongoose.model('CarePlan');
 var Schedule = mongoose.model('Schedule');
@@ -24,7 +25,7 @@ describe('Schedule', function() {
     it('should save', function(done) {
       var schedule = new Schedule({
         name: 'Now required',
-        carePlan: this.carePlan.id,
+        carePlanId: this.carePlan.id,
         frequency: 86400,  // Once per day.
         start: new Date('2013-01-01').getTime()
       });
@@ -42,7 +43,7 @@ describe('Schedule', function() {
 
       this.schedule = new Schedule({
         name: "Feed the cat",
-        carePlan: this.carePlan.id,
+        carePlanId: this.carePlan.id,
         frequency: this.frequency,  // Once per day.
         start: this.start,
       });
@@ -78,7 +79,6 @@ describe('Schedule', function() {
         done();
       });
     });
-
   });
 
   describe('#tasksBetween', function() {
@@ -92,11 +92,31 @@ describe('Schedule', function() {
         end: new Date('2013-02-03').getTime()
       }
     });
+    context("6 hour schedule", function(){
+      beforeEach(function(){
+        this.schedule = new Schedule({
+          name: "Take pills",
+          carePlanId: this.carePlan.id,
+          frequency: 60 * 60 * 6, // Every 6 hours
+          start: moment().startOf('day').add('hours', 8).valueOf()
+        });
+      });
+      it("should start at 8am", function(done){
+        var self = this;
+        var start = moment().startOf('day').valueOf();
+        var end   = moment().endOf('day').valueOf();
+        this.schedule.tasksBetween(start, end, function(error, tasks){
+          tasks.should.not.be.empty;
+          tasks[0].start.should.equal(self.schedule.start);
+          done();
+        });
+      })
+    })
     context("once a day schedule", function(){
       beforeEach(function(){
         this.schedule = new Schedule({
           name: "go running",
-          carePlan: this.carePlan.id,
+          carePlanId: this.carePlan.id,
           frequency: 86400,  // Once per day.
           start: new Date('2013-01-01').getTime()
         });
@@ -120,7 +140,7 @@ describe('Schedule', function() {
       beforeEach(function(){
         this.schedule = new Schedule({
           name: "Get involved with the community",
-          carePlan: this.carePlan.id,
+          carePlanId: this.carePlan.id,
           frequency: 43200,  // Twice per day.
           start: new Date('2013-01-01').getTime()
         });

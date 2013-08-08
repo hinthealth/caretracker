@@ -15,6 +15,6 @@ exports.partials = function(req, res) {
   res.render('partials/' + modelName + '/' + viewName);
 };
 
-exports.care_team = require('./care_team');
+exports.care_plan = require('./care_plan');
 exports.sessions = require('./sessions');
 exports.users = require('./users');

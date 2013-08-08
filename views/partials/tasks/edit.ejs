@@ -1,3 +1,4 @@
+<% include _navbar-back %>
 <h2>{{form.name}} at {{task.start | date:'shortTime'}}</h2>
 <ng:switch on="!!task.completed.at" >
   <div ng:switch-when="true">

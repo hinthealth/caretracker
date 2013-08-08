@@ -62,11 +62,13 @@ describe("CarePlan", function(){
     describe("the patient", function(){
       beforeEach(function(done){
         var self = this;
-        this.user = new User({carePlanId: this.carePlan.id});
-        this.user.save(function(err){
-          self.carePlan.save(function(err){
-            self.user.carePlanId.equals(self.carePlan.id).should.be_true;
-            done();
+        this.user = new User({'name.full': 'Good guy greg', email: 'greg@example.com'});
+        this.carePlan.setPatient(this.user);
+        this.carePlan.patient.userId.toString().should.equal(this.user.id.toString());
+        this.carePlan.save(function(err){
+          CarePlan.for(self.user).exec(function(err, plan){
+            plan.id.should.equal(self.carePlan.id);
+            done()
           });
         });
       });
