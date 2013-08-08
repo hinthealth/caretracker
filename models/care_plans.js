@@ -10,7 +10,7 @@ var mongoose      = require('mongoose')
 
 var PatientSchema = new Schema({
     name: {type: String, required: true},
-    userId: ObjectId,
+    userId: {type: ObjectId, unique: true},
     email: {type: String},
     inviteKey: {type: String, default: Util.generateInviteKey}
 }, {_id: false, id: false});
@@ -71,7 +71,9 @@ CarePlanSchema.static('accessibleTo', function(user){
     {ownerId: user.id},
     {_id: user.carePlanId},
     {careProviders: {$elemMatch: {userId: user.id}}}
-  ])
+  ]);
+  // This query is returning duplicates, no idea why this is breaking.
+  //.distinct('_id');
 });
 
 

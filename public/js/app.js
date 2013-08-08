@@ -13,6 +13,10 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
       templateUrl: '/partials/care_plans/new',
       controller: 'AddCarePlanCtrl'
     }).
+    when('/care_plans/add_my_plan', {
+      templateUrl: '/partials/care_plans/new_patient',
+      controller: 'AddPatientCarePlanCtrl'
+    }).
     when('/care_plans/:id/verify', {
       templateUrl: '/partials/care_plans/create_verify',
       title: 'Patient invited',

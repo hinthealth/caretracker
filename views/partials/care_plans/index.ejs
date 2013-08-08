@@ -6,6 +6,11 @@
   </div>
   <div>
     <a href="/care_plans/add" class="button">Add a patient</a>
+    <ng:switch on="!!myCarePlan">
+      <span ng:switch-when="false">
+        <a href="/care_plans/add_my_plan" class="button">Manage my care</a>
+      </span>
+    </ng:switch>
   </div>
 </section>
 <section class="table">

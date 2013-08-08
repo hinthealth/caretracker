@@ -7,7 +7,16 @@ exports.index = function (req, res) {
   // TODO: Scope by current user access
   CarePlan.accessibleTo(req.user).exec(function(error, carePlans){
     if(error) return res.json(false);
-    res.json({carePlans: carePlans});
+    var myCarePlan;
+    carePlans = carePlans.filter(function(plan){
+      if(plan.patient.userId == req.user.id){
+        myCarePlan = plan;
+        return false;
+      }else{
+        return true;
+      }
+    });
+    res.json({carePlans: carePlans, myCarePlan: myCarePlan});
   });
 };
 
@@ -45,6 +54,23 @@ exports.create = function (req, res) {
       });
 
     }
+    res.json({carePlan: carePlan});
+  });
+};
+
+// POST
+exports.create_for_me = function (req, res) {
+  // TODO: Scope by current user access
+  var myPlanAttributes = {
+    ownerId: req.user.id,
+    patient: {
+      name: req.user.name.full,
+      email: req.user.email,
+      userId: req.user.id
+    }
+  };
+  CarePlan.create(myPlanAttributes, function(error, carePlan){
+    if(error) return res.json(false);
     res.json({carePlan: carePlan});
   });
 };

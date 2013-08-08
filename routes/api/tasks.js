@@ -59,7 +59,7 @@ exports.update = function(req, res, next) {
       schedule.taskFor(req.params.taskStart, function(error, task){
         if(error) return next(error);
         task.name = req.body.name;
-        task.content = req.body.content;
+        task.note = req.body.note;
         task.save(function(error){
           if(error) return next(error);
           res.json(true);
