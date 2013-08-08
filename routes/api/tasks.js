@@ -87,7 +87,7 @@ exports.toggle = function(req, res, next) {
         task.toggleCompleted(req.user);
         task.save(function(error){
           if(error) return next(error);
-          res.json(true);
+          res.json(task);
         });
       })
     });
