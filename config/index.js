@@ -14,4 +14,5 @@ var schemeSuffix = exports.scheme ? '://' : '';
 
 var portPrefix = exports.port ? ':' : '';
 
-exports.url = exports.scheme + schemeSuffix + exports.hostname + portPrefix + exports.port
+exports.hostWithPort = exports.hostname + portPrefix + exports.port
+exports.url = exports.scheme + schemeSuffix + exports.hostWithPort
