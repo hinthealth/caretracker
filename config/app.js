@@ -1,6 +1,4 @@
 exports.env = process.env.NODE_ENV || 'development';
-exports.passport = require('./passport');
-
 if(exports.env == 'production'){
   exports.scheme = 'http';
   exports.hostname = 'caretracker-test.jit.su';

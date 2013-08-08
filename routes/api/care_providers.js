@@ -1,9 +1,9 @@
-var mongoose = require('mongoose')
-  , CarePlan = mongoose.model('CarePlan')
-  , CareProvider = mongoose.model('CareProvider')
-  , User = mongoose.model('User')
-  , config    = require('../../config')
-  , analytics = require('../../middlewares/analytics');
+var mongoose      = require('mongoose')
+  , CarePlan      = mongoose.model('CarePlan')
+  , CareProvider  = mongoose.model('CareProvider')
+  , User          = mongoose.model('User')
+  , AppConfig     = require('../../config/app')
+  , analytics     = require('../../middlewares/analytics');
 
 // GET care_plan/ID/care_providers
 exports.index = function (req, res) {
@@ -39,10 +39,10 @@ exports.create = function (req, res) {
             toName: newCareProvider.name,
             relation: newCareProvider.relation,
             inviteKey: newCareProvider.inviteKey,
-            inviteUrl: newCareProvider.inviteUrl(config.url)
+            inviteUrl: newCareProvider.inviteUrl(AppConfig.url)
           }
       });
-      console.log("Invite sent to ", newCareProvider.email, " with url ", newCareProvider.inviteUrl(config.url));
+      console.log("Invite sent to ", newCareProvider.email, " with url ", newCareProvider.inviteUrl(AppConfig.url));
       res.json({carePlan: carePlan});
     });
   });

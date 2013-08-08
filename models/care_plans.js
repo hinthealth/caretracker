@@ -37,24 +37,6 @@ CarePlanSchema.virtual('patient.invitePath').get(function(){
   return '/join-plan/' + this.patient.inviteKey;
 });
 
-CarePlanSchema.methods.invitePatientUrl = function(url){
-  return (url || '') + this.patient.invitePath;
-};
-
-
-CarePlanSchema.methods.hasAccessIds = function(){
-  var withAccess = {};
-  withAccess[this.ownerId] = true
-  if(this.patient && this.patient.userId){
-    withAccess[this.patient.userId] = true;
-  }
-  this.careProviders.forEach(function(careProvider){
-    if(careProvider.userId){
-      withAccess[careProvider.userId] = true;
-    };
-  });
-  return Object.keys(withAccess)
-}
 
 CarePlanSchema.static('ownedBy', function(user){
   return this.where({ownerId: user.id});
@@ -62,17 +44,18 @@ CarePlanSchema.static('ownedBy', function(user){
 
 
 CarePlanSchema.static('for', function(user){
-  return this.findOne({id: user.carePlanId });
+  return this.findOne({patient: {userId: user.id }});
 });
 
 // TODO: Convert to patient.userId
 CarePlanSchema.static('accessibleTo', function(user){
   return this.where().or([
     {ownerId: user.id},
-    {_id: user.carePlanId},
+    {patient: {userId: user.id }},
     {careProviders: {$elemMatch: {userId: user.id}}}
   ]);
-  // This query is returning duplicates, no idea why this is breaking.
+  // TODO: Query returns dupes, but setting .distinct breaks the world.
+  // Need to investigate
   //.distinct('_id');
 });
 
@@ -103,10 +86,34 @@ CarePlanSchema.methods.findTasks =
     });
   });
 };
+CarePlanSchema.methods.hasAccessIds = function(){
+  var withAccess = {};
+  withAccess[this.ownerId] = true
+  if(this.patient && this.patient.userId){
+    withAccess[this.patient.userId] = true;
+  }
+  this.careProviders.forEach(function(careProvider){
+    if(careProvider.userId){
+      withAccess[careProvider.userId] = true;
+    };
+  });
+  return Object.keys(withAccess)
+}
 
 CarePlanSchema.methods.healthRecord = function(done){
   HealthRecord.findOne({direct_address: this.directAddress})
     .sort('-created').exec(done);
+};
+
+CarePlanSchema.methods.invitePatientUrl = function(url){
+  return (url || '') + this.patient.invitePath;
+};
+
+CarePlanSchema.methods.setPatient = function(user){
+  this.patient.name       = user.name.full;
+  this.patient.email      = user.email;
+  this.patient.userId     = user.id;
+  this.patient.inviteKey  = null;
 };
 
 mongoose.model('CarePlan', CarePlanSchema);

@@ -8,8 +8,7 @@ var express = require('express');
 
 // Initialize database and models.
 var db = require('./models');
-var config = require('./config');
-var passport = config.passport;
+var passport = require('./config/passport');
 var routes = require('./routes');
 var lessMiddleware = require('less-middleware');
 var middlewares = require('./middlewares');
@@ -45,8 +44,8 @@ app.use('/public', lessMiddleware({
 
 app.use('/public', express.static(path.join(__dirname, '/public')));
 
-app.get('/public/js/lib/zxcvbn-async.js',function(req,res) {
-  res.sendfile(path.join(__dirname,'node_modules','zxcvbn','zxcvbn-async.js'));
+app.get('/public/js/lib/zxcvbn.js',function(req,res) {
+  res.sendfile(path.join(__dirname,'node_modules','zxcvbn','zxcvbn.js'));
 });
 app.get('/public/js/lib/moment.js',function(req,res) {
   res.sendfile(path.join(__dirname,'node_modules','moment','min','moment.min.js'));
@@ -57,7 +56,7 @@ app.use(app.router);
 
 // set up our security to be enforced on all requests to secure paths
 app.all('/account', middlewares.auth.requireUser);
-app.all('/join-team*', middlewares.auth.requireUser);
+app.all('/join-*', middlewares.auth.requireUser);
 
 app.all('/api/*', middlewares.auth.requireUser);
 
@@ -74,8 +73,12 @@ app.get('/signup', routes.users.new);
 app.post('/signup', routes.users.create);
 app.get('/account', routes.users.account);
 
+
+// Join as a patient
+app.get('/join-plan/:id', routes.care_plan.addPatient);
+
 // Accept care team invitation
-app.get('/join-team/:id', routes.care_team.join);
+app.get('/join-team/:id', routes.care_plan.addCarePrivider);
 
 // Privacy & Terms
 app.get('/privacy-policy', routes.privacyPolicy);
@@ -113,10 +116,6 @@ app.put('/api/care_plans/:care_plan_id/schedules/:schedule_id/tasks/:taskStart/t
 
 // app.get('/api/care_plans/:care_plan_id/care_team/:id', api.care_team.show);
 // app.delete('/api/care_plans/:care_plan_id/care_team/:id', api.care_team.destroy);
-
-// CarePlan Invitations (available to owner - and patient?)
-// Include type=(patient|careteam) to specify the type of invitation. Default is careteam
-// app.post('/api/care_plans/:care_plan_id/invitations', api.invitations.create);
 
 app.get('/api/care_plans/:care_plan_id/health_record', api.health_record.show)
 
