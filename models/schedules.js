@@ -18,10 +18,15 @@ var ScheduleSchema = new Schema({
  * @param {function(<Array.Task>)} callback Callback for found tasks.
  */
 ScheduleSchema.methods.tasksBetween = function(startBoundary, endBoundary, callback) {
+  // Don't schedule events outside of schedule boundary, regardless of range.
+  if(this.start) startBoundary = Math.max(startBoundary, this.start);
+  if(this.end)   endBoundary   = Math.min(endBoundary, this.end);
+
   if (startBoundary > endBoundary) {
     return callback(Error('startBoundary must be less than endBoundary.'))
   }
 
+  // Don't let boundaries
   // Map start times to generated tasks.
   var startTimesToTasks = {};
 
@@ -73,7 +78,7 @@ ScheduleSchema.methods.tasksBetween = function(startBoundary, endBoundary, callb
 ScheduleSchema.methods.taskFor = function(startTime, next){
   var self = this;
   if(startTime < this.start){
-    return next(Error("Task cannot start before the schedule"));
+    return next(Error("Task cannot start before the schedule ("+startTime+" must be greater than "+ this.start+")"));
   }
   if(this.end && startTime > this.end){
     return next(Error("Task cannot end after the schedule"));

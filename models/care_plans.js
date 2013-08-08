@@ -82,7 +82,7 @@ CarePlanSchema.methods.findTasks =
         reduceBack(null, tasks.concat(foundTasks));
       })
     }, function(err, result){
-      callback(null, result)
+      callback(null, result.sort(function(a,b){ return a.start - b.start; }));
     });
   });
 };
