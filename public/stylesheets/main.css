@@ -22,12 +22,11 @@ section.table ul{background:#fff;border:1px solid #dedede;border-bottom:0;border
 section.table ul li{border-collapse:collapse;border-bottom:1px solid #dedede}
 section.table ul li a{display:block;padding:10px 15px}
 section.table ul li a:hover{background:#efefef}
-.form-page{max-width:400px;margin:0 auto}
-.form-page .buttons{margin-top:10px}
-.form-page .buttons input[type=submit]{margin-bottom:10px}
+.form-page{max-width:400px;margin:0 auto}.form-page .button{padding:10px 20px;width:100%}.form-page .button[disabled]{cursor:not-allowed;background:#999;border-bottom:3px solid #d9d9d9;color:#dddddd}
+.form-page .buttons{margin-top:10px}.form-page .buttons input[type=submit]{margin-bottom:10px}
 .form-page input[type=text],.form-page input[type=email],.form-page input[type=password]{box-sizing:border-box;width:100%}
+.form-page input.ng-invalid{box-shadow:0 0 1.5px 1px #ec4b22}
 .form-page form>div{margin-bottom:5px}
-.form-page .button{padding:10px 20px;width:100%}
 .form-page section.main{margin:0 auto}
 nav.hamburger-menu{background:linear-gradient(to bottom, #3e3c3d 0, #2d2c2d 100%);display:none;height:100%;left:0px;position:fixed;top:0px;width:70%;z-index:0}
 nav.hamburger-menu ul{list-style:none;margin:0;padding:0}

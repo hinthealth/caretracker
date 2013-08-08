@@ -1,32 +1,39 @@
 .form-page {
   max-width: 400px;
   margin: 0 auto;
-}
 
-.form-page .buttons {
-  margin-top: 10px;
-}
+  .button {
+    padding: 10px 20px;
+    width: 100%;
+    &[disabled]{
+      cursor: not-allowed;
+      background: #999;
+      border-bottom: 3px solid  #d9d9d9;
+      color:  #dddddd;
+    }
+  }
 
-.form-page .buttons input[type=submit] {
-  margin-bottom: 10px;
-}
+  .buttons {
+    margin-top: 10px;
+    input[type=submit] {
+      margin-bottom: 10px;
+    }
+  }
 
-.form-page input[type=text],
-.form-page input[type=email],
-.form-page input[type=password] {
-  box-sizing: border-box;
-  width: 100%;
-}
+  input[type=text], input[type=email], input[type=password] {
+    box-sizing: border-box;
+    width: 100%;
+  }
 
-.form-page form > div {
-  margin-bottom: 5px;
-}
+  input.ng-invalid{
+    box-shadow: 0 0 1.5px 1px #ec4b22;
+  }
 
-.form-page .button {
-  padding: 10px 20px;
-  width: 100%;
-}
+  form > div {
+    margin-bottom: 5px;
+  }
 
-.form-page section.main {
-  margin: 0 auto;
+  section.main {
+    margin: 0 auto;
+  }
 }
