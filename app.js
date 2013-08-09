@@ -21,12 +21,18 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.logger());
+app.use(express.responseTime());
 app.use(express.cookieParser());
 app.use(express.bodyParser());
 app.use(express.methodOverride());
 
+
 // use express.session before passport, so that passport session will work
-app.use(express.session({ secret: 'OF0rMlqo2kdRv0zYSqLabBPAeLtbKEQJ27G' }));
+app.use(express.cookieSession({
+    secret: 'OF0rMlqo2kdRv0zYSqLabBPAeLtbKEQJ27G',
+    cookie: { maxAge: 1000*60*60*2 } // Two hours
+  }));
+
 // Initialize Passport!  Also use passport.session() middleware, to support
 // persistent login sessions (recommended).
 app.use(passport.initialize());
