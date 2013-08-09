@@ -132,6 +132,7 @@ app.configure('development', function() {
 });
 
 app.configure('production', function() {
+  app.use(middlewares.https.required);
   app.use(express.errorHandler());
 });
 
