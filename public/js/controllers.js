@@ -61,6 +61,7 @@ angular.module('caretracker.controllers', []).
         $scope.tasks = data.tasks;
         $scope.carePlan = data.carePlan;
         $rootScope.title = data.carePlan.patient.name;
+        $rootScope.titleLink = "/care_plans/" + data.carePlan._id;
       });
     };
     $scope.toggleCompleted = function(scheduleId, taskTime){
@@ -80,6 +81,7 @@ angular.module('caretracker.controllers', []).
     $http.get('/api/care_plans/' + $routeParams.id + '/care_providers' ).
       success(function(data, status, headers, config) {
         $rootScope.title = data.carePlan.patient.name;
+        $rootScope.titleLink = "/care_plans/" + data.carePlan._id;
         $scope.carePlan = data.carePlan;
         $scope.careProviders = data.carePlan.careProviders;
       });
@@ -91,6 +93,7 @@ angular.module('caretracker.controllers', []).
       success(function(data, status, headers, config) {
         $scope.carePlan = data.carePlan;
         $rootScope.title = 'Add to ' + data.carePlan.patient.name + '\'s care team';
+        $rootScope.titleLink = "/care_plans/" + data.carePlan._id + '/care_providers';
         $scope.careProviders = data.carePlan.careProviders;
       });
     $scope.createCareProvider = function(){
