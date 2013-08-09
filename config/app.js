@@ -1,8 +1,11 @@
 exports.env = process.env.NODE_ENV || 'development';
+exports.hostname = process.env.HOSTNAME || 'localhost';
+
 if(exports.env == 'production'){
-  exports.scheme = 'http';
-  exports.hostname = 'caretracker-test.jit.su';
-}else{ // Development
+  exports.scheme = 'https';
+}
+
+if(exports.env == 'development' || exports.env == 'test'){
   exports.scheme = '';
   exports.hostname = 'localhost';
   exports.port = 3000;
