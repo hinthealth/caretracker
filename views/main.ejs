@@ -10,7 +10,12 @@
       <!-- TODO(healthio-dev): Move this to be within the Angular app, and use an Angular controller. -->
       <div href="/" class="button button-icon hamburger-button" title="Menu" class="icon"><span class="icon icon-hamburger"></span></div>
     </div>
-    <div class="header-title">{{title}}</div>
+    <div class="header-title">
+      <ng:switch on="!!titleLink">
+        <a ng:switch-when="true" href="{{titleLink}}">{{title}}</a>
+        <span ng:switch-when="false">{{title}}</span>
+      </ng:switch>
+    </div>
   </header>
 
   <nav class="hamburger-menu" ng-controller="MenuController">
