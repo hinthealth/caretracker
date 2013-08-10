@@ -1,6 +1,6 @@
 {
   "name": "caretracker",
-  "version": "0.1.8",
+  "version": "0.2.0",
   "scripts": {
     "start": "node app.js",
     "test": "make test"
@@ -18,7 +18,8 @@
     "passport-local": "~0.1.6",
     "zxcvbn": "git://github.com/studds/zxcvbn.git",
     "moment": "~2.1.0",
-    "async": "~0.2.9"
+    "async": "~0.2.9",
+    "rollbar": "~0.2.5"
   },
   "devDependencies": {
     "better-stack-traces": "~1.0.0",

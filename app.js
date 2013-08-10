@@ -14,6 +14,7 @@ var lessMiddleware = require('less-middleware');
 var middlewares = require('./middlewares');
 var path = require('path');
 var api = require('./routes/api');
+var rollbar = require("rollbar");
 
 // Express app.
 var app = express();
@@ -50,6 +51,11 @@ app.use('/public', lessMiddleware({
 
 app.use('/public', express.static(path.join(__dirname, '/public')));
 
+app.configure('production', function() {
+  app.use(middlewares.https.required);
+});
+
+// Serve static files
 app.get('/public/js/lib/zxcvbn.js',function(req,res) {
   res.sendfile(path.join(__dirname,'node_modules','zxcvbn','zxcvbn.js'));
 });
@@ -138,9 +144,9 @@ app.configure('development', function() {
 });
 
 app.configure('production', function() {
-  app.use(middlewares.https.required);
   app.use(express.errorHandler());
 });
+app.use(rollbar.errorHandler('8cd75679f09243f48f580f2c9882b046', {environment: NODE_ENV}));
 
 var port = process.env.PORT || 3000;
 app.listen(port, function () {
