@@ -1,6 +1,6 @@
 exports.env = process.env.NODE_ENV || 'development';
 exports.hostname = process.env.HOSTNAME || 'localhost';
-
+exports.directHostname = process.env.DIRECT_HOSTNAME || 'direct.gohint.com';
 if(exports.env == 'production'){
   exports.scheme = 'https';
 }
