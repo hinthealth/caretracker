@@ -47,7 +47,7 @@ describe("new user signup", function(){
     fill('password', 'p4ssw0rd').
     fill('passwordConfirmation', 'p4ssw0rdNoMatchy').
     pressButton('Sign up', function(){
-      self.browser.text().should.include('Validation failed');
+      self.browser.text().should.include('Please enter the same value again.');
       done();
     });
   });
