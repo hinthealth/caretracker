@@ -8,11 +8,15 @@ analytics.init({
 
 exports.track = analytics.track;
 exports.identify = function (user){
+  // See https://segment.io/docs/methods/identify
   analytics.identify({
     userId: user.id,
     traits: {
-      name:   user.name.full,
-      email:  user.email
+      name:         user.name.full,
+      firstName:    user.name.first,
+      lastName:     user.name.last,
+      email:        user.email,
+      created:      user.createdAt
     }
   });
 };
