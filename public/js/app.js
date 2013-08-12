@@ -23,6 +23,10 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
       title: 'Patient invited',
       controller: 'ShowCarePlanCtrl'
     }).
+    when('/care_plans/:id/data_import', {
+      templateUrl: '/partials/care_plans/data_import',
+      controller: 'ShowCarePlanDataImportCtrl'
+    }).
     when('/care_plans/:id/finished', {
       templateUrl: '/partials/care_plans/create_finished',
       controller: 'ShowCarePlanCtrl'
@@ -59,7 +63,6 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     //   templateUrl: '/partials/care_plans/destroy_confirm',
     //   controller: 'DeleteCarePlanCtrl'
     // }).
-
     // Health Record!
     when('/care_plans/:id/health_record', {
       templateUrl: '/partials/health_records/show',

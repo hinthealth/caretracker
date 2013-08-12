@@ -53,6 +53,48 @@ h3 {
   margin-top: 0;
 }
 
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+section:after {
+ clear: both;
+ content: " ";
+ display: block;
+ font-size: 0;
+ height: 0;
+ visibility: hidden;
+}
+
+label {
+  display: block;
+}
+
+.callout {
+  background: #fff;
+  border-radius: 5px;
+  color: #666;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px 5px;
+}
+
+.callout em {
+  color: #000;
+  display: block;
+  font-size: 1.25em;
+  font-style: normal;
+  font-weight: bold;
+}
+
+/**
+ * Sections.
+ */
+
 section.main,
 section.messages {
   padding: 15px;
@@ -81,12 +123,13 @@ section.messages p {
   text-align: center;
 }
 
-a.button {
-  text-decoration: none;
+section a.button .icon {
+  margin: -10px 10px -10px -5px;
+  vertical-align: middle;
 }
 
-label {
-  display: block;
+a.button {
+  text-decoration: none;
 }
 
 section.main .button {

@@ -74,6 +74,12 @@ angular.module('caretracker.controllers', []).
 
     $scope.updateTasks();
   }]).
+  controller('ShowCarePlanDataImportCtrl', ['$scope', '$http', '$routeParams', '$rootScope', function($scope, $http, $routeParams, $rootScope) {
+    $rootScope.title = 'Import health data';
+    $http.get('/api/care_plans/' + $routeParams.id).success(function(data) {
+      $scope.carePlan = data.carePlan;
+    });
+  }]).
 
   // CareProviders Controllers
   controller('IndexCareProvidersCtrl', ['$scope', '$http', '$routeParams', '$rootScope', function($scope, $http, $routeParams, $rootScope) {
