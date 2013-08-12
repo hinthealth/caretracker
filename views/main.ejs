@@ -7,7 +7,6 @@
       <a href="/account" class="button button-icon" title="Settings" target="_self"><span class="icon icon-settings"></span></a>
     </div>
     <div class="header-left">
-      <!-- TODO(healthio-dev): Move this to be within the Angular app, and use an Angular controller. -->
       <div href="/" class="button button-icon hamburger-button" title="Menu" class="icon"><span class="icon icon-hamburger"></span></div>
     </div>
     <div class="header-title">{{title}}</div>
@@ -23,15 +22,17 @@
       <li><a href="/care_plans">Manage patients</a>
     </ul>
     <ul ng-repeat="carePlan in carePlans">
-      <li><a href="/care_plans/{{carePlan._id}}">{{carePlan.patient.name}}</a>
-    </ul>
-    <ul>
-      <li><a href="/care_plans/add">+ Add a patient</a>
+      <li>
+        <a href="/care_plans/{{carePlan._id}}">
+          <span class="avatar"></span>
+          {{carePlan.patient.name}}
+        </a>
     </ul>
     <div class="footer">
-      <a href="/logout">Sign out from CareTracker</a>.
+      <a href="/logout" target="_self">Sign out from CareTracker</a>
     </div>
   </nav>
+
   <div class="hamburger-mask"></div>
 
   <div class="hamburger-main" >
