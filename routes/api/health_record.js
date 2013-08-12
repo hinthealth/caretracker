@@ -8,7 +8,7 @@ exports.show = function(req, res) {
     if(error) return next(error);
     process.nextTick(function(){
       // Kick off update in background, then return whatever we had
-      HealthRecord.updateDirectAddress(carePlan.directAddress);
+      HealthRecord.updatePlan(carePlan);
     });
     carePlan.healthRecord(function(error, healthRecord){
       if(error) return next(error);

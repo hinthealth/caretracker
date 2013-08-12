@@ -40,8 +40,9 @@ HealthRecordSchema.virtual('data.json')
 });
 
 var HealthStore = require("./../lib/ccda_service");
-HealthRecordSchema.static('updateDirectAddress', function(directAddress){
+HealthRecordSchema.static('updatePlan', function(carePlan){
   var self = this;
+  var directAddress = carePlan.directAddress;
   // Erm, we should really deal with multiple health records,
   // and not just pick the most recent.
   if(!directAddress) throw Error("Direct address is required.");
@@ -63,6 +64,9 @@ HealthRecordSchema.static('updateDirectAddress', function(directAddress){
       record.save(function(error){
         if(error) return console.log("Error saving health record", error);
         console.log("Health Records updated for "+ directAddress);
+        carePlan.import(record.data, function(err, result){
+          console.log("result is", result);
+        });
       });
     });
   });

@@ -2,7 +2,8 @@ var helper = require('./../test_helper') // Always require first, sets up test d
   , mongoose = require('mongoose')
   , CarePlan = mongoose.model('CarePlan')
   , User = mongoose.model('User')
-  , clearModels = [User, CarePlan]
+  , Medication = mongoose.model('Medication')
+  , clearModels = [User, CarePlan, Medication]
   , should = require('should');
 
 describe("CarePlan", function(){
@@ -105,6 +106,20 @@ describe("CarePlan", function(){
       });
     });
   });
+  describe('#import', function(){
+    it("should not fail", function(done){
+      var cp = new CarePlan();
+      cp.import({}, done);
+    });
+    it("should be empty when empty", function(done){
+      var cp = new CarePlan();
+      cp.import({medications: []}, function(err, result){
+        result.should.be.empty;
+        done();
+      });
+    });
+  });
+
   describe("#directAddress", function(){
     it("should exist for new plans", function(){
       this.carePlan.should.have.property('directAddress');

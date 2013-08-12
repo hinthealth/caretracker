@@ -8,12 +8,9 @@ var ScheduleSchema = new Schema({
   name: {type: String, required: true},
   start: {type: Number, required: true}, // <-- Date is a valid database type?
   end: Number,
-  frequency: {type: Number, default: 0}  // Frequency in seconds.
+  frequency: {type: Number, default: 0},  // Frequency in seconds.
+  medicationId: ObjectId
 });
-
-
-
-
 
 
 /**

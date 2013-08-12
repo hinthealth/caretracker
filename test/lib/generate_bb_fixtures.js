@@ -18,46 +18,57 @@ bb = require('./node_modules/bluebutton/build/bluebutton.js');
 ccda = bb(require('./test/fixtures').fixtures().ccda['CCD.sample.xml']);
 
 */
-var fixtures = fixtures.fixtures().ccda;
-var medications = {};
-Object.keys(fixtures).forEach(function(fileName){
-  console.log("Parsing", fileName,"...");
-  var parsed;
-  try{
-    parsed = BBParser(fixtures[fileName]);
-  } catch(error) {
-    console.log("     * ",fileName,"Parsing error");
-    console.log("       ", error.message);
-    console.log(error.stack);
-    throw(error);
-  }
-  if(parsed.medications().length){
-    medications[fileName.toLowerCase().replace(/\W/g,'_')] = parsed.medications();
-  }
-});
-console.log("*************************************")
-console.log("* MEDICATIONS ")
-console.log("*************************************")
-for (var name in medications) {
-  console.log(name,"has",medications[name].length,"medications");
-}
+BBFixtureGenerator = {};
 
-// console.log("Preparing for json..");
-// for (var name in medications) {
-//   console.log(" - Prepping",name);
-//   medications[name] = medications[name].map(function(medication){
-//     debugger;
-//     medication.json();
-//   });
-// }
+/**
+ * Parses each file in ./ccda/, strips everything but the section you want,
+ * and generates a single JSON file of every example of that section.
+ * @param {String} section Determines which section of the CCDA to parse out.
+ *                         e.g. "medications". THIS MUST MATCH A CCDA SECTION
+ */
 
-outputFilename = __dirname + "/../fixtures/medications.json"
-console.log("Writing to ",outputFilename);
-fs.writeFile(outputFilename, JSON.stringify(medications, null, 2), function(err) {
-    if(err) {
-      console.log(err);
-    } else {
-      console.log("JSON saved!");
+BBFixtureGenerator.sectionJSON = function(section){
+  var fixtures = fixtures.fixtures().ccda;
+  var examples = {};
+  Object.keys(fixtures).forEach(function(fileName){
+    console.log("Parsing", fileName,"...");
+    var parsed;
+    try{
+      parsed = BBParser(fixtures[fileName]);
+    } catch(error) {
+      console.log("     * ",fileName,"Parsing error");
+      console.log("       ", error.message);
+      console.log(error.stack);
+      throw(error); // Be noisy and stop if we fail
     }
-});
+    var data = parsed.data[section];
+    if(
+        (Array.isArray(data) && data.length) ||
+        (data instanceof Object) && Object.keys(data).length)
+      ){
+      examples[fileName.toLowerCase().replace(/\W/g,'_')] = data;
+    };
+  });
+  console.log("*************************************");
+  console.log("*", section.toUpperCase());
+  console.log("*************************************");
+  for (var name in examples) {
+    if(Array.isArray(examples[name])){
+      console.log(name, "has", examples[name].length, section);
+    }
+  }
+
+  outputFilename = __dirname + "/../fixtures/"+section+".json"
+  console.log("Writing to ",outputFilename);
+  fs.writeFile(outputFilename, JSON.stringify(examples, null, 2), function(err) {
+      if(err) {
+        console.log(err);
+      } else {
+        console.log("JSON saved!");
+      }
+  });
+
+};
+
+module.exports = BBFixtureGenerator;
 

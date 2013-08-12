@@ -1,6 +1,7 @@
 var mongoose      = require('mongoose')
   , CareProvider  = mongoose.model('CareProvider')
   , HealthRecord  = mongoose.model('HealthRecord')
+  , Medication    = mongoose.model('Medication')
   , Schedule      = mongoose.model('Schedule')
   , Schema        = mongoose.Schema
   , ObjectId      = Schema.Types.ObjectId
@@ -36,7 +37,6 @@ var CarePlanSchema = new Schema({
 CarePlanSchema.virtual('patient.invitePath').get(function(){
   return '/join-plan/' + this.patient.inviteKey;
 });
-
 
 CarePlanSchema.static('ownedBy', function(user){
   return this.where({ownerId: user.id});
@@ -103,6 +103,15 @@ CarePlanSchema.methods.hasAccessIds = function(){
 CarePlanSchema.methods.healthRecord = function(done){
   HealthRecord.findOne({direct_address: this.directAddress})
     .sort('-created').exec(done);
+};
+
+CarePlanSchema.methods.import = function(data, callback){
+  // Use async if we need to import more than just medications;
+  if(data.medications)
+    Medication.importToPlan(this, data.medications, callback);
+  else
+    callback(null, null);
+
 };
 
 CarePlanSchema.methods.invitePatientUrl = function(url){
