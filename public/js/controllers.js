@@ -90,7 +90,7 @@ angular.module('caretracker.controllers', []).
     $http.get('/api/care_plans/' + $routeParams.id + '/care_providers' ).
       success(function(data, status, headers, config) {
         $scope.carePlan = data.carePlan;
-        $rootScope.title = 'Add to ' + data.carePlan.patient.name + '\'s care team';
+        $rootScope.title = 'Add to ' + data.carePlan.patient.name + '\'s Care Team';
         $scope.careProviders = data.carePlan.careProviders;
       });
     $scope.createCareProvider = function(){

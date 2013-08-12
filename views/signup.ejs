@@ -10,16 +10,15 @@
   <% }; %>
 
   <section class="main">
-    <div class='warning'>
-      <h3>Warning: This is a Test Server</h3>
-      <p class='well'>
-        All information will be sent unencrypted in plain text.
-      </p>
+
+    <div class="warning">
+      <h3>Warning! This is currently a test application.</h3>
       <p>
-        DO NOT USE ANY PERSONAL HEALTH
-        INFORMATION ON THIS SERVER.
-      </p>
+        All information will be sent unencrypted in plain text.
+      <p>
+        DO NOT USE ANY PERSONAL HEALTH INFORMATION ON THIS SERVER.
     </div>
+
     <form action="/signup" method="post">
       <div>
         <input type="text" required name="name[full]" value="<%= user.name.full || '' %>" placeholder="Full name" autofocus>
