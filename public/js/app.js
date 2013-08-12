@@ -3,6 +3,7 @@
 var app = angular.module('caretracker', ['caretracker.filters', 'caretracker.services', 'caretracker.directives', 'caretracker.controllers']);
 
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+  $locationProvider.html5Mode(true);
   $routeProvider.
     // Care Plans
     when('/care_plans', {
@@ -67,7 +68,6 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     otherwise({
       redirectTo: '/care_plans'
     });
-  $locationProvider.html5Mode(true);
 }]);
 
 

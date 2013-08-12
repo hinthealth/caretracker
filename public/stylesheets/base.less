@@ -1,9 +1,9 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
 
 body {
   background: #d3d6db;
   bottom: 0;
-  font-family: 'Roboto', 'Helvetica Neue', arial, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', arial, sans-serif;
   font-weight: 200;
   left: 0;
   margin: 0;
@@ -13,18 +13,26 @@ body {
 }
 
 .hint {
-  font-size: .75em;
-  font-weight: bold;
   color: #555;
   margin: 10px 0 15px;
 }
+
 .warning {
-  border-radius: 3px;
-  padding: 5px;
-  margin-bottom: 10px;
   background-color: #FEEFB3;
+  border-radius: 3px;
   color: #9F6000;
-  font-weight: bold;
+  margin-bottom: 10px;
+  padding: 15px;
+
+  h3 {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  p {
+    padding: 10px 0;
+    margin: 0;
+  }
 }
 
 p {
@@ -53,8 +61,9 @@ section.messages {
 section.messages p {
   background: #D35400;
   border-radius: 3px;
-  padding: 10px;
   color: #fff;
+  margin: 0;
+  padding: 10px;
 }
 
 .button {
@@ -65,9 +74,9 @@ section.messages p {
   color: #fff;
   cursor: pointer;
   display: inline-block;
-  font-family: 'Roboto', 'Helvetica Neue', arial, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', arial, sans-serif;
   font-size: 14px;
-  font-weight: 300;
+  font-weight: bold;
   margin: 0;
   text-align: center;
 }
@@ -86,6 +95,10 @@ section.main .button {
   padding: 10px 20px;
 }
 
+section.toolbar .button {
+  margin-bottom: 0;
+}
+
 section.main .button.button-secondary {
   background: #374a5d;
   border-bottom: 3px solid #2e3e4f;
@@ -99,7 +112,7 @@ input[type=password] {
   border: 1px solid #bdc3c7;
   box-sizing: border-box;
   color: #34495e;
-  font-size: 14px;
+  font-size: 15px;
   font-family: 'Roboto', 'Helvetica Neue', arial, sans-serif;
   padding: 8px 5px;
   text-indent: 6px;

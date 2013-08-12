@@ -1,17 +1,14 @@
 <% include _header %>
 <% include _navbar-back %>
 
-<section class="main">
-  <br/><br/>
-  <h1>Account Settings</h1>
-  <p>Email: <%= user.email %></p><br/>
-	
-	<div class="buttons">
-	<div>
-	  <a href="/logout" class="button">Sign out</a>
-	</div>
-	</div>
-
-</section>
+<div class="form-page">
+  <section class="main">
+    <h1>Account Settings</h1>
+    <p>Email: <%= user.email %>
+    <div>
+      <a href="/logout" class="button">Sign out</a>
+    </div>
+  </section>
+</div>
 
 <% include _footer %>
