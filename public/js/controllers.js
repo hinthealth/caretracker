@@ -63,6 +63,7 @@ angular.module('caretracker.controllers', []).
         $rootScope.title = data.carePlan.patient.name;
       });
     };
+
     $scope.toggleCompleted = function(scheduleId, taskTime){
       $http.put('/api/care_plans/' + $routeParams.id +
           '/schedules/' + scheduleId +
@@ -172,6 +173,7 @@ angular.module('caretracker.controllers', []).
                 + '/schedules/' + $routeParams.scheduleId
                 + '/tasks/';
     $scope.form = {};
+
     $http.get(baseUrl + $routeParams.id).
       success(function(data) {
         $scope.task = data.task;
@@ -184,4 +186,14 @@ angular.module('caretracker.controllers', []).
           $location.url('/care_plans/' + $routeParams.carePlanId);
         });
     };
+
+    $scope.toggleTask = function(scheduleId, start) {
+      $http.put('/api/care_plans/' + $routeParams.carePlanId +
+        '/schedules/' + scheduleId +
+        '/tasks/' + start +
+        '/toggle').success(function(task) {
+        $scope.task = task;
+      });
+    };
+
   }]);

@@ -3,10 +3,15 @@
   margin: 0 auto;
   padding: 0 0 20px 0;
 
+  label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
   .button {
     padding: 10px 20px;
     width: 100%;
-    &[disabled]{
+    &[disabled] {
       background: #999;
       border-bottom: 3px solid #777;
       color:  #dddddd;
@@ -23,7 +28,8 @@
 
   input[type=text],
   input[type=email],
-  input[type=password] {
+  input[type=password],
+  textarea {
     box-sizing: border-box;
     width: 100%;
   }
@@ -38,5 +44,9 @@
 
   section.main {
     margin: 0 auto;
+  }
+
+  .field {
+    margin: 0 0 10px 0;
   }
 }

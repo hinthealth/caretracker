@@ -61,15 +61,6 @@ h3 {
   float: right;
 }
 
-section:after {
- clear: both;
- content: " ";
- display: block;
- font-size: 0;
- height: 0;
- visibility: hidden;
-}
-
 label {
   display: block;
 }
@@ -94,6 +85,10 @@ label {
 /**
  * Sections.
  */
+
+section {
+  .clearfix();
+}
 
 section.main,
 section.messages {
@@ -149,7 +144,8 @@ section.main .button.button-secondary {
 
 input[type=text],
 input[type=email],
-input[type=password] {
+input[type=password],
+textarea {
   -webkit-backface-visibility: hidden;
   border-radius: 3px;
   border: 1px solid #bdc3c7;
