@@ -37,7 +37,7 @@ exports.create = function (req, res) {
             patientName: carePlan.patient.name,
             toEmail: newCareProvider.email,
             toName: newCareProvider.name,
-            toFirstName: newCareProvider.name.first,
+            toFirstName: newCareProvider.get('name.first'),
             relation: newCareProvider.relation,
             inviteKey: newCareProvider.inviteKey,
             inviteUrl: newCareProvider.inviteUrl(AppConfig.url)
