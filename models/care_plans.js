@@ -107,11 +107,16 @@ CarePlanSchema.methods.healthRecord = function(done){
 
 CarePlanSchema.methods.import = function(data, callback){
   // Use async if we need to import more than just medications;
-  if(data.medications)
-    Medication.importToPlan(this, data.medications, callback);
-  else
-    callback(null, null);
+  var self = this;
+  if(data.medications){
+    Medication.importToPlan(this, data.medications,
+      function(error, medications){
+        callback(error, {medications: medications});
+    });
 
+  }else{
+    callback(null, {medications: []});
+  }
 };
 
 CarePlanSchema.methods.invitePatientUrl = function(url){

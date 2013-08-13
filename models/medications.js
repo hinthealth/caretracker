@@ -62,7 +62,10 @@ MedicationSchema.static('importToPlan', function(carePlan, medicationsData, done
       }
       medication.set(attributes);
       medication.save(function(error){
-        callback(error, medication);
+        if(error) return callback(error);
+        medication.updateSchedule(function(error, result){
+          callback(error, medication);
+        })
       });
     });
   }, done);
@@ -99,5 +102,19 @@ MedicationSchema.static('parseData', function(medication){
     }
   };
 });
+
+MedicationSchema.methods.updateSchedule = function(callback){
+  var self = this;
+  Schedule.findOne({medicationId: this.id}).exec(function(error, schedule){
+    if(error) return callback(error);
+    if(!schedule){
+      schedule = new Schedule({medicationId: self.id});
+    }
+    schedule.set(Schedule.attributesFromMedication(this));
+    schedule.save(function(error){
+      callback(error, schedule);
+    });
+  });
+};
 
 mongoose.model('Medication', MedicationSchema);

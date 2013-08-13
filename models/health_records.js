@@ -73,23 +73,5 @@ HealthRecordSchema.static('updatePlan', function(carePlan){
 });
 
 
-HealthRecordSchema.methods.generateTasks = function(callback){
-  var self = this;
-
-  async.map(self.data.toObject().medications, function(medication, index, result){
-    var lookupKey = 'medications['+medication.product.code+']';
-    Schedule.where('healthRecordId').equal(self.id)
-    .where('healthRecordKey').equal(lookupKey).exec(function(error, schedule){
-      if(error) return result(error);
-      if(schedule) return result(null, schedule);
-      schedule = Schedule.newFromMedication(medication);
-      schedule.healthRecordId = self.id;
-      schedule.healthRecordKey = lookupKey;
-      schedule.save(function(error){
-        result(error, schedule);
-      });
-    });
-  }, callback);
-}
 
 mongoose.model('HealthRecord', HealthRecordSchema);

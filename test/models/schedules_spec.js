@@ -3,9 +3,10 @@ var mongoose = require('mongoose');
 var should = require('should');
 var moment = require('moment');
 
-var CarePlan = mongoose.model('CarePlan');
-var Schedule = mongoose.model('Schedule');
-var User = mongoose.model('User');
+var CarePlan    = mongoose.model('CarePlan');
+var Schedule    = mongoose.model('Schedule');
+var Medication  = mongoose.model('Medication');
+var User        = mongoose.model('User');
 var clearModels = [CarePlan, Schedule, User];
 
 describe('Schedule', function() {
@@ -162,20 +163,44 @@ describe('Schedule', function() {
     });
 
   });
-  describe(".newFromMedication", function(){
+  describe(".attributesFromMedication", function(){
     before(function(){
-      this.medications = helper.fixtures.medications()['encounter_based_c_cda_ccd___08_06_2012__jones__isabella___170314e2__xml'];
+      this.medication = new Medication({
+        carePlanId: new CarePlan().id,
+        start: new Date(2012, 8, 30),
+        end: null,
+        schedule: {
+          period: {
+            unit: 'h',
+            value: '6'
+          }
+        },
+        product: {
+          name: 'Teamocil'
+        },
+        dose: {
+          unit: 'Chewable pills',
+          value: '2'
+        }
+      });
     });
     beforeEach(function(){
       // every 12 hours
       // CLARITHROMYCIN, 500MG (Oral Tablet)
-      this.schedule = Schedule.newFromMedication(this.medications[0]);
+      this.schedule = new Schedule(Schedule.attributesFromMedication(this.medication));
     });
-    it("should have a frequency of every 12 hours", function(){
-      this.schedule.frequency.should.equal(12 * 60 * 60);
+    it("should have a frequency of every 6 hours", function(){
+      this.schedule.frequency.should.equal(6 * 60 * 60);
     });
-    it("should have a name of 'CLARITHROMYCIN, 500MG (Oral Tablet)'", function(){
-      this.schedule.name.should.equal("1 Tablet of CLARITHROMYCIN, 500MG (Oral Tablet)");
+    it("should have a name of '2 Chewable pills of Teamocil'", function(){
+      this.schedule.name.should.equal("2 Chewable pills of Teamocil");
+    });
+    it("should start at 1348988400000", function(){
+      this.schedule.start.should.equal(1348988400000);
+    });
+    it("should have a careplan id", function(){
+      should.exist(this.schedule.carePlanId);
+      this.schedule.carePlanId.should.equal(this.medication.carePlanId);
     });
   });
 });

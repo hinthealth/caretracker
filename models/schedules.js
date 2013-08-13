@@ -141,7 +141,7 @@ var periodInSeconds = function(period){
   return mult == NaN ? 0 : mult;
 };
 
-ScheduleSchema.static('newFromMedication', function(medication){
+ScheduleSchema.static('attributesFromMedication', function(medication){
   // Medication fields should be:
   // date_range start, end
   // schedule type, period: value, unit
@@ -152,34 +152,34 @@ ScheduleSchema.static('newFromMedication', function(medication){
 
   // e.g. Vicodin
   var name = medication.product.name
-  if(medication.dose_quantity.value && medication.dose_quantity.unit){
+  if(medication.dose.value && medication.dose.unit){
   //  e.g. 200 mg
-    var dose = medication.dose_quantity.value + " " + medication.dose_quantity.unit;
+    var dose = medication.dose.value + " " + medication.dose.unit;
     name = dose + " of " + name;
   }
 
-  var content = "";
-  if(medication.prescriber.person){
-    content += "By " + medication.prescriber.person + " ";
-  }
-  if(medication.reason.name){
-    content += "for " + medication.reason.name + " ";
-  }
+  // var content = "";
+  // if(medication.prescriber.person){
+  //   content += "By " + medication.prescriber.person + " ";
+  // }
+  // if(medication.reason.name){
+  //   content += "for " + medication.reason.name + " ";
+  // }
   var frequency = 0;
   if(medication.schedule.period){
     frequency = periodInSeconds(medication.schedule.period);
   }
-  var start = medication.date_range.start || new Date();
-  var end = medication.date_range.end;
+  var start = (medication.start || new Date()).valueOf();
+  var end = medication.end && medication.end.valueOf();
   // Special case non-repeating tasks
   if(frequency == 0 && !end){ end = start};
-
-  return new this({
+  return {
+    carePlanId: medication.carePlanId,
     name: name,
-    starting: start,
-    ending: end,
+    start: start,
+    end: end,
     frequency: frequency
-  });
+  };
 });
 
 mongoose.model('Schedule', ScheduleSchema);
