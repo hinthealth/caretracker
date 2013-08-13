@@ -1,8 +1,13 @@
+var env = process.env.NODE_ENV || 'development';
+var secret = 'test'; 
+if(env != "test"){
+  secret = process.env.SEGMENT_IO_SECRET || '93gm91qlkh4vcvtvxknj'
+}
 
 var analytics = require('analytics-node');
 
 analytics.init({
-  secret: process.env.SEGMENT_IO_SECRET || '93gm91qlkh4vcvtvxknj',
+  secret: secret,
   flushAt : 1
 });
 
