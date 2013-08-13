@@ -47,8 +47,9 @@ exports.create = function (req, res) {
           fromFirstName: req.user.name.first,
           fromLastName: req.user.name.first,
           fromEmail: req.user.email,
-          toName: carePlan.patient.name,
-          toEamil: carePlan.patient.email,
+          patientName: carePlan.patient.name,
+          patientFirstName: carePlan.patient.name.first,
+          patientEmail: carePlan.patient.email,
           inviteKey: carePlan.patient.invitePath,
           inviteUrl: carePlan.invitePatientUrl(AppConfig.url)
         }

@@ -2,7 +2,7 @@
 var analytics = require('analytics-node');
 
 analytics.init({
-  secret: process.env.SEGMENT_IO_SECRET || 'vxd6e6zsh5e6oc82j9ab',
+  secret: process.env.SEGMENT_IO_SECRET || '93gm91qlkh4vcvtvxknj',
   flushAt : 1
 });
 
