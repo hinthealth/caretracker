@@ -1,0 +1,20 @@
+<div class="form-page">
+  <section class="main">
+    <ng:switch on="!!carePlan.patient.inviteKey">
+      <form ng:switch-when="true" name="patient">
+        <div>
+          <input type="text" name="name" ng-model="form.patient.name" placeholder="Patient's display name" required>
+        </div>
+        <div>
+          <input type="email" name="email" ng-model="form.patient.email" placeholder="Patient's email address (optional)">
+        </div>
+        <button ng-click="updatePatient()" class="button" ng-disabled="patient.$invalid">Save</button>
+        <button ng-click="updatePatient({email: true})" class="button" ng-disabled="patient.$invalid || !patient.email.$modelValue">Save and Send Invite</button>
+      </form>
+    <div ng:switch-when="false">
+      <label>Name:</label>{{carePlan.patient.name}}
+      <label>Email:</label><a href="mailto:{{carePlan.patient.email}}">{{carePlan.patient.email}}</a>
+    </div>
+    </ng:switch>
+  </section>
+</div>

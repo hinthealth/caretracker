@@ -43,6 +43,23 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
       templateUrl: '/partials/care_providers/new',
       controller: 'AddCareProvidersCtrl'
     }).
+    when('/care_plans/:id/finished', {
+      templateUrl: '/partials/care_plans/create_finished',
+      controller: 'ShowCarePlanCtrl'
+    }).
+    when('/care_plans/:id/patient', {
+      templateUrl: '/partials/care_plans/patient',
+      controller: 'ShowPatientCtrl'
+    }).
+    when('/care_plans/:id/verify', {
+      templateUrl: '/partials/care_plans/create_verify',
+      title: 'Patient invited',
+      controller: 'ShowCarePlanCtrl'
+    }).
+    when('/care_plans/:id/schedules', {
+      templateUrl: '/partials/schedules/edit',
+      controller: 'EditScheduleCtrl'
+    }).
     when('/care_plans/:id/schedules/new', {
       templateUrl: '/partials/schedules/new',
       controller: 'AddSchedulesCtrl'
@@ -50,10 +67,6 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     when('/care_plans/:carePlanId/schedules/:scheduleId/tasks/:id', {
       templateUrl: '/partials/tasks/edit',
       controller: 'EditTasksCtrl'
-    }).
-    when('/care_plans/:id/schedules', {
-      templateUrl: '/partials/schedules/edit',
-      controller: 'EditScheduleCtrl'
     }).
     // when('/care_plans/:id/edit', {
     //   templateUrl: '/partials/care_plans/edit',
