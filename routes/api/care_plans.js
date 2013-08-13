@@ -48,7 +48,7 @@ exports.create = function (req, res) {
           fromLastName: req.user.name.first,
           fromEmail: req.user.email,
           toName: carePlan.patient.name,
-          toEamil: carePlan.patient.email,
+          toEmail: carePlan.patient.email,
           inviteKey: carePlan.patient.invitePath,
           inviteUrl: carePlan.invitePatientUrl(AppConfig.url)
         }
@@ -77,10 +77,30 @@ exports.update = function (req, res) {
     if(carePlan.ownerId == req.user.id){
       // Allow elevated access, like managing the careteam
     }
-    carePlan.patient.name = req.body.patient.name;
+    if(!carePlan.patient.userId){
+      // No user associated yet, let them update
+      carePlan.patient.name   = req.body.patient.name;
+      carePlan.patient.email  = req.body.patient.email;
+    }
 
     carePlan.save(function(error){
       if(error) return res.json({error: error});
+      if(req.body.patient.sendEmail){
+        analytics.track({
+          userId     : req.user.id,
+          event      : 'Patient Invitation Updated',
+          properties : {
+            sendEmail: true,
+            fromFirstName: req.user.name.first,
+            fromLastName: req.user.name.first,
+            fromEmail: req.user.email,
+            toName: carePlan.patient.name,
+            toEmail: carePlan.patient.email,
+            inviteKey: carePlan.patient.invitePath,
+            inviteUrl: carePlan.invitePatientUrl(AppConfig.url)
+          }
+        });
+      }
       res.json({carePlan: carePlan});
     });
   });
