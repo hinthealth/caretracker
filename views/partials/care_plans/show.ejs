@@ -15,9 +15,14 @@
   </div>
 </section>
 
-<section class="main">
-  <p>Direct Address: {{carePlan.directAddress}}
-  <div>
+<section class="main toolbar">
+  <div class="right">
+    <a href="/care_plans/{{carePlan._id}}/data_import" class="button">
+      <span class="icon icon-bluebutton"></span>
+      Import health data
+    </a>
+  </div>
+  <div class="left">
     <a href="/care_plans/{{carePlan._id}}/schedules/new" class="button">+ Add new task</a>
   </div>
 </section>

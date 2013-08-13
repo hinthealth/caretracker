@@ -21,6 +21,7 @@ exports.addCarePrivider = function(req, res, next){
     });
   });
 };
+
 exports.addPatient = function(req, res, next){
   var key = req.params.id;
   var self = this;

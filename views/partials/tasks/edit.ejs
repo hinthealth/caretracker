@@ -1,21 +1,35 @@
-<div class="form-page">
+<div class="form-page task-page">
   <section class="main">
+
+    <h2>{{form.name}} at {{task.start | date:'shortTime'}}</h2>
+
+    <div class="checkmark-wrapper">
+      <div class="checkmark" ng-class="{checked: task.completed.at}" ng-click="toggleTask(task.scheduleId, task.start)"></div>
+      <div class="content">
+        <ng:switch on="!!task.completed.at">
+          <span ng:switch-when="true">
+            Marked complete by {{task.completed.name}} at {{task.completed.at | date:'medium'}}.
+          </span>
+          <span ng:switch-when="false">
+            Not completed.
+          </span>
+        </ng:switch>
+      </div>
+    </div>
+
     <form name="taskForm">
-      <h2>{{form.name}} at {{task.start | date:'shortTime'}}</h2>
-      <ng:switch on="!!task.completed.at" >
-        <div ng:switch-when="true">
-          Marked complete by {{task.completed.name}} at {{task.completed.at | date:'medium'}}.
-        </div>
-        <div ng:switch-when="false">
-          Not completed.
-        </div>
-      </ng:switch>
-      <input type="text" name="name" ng-model="form.name" />
-      <label for='note'>Note</label>
-      <input class="longer" type="text" name="note" ng-model="form.note"/>
+      <div class="field">
+        <label for="name">Task name</label>
+        <input type="text" name="name" ng-model="form.name">
+      </div>
+      <div class="field">
+        <label for="note">Note</label>
+        <textarea name="note" ng-model="form.note">
+        </textarea>
+      </div>
       <p>
-        <button ng-click='saveTask()' class='button'>Update</button>
-      </p>
+        <button ng-click="saveTask()" class="button">Save task</button>
     </form>
+
   </section>
 </div>
