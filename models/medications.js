@@ -1,6 +1,7 @@
 var mongoose  = require('mongoose')
   , async     = require('async')
   , Schema    = mongoose.Schema
+  , Schedule  = mongoose.model('Schedule')
   , ObjectId  = Schema.Types.ObjectId;
 
 /**
@@ -110,7 +111,7 @@ MedicationSchema.methods.updateSchedule = function(callback){
     if(!schedule){
       schedule = new Schedule({medicationId: self.id});
     }
-    schedule.set(Schedule.attributesFromMedication(this));
+    schedule.set(Schedule.attributesFromMedication(self));
     schedule.save(function(error){
       callback(error, schedule);
     });

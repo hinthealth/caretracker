@@ -106,7 +106,7 @@ angular.module('caretracker.controllers', []).
       success(function(data) {
         $scope.carePlan = data.carePlan;
         $scope.demographics = data.healthRecord.data.demographics;
-        $scope.medications = data.healthRecord.data.medications;
+        $scope.medications = data.medications;
       });
 
   }]).

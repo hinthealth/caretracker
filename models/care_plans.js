@@ -105,11 +105,12 @@ CarePlanSchema.methods.healthRecord = function(done){
     .sort('-created').exec(done);
 };
 
-CarePlanSchema.methods.import = function(data, callback){
+CarePlanSchema.methods.import = function(healthRecord, callback){
   // Use async if we need to import more than just medications;
   var self = this;
-  if(data.medications){
-    Medication.importToPlan(this, data.medications,
+  var medicationsData = healthRecord.get('data.medications');
+  if(medicationsData){
+    Medication.importToPlan(this, medicationsData,
       function(error, medications){
         callback(error, {medications: medications});
     });

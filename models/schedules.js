@@ -4,7 +4,7 @@ var mongoose  = require('mongoose')
   , ObjectId  = Schema.Types.ObjectId;
 
 var ScheduleSchema = new Schema({
-  carePlanId: ObjectId,
+  carePlanId: {type: ObjectId, required: true},
   name: {type: String, required: true},
   start: {type: Number, required: true}, // <-- Date is a valid database type?
   end: Number,
@@ -151,8 +151,8 @@ ScheduleSchema.static('attributesFromMedication', function(medication){
   // dose_quantity: value, unit
 
   // e.g. Vicodin
-  var name = medication.product.name
-  if(medication.dose.value && medication.dose.unit){
+  var name = medication.product && medication.product.name
+  if(medication.dose && medication.dose.value && medication.dose.unit){
   //  e.g. 200 mg
     var dose = medication.dose.value + " " + medication.dose.unit;
     name = dose + " of " + name;
@@ -166,7 +166,7 @@ ScheduleSchema.static('attributesFromMedication', function(medication){
   //   content += "for " + medication.reason.name + " ";
   // }
   var frequency = 0;
-  if(medication.schedule.period){
+  if(medication.schedule && medication.schedule.period){
     frequency = periodInSeconds(medication.schedule.period);
   }
   var start = (medication.start || new Date()).valueOf();

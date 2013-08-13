@@ -48,25 +48,29 @@ HealthRecordSchema.static('updatePlan', function(carePlan){
   if(!directAddress) throw Error("Direct address is required.");
   var store = new HealthStore({directAddress: directAddress});
   store.retrieveAll(function(error, attributes, ccdaXml){
+    if(error) return console.log("Unable to retrieve health record", error);
     self.findOne({direct_address: directAddress, key: attributes.key}).exec(function(error, found){
-      var record = null;
+      var record, updatePlan;
       if(found){
         record = found;
         // Update health record attributes that could change
         if(record.created < attributes.created){
           record.created = attributes.created;
           record.data.xml = ccdaXml;
+          updatePlan = true;
         }
       } else {
         record = new self(attributes);
+        updatePlan = true;
         record.data.xml = ccdaXml;
       }
       record.save(function(error){
         if(error) return console.log("Error saving health record", error);
         console.log("Health Records updated for "+ directAddress);
-        carePlan.import(record.data, function(err, result){
-          console.log("result is", result);
-        });
+        if(updatePlan){
+          carePlan.import(record, function(err, result){
+          });
+        };
       });
     });
   });
