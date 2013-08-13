@@ -63,5 +63,4 @@ describe("CareProvider", function(){
       should.not.exist(carePlan.get('patient.name.first'))
     });
   });
-
 });
