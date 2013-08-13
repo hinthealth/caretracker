@@ -11,13 +11,13 @@ $('.hamburger-button').click(function() {
 
   // Disables scrolling on mobile devices when the menu is shown.
   $('.hamburger-container').bind('touchmove', function(e) {
-      e.preventDefault()
+    e.preventDefault()
   });
 
   // Sets the margin for the container.
   $('.hamburger-menu').css('display', 'block');
   $('#hamburger-container').animate({
-      'marginLeft': ['70%']
+    'marginLeft': ['70%']
   }, {
     duration: 300
   });
@@ -27,7 +27,7 @@ $('.hamburger-button').click(function() {
 Hamburger = {}
 
 
-Hamburger.close = function(){
+Hamburger.close = function() {
   $('.hamburger-container').unbind('touchmove');
   $('.hamburger-container').animate({'marginLeft': ['0']}, {
     duration: 300,
@@ -41,7 +41,7 @@ Hamburger.close = function(){
 
 
 /**
- * Closes when a menu item is clicked
+ * Closes when a menu item is clicked.
  */
 $('.hamburger-menu').on('click', 'a', Hamburger.close);
 

@@ -1,15 +1,21 @@
 .form-page {
   max-width: 400px;
   margin: 0 auto;
+  padding: 0 0 20px 0;
+
+  label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
 
   .button {
     padding: 10px 20px;
     width: 100%;
-    &[disabled]{
-      cursor: not-allowed;
+    &[disabled] {
       background: #999;
-      border-bottom: 3px solid  #d9d9d9;
+      border-bottom: 3px solid #777;
       color:  #dddddd;
+      cursor: not-allowed;
     }
   }
 
@@ -20,13 +26,16 @@
     }
   }
 
-  input[type=text], input[type=email], input[type=password] {
+  input[type=text],
+  input[type=email],
+  input[type=password],
+  textarea {
     box-sizing: border-box;
     width: 100%;
   }
 
   input.ng-invalid{
-    box-shadow: 0 0 1.5px 1px #ec4b22;
+    border-color: #ec4b22;
   }
 
   form > div {
@@ -35,5 +44,9 @@
 
   section.main {
     margin: 0 auto;
+  }
+
+  .field {
+    margin: 0 0 10px 0;
   }
 }

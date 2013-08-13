@@ -63,6 +63,7 @@ angular.module('caretracker.controllers', []).
         $rootScope.title = data.carePlan.patient.name;
       });
     };
+
     $scope.toggleCompleted = function(scheduleId, taskTime){
       $http.put('/api/care_plans/' + $routeParams.id +
           '/schedules/' + scheduleId +
@@ -73,6 +74,12 @@ angular.module('caretracker.controllers', []).
     };
 
     $scope.updateTasks();
+  }]).
+  controller('ShowCarePlanDataImportCtrl', ['$scope', '$http', '$routeParams', '$rootScope', function($scope, $http, $routeParams, $rootScope) {
+    $rootScope.title = 'Import health data';
+    $http.get('/api/care_plans/' + $routeParams.id).success(function(data) {
+      $scope.carePlan = data.carePlan;
+    });
   }]).
 
   // CareProviders Controllers
@@ -90,7 +97,7 @@ angular.module('caretracker.controllers', []).
     $http.get('/api/care_plans/' + $routeParams.id + '/care_providers' ).
       success(function(data, status, headers, config) {
         $scope.carePlan = data.carePlan;
-        $rootScope.title = 'Add to ' + data.carePlan.patient.name + '\'s care team';
+        $rootScope.title = 'Add to ' + data.carePlan.patient.name + '\'s Care Team';
         $scope.careProviders = data.carePlan.careProviders;
       });
     $scope.createCareProvider = function(){
@@ -166,6 +173,7 @@ angular.module('caretracker.controllers', []).
                 + '/schedules/' + $routeParams.scheduleId
                 + '/tasks/';
     $scope.form = {};
+
     $http.get(baseUrl + $routeParams.id).
       success(function(data) {
         $scope.task = data.task;
@@ -178,4 +186,14 @@ angular.module('caretracker.controllers', []).
           $location.url('/care_plans/' + $routeParams.carePlanId);
         });
     };
+
+    $scope.toggleTask = function(scheduleId, start) {
+      $http.put('/api/care_plans/' + $routeParams.carePlanId +
+        '/schedules/' + scheduleId +
+        '/tasks/' + start +
+        '/toggle').success(function(task) {
+        $scope.task = task;
+      });
+    };
+
   }]);

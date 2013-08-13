@@ -1,19 +1,21 @@
 <% include ../../_navbar-back %>
+
 <div class="form-page">
   <section class="main">
-    <div>
+    <div class="field">
       <label for="name">Name</label>
       <input type="text" name="name" ng-model="form.name" placeholder="Take Lipitor" required>
     </div>
-    <div>
+    <div class="field">
       <label for="startTime">Add to calendar at</label>
       <input type="text" name="startTime" ng-model="virtualForm.startTime" placeholder="5:00pm" required>
-
-      <label for="startDate">starting</label>
+    </div>
+    <div class="field">
+      <label for="startDate">Starting</label>
       <select name="startDate" ng-model="virtualForm.startDate" ng-options="d.name for d in days">
       </select>
     </div>
-    <div>
+    <div class="field">
       <label for="value">Repeat this every</label>
       <input type="text" name="value" ng-model="virtualForm.value" placeholder="1">
       <select name="unit" ng-model="virtualForm.unit" ng-options="u.name for u in units">
@@ -24,8 +26,8 @@
       <input type="text" name="endDate" ng-model="virtualForm.endDate" required>
       -->
     </div>
-    <p>
+    <div class="field">
       <button ng-click="createSchedule()" class="button">Create schedule</button>
-    </p>
+    </div>
   </section>
 </div>
