@@ -110,10 +110,12 @@ angular.module('caretracker.controllers', []).
 
   controller('ShowHealthRecordCtrl', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams){
     $http.get('/api/care_plans/' + $routeParams.id + '/health_record').
-      success(function(data) {
-        $scope.carePlan = data.carePlan;
-        $scope.demographics = data.healthRecord.data.demographics;
+      success(function(response) {
+        $scope.carePlan = response.carePlan;
         $scope.medications = data.medications;
+        if(response.healthRecord){
+          $scope.healthRecord = response.healthRecord.data.demographics;
+        }
       });
 
   }]).
@@ -162,9 +164,20 @@ angular.module('caretracker.controllers', []).
       });
     };
   }]).
-  controller('ShowScheduleCtrl', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
+  controller('ShowPatientCtrl', ['$scope', '$http', '$location', '$routeParams', function($scope, $http, $location, $routeParams) {
+    $scope.form = {patient: {}};
+
+    $scope.updatePatient = function(options){
+      if(options && options.email){ $scope.form.patient.sendEmail = true; }
+      $http.put('/api/care_plans/' + $routeParams.id, $scope.form).success(function(data) {
+        $location.path('/care_plans/'+ $routeParams.id);
+     });
+
+    }
     $http.get('/api/care_plans/' + $routeParams.id).success(function(data) {
       $scope.carePlan = data.carePlan;
+      $scope.form.patient = data.carePlan.patient;
+      $scope.invalidEmail = !$scope.form.patient.email;
     });
   }]).
     // Tasks Controllers
