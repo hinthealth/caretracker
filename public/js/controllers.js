@@ -112,7 +112,7 @@ angular.module('caretracker.controllers', []).
     $http.get('/api/care_plans/' + $routeParams.id + '/health_record').
       success(function(response) {
         $scope.carePlan = response.carePlan;
-        $scope.medications = data.medications;
+        $scope.medications = response.medications;
         if(response.healthRecord){
           $scope.healthRecord = response.healthRecord.data.demographics;
         }
