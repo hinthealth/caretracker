@@ -44,7 +44,7 @@ BBFixtureGenerator.sectionJSON = function(section){
     var data = parsed.data[section];
     if(
         (Array.isArray(data) && data.length) ||
-        (data instanceof Object) && Object.keys(data).length)
+        (data instanceof Object && Object.keys(data).length)
       ){
       examples[fileName.toLowerCase().replace(/\W/g,'_')] = data;
     };

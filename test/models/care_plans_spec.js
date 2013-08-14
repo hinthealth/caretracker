@@ -1,10 +1,11 @@
-var helper = require('./../test_helper') // Always require first, sets up test db
-  , mongoose = require('mongoose')
-  , CarePlan = mongoose.model('CarePlan')
-  , User = mongoose.model('User')
-  , Medication = mongoose.model('Medication')
-  , clearModels = [User, CarePlan, Medication]
-  , should = require('should');
+var helper        = require('./../test_helper') // Always require first, sets up test db
+  , mongoose      = require('mongoose')
+  , CarePlan      = mongoose.model('CarePlan')
+  , User          = mongoose.model('User')
+  , HealthRecord  = mongoose.model('HealthRecord')
+  , Medication    = mongoose.model('Medication')
+  , clearModels   = [User, CarePlan, Medication]
+  , should        = require('should');
 
 describe("CarePlan", function(){
   var self = this;
@@ -109,12 +110,12 @@ describe("CarePlan", function(){
   describe('#import', function(){
     it("should not fail", function(done){
       var cp = new CarePlan();
-      cp.import({}, done);
+      cp.import(new HealthRecord(), done);
     });
     it("should be empty when empty", function(done){
       var cp = new CarePlan();
-      cp.import({medications: []}, function(err, result){
-        result.should.be.empty;
+      cp.import(new HealthRecord({data: {medications: []}}), function(err, result){
+        result.medications.should.be.empty;
         done();
       });
     });
