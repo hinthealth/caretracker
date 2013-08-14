@@ -97,3 +97,24 @@ app.run(['$location', '$rootScope', function($location, $rootScope) {
     }
   });
 }]);
+
+/**
+ * Allow sensible/configurable back button on each page.
+ */
+app.run(['$location', '$rootScope', function($location, $rootScope, $event) {
+  $rootScope.navBack = function($event){
+    var path;
+    $event.preventDefault();
+    // Angular makes all "a" tags directives, and they behave in funny ways.
+    // Preventing default on this event DID NOT prevent the default behavior
+    // of redirecting to the href URL. Assuming angular is working magic here.
+    // Stopping propogation fixes it.
+    $event.stopPropagation();
+    if($rootScope.carePlan){
+      path = '/care_plans/' + $rootScope.carePlan._id;
+    }else{
+      path = '/';
+    }
+    $location.path(path)
+  };
+}]);

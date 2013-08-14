@@ -3,23 +3,15 @@
 /* Controllers */
 angular.module('caretracker.controllers', []).
   // MenuController
-  controller('MenuController', ['$scope', '$http', function($scope, $http) {
-    $http.get('/api/care_plans').
-      success(function(data, status, headers, config) {
-        $scope.myCarePlan = data.myCarePlan;
-        $scope.carePlans = data.carePlans;
-      });
+  controller('MenuController', ['$scope', '$http', 'carePlansService', function($scope, $http, carePlansService) {
   }]).
   // CarePlan Controllers
-  controller('IndexCarePlansCtrl', ['$scope', '$http', '$routeParams', '$rootScope', function($scope, $http, $routeParams, $rootScope) {
+  controller('IndexCarePlansCtrl', ['$rootScope', '$scope', '$http', '$routeParams', 'carePlansService', function($rootScope, $scope, $http, $routeParams, carePlansService) {
     $rootScope.title = 'Your patients';
     $scope.showWelcomeMessage = 'welcome' in $routeParams;
-    $http.get('/api/care_plans').success(function(data) {
-      $scope.carePlans = data.carePlans;
-      $scope.myCarePlan = data.myCarePlan;
-    });
+    carePlansService.current();
   }]).
-  controller('AddCarePlanCtrl', ['$scope', '$http', '$location', '$rootScope', function($scope, $http, $location, $rootScope) {
+  controller('AddCarePlanCtrl', ['$rootScope', '$scope', '$http', '$location', 'carePlansService', function($rootScope, $scope, $http, $location, carePlansService) {
     $rootScope.title = 'Add a patient';
     $scope.form = {};
     $scope.createCarePlan = function() {
@@ -29,26 +21,28 @@ angular.module('caretracker.controllers', []).
         } else {
           $location.path('/care_plans/'+ data.carePlan._id + '/finished');
         }
+        carePlansService.refresh();
       });
     };
   }]).
-  controller('AddPatientCarePlanCtrl', ['$scope', '$http', '$location', '$rootScope', function($scope, $http, $location, $rootScope) {
+  controller('AddPatientCarePlanCtrl', ['$rootScope', '$scope', '$http', '$location', 'carePlansService', function($rootScope, $scope, $http, $location, carePlansService) {
     $rootScope.title = 'I am a patient';
     $scope.createPatientCarePlan = function() {
       $http.post('/api/care_plans/self').success(function(data) {
         $location.path('/care_plans/'+ data.carePlan._id);
+        carePlansService.refresh();
      });
     };
   }]).
-  controller('ShowCarePlanCtrl', ['$scope', '$http', '$routeParams', '$rootScope', function($scope, $http, $routeParams, $rootScope) {
+  controller('ShowCarePlanCtrl', ['$rootScope', '$scope', '$http', '$routeParams', 'carePlansService', function($rootScope, $scope, $http, $routeParams, carePlansService) {
+    // Set current care plan
+    var carePlan = carePlansService.current($routeParams.id);
+    $rootScope.title = carePlan.patient.name;
     // By default, get today's tasks.
     var current = moment();
     var start = moment(current).startOf('day');
     var end = moment(current).endOf('day');
 
-    // $http.get('/api/care_plans/' + $routeParams.id).success(function(data) {
-    //   $scope.carePlan = data.carePlan;
-    // });
     $scope.updateTasks = function(){
       $http.get('/api/care_plans/' + $routeParams.id + '/tasks', {
         params: {start: start.valueOf(), end: end.valueOf()}
@@ -59,8 +53,6 @@ angular.module('caretracker.controllers', []).
           $scope.formattedDay = "Today, " + $scope.formattedDay;
         }
         $scope.tasks = data.tasks;
-        $scope.carePlan = data.carePlan;
-        $rootScope.title = data.carePlan.patient.name;
       });
     };
 
@@ -75,28 +67,23 @@ angular.module('caretracker.controllers', []).
 
     $scope.updateTasks();
   }]).
-  controller('ShowCarePlanDataImportCtrl', ['$scope', '$http', '$routeParams', '$rootScope', function($scope, $http, $routeParams, $rootScope) {
+  controller('ShowCarePlanDataImportCtrl', ['$rootScope', '$scope', '$http', '$routeParams', 'carePlansService', function($rootScope, $scope, $http, $routeParams, carePlansService) {
     $rootScope.title = 'Import health data';
-    $http.get('/api/care_plans/' + $routeParams.id).success(function(data) {
-      $scope.carePlan = data.carePlan;
-    });
   }]).
 
   // CareProviders Controllers
-  controller('IndexCareProvidersCtrl', ['$scope', '$http', '$routeParams', '$rootScope', function($scope, $http, $routeParams, $rootScope) {
+  controller('IndexCareProvidersCtrl', ['$rootScope', '$scope', '$http', '$routeParams', function($rootScope, $scope, $http, $routeParams) {
     $http.get('/api/care_plans/' + $routeParams.id + '/care_providers' ).
       success(function(data, status, headers, config) {
         $rootScope.title = data.carePlan.patient.name;
-        $scope.carePlan = data.carePlan;
         $scope.careProviders = data.carePlan.careProviders;
       });
   }]).
-  controller('AddCareProvidersCtrl', ['$scope', '$http', '$routeParams', '$location', '$rootScope', function($scope, $http, $routeParams, $location, $rootScope) {
+  controller('AddCareProvidersCtrl', ['$rootScope', '$scope', '$http', '$routeParams', '$location', function($rootScope, $scope, $http, $routeParams, $location) {
 
     $scope.form = {};
     $http.get('/api/care_plans/' + $routeParams.id + '/care_providers' ).
       success(function(data, status, headers, config) {
-        $scope.carePlan = data.carePlan;
         $rootScope.title = 'Add to ' + data.carePlan.patient.name + '\'s Care Team';
         $scope.careProviders = data.carePlan.careProviders;
       });
@@ -111,7 +98,6 @@ angular.module('caretracker.controllers', []).
   controller('ShowHealthRecordCtrl', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams){
     $http.get('/api/care_plans/' + $routeParams.id + '/health_record').
       success(function(response) {
-        $scope.carePlan = response.carePlan;
         $scope.medications = response.medications;
         if(response.healthRecord){
           $scope.healthRecord = response.healthRecord.data.demographics;
@@ -121,7 +107,7 @@ angular.module('caretracker.controllers', []).
   }]).
 
   // Schedules Controllers
-  controller('AddSchedulesCtrl', ['$scope', '$http', '$location', '$routeParams', '$rootScope', function($scope, $http, $location, $routeParams, $rootScope) {
+  controller('AddSchedulesCtrl', ['$rootScope', '$scope', '$http', '$location', '$routeParams', function($rootScope, $scope, $http, $location, $routeParams) {
     $rootScope.title = 'Add new Journal task';
     $scope.form = {start: new Date().getTime()};
     $scope.units = [
@@ -164,21 +150,20 @@ angular.module('caretracker.controllers', []).
       });
     };
   }]).
-  controller('ShowPatientCtrl', ['$scope', '$http', '$location', '$routeParams', function($scope, $http, $location, $routeParams) {
+  controller('ShowPatientCtrl', ['$scope', '$http', '$location', '$routeParams', 'carePlansService', function($scope, $http, $location, $routeParams, carePlansService) {
     $scope.form = {patient: {}};
 
     $scope.updatePatient = function(options){
       if(options && options.email){ $scope.form.patient.sendEmail = true; }
       $http.put('/api/care_plans/' + $routeParams.id, $scope.form).success(function(data) {
         $location.path('/care_plans/'+ $routeParams.id);
+        carePlansService.refresh();
      });
 
     }
-    $http.get('/api/care_plans/' + $routeParams.id).success(function(data) {
-      $scope.carePlan = data.carePlan;
-      $scope.form.patient = data.carePlan.patient;
-      $scope.invalidEmail = !$scope.form.patient.email;
-    });
+    var carePlan = carePlansService.current($routeParams.id);
+    $scope.form.patient = carePlan.patient;
+    $scope.invalidEmail = !carePlan.patient.email;
   }]).
     // Tasks Controllers
   controller('EditTasksCtrl', ['$scope', '$http', '$location', '$routeParams', function($scope, $http, $location, $routeParams){

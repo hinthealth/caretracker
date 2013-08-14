@@ -2,32 +2,34 @@
 
 <div class="form-page">
   <section class="main">
-    <div class="field">
-      <label for="name">Name</label>
-      <input type="text" name="name" ng-model="form.name" placeholder="Take Lipitor" required>
-    </div>
-    <div class="field">
-      <label for="startTime">Add to calendar at</label>
-      <input type="text" name="startTime" ng-model="virtualForm.startTime" placeholder="5:00pm" required>
-    </div>
-    <div class="field">
-      <label for="startDate">Starting</label>
-      <select name="startDate" ng-model="virtualForm.startDate" ng-options="d.name for d in days">
-      </select>
-    </div>
-    <div class="field">
-      <label for="value">Repeat this every</label>
-      <input type="text" name="value" ng-model="virtualForm.value" placeholder="1">
-      <select name="unit" ng-model="virtualForm.unit" ng-options="u.name for u in units">
-      </select>
-      <!-- Come up with an elegant way to enter this.
-      Like, selects: [7][days] or [2][months] ?
-      <label for="endDate">(optional) stop after</label>
-      <input type="text" name="endDate" ng-model="virtualForm.endDate" required>
-      -->
-    </div>
-    <div class="field">
-      <button ng-click="createSchedule()" class="button">Create schedule</button>
-    </div>
+    <form name="schedule">
+      <div class="field">
+        <label for="name">Name</label>
+        <input type="text" name="name" ng-model="form.name" placeholder="Take Lipitor" required>
+      </div>
+      <div class="field">
+        <label for="startTime">Add to calendar at</label>
+        <input type="text" name="startTime" ng-model="virtualForm.startTime" placeholder="5:00pm" ng-pattern='/^(?:1[0-2]|[0-9]):[0-5][0-9]\s?(?:am|pm|AM|PM)$|^(?:[01]?[0-9]|2[0-3]):[0-5][0-9]$/' required>
+      </div>
+      <div class="field">
+        <label for="startDate">Starting</label>
+        <select name="startDate" ng-model="virtualForm.startDate" ng-options="d.name for d in days">
+        </select>
+      </div>
+      <div class="field">
+        <label for="value">Repeat this every</label>
+        <input type="text" name="value" ng-model="virtualForm.value" placeholder="1">
+        <select name="unit" ng-model="virtualForm.unit" ng-options="u.name for u in units">
+        </select>
+        <!-- Come up with an elegant way to enter this.
+        Like, selects: [7][days] or [2][months] ?
+        <label for="endDate">(optional) stop after</label>
+        <input type="text" name="endDate" ng-model="virtualForm.endDate" required>
+        -->
+      </div>
+      <div class="field">
+        <button ng-click="createSchedule()" class="button"  ng-disabled="schedule.$invalid">Create schedule</button>
+      </div>
+    </form>
   </section>
 </div>
