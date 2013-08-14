@@ -31,11 +31,11 @@ exports.show = function (req, res) {
 };
 
 // POST
-exports.create = function (req, res) {
+exports.create = function (req, res, next) {
   // TODO: Scope by current user access
   req.body.ownerId = req.user.id;
   CarePlan.create(req.body, function(error, carePlan){
-    if(error) return res.json(false);
+    if(error) return next(error);
 
     if(carePlan.patient.email){
       // Send patient invite

@@ -11,7 +11,7 @@ var mongoose      = require('mongoose')
 
 var PatientSchema = new Schema({
     name: {type: String, required: true},
-    userId: {type: ObjectId, unique: true},
+    userId: {type: ObjectId, unique: true, sparse: true},
     email: {type: String},
     inviteKey: {type: String, default: Util.generateInviteKey}
 }, {_id: false, id: false});

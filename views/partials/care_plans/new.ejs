@@ -2,9 +2,9 @@
 
 <div class="form-page">
   <section class="main">
-    <form>
+    <form name="patientForm">
       <div>
-        <input type="text" name="patient[name]" ng-model="form.patient.name" placeholder="Patient's display name" autofocus>
+        <input type="text" name="patient[name]" ng-model="form.patient.name" placeholder="Patient's display name" autofocus required>
       </div>
       <div>
         <input type="email" name="patient[email]" ng-model="form.patient.email" placeholder="Patient's email address (optional)">
@@ -13,6 +13,6 @@
     <p class="hint">
       We will use the patient's email address to sync updates to their Journal.
     </p>
-    <button ng-click="createCarePlan()" class="button">Add patient</button>
+    <button ng-click="createCarePlan()" class="button" ng-disabled="patientForm.$invalid">Add patient</button>
   </section>
 </div>
