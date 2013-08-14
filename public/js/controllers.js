@@ -43,9 +43,6 @@ angular.module('caretracker.controllers', []).
     var start = moment(current).startOf('day');
     var end = moment(current).endOf('day');
 
-    // $http.get('/api/care_plans/' + $routeParams.id).success(function(data) {
-    //   $scope.carePlan = data.carePlan;
-    // });
     $scope.updateTasks = function(){
       $http.get('/api/care_plans/' + $routeParams.id + '/tasks', {
         params: {start: start.valueOf(), end: end.valueOf()}
@@ -72,7 +69,6 @@ angular.module('caretracker.controllers', []).
   }]).
   controller('ShowCarePlanDataImportCtrl', ['$rootScope', '$scope', '$http', '$routeParams', 'carePlansService', function($rootScope, $scope, $http, $routeParams, carePlansService) {
     $rootScope.title = 'Import health data';
-    // carePlansService.current($routeParams.id);
   }]).
 
   // CareProviders Controllers
@@ -80,7 +76,6 @@ angular.module('caretracker.controllers', []).
     $http.get('/api/care_plans/' + $routeParams.id + '/care_providers' ).
       success(function(data, status, headers, config) {
         $rootScope.title = data.carePlan.patient.name;
-        // $scope.carePlan = data.carePlan;
         $scope.careProviders = data.carePlan.careProviders;
       });
   }]).
@@ -89,7 +84,6 @@ angular.module('caretracker.controllers', []).
     $scope.form = {};
     $http.get('/api/care_plans/' + $routeParams.id + '/care_providers' ).
       success(function(data, status, headers, config) {
-        // $scope.carePlan = data.carePlan;
         $rootScope.title = 'Add to ' + data.carePlan.patient.name + '\'s Care Team';
         $scope.careProviders = data.carePlan.careProviders;
       });
@@ -104,7 +98,6 @@ angular.module('caretracker.controllers', []).
   controller('ShowHealthRecordCtrl', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams){
     $http.get('/api/care_plans/' + $routeParams.id + '/health_record').
       success(function(response) {
-        // $scope.carePlan = response.carePlan;
         $scope.medications = response.medications;
         if(response.healthRecord){
           $scope.healthRecord = response.healthRecord.data.demographics;

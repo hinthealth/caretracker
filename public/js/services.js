@@ -6,6 +6,14 @@
 // Demonstrate how to register services
 // In this case it is a simple value service.
 angular.module('caretracker.services', [], function($provide){
+  /**
+   * Care Plan Service
+   * Responsible for loading and updating care plans. To be used by any
+   * controller that uses careplans. To allow sharing between them and to
+   * keep all controllers in sync. Also allows for a much simpler API.
+   *
+   * Setting "current" carePlan effects default back button behavior.
+   */
   $provide.factory('carePlansService', ['$http', '$rootScope', function($http, $rootScope){
     var current = function(id){
       if(!id){
