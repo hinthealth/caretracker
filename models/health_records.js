@@ -42,10 +42,10 @@ HealthRecordSchema.virtual('data.json')
 var HealthStore = require("./../lib/ccda_service");
 HealthRecordSchema.static('updatePlan', function(carePlan){
   var self = this;
+  if(!carePlan) throw Error("Care plan is required.");
   var directAddress = carePlan.directAddress;
   // Erm, we should really deal with multiple health records,
   // and not just pick the most recent.
-  if(!directAddress) throw Error("Direct address is required.");
   var store = new HealthStore({directAddress: directAddress});
   store.retrieveAll(function(error, attributes, ccdaXml){
     if(error) return console.log("Unable to retrieve health record", error);

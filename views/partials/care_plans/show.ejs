@@ -31,15 +31,21 @@
   <section class="timeline-day">
     {{formattedDay}}
   </section>
-  <ul class="tasks">
-    <li ng-repeat="task in tasks">
-      <div class="checkmark" ng-class="{checked: task.completed.at}" ng-click="toggleCompleted(task.scheduleId, task.start)"></div>
-      <div class="icon-avatar" ng-class="{hasNote: task.note}"></div>
-      <div class="content">
-        <span class="time">{{task.start | date:'shortTime'}}</span>
-        <a href="/care_plans/{{carePlan._id}}/schedules/{{task.scheduleId}}/tasks/{{task.start}}">
-          {{task.name}}
-        </a>
-      </div>
-  </ul>
+  <ng:switch on="!!tasks.length">
+    <ul class="tasks" ng:switch-when="true">
+      <li ng-repeat="task in tasks">
+        <div class="checkmark" ng-class="{checked: task.completed.at}" ng-click="toggleCompleted(task.scheduleId, task.start)"></div>
+        <div class="icon-avatar" ng-class="{hasNote: task.note}"></div>
+        <div class="content">
+          <span class="time">{{task.start | date:'shortTime'}}</span>
+          <a href="/care_plans/{{carePlan._id}}/schedules/{{task.scheduleId}}/tasks/{{task.start}}">
+            {{task.name}}
+          </a>
+        </div>
+    </ul>
+    <ul ng:switch-when="false">
+      <li>
+        Nothing for today.
+    </ul>
+  </ng:switch>
 </section>
