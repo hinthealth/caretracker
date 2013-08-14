@@ -33,6 +33,10 @@
       <div ng:switch-when="true">
         <li ng-repeat="medication in medications">
           {{medication.dose_quantity.value}} {{medication.dose_quantity.unit}} {{medication.product.name}}
+          <dl>
+            <dt>Every</dt>
+            <dd>{{medication.schedule.period.value || 'Not specified'}} {{medication.schedule.period.unit}}</dd>
+          </dl>
         </li>
       </div>
       <div ng:switch-when="false">

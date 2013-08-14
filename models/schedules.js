@@ -4,16 +4,13 @@ var mongoose  = require('mongoose')
   , ObjectId  = Schema.Types.ObjectId;
 
 var ScheduleSchema = new Schema({
-  carePlanId: ObjectId,
+  carePlanId: {type: ObjectId, required: true},
   name: {type: String, required: true},
   start: {type: Number, required: true}, // <-- Date is a valid database type?
   end: Number,
-  frequency: {type: Number, default: 0}  // Frequency in seconds.
+  frequency: {type: Number, default: 0},  // Frequency in seconds.
+  medicationId: ObjectId
 });
-
-
-
-
 
 
 /**
@@ -120,5 +117,69 @@ ScheduleSchema.methods.taskFor = function(startTime, next){
     );
   });
 };
+
+var periodInSeconds = function(period){
+  var mult = parseFloat(period.value);
+  switch(period.unit){
+    case 'mo':
+    mult *= 52/12;
+    case 'wk':
+    mult *= 7;
+    case 'd':
+    mult *= 24;
+    case 'h':
+    mult *= 60;
+    case 'min':
+    mult *= 60;
+    case 's':
+    mult *= 1;
+    break;
+    default:
+    console.log("Unknown unit "+period.unit);
+    mult = NaN;
+  };
+  return mult == NaN ? 0 : mult;
+};
+
+ScheduleSchema.static('attributesFromMedication', function(medication){
+  // Medication fields should be:
+  // date_range start, end
+  // schedule type, period: value, unit
+  // product: name, code
+  // prescriber.person
+  // reason.name
+  // dose_quantity: value, unit
+
+  // e.g. Vicodin
+  var name = medication.product && medication.product.name
+  if(medication.dose && medication.dose.value && medication.dose.unit){
+  //  e.g. 200 mg
+    var dose = medication.dose.value + " " + medication.dose.unit;
+    name = dose + " of " + name;
+  }
+
+  // var content = "";
+  // if(medication.prescriber.person){
+  //   content += "By " + medication.prescriber.person + " ";
+  // }
+  // if(medication.reason.name){
+  //   content += "for " + medication.reason.name + " ";
+  // }
+  var frequency = 0;
+  if(medication.schedule && medication.schedule.period){
+    frequency = periodInSeconds(medication.schedule.period);
+  }
+  var start = (medication.start || new Date()).valueOf();
+  var end = medication.end && medication.end.valueOf();
+  // Special case non-repeating tasks
+  if(frequency == 0 && !end){ end = start};
+  return {
+    carePlanId: medication.carePlanId,
+    name: name,
+    start: start,
+    end: end,
+    frequency: frequency
+  };
+});
 
 mongoose.model('Schedule', ScheduleSchema);

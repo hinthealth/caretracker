@@ -23,6 +23,7 @@ require('./health_records');
 require('./care_providers');
 require('./tasks');
 require('./schedules');
+require('./medications');
 require('./care_plans');
 require('./users');
 
