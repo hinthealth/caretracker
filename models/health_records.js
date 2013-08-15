@@ -19,6 +19,10 @@ HealthRecordSchema.virtual('data.xml').get(function(){
   return BBParser(this.data.json).xml();
 })
 .set(function(dataXml){
+  // Our parse is not tolerant of \r newlines, so handle them here.
+  // https://github.com/blue-button/bluebutton.js/issues/61
+  dataXml = dataXml.replace(/(\r\n|\n|\r)/gm,"\n");
+
   this.data.document = BBParser(dataXml);
 });
 
@@ -49,7 +53,8 @@ HealthRecordSchema.static('updatePlan', function(carePlan){
   var store = new HealthStore({directAddress: directAddress});
   store.retrieveAll(function(error, attributes, ccdaXml){
     if(error) return console.log("Unable to retrieve health record", error);
-    self.findOne({direct_address: directAddress, key: attributes.key}).exec(function(error, found){
+    self.findOne({direct_address: directAddress, key: attributes.key})
+        .exec(function(error, found){
       var record, updatePlan;
       if(found){
         record = found;
