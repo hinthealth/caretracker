@@ -19,7 +19,17 @@ HealthRecordSchema.virtual('data.xml').get(function(){
   return BBParser(this.data.json).xml();
 })
 .set(function(dataXml){
-  this.data.document = BBParser(dataXml);
+  // Our parse is not tolerant of \r newlines, so handle them here.
+  // https://github.com/blue-button/bluebutton.js/issues/61
+  dataXml = dataXml.replace(/(\r\n|\n|\r)/gm,"\n");
+  var document = BBParser(dataXml)
+  if(document.xmlDOM.el.errors){
+    var errors = document.xmlDOM.el.errors.map(function(error){
+      return error.data.exception.message;
+    });
+    console.log(errors);
+  };
+  this.data.document = document;
 });
 
 HealthRecordSchema.virtual('data.document')
@@ -40,95 +50,43 @@ HealthRecordSchema.virtual('data.json')
 });
 
 var HealthStore = require("./../lib/ccda_service");
-HealthRecordSchema.static('updateDirectAddress', function(directAddress){
+HealthRecordSchema.static('updatePlan', function(carePlan){
   var self = this;
+  if(!carePlan) throw Error("Care plan is required.");
+  var directAddress = carePlan.directAddress;
   // Erm, we should really deal with multiple health records,
   // and not just pick the most recent.
-  if(!directAddress) throw Error("Direct address is required.");
   var store = new HealthStore({directAddress: directAddress});
   store.retrieveAll(function(error, attributes, ccdaXml){
-    self.findOne({direct_address: directAddress, key: attributes.key}).exec(function(error, found){
-      var record = null;
+    if(error) return console.log("Unable to retrieve health record", error);
+    self.findOne({direct_address: directAddress, key: attributes.key})
+        .exec(function(error, found){
+      var record, updatePlan;
       if(found){
         record = found;
         // Update health record attributes that could change
         if(record.created < attributes.created){
           record.created = attributes.created;
           record.data.xml = ccdaXml;
+          updatePlan = true;
         }
       } else {
         record = new self(attributes);
+        updatePlan = true;
         record.data.xml = ccdaXml;
       }
       record.save(function(error){
         if(error) return console.log("Error saving health record", error);
         console.log("Health Records updated for "+ directAddress);
+        if(updatePlan){
+          carePlan.import(record, function(err, result){
+          });
+        };
       });
     });
   });
 });
 
-var periodInSeconds = function(period){
-  var mult = parseFloat(period.value);
-  switch(period.unit){
-    case 'mo':
-    mult *= 52/12;
-    case 'wk':
-    mult *= 7;
-    case 'd':
-    mult *= 24;
-    case 'h':
-    mult *= 60;
-    case 'min':
-    mult *= 60;
-    case 's':
-    mult *= 1;
-    break;
-    default:
-    console.log("Unknown unit "+period.unit);
-    mult = NaN;
-  };
-  return mult == NaN ? 0 : mult;
-}
 
-HealthRecordSchema.methods.generateTasks = function(){
-  schedules = [];
-  self.data.toObject().medications.forEach(function(medication){
-    // Medication fields should be:
-    // date_range start, end
-    // schedule type, period: value, unit
-    // product: name, code
-    // prescriber.person
-    // reason.name
-    // dose_quantity: value, unit
-    var dose = medication.dose_quantity.value + " " + medication.dose_quantity.unit
-    //  e.g. 200 mg
-    var name = dose + ' ' + medication.product.name
-    // e.g. Vicodin
-    var content = "";
-    if(medication.prescriber.person){
-      content += "By " + medication.prescriber.person + " ";
-    }
-    if(medication.reason.name){
-      content += "for " + medication.reason.name + " ";
-    }
-    var period = 0;
-    if(medication.period){
-      period = periodInSeconds(medication.period);
-    }
-    var start = medication.date_range.start || new Date();
-    var end = medication.date_range.end;
-    // Special case non-repeating tasks
-    if(period == 0 && !end){ end = start};
-    var schedule = new Schedule({
-      name: name,
-      starting: start,
-      ending: end,
-      period: period
-    });
-    schedules.push(schedule);
-  });
-  return schedules;
-}
 
 mongoose.model('HealthRecord', HealthRecordSchema);

@@ -31,11 +31,11 @@ exports.show = function (req, res) {
 };
 
 // POST
-exports.create = function (req, res) {
+exports.create = function (req, res, next) {
   // TODO: Scope by current user access
   req.body.ownerId = req.user.id;
   CarePlan.create(req.body, function(error, carePlan){
-    if(error) return res.json(false);
+    if(error) return next(error);
 
     if(carePlan.patient.email){
       // Send patient invite
@@ -43,15 +43,15 @@ exports.create = function (req, res) {
         userId     : req.user.id,
         event      : 'Patient Invitation Created',
         properties : {
-          sendEmail: true,
-          fromFirstName: req.user.name.first,
-          fromLastName: req.user.name.first,
-          fromEmail: req.user.email,
-          patientName: carePlan.patient.name,
+          sendEmail:        true,
+          fromFirstName:    req.user.name.first,
+          fromLastName:     req.user.name.first,
+          fromEmail:        req.user.email,
+          patientName:      carePlan.patient.name,
           patientFirstName: carePlan.get('patient.name.first'),
-          patientEmail: carePlan.patient.email,
-          inviteKey: carePlan.patient.invitePath,
-          inviteUrl: carePlan.invitePatientUrl(AppConfig.url)
+          patientEmail:     carePlan.patient.email,
+          inviteKey:        carePlan.patient.invitePath,
+          inviteUrl:        carePlan.invitePatientUrl(AppConfig.url)
         }
       });
       console.log("Email sent to patient ", req.user.email, "with url", carePlan.invitePatientUrl(AppConfig.url));
@@ -78,10 +78,30 @@ exports.update = function (req, res) {
     if(carePlan.ownerId == req.user.id){
       // Allow elevated access, like managing the careteam
     }
-    carePlan.patient.name = req.body.patient.name;
+    if(!carePlan.patient.userId){
+      // No user associated yet, let them update
+      carePlan.patient.name   = req.body.patient.name;
+      carePlan.patient.email  = req.body.patient.email;
+    }
 
     carePlan.save(function(error){
       if(error) return res.json({error: error});
+      if(req.body.patient.sendEmail){
+        analytics.track({
+          userId     : req.user.id,
+          event      : 'Patient Invitation Updated',
+          properties : {
+            sendEmail: true,
+            fromFirstName: req.user.name.first,
+            fromLastName: req.user.name.first,
+            fromEmail: req.user.email,
+            toName: carePlan.patient.name,
+            toEmail: carePlan.patient.email,
+            inviteKey: carePlan.patient.invitePath,
+            inviteUrl: carePlan.invitePatientUrl(AppConfig.url)
+          }
+        });
+      }
       res.json({carePlan: carePlan});
     });
   });

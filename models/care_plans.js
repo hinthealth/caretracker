@@ -1,6 +1,7 @@
 var mongoose      = require('mongoose')
   , CareProvider  = mongoose.model('CareProvider')
   , HealthRecord  = mongoose.model('HealthRecord')
+  , Medication    = mongoose.model('Medication')
   , Schedule      = mongoose.model('Schedule')
   , Schema        = mongoose.Schema
   , ObjectId      = Schema.Types.ObjectId
@@ -10,7 +11,7 @@ var mongoose      = require('mongoose')
 
 var PatientSchema = new Schema({
     name: {type: String, required: true},
-    userId: {type: ObjectId, unique: true},
+    userId: {type: ObjectId, unique: true, sparse: true},
     email: {type: String},
     inviteKey: {type: String, default: Util.generateInviteKey}
 }, {_id: false, id: false});
@@ -43,7 +44,6 @@ CarePlanSchema.virtual('patient.name.first')
 CarePlanSchema.virtual('patient.invitePath').get(function(){
   return '/join-plan/' + this.patient.inviteKey;
 });
-
 
 CarePlanSchema.static('ownedBy', function(user){
   return this.where({ownerId: user.id});
@@ -110,6 +110,21 @@ CarePlanSchema.methods.hasAccessIds = function(){
 CarePlanSchema.methods.healthRecord = function(done){
   HealthRecord.findOne({direct_address: this.directAddress})
     .sort('-created').exec(done);
+};
+
+CarePlanSchema.methods.import = function(healthRecord, callback){
+  // Use async if we need to import more than just medications;
+  var self = this;
+  var medicationsData = healthRecord.get('data.medications');
+  if(medicationsData){
+    Medication.importToPlan(this, medicationsData,
+      function(error, medications){
+        callback(error, {medications: medications});
+    });
+
+  }else{
+    callback(null, {medications: []});
+  }
 };
 
 CarePlanSchema.methods.invitePatientUrl = function(url){

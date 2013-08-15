@@ -1,0 +1,7262 @@
+{
+  "170_314_b__1_inpt_discharge_summary_ced_type_xml": [
+    {
+      "date_range": {
+        "start": "2012-08-06T07:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "24",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Ceftriaxone 2 grams IV",
+        "code": "1152108",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "2",
+        "unit": "Grams"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "INTRAVENOUS",
+        "code": "C38276",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "SOLUTION",
+        "code": "C42986",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2012-08-06T07:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "8",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Albuterol Inhaled 2.5mg/3ml NEB",
+        "code": "1154602",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "2.5",
+        "unit": "mg/3ml"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": "Asthma",
+        "code": "195967001",
+        "code_system": "2.16.840.1.113883.6.96"
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "AEROSOL",
+        "code": "C42887",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    }
+  ],
+  "170_314_b__2_inpt_discharge_summary_ced_type_xml": [
+    {
+      "date_range": {
+        "start": "2009-01-08T08:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "8",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Insulin aspart, human 100",
+        "code": "284810",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "20",
+        "unit": "Units"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "SUBCUTANEOUS",
+        "code": "C38299",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "INJECTION",
+        "code": "C42946",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2009-01-08T08:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "period": {
+          "value": null,
+          "unit": null
+        }
+      },
+      "product": {
+        "name": "Lantus insulin",
+        "code": "261551",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "20",
+        "unit": "Units"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "SUBCUTANEOUS",
+        "code": "C38299",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "INJECTION",
+        "code": "C42946",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2008-08-08T07:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "24",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Atorvastatin 40 MG Oral Tablet",
+        "code": "617320",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "ORAL",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "TABLET",
+        "code": "C42998",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2012-10-02T07:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "24",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Aspirin 81 MG Oral Tablet",
+        "code": "243670",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "ORAL",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "TABLET",
+        "code": "C42998",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    }
+  ],
+  "170_314_b__7_amb_patient5_summaryofcareced_type_xml": [
+    {
+      "date_range": {
+        "start": "2013-01-30T08:00:00.000Z",
+        "end": "2013-02-03T08:00:00.000Z"
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "24",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Azithromycin",
+        "code": "141962",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": "Pneumonia",
+        "code": "233604007",
+        "code_system": "2.16.840.1.113883.6.96"
+      },
+      "route": {
+        "name": "ORAL",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "TABLET",
+        "code": "C42998",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2012-02-19T08:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "type": "interval",
+        "period": {
+          "value": "6",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Proventil 0.09 MG/ACTUAT metered dose",
+        "code": "202908",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "2",
+        "unit": "Puffs"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "RESPIRATORY (INHALATION)",
+        "code": "C38216",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "AEROSOL, METERED",
+        "code": "C42960",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    }
+  ],
+  "170_314_b__7_amb_patient6_summaryofcareced_type_xml": [
+    {
+      "date_range": {
+        "start": "2013-01-30T08:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "type": "interval",
+        "period": {
+          "value": "12",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Oseltamivir 30 MG Oral Capsule",
+        "code": "728111",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "CAPSULE",
+        "code": "C25158",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2010-01-30T08:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "6",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Proventil 0.09 MG/ ACTUAT metered dose",
+        "code": "202908",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "2",
+        "unit": "Puff"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": "Asthma",
+        "code": "195967001",
+        "code_system": "2.16.840.1.113883.6.96"
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "AEROSOL, METERED",
+        "code": "C42960",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    }
+  ],
+  "170_314_b__7_inpt_patient1_ccdced_type_xml": [
+    {
+      "date_range": {
+        "start": "2010-01-10T08:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "24",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Lisinopril",
+        "code": "258395",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": "Hypertension",
+        "code": "363746003",
+        "code_system": "2.16.840.1.113883.6.96"
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "TABLET",
+        "code": "C42998",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2013-01-30T08:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "24",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Allopurinol 200 MG Oral Tablet",
+        "code": "197319",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "TABLET",
+        "code": "C42998",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2013-01-30T08:00:00.000Z",
+        "end": "2013-02-06T08:00:00.000Z"
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "12",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Clarithromycin 250 MG Oral Tablet",
+        "code": "197517",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "TABLET",
+        "code": "C42998",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2011-04-13T07:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "12",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Metformin 850 MG Oral Tablet",
+        "code": "860978",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "ORAL",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "TABLET",
+        "code": "C42998",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    }
+  ],
+  "170_314_b__7_inpt_patient2_ccdced_type_xml": [
+    {
+      "date_range": {
+        "start": "2011-10-02T07:00:00.000Z",
+        "end": "2011-10-09T07:00:00.000Z"
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "12",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Clarithromycin 250 MG Oral Tablet",
+        "code": "197517",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "TABLET",
+        "code": "C42998",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2013-01-30T08:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "period": {
+          "value": null,
+          "unit": null
+        }
+      },
+      "product": {
+        "name": "Albuterol 0.09 MG/ ACTUAT metered dose",
+        "code": "573621",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "2",
+        "unit": "Puff"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": "Hypertension",
+        "code": "363746003",
+        "code_system": "2.16.840.1.113883.6.96"
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "AEROSOL, METERED",
+        "code": "C42960",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2011-03-10T08:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "12",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Metformin 850 MG Oral Tablet",
+        "code": "860978",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "ORAL",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "TABLET",
+        "code": "C42998",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    }
+  ],
+  "170_314_b__7_inpt_patient3_ccdced_type_xml": [
+    {
+      "date_range": {
+        "start": "2013-01-30T08:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "type": "interval",
+        "period": {
+          "value": "12",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Oseltamivir 30 MG Oral Capsule",
+        "code": "728111",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "CAPSULE",
+        "code": "C25158",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2012-04-30T07:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "period": {
+          "value": null,
+          "unit": null
+        }
+      },
+      "product": {
+        "name": "Albuterol 0.09 MG/ ACTUAT metered dose",
+        "code": "573621",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "2",
+        "unit": "Puff"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": "Asthma",
+        "code": "195967001",
+        "code_system": "2.16.840.1.113883.6.96"
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "AEROSOL, METERED",
+        "code": "C42960",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    }
+  ],
+  "170_314_e__1_amb_summaryofcareced_type_xml": [
+    {
+      "date_range": {
+        "start": "2012-09-20T07:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "6",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Cephalexin 500 MG Oral Tablet",
+        "code": "309114",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "TABLET",
+        "code": "C42998",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2011-11-20T08:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "24",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Fluoxetine",
+        "code": "313989",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "ORAL",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "CAPSULE",
+        "code": "C25158",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2010-04-15T07:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "24",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Levothyroxine Sodium",
+        "code": "966247",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "ORAL",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "TABLET",
+        "code": "C42998",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    }
+  ],
+  "170_314_e__1_inpt_discharge_summary_ced_type_xml": [
+    {
+      "date_range": {
+        "start": "2012-10-02T07:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "type": "interval",
+        "period": {
+          "value": "12",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Cefepime 20 MG/ML",
+        "code": "329646",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "SOLUTION",
+        "code": "C42986",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2012-09-20T07:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "6",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Cephalexin 500 MG Oral Tablet",
+        "code": "309114",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "TABLET",
+        "code": "C42998",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2011-11-20T08:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "24",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Fluoxetine",
+        "code": "313989",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "ORAL",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "CAPSULE",
+        "code": "C25158",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2010-04-15T07:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "24",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Levothyroxine Sodium",
+        "code": "966247",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "ORAL",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "TABLET",
+        "code": "C42998",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    }
+  ],
+  "170_314_e__2_amb_summaryofcare_ced_type_xml": [
+    {
+      "date_range": {
+        "start": "2012-08-06T07:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "12",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Clarithromycin 500 MG Oral Tablet",
+        "code": "197517",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "TABLET",
+        "code": "C42998",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2010-01-30T08:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "24",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Metoprolol tartrate",
+        "code": "866924",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "ORAL",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "TABLET",
+        "code": "C42998",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2012-08-06T07:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "type": "interval",
+        "period": {
+          "value": "6",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Albuterol 0.09 MG/ACTUAT metered dose",
+        "code": "573621",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "2",
+        "unit": "Puffs"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "RESPIRATORY (INHALATION)",
+        "code": "C38216",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "AEROSOL, METERED",
+        "code": "C42960",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    }
+  ],
+  "170_314b1_amb_summaryofcare_xml": [
+    {
+      "date_range": {
+        "start": "2007-10-01T07:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "12",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "fluticasone inhaled",
+        "code": "1165655",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "88",
+        "unit": "mcg"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "RESPIRATORY (INHALATION)",
+        "code": "C38216",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "AEROSOL, METERED",
+        "code": "C42960",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2009-05-01T07:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "12",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "metoprolol tartrate 50 MG Oral Tablet",
+        "code": "866924",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "ORAL",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "TABLET",
+        "code": "C42998",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    }
+  ],
+  "170_314b2_amb_ccd_xml": [
+    {
+      "date_range": {
+        "start": "2012-02-20T08:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "type": "interval",
+        "period": {
+          "value": "6",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Albuterol 0.09 MG/ACTUAT metered dose",
+        "code": "573621",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "2",
+        "unit": "Puffs"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "RESPIRATORY (INHALATION)",
+        "code": "C38216",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "AEROSOL, METERED",
+        "code": "C42960",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    }
+  ],
+  "170_314b2_amb_summaryofcare_xml": [
+    {
+      "date_range": {
+        "start": "2012-02-20T08:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "type": "interval",
+        "period": {
+          "value": "6",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Albuterol 0.09 MG/ACTUAT metered dose",
+        "code": "573621",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "2",
+        "unit": "Puffs"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "RESPIRATORY (INHALATION)",
+        "code": "C38216",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "AEROSOL, METERED",
+        "code": "C42960",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    }
+  ],
+  "26562_exportsummary_ccda_xml": [
+    {
+      "date_range": {
+        "start": "2013-01-01T08:00:00.000Z",
+        "end": "2013-01-31T08:00:00.000Z"
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "metoprolol tartrate Oral Tablet 25 mg",
+        "code": "453953",
+        "code_system": null,
+        "translation": {
+          "name": "Metoprolol Tartrate 25 MG Oral Tablet",
+          "code": "866924",
+          "code_system": "2.16.840.1.113883.6.88",
+          "code_system_name": "RxNorm"
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": "tablet"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2013-01-01T08:00:00.000Z",
+        "end": "2013-01-31T08:00:00.000Z"
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "Proventil HFA Inhalation HFA Aerosol Inhaler 90 mcg/actuation",
+        "code": "267456",
+        "code_system": null,
+        "translation": {
+          "name": "200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler",
+          "code": "745679",
+          "code_system": "2.16.840.1.113883.6.88",
+          "code_system_name": "RxNorm"
+        }
+      },
+      "dose_quantity": {
+        "value": "2",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2013-01-24T08:00:00.000Z",
+        "end": "2013-02-23T08:00:00.000Z"
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "azithromycin Oral Tablet 500 mg",
+        "code": "445655",
+        "code_system": null,
+        "translation": {
+          "name": "Azithromycin 500 MG Oral Tablet",
+          "code": "248656",
+          "code_system": "2.16.840.1.113883.6.88",
+          "code_system_name": "RxNorm"
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": "tablet"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    }
+  ],
+  "26620_exportsummary_ccda_xml": [
+    {
+      "date_range": {
+        "start": "2012-07-10T07:00:00.000Z",
+        "end": "2012-08-09T07:00:00.000Z"
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "albuterol sulfate Inhalation HFA Aerosol Inhaler 90 mcg/actuation",
+        "code": "279394",
+        "code_system": null,
+        "translation": {
+          "name": "200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler",
+          "code": "745679",
+          "code_system": "2.16.840.1.113883.6.88",
+          "code_system_name": "RxNorm"
+        }
+      },
+      "dose_quantity": {
+        "value": "2",
+        "unit": "Inhaler"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    }
+  ],
+  "26775_clinicalvisitsummary_ccda_xml": [
+    {
+      "date_range": {
+        "start": "2013-01-21T08:00:00.000Z",
+        "end": "2013-01-26T08:00:00.000Z"
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "azithromycin Oral Tablet 250 mg",
+        "code": "172089",
+        "code_system": null,
+        "translation": {
+          "name": "Azithromycin 250 MG Oral Tablet",
+          "code": "308460",
+          "code_system": "2.16.840.1.113883.6.88",
+          "code_system_name": "RxNorm"
+        }
+      },
+      "dose_quantity": {
+        "value": "2",
+        "unit": "tablet"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2013-01-21T08:00:00.000Z",
+        "end": "2013-02-20T08:00:00.000Z"
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "albuterol sulfate Inhalation HFA Aerosol Inhaler 90 mcg/actuation",
+        "code": "279394",
+        "code_system": null,
+        "translation": {
+          "name": "200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler",
+          "code": "745679",
+          "code_system": "2.16.840.1.113883.6.88",
+          "code_system_name": "RxNorm"
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": "Container"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    }
+  ],
+  "26775_exportsummary_ccda_xml": [
+    {
+      "date_range": {
+        "start": "2013-01-21T08:00:00.000Z",
+        "end": "2013-01-26T08:00:00.000Z"
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "azithromycin Oral Tablet 250 mg",
+        "code": "172089",
+        "code_system": null,
+        "translation": {
+          "name": "Azithromycin 250 MG Oral Tablet",
+          "code": "308460",
+          "code_system": "2.16.840.1.113883.6.88",
+          "code_system_name": "RxNorm"
+        }
+      },
+      "dose_quantity": {
+        "value": "2",
+        "unit": "tablet"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2013-01-21T08:00:00.000Z",
+        "end": "2013-02-20T08:00:00.000Z"
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "albuterol sulfate Inhalation HFA Aerosol Inhaler 90 mcg/actuation",
+        "code": "279394",
+        "code_system": null,
+        "translation": {
+          "name": "200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler",
+          "code": "745679",
+          "code_system": "2.16.840.1.113883.6.88",
+          "code_system_name": "RxNorm"
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": "Container"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    }
+  ],
+  "26776_exportsummary_ccda_xml": [
+    {
+      "date_range": {
+        "start": "2013-01-21T08:00:00.000Z",
+        "end": "2013-02-20T08:00:00.000Z"
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "Proventil HFA Inhalation HFA Aerosol Inhaler 90 mcg/actuation",
+        "code": "267456",
+        "code_system": null,
+        "translation": {
+          "name": "200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler",
+          "code": "745679",
+          "code_system": "2.16.840.1.113883.6.88",
+          "code_system_name": "RxNorm"
+        }
+      },
+      "dose_quantity": {
+        "value": "2",
+        "unit": "Inhaler"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2013-01-21T08:00:00.000Z",
+        "end": "2013-01-31T08:00:00.000Z"
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "Tamiflu Oral Capsule 30 mg",
+        "code": "553103",
+        "code_system": null,
+        "translation": {
+          "name": "Oseltamivir 30 MG Oral Capsule",
+          "code": "728109",
+          "code_system": "2.16.840.1.113883.6.88",
+          "code_system_name": "RxNorm"
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": "capsule"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    }
+  ],
+  "26789_clinicalvisitsummary_ccda_xml": [
+    {
+      "date_range": {
+        "start": "2013-01-21T08:00:00.000Z",
+        "end": "2013-02-20T08:00:00.000Z"
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "Proventil HFA Inhalation HFA Aerosol Inhaler 90 mcg/actuation",
+        "code": "267456",
+        "code_system": null,
+        "translation": {
+          "name": "200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler",
+          "code": "745679",
+          "code_system": "2.16.840.1.113883.6.88",
+          "code_system_name": "RxNorm"
+        }
+      },
+      "dose_quantity": {
+        "value": "2",
+        "unit": "Inhaler"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    }
+  ],
+  "26789_exportsummary_ccda_xml": [
+    {
+      "date_range": {
+        "start": "2013-01-21T08:00:00.000Z",
+        "end": "2013-02-20T08:00:00.000Z"
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "Proventil HFA Inhalation HFA Aerosol Inhaler 90 mcg/actuation",
+        "code": "267456",
+        "code_system": null,
+        "translation": {
+          "name": "200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler",
+          "code": "745679",
+          "code_system": "2.16.840.1.113883.6.88",
+          "code_system_name": "RxNorm"
+        }
+      },
+      "dose_quantity": {
+        "value": "2",
+        "unit": "Inhaler"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2013-04-18T07:00:00.000Z",
+        "end": "2013-04-24T07:00:00.000Z"
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "ketorolac Injection Cartridge 30 mg/mL",
+        "code": "444366",
+        "code_system": null,
+        "translation": {
+          "name": "1 ML Ketorolac Tromethamine 30 MG/ML Prefilled Syringe",
+          "code": "860114",
+          "code_system": "2.16.840.1.113883.6.88",
+          "code_system_name": "RxNorm"
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": "cartridge"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    }
+  ],
+  "26840_exportsummary_ccda_xml": [
+    {
+      "date_range": {
+        "start": null,
+        "end": null
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "Dilaudid Oral Tablet 2 mg",
+        "code": "162540",
+        "code_system": null,
+        "translation": {
+          "name": "Hydromorphone Hydrochloride 2 MG Oral Tablet",
+          "code": "897696",
+          "code_system": "2.16.840.1.113883.6.88",
+          "code_system_name": "RxNorm"
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": "tablet"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": null,
+        "end": null
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "Demerol Injection Solution 50 mg/mL",
+        "code": "172838",
+        "code_system": null,
+        "translation": {
+          "name": "Meperidine Hydrochloride 50 MG/ML Injectable Solution",
+          "code": "861463",
+          "code_system": "2.16.840.1.113883.6.88",
+          "code_system_name": "RxNorm"
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": "milliliter"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2013-01-22T08:00:00.000Z",
+        "end": "2013-01-29T08:00:00.000Z"
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "Anusol-HC Rectal Suppository 25 mg",
+        "code": "278350",
+        "code_system": null,
+        "translation": {
+          "name": "Hydrocortisone 25 MG Rectal Suppository",
+          "code": "310896",
+          "code_system": "2.16.840.1.113883.6.88",
+          "code_system_name": "RxNorm"
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": "suppository"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2013-01-22T08:00:00.000Z",
+        "end": "2013-02-01T08:00:00.000Z"
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "Lortab Oral Tablet 10-500 mg",
+        "code": "226449",
+        "code_system": null,
+        "translation": {
+          "name": "Acetaminophen 500 MG / Hydrocodone Bitartrate 10 MG Oral Tablet",
+          "code": "857107",
+          "code_system": "2.16.840.1.113883.6.88",
+          "code_system_name": "RxNorm"
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": "tablet"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    }
+  ],
+  "26933_clinicalvisitsummary_ccda_xml": [
+    {
+      "date_range": {
+        "start": null,
+        "end": null
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "clarithromycin Oral Tablet 500 mg",
+        "code": "177323",
+        "code_system": null,
+        "translation": {
+          "name": "Clarithromycin 500 MG Oral Tablet",
+          "code": "197517",
+          "code_system": "2.16.840.1.113883.6.88",
+          "code_system_name": "RxNorm"
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": "tablet"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": null,
+        "end": null
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "metoprolol tartrate Oral Tablet 25 mg",
+        "code": "453953",
+        "code_system": null,
+        "translation": {
+          "name": "Metoprolol Tartrate 25 MG Oral Tablet",
+          "code": "866924",
+          "code_system": "2.16.840.1.113883.6.88",
+          "code_system_name": "RxNorm"
+        }
+      },
+      "dose_quantity": {
+        "value": "2",
+        "unit": "tablet"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2012-08-06T07:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "Proventil HFA Inhalation HFA Aerosol Inhaler 90 mcg/actuation",
+        "code": "267456",
+        "code_system": null,
+        "translation": {
+          "name": "200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler",
+          "code": "745679",
+          "code_system": "2.16.840.1.113883.6.88",
+          "code_system_name": "RxNorm"
+        }
+      },
+      "dose_quantity": {
+        "value": "2",
+        "unit": "Unit"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    }
+  ],
+  "26933_exportsummary_ccda_xml": [
+    {
+      "date_range": {
+        "start": null,
+        "end": null
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "clarithromycin Oral Tablet 500 mg",
+        "code": "177323",
+        "code_system": null,
+        "translation": {
+          "name": "Clarithromycin 500 MG Oral Tablet",
+          "code": "197517",
+          "code_system": "2.16.840.1.113883.6.88",
+          "code_system_name": "RxNorm"
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": "tablet"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": null,
+        "end": null
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "metoprolol tartrate Oral Tablet 25 mg",
+        "code": "453953",
+        "code_system": null,
+        "translation": {
+          "name": "Metoprolol Tartrate 25 MG Oral Tablet",
+          "code": "866924",
+          "code_system": "2.16.840.1.113883.6.88",
+          "code_system_name": "RxNorm"
+        }
+      },
+      "dose_quantity": {
+        "value": "2",
+        "unit": "tablet"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2012-08-06T07:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "Proventil HFA Inhalation HFA Aerosol Inhaler 90 mcg/actuation",
+        "code": "267456",
+        "code_system": null,
+        "translation": {
+          "name": "200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler",
+          "code": "745679",
+          "code_system": "2.16.840.1.113883.6.88",
+          "code_system_name": "RxNorm"
+        }
+      },
+      "dose_quantity": {
+        "value": "2",
+        "unit": "Unit"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2013-05-30T07:00:00.000Z",
+        "end": "2013-06-29T07:00:00.000Z"
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "albuterol sulfate Inhalation HFA Aerosol Inhaler 90 mcg/actuation",
+        "code": "279394",
+        "code_system": null,
+        "translation": {
+          "name": "200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler",
+          "code": "745679",
+          "code_system": "2.16.840.1.113883.6.88",
+          "code_system_name": "RxNorm"
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": "Suppository"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    }
+  ],
+  "adam_everyman_ccda_xml": [
+    {
+      "date_range": {
+        "start": "2013-01-24T08:00:00.000Z",
+        "end": "2013-02-23T08:00:00.000Z"
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "azithromycin Oral Tablet 500 mg",
+        "code": "445655",
+        "code_system": null,
+        "translation": {
+          "name": "Azithromycin 500 MG Oral Tablet",
+          "code": "248656",
+          "code_system": "2.16.840.1.113883.6.88",
+          "code_system_name": "RxNorm"
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": "tablet"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2013-01-01T08:00:00.000Z",
+        "end": "2013-01-31T08:00:00.000Z"
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "albuterol sulfate Inhalation HFA Aerosol Inhaler 90 mcg/actuation",
+        "code": "279394",
+        "code_system": null,
+        "translation": {
+          "name": "200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler",
+          "code": "745679",
+          "code_system": "2.16.840.1.113883.6.88",
+          "code_system_name": "RxNorm"
+        }
+      },
+      "dose_quantity": {
+        "value": "2",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2013-03-13T07:00:00.000Z",
+        "end": "2013-04-12T07:00:00.000Z"
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "Viagra Oral Tablet 50 mg",
+        "code": "186458",
+        "code_system": null,
+        "translation": {
+          "name": "sildenafil 50 MG Oral Tablet",
+          "code": "312950",
+          "code_system": "2.16.840.1.113883.6.88",
+          "code_system_name": "RxNorm"
+        }
+      },
+      "dose_quantity": {
+        "value": "2",
+        "unit": "tablet"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    }
+  ],
+  "c_cda_101646_20130617114506_everyman_adam_xml": [
+    {
+      "date_range": {
+        "start": null,
+        "end": null
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "translation": {
+          "name": "drug or medication",
+          "code": "410942007",
+          "code_system": "2.16.840.1.113883.6.96",
+          "code_system_name": "SNOMED CT"
+        }
+      },
+      "dose_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    }
+  ],
+  "c_cda_101693_20130617091427_kidd_kari_ccda_xml": [
+    {
+      "date_range": {
+        "start": "2013-05-13T07:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "oseltamivir 30 mg oral capsule",
+        "code": "728109",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": "cap(s)"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "ORAL",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2011-04-13T07:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "Proventil HFA CFC free 90 mcg/inh inhalation aerosol",
+        "code": "745679",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": "Proventil HFA CFC free 90 mcg/inh inhalation aerosol",
+          "code": "00085113201",
+          "code_system": "2.16.840.1.113883.6.69",
+          "code_system_name": "NDC"
+        }
+      },
+      "dose_quantity": {
+        "value": "2",
+        "unit": "puff(s)"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "AEROSOL",
+        "code": "C42887",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    }
+  ],
+  "c_cda_101693_20130617120344_kidd_kari_ccda_tocamb_xml": [
+    {
+      "date_range": {
+        "start": "2013-05-13T07:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "oseltamivir 30 mg oral capsule",
+        "code": "728109",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": "cap(s)"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "ORAL",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2011-04-13T07:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "Proventil HFA CFC free 90 mcg/inh inhalation aerosol",
+        "code": "745679",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": "Proventil HFA CFC free 90 mcg/inh inhalation aerosol",
+          "code": "00085113201",
+          "code_system": "2.16.840.1.113883.6.69",
+          "code_system_name": "NDC"
+        }
+      },
+      "dose_quantity": {
+        "value": "2",
+        "unit": "puff(s)"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "AEROSOL",
+        "code": "C42887",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    }
+  ],
+  "c_cda_101693_20130617120425_kidd_kari_ccda_tocinpt_xml": [
+    {
+      "date_range": {
+        "start": "2013-05-13T07:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "oseltamivir 30 mg oral capsule",
+        "code": "728109",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": "cap(s)"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "ORAL",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2011-04-13T07:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "Proventil HFA CFC free 90 mcg/inh inhalation aerosol",
+        "code": "745679",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": "Proventil HFA CFC free 90 mcg/inh inhalation aerosol",
+          "code": "00085113201",
+          "code_system": "2.16.840.1.113883.6.69",
+          "code_system_name": "NDC"
+        }
+      },
+      "dose_quantity": {
+        "value": "2",
+        "unit": "puff(s)"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "AEROSOL",
+        "code": "C42887",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    }
+  ],
+  "c_cda_101822_20130617114349_williams_john_xml": [
+    {
+      "date_range": {
+        "start": "2009-01-09T08:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "insulin aspart 100 units/mL subcutaneous solution",
+        "code": "311040",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": "insulin aspart 100 units/mL subcutaneous solution",
+          "code": "00169330312",
+          "code_system": "2.16.840.1.113883.6.69",
+          "code_system_name": "NDC"
+        }
+      },
+      "dose_quantity": {
+        "value": "15",
+        "unit": "units"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "SUBCUTANEOUS",
+        "code": "C38299",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "SOLUTION",
+        "code": "C42986",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2009-01-09T08:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "Lantus 100 units/mL subcutaneous solution",
+        "code": "285018",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": "Lantus 100 units/mL subcutaneous solution",
+          "code": "00088222033",
+          "code_system": "2.16.840.1.113883.6.69",
+          "code_system_name": "NDC"
+        }
+      },
+      "dose_quantity": {
+        "value": "40",
+        "unit": "units"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "SUBCUTANEOUS",
+        "code": "C38299",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "SOLUTION",
+        "code": "C42986",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2008-08-08T07:00:00.000Z",
+        "end": "2008-10-06T07:00:00.000Z"
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "atorvastatin 40 mg oral tablet",
+        "code": "617311",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": "atorvastatin 40 mg oral tablet",
+          "code": "00071015723",
+          "code_system": "2.16.840.1.113883.6.69",
+          "code_system_name": "NDC"
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": "tab(s)"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "ORAL",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "TABLET",
+        "code": "C42998",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2013-05-23T07:00:00.000Z",
+        "end": "2013-06-22T07:00:00.000Z"
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "Ascriptin Maximum Strength 75 mg-500 mg-75 mg-75 mg oral tablet",
+        "code": "198471",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": "Ascriptin Maximum Strength 75 mg-500 mg-75 mg-75 mg oral tablet",
+          "code": "00067014350",
+          "code_system": "2.16.840.1.113883.6.69",
+          "code_system_name": "NDC"
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": "tab(s)"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "ORAL",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "TABLET",
+        "code": "C42998",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    }
+  ],
+  "ccd_sample_xml": [
+    {
+      "date_range": {
+        "start": "2011-03-01T08:00:00.000Z",
+        "end": "2012-03-01T08:00:00.000Z"
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "6",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Albuterol 0.09 MG/ACTUAT inhalant solution",
+        "code": "329498",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": "Proventil 0.09 MG/ACTUAT inhalant solution",
+          "code": "573621",
+          "code_system": "2.16.840.1.113883.6.88",
+          "code_system_name": "RxNorm"
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": "90",
+        "unit": "ml/min"
+      },
+      "precondition": {
+        "name": "Wheezing",
+        "code": "56018004",
+        "code_system": "2.16.840.1.113883.6.96"
+      },
+      "reason": {
+        "name": "Bronchitis",
+        "code": "32398004",
+        "code_system": "2.16.840.1.113883.6.96"
+      },
+      "route": {
+        "name": "RESPIRATORY (INHALATION)",
+        "code": "C38216",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": "drug vehicle",
+        "code": "412307009",
+        "code_system": "2.16.840.1.113883.6.96",
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "INHALANT",
+        "code": "C42944",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": "Good Health Clinic",
+        "person": null
+      }
+    }
+  ],
+  "consults_sample_xml": [
+    {
+      "date_range": {
+        "start": "2011-03-01T08:00:00.000Z",
+        "end": "2012-03-01T08:00:00.000Z"
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "6",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Albuterol 0.09 MG/ACTUAT inhalant solution",
+        "code": "329498",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": "Proventil 0.09 MG/ACTUAT inhalant solution",
+          "code": "573621",
+          "code_system": "2.16.840.1.113883.6.88",
+          "code_system_name": "RxNorm"
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": "90",
+        "unit": "ml/min"
+      },
+      "precondition": {
+        "name": "Wheezing",
+        "code": "56018004",
+        "code_system": "2.16.840.1.113883.6.96"
+      },
+      "reason": {
+        "name": "Bronchitis",
+        "code": "32398004",
+        "code_system": "2.16.840.1.113883.6.96"
+      },
+      "route": {
+        "name": "RESPIRATORY (INHALATION)",
+        "code": "C38216",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": "drug vehicle",
+        "code": "412307009",
+        "code_system": "2.16.840.1.113883.6.96",
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "INHALANT",
+        "code": "C42944",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": "Good Health Clinic",
+        "person": null
+      }
+    }
+  ],
+  "encounter_based_c_cda_ccd___08_06_2012__jones__isabella___170314e2__xml": [
+    {
+      "date_range": {
+        "start": "2012-08-06T07:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "12",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "CLARITHROMYCIN, 500MG (Oral Tablet)",
+        "code": "197517",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": "026298",
+          "code_system": "2.16.840.1.113883.6.253",
+          "code_system_name": "Medispan Drug Descriptor ID"
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": "Tablet"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "ORAL",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2012-08-06T07:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "24",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "METOPROLOL TARTRATE, 25MG (Oral Tablet)",
+        "code": "866924",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": "078395",
+          "code_system": "2.16.840.1.113883.6.253",
+          "code_system_name": "Medispan Drug Descriptor ID"
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": "Tablet"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "ORAL",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2012-08-06T07:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "24",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "PROVENTIL HFA, 108 (90 Base)MCG/ACT (Inhalation Aerosol Solution)",
+        "code": "746763",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": "045685",
+          "code_system": "2.16.840.1.113883.6.253",
+          "code_system_name": "Medispan Drug Descriptor ID"
+        }
+      },
+      "dose_quantity": {
+        "value": "2",
+        "unit": "Puff"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "RESPIRATORY (INHALATION)",
+        "code": "C38216",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    }
+  ],
+  "handp_sample_xml": [
+    {
+      "date_range": {
+        "start": "2011-03-01T08:00:00.000Z",
+        "end": "2012-03-01T08:00:00.000Z"
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "6",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Albuterol 0.09 MG/ACTUAT inhalant solution",
+        "code": "329498",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": "Proventil 0.09 MG/ACTUAT inhalant solution",
+          "code": "573621",
+          "code_system": "2.16.840.1.113883.6.88",
+          "code_system_name": "RxNorm"
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": "90",
+        "unit": "ml/min"
+      },
+      "precondition": {
+        "name": "Wheezing",
+        "code": "56018004",
+        "code_system": "2.16.840.1.113883.6.96"
+      },
+      "reason": {
+        "name": "Bronchitis",
+        "code": "32398004",
+        "code_system": "2.16.840.1.113883.6.96"
+      },
+      "route": {
+        "name": "RESPIRATORY (INHALATION)",
+        "code": "C38216",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": "drug vehicle",
+        "code": "412307009",
+        "code_system": "2.16.840.1.113883.6.96",
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "INHALANT",
+        "code": "C42944",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": "Good Health Clinic",
+        "person": null
+      }
+    }
+  ],
+  "procedure_note_sample_xml": [
+    {
+      "date_range": {
+        "start": "2011-03-01T08:00:00.000Z",
+        "end": "2012-03-01T08:00:00.000Z"
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "6",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Albuterol 0.09 MG/ACTUAT inhalant solution",
+        "code": "329498",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": "Proventil 0.09 MG/ACTUAT inhalant solution",
+          "code": "573621",
+          "code_system": "2.16.840.1.113883.6.88",
+          "code_system_name": "RxNorm"
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": "90",
+        "unit": "ml/min"
+      },
+      "precondition": {
+        "name": "Wheezing",
+        "code": "56018004",
+        "code_system": "2.16.840.1.113883.6.96"
+      },
+      "reason": {
+        "name": "Bronchitis",
+        "code": "32398004",
+        "code_system": "2.16.840.1.113883.6.96"
+      },
+      "route": {
+        "name": "RESPIRATORY (INHALATION)",
+        "code": "C38216",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": "drug vehicle",
+        "code": "412307009",
+        "code_system": "2.16.840.1.113883.6.96",
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "INHALANT",
+        "code": "C42944",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": "Good Health Clinic",
+        "person": null
+      }
+    }
+  ],
+  "progress_note_sample_xml": [
+    {
+      "date_range": {
+        "start": "2011-03-01T08:00:00.000Z",
+        "end": "2012-03-01T08:00:00.000Z"
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "6",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Albuterol 0.09 MG/ACTUAT inhalant solution",
+        "code": "329498",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": "Proventil 0.09 MG/ACTUAT inhalant solution",
+          "code": "573621",
+          "code_system": "2.16.840.1.113883.6.88",
+          "code_system_name": "RxNorm"
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": "90",
+        "unit": "ml/min"
+      },
+      "precondition": {
+        "name": "Wheezing",
+        "code": "56018004",
+        "code_system": "2.16.840.1.113883.6.96"
+      },
+      "reason": {
+        "name": "Bronchitis",
+        "code": "32398004",
+        "code_system": "2.16.840.1.113883.6.96"
+      },
+      "route": {
+        "name": "RESPIRATORY (INHALATION)",
+        "code": "C38216",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": "drug vehicle",
+        "code": "412307009",
+        "code_system": "2.16.840.1.113883.6.96",
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "INHALANT",
+        "code": "C42944",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": "Good Health Clinic",
+        "person": null
+      }
+    }
+  ],
+  "toc_ccda_ccd_compguidesample_fullxml_xml": [
+    {
+      "date_range": {
+        "start": "2012-11-01T07:00:00.000Z",
+        "end": "2012-12-31T08:00:00.000Z"
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "24",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Lisinopril 20 MG Oral Tablet",
+        "code": "314077",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "oral",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "tablet",
+        "code": "C42998",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2012-11-01T07:00:00.000Z",
+        "end": "2012-12-31T08:00:00.000Z"
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "24",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Furosemide 40 MG Oral Tablet",
+        "code": "313988",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "oral",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "tablet",
+        "code": "C42998",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2012-11-01T07:00:00.000Z",
+        "end": "2012-12-31T08:00:00.000Z"
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "24",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "K-Dur 10 MEQ Extended Release Tablet",
+        "code": "706459",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "oral",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "TABLET, EXTENDED RELEASE",
+        "code": "C42927",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2012-11-01T07:00:00.000Z",
+        "end": "2012-12-31T08:00:00.000Z"
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "24",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Amlodipine 10 MG Oral Tablet",
+        "code": "308135",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "oral",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "tablet",
+        "code": "C42998",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2012-11-01T07:00:00.000Z",
+        "end": "2012-12-31T08:00:00.000Z"
+      },
+      "schedule": {
+        "period": {
+          "value": null,
+          "unit": null
+        }
+      },
+      "product": {
+        "name": "Simvastatin 40 MG Oral Tablet",
+        "code": "198211",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "oral",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "tablet",
+        "code": "C42998",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2012-11-01T07:00:00.000Z",
+        "end": "2012-12-31T08:00:00.000Z"
+      },
+      "schedule": {
+        "period": {
+          "value": null,
+          "unit": null
+        }
+      },
+      "product": {
+        "name": "Insulin Glargine 100 UNT/ML Injectable Solution",
+        "code": "311041",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "0.36",
+        "unit": "ml"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "SUBCUTANEOUS",
+        "code": "C38299",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "INJECTION, SOLUTION",
+        "code": "C42945",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2012-11-01T07:00:00.000Z",
+        "end": "2012-12-31T08:00:00.000Z"
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "24",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "glyBURIDE 2.5 MG / metFORMIN hydrochloride 500 MG Oral Tablet",
+        "code": "861748",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "oral",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "tablet",
+        "code": "C42998",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2012-11-01T07:00:00.000Z",
+        "end": "2012-12-31T08:00:00.000Z"
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "24",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Levothyroxine Sodium 0.1 MG Oral Tablet",
+        "code": "892246",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "oral",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "tablet",
+        "code": "C42998",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2012-11-01T07:00:00.000Z",
+        "end": "2012-12-31T08:00:00.000Z"
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "12",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Naproxen sodium 220 MG Oral Capsule",
+        "code": "1112231",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "oral",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "tablet",
+        "code": "C42998",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2012-11-01T07:00:00.000Z",
+        "end": "2012-12-31T08:00:00.000Z"
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "6",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "traMADol hydrochloride 50 MG Oral Tablet",
+        "code": "835603",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "oral",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "tablet",
+        "code": "C42998",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2012-11-01T07:00:00.000Z",
+        "end": "2012-12-31T08:00:00.000Z"
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "24",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Aspirin 81 MG Enteric Coated Tablet",
+        "code": "308416",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "oral",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "tablet",
+        "code": "C42998",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2012-11-01T07:00:00.000Z",
+        "end": "2012-12-31T08:00:00.000Z"
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "12",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Metoprolol Tartrate 50 MG Oral Tablet",
+        "code": "866514",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "oral",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "tablet",
+        "code": "C42998",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2012-11-01T07:00:00.000Z",
+        "end": "2012-12-31T08:00:00.000Z"
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "24",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Flomax 0.4 MG Oral Capsule",
+        "code": "863671",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "oral",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "tablet",
+        "code": "C42998",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2012-11-01T07:00:00.000Z",
+        "end": "2012-12-31T08:00:00.000Z"
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "24",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Proscar 5 MG Oral Tablet",
+        "code": "201961",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "oral",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "tablet",
+        "code": "C42998",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2012-11-01T07:00:00.000Z",
+        "end": "2012-12-31T08:00:00.000Z"
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "8",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Neurontin 300 MG Oral Capsule",
+        "code": "105029",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "oral",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "tablet",
+        "code": "C42998",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2012-11-01T07:00:00.000Z",
+        "end": "2012-12-31T08:00:00.000Z"
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "8",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Lorazepam 0.5 MG Oral Tablet",
+        "code": "197900",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "oral",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "tablet",
+        "code": "C42998",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2012-11-01T07:00:00.000Z",
+        "end": "2012-12-31T08:00:00.000Z"
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "12",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "Cordarone 200 MG Oral Tablet",
+        "code": "833530",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "oral",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "tablet",
+        "code": "C42998",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2012-11-01T07:00:00.000Z",
+        "end": "2012-12-31T08:00:00.000Z"
+      },
+      "schedule": {
+        "period": {
+          "value": "2",
+          "unit": "d"
+        }
+      },
+      "product": {
+        "name": "Warfarin Sodium 5 MG Oral Tablet",
+        "code": "855332",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "oral",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "tablet",
+        "code": "C42998",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2012-11-01T07:00:00.000Z",
+        "end": "2012-12-31T08:00:00.000Z"
+      },
+      "schedule": {
+        "period": {
+          "value": "2",
+          "unit": "d"
+        }
+      },
+      "product": {
+        "name": "Warfarin Sodium 2.5 MG Oral Tablet",
+        "code": "855312",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "oral",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "tablet",
+        "code": "C42998",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2012-11-01T07:00:00.000Z",
+        "end": "2012-12-31T08:00:00.000Z"
+      },
+      "schedule": {
+        "period": {
+          "value": null,
+          "unit": null
+        }
+      },
+      "product": {
+        "name": "Ambien 5 MG Oral Tablet",
+        "code": "854878",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "oral",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": "tablet",
+        "code": "C42998",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    }
+  ],
+  "transition_of_care_referral_summary_xml": [
+    {
+      "date_range": {
+        "start": "2009-01-09T08:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "period": {
+          "value": null,
+          "unit": null
+        }
+      },
+      "product": {
+        "name": "Insulin Glargine 100 UNT/ML Injectable Solution",
+        "code": "311041",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": "d04538",
+          "code_system": "2.16.840.1.113883.6.314",
+          "code_system_name": "multum-drug-id"
+        }
+      },
+      "dose_quantity": {
+        "value": "30.0",
+        "unit": "1"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": "C38299",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2008-08-08T07:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "period": {
+          "value": null,
+          "unit": null
+        }
+      },
+      "product": {
+        "name": "atorvastatin 40 MG Oral Tablet",
+        "code": "617311",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": "d04105",
+          "code_system": "2.16.840.1.113883.6.314",
+          "code_system_name": "multum-drug-id"
+        }
+      },
+      "dose_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2009-01-09T08:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "period": {
+          "value": null,
+          "unit": null
+        }
+      },
+      "product": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "translation": {
+          "name": null,
+          "code": "d04697",
+          "code_system": "2.16.840.1.113883.6.314",
+          "code_system_name": "multum-drug-id"
+        }
+      },
+      "dose_quantity": {
+        "value": "15.0",
+        "unit": "1"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": "C38299",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2013-07-10T07:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "period": {
+          "value": null,
+          "unit": null
+        }
+      },
+      "product": {
+        "name": "Aspirin 81 MG Oral Tablet",
+        "code": "243670",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": "d00170",
+          "code_system": "2.16.840.1.113883.6.314",
+          "code_system_name": "multum-drug-id"
+        }
+      },
+      "dose_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": null,
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    }
+  ],
+  "b2_adam_everyman_toc_xml": [
+    {
+      "date_range": {
+        "start": null,
+        "end": null
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "Proventil HFA 108 (90 Base) MCG/ACT Inhalation Aerosol Solution",
+        "code": "746763",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": "Proventil HFA 108 (90 Base) MCG/ACT Inhalation Aerosol Solution",
+          "code": "68258897406",
+          "code_system": "2.16.840.1.113883.6.69",
+          "code_system_name": "NDC"
+        }
+      },
+      "dose_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "RESPIRATORY (INHALATION)",
+        "code": "C38216",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    }
+  ],
+  "dataport_ambulatory_xml": [
+    {
+      "date_range": {
+        "start": "2013-05-30T07:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "24",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "AZITHROMYCIN, 500MG (Oral Tablet)",
+        "code": "749780",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": "044793",
+          "code_system": "2.16.840.1.113883.6.253",
+          "code_system_name": "Medispan Drug Descriptor ID"
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": "Tablet"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "ORAL",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2013-05-30T07:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "24",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "METOPROLOL TARTRATE, 50MG (Oral Tablet)",
+        "code": "866514",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": "013448",
+          "code_system": "2.16.840.1.113883.6.253",
+          "code_system_name": "Medispan Drug Descriptor ID"
+        }
+      },
+      "dose_quantity": {
+        "value": "1",
+        "unit": "Tablet"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "ORAL",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2013-05-30T07:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "type": "frequency",
+        "period": {
+          "value": "6",
+          "unit": "h"
+        }
+      },
+      "product": {
+        "name": "PROVENTIL HFA, 108 (90 Base)MCG/ACT (Inhalation Aerosol Solution)",
+        "code": "746763",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": "045685",
+          "code_system": "2.16.840.1.113883.6.253",
+          "code_system_name": "Medispan Drug Descriptor ID"
+        }
+      },
+      "dose_quantity": {
+        "value": "2",
+        "unit": "Puff"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "RESPIRATORY (INHALATION)",
+        "code": "C38216",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    }
+  ],
+  "kinsights_sample_timmy_xml": [
+    {
+      "date_range": {
+        "start": "2013-07-01T07:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "Desonide (Topical) Topical Ointment 0.0005 mg/mg",
+        "code": "204135",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": "Asthma",
+        "code": "195967001",
+        "code_system": "2.16.840.1.113883.6.96"
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2011-07-15T07:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "period": {}
+      },
+      "product": {
+        "name": "Hydrocortisone (Topical) Topical Gel 0.01 mg/mg",
+        "code": "198706",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": null,
+          "code_system_name": null
+        }
+      },
+      "dose_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": "Eczema",
+        "code": "43116000",
+        "code_system": "2.16.840.1.113883.6.96"
+      },
+      "route": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    }
+  ],
+  "problems_and_medications_xml": [
+    {
+      "date_range": {
+        "start": "2008-09-22T07:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "period": {
+          "value": null,
+          "unit": null
+        }
+      },
+      "product": {
+        "name": "????",
+        "code": "314076",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": "d00732",
+          "code_system": "2.16.840.1.113883.6.314",
+          "code_system_name": "multum-drug-id"
+        }
+      },
+      "dose_quantity": {
+        "value": "1.0",
+        "unit": "1"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "Oral",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2007-08-14T07:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "period": {
+          "value": null,
+          "unit": null
+        }
+      },
+      "product": {
+        "name": "????",
+        "code": "617310",
+        "code_system": "2.16.840.1.113883.6.88",
+        "translation": {
+          "name": null,
+          "code": "617318",
+          "code_system": "2.16.840.1.113883.6.88",
+          "code_system_name": "RxNorm"
+        }
+      },
+      "dose_quantity": {
+        "value": "2.0",
+        "unit": "1"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "Oral",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2009-07-15T07:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "period": {
+          "value": null,
+          "unit": null
+        }
+      },
+      "product": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "translation": {
+          "name": null,
+          "code": "42602",
+          "code_system": "2.16.840.1.113883.6.88",
+          "code_system_name": "RxNorm"
+        }
+      },
+      "dose_quantity": {
+        "value": "75.0",
+        "unit": "1"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "Oral",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2009-07-15T07:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "period": {
+          "value": null,
+          "unit": null
+        }
+      },
+      "product": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "translation": {
+          "name": null,
+          "code": "d00170",
+          "code_system": "2.16.840.1.113883.6.314",
+          "code_system_name": "multum-drug-id"
+        }
+      },
+      "dose_quantity": {
+        "value": "5.0",
+        "unit": "1"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "Oral",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2006-05-16T07:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "period": {
+          "value": null,
+          "unit": null
+        }
+      },
+      "product": {
+        "name": "clonidine",
+        "code": "17326",
+        "code_system": "2.16.840.1.113883.6.27",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": "2.16.840.1.113883.6.88",
+          "code_system_name": "RxNorm"
+        }
+      },
+      "dose_quantity": {
+        "value": "0.1",
+        "unit": "1"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "Oral",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    },
+    {
+      "date_range": {
+        "start": "2009-07-15T07:00:00.000Z",
+        "end": null
+      },
+      "schedule": {
+        "period": {
+          "value": null,
+          "unit": null
+        }
+      },
+      "product": {
+        "name": "lisinopril",
+        "code": "16552",
+        "code_system": "2.16.840.1.113883.6.27",
+        "translation": {
+          "name": null,
+          "code": null,
+          "code_system": "2.16.840.1.113883.6.88",
+          "code_system_name": "RxNorm"
+        }
+      },
+      "dose_quantity": {
+        "value": "30.0",
+        "unit": "1"
+      },
+      "rate_quantity": {
+        "value": null,
+        "unit": null
+      },
+      "precondition": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "reason": {
+        "name": null,
+        "code": null,
+        "code_system": null
+      },
+      "route": {
+        "name": "Oral",
+        "code": "C38288",
+        "code_system": "2.16.840.1.113883.3.26.1.1",
+        "code_system_name": "NCI Thesaurus"
+      },
+      "vehicle": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "administration": {
+        "name": null,
+        "code": null,
+        "code_system": null,
+        "code_system_name": null
+      },
+      "prescriber": {
+        "organization": null,
+        "person": null
+      }
+    }
+  ]
+}

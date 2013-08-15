@@ -43,6 +43,23 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
       templateUrl: '/partials/care_providers/new',
       controller: 'AddCareProvidersCtrl'
     }).
+    when('/care_plans/:id/finished', {
+      templateUrl: '/partials/care_plans/create_finished',
+      controller: 'ShowCarePlanCtrl'
+    }).
+    when('/care_plans/:id/patient', {
+      templateUrl: '/partials/care_plans/patient',
+      controller: 'ShowPatientCtrl'
+    }).
+    when('/care_plans/:id/verify', {
+      templateUrl: '/partials/care_plans/create_verify',
+      title: 'Patient invited',
+      controller: 'ShowCarePlanCtrl'
+    }).
+    when('/care_plans/:id/schedules', {
+      templateUrl: '/partials/schedules/edit',
+      controller: 'EditScheduleCtrl'
+    }).
     when('/care_plans/:id/schedules/new', {
       templateUrl: '/partials/schedules/new',
       controller: 'AddSchedulesCtrl'
@@ -50,10 +67,6 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     when('/care_plans/:carePlanId/schedules/:scheduleId/tasks/:id', {
       templateUrl: '/partials/tasks/edit',
       controller: 'EditTasksCtrl'
-    }).
-    when('/care_plans/:id/schedules', {
-      templateUrl: '/partials/schedules/edit',
-      controller: 'EditScheduleCtrl'
     }).
     // when('/care_plans/:id/edit', {
     //   templateUrl: '/partials/care_plans/edit',
@@ -83,4 +96,25 @@ app.run(['$location', '$rootScope', function($location, $rootScope) {
       $rootScope.title = current.$route.title || '';
     }
   });
+}]);
+
+/**
+ * Allow sensible/configurable back button on each page.
+ */
+app.run(['$location', '$rootScope', function($location, $rootScope, $event) {
+  $rootScope.navBack = function($event){
+    var path;
+    $event.preventDefault();
+    // Angular makes all "a" tags directives, and they behave in funny ways.
+    // Preventing default on this event DID NOT prevent the default behavior
+    // of redirecting to the href URL. Assuming angular is working magic here.
+    // Stopping propogation fixes it.
+    $event.stopPropagation();
+    if($rootScope.carePlan){
+      path = '/care_plans/' + $rootScope.carePlan._id;
+    }else{
+      path = '/';
+    }
+    $location.path(path)
+  };
 }]);
