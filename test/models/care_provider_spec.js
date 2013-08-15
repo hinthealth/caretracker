@@ -49,18 +49,4 @@ describe("CareProvider", function(){
       careProvider.get('name.first').should.equal('Zak');
     });
   });
-
-  describe('Patient #name.first', function(){
-    it("should return the first name", function(){
-      carePlan = new CarePlan({});
-      carePlan.patient.name = 'FirstName LastName';
-      should.exist(carePlan.get('patient.name.first'));
-      carePlan.get('patient.name.first').should.equal('FirstName');
-    });
-
-    it("should not throw an exception if null", function(){
-      carePlan = new CarePlan({});
-      should.not.exist(carePlan.get('patient.name.first'))
-    });
-  });
 });
