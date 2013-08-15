@@ -22,8 +22,14 @@ HealthRecordSchema.virtual('data.xml').get(function(){
   // Our parse is not tolerant of \r newlines, so handle them here.
   // https://github.com/blue-button/bluebutton.js/issues/61
   dataXml = dataXml.replace(/(\r\n|\n|\r)/gm,"\n");
-
-  this.data.document = BBParser(dataXml);
+  var document = BBParser(dataXml)
+  if(document.xmlDOM.el.errors){
+    var errors = document.xmlDOM.el.errors.map(function(error){
+      return error.data.exception.message;
+    });
+    console.log(errors);
+  };
+  this.data.document = document;
 });
 
 HealthRecordSchema.virtual('data.document')
