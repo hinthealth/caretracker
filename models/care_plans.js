@@ -34,16 +34,19 @@ var CarePlanSchema = new Schema({
   careProviders: [CareProvider.schema]
 });
 
+// Send virtuals to angular
+CarePlanSchema.set('toJSON', { virtuals: true });
+
 // Instance methods cannot be defined on the nested schema tree...
 CarePlanSchema.virtual('getDirectAddress').get(function(){
   return this.get('directKey') + '@' + AppConfig.directHostname;
 });
 
-
 // Instance methods cannot be defined on the nested schema tree...
 CarePlanSchema.virtual('patient.invitePath').get(function(){
   return '/join-plan/' + this.patient.inviteKey;
 });
+
 
 CarePlanSchema.static('ownedBy', function(user){
   return this.where({ownerId: user.id});
@@ -141,10 +144,11 @@ CarePlanSchema.methods.setPatient = function(user){
 var CarePlan = mongoose.model('CarePlan', CarePlanSchema);
 
 // INLINE MIGRATIONS FTW!
-CarePlan.find( { directAddress: {$exists : true }, inviteKey : { $exists : false } } )
+CarePlan.find( { directAddress: {$exists : true }, directKey : { $exists : false } } )
         .exec(function(error, results){
           results.forEach(function(plan){
             plan.directKey = plan.directAddress.replace(/@.*$/,'');
+            plan.directAddress = null;
             plan.save(function(error){
               if(error) return console.log("Failed to save", plan);
               console.log("Direct Key updated for",plan.id);
