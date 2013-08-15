@@ -42,7 +42,10 @@ var MedicationSchema = new Schema({
  * @param {medication} medication Medication that we're looking to match
  */
 MedicationSchema.static('findMatching', function(carePlan, medication, callback){
-  this.findOne({carePlanId: carePlan.id, 'product.code': medication.product.code}).exec(callback);
+  this.findOne({
+    carePlanId: carePlan.id,
+    'product.code': medication.product.code
+  }).exec(callback);
 });
 
 /**

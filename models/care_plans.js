@@ -6,6 +6,7 @@ var mongoose      = require('mongoose')
   , Schema        = mongoose.Schema
   , ObjectId      = Schema.Types.ObjectId
   , async         = require('async')
+  , AppConfig     = require('../config/app')
   , Util          = require('./../lib/util');
 
 
@@ -22,14 +23,20 @@ var Patient = mongoose.model('Patient', PatientSchema);
  * with a patients care.
  */
 var CarePlanSchema = new Schema({
-  directAddress: {
+  directKey: {
     type: String,
     required: true,
-    default: Util.generateDirectAddress
+    default: Util.generateDirectKey
   },
+  directAddress: String, // For historical reasons.
   ownerId: {type: ObjectId, required: true},
   patient: Patient.schema.tree, // Can't use schema unless in an array...
   careProviders: [CareProvider.schema]
+});
+
+// Instance methods cannot be defined on the nested schema tree...
+CarePlanSchema.virtual('getDirectAddress').get(function(){
+  return this.get('directKey') + '@' + AppConfig.directHostname;
 });
 
 
@@ -131,4 +138,16 @@ CarePlanSchema.methods.setPatient = function(user){
   this.patient.inviteKey  = null;
 };
 
-mongoose.model('CarePlan', CarePlanSchema);
+var CarePlan = mongoose.model('CarePlan', CarePlanSchema);
+
+// INLINE MIGRATIONS FTW!
+CarePlan.find( { directAddress: {$exists : true }, inviteKey : { $exists : false } } )
+        .exec(function(error, results){
+          results.forEach(function(plan){
+            plan.directKey = plan.directAddress.replace(/@.*$/,'');
+            plan.save(function(error){
+              if(error) return console.log("Failed to save", plan);
+              console.log("Direct Key updated for",plan.id);
+            });
+          });
+});
