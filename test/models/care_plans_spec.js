@@ -136,15 +136,15 @@ describe("CarePlan", function(){
     });
   });
 
-  describe("#directAddress", function(){
+  describe("#getDirectAddress", function(){
     it("should exist for new plans", function(){
-      this.carePlan.should.have.property('directAddress');
+      this.carePlan.should.have.property('getDirectAddress');
     });
     it("should be a direct address", function(){
-      this.carePlan.directAddress.should.match(/[0-9a-f]+@direct\..+/);
+      this.carePlan.getDirectAddress.should.match(/[0-9a-f]+@direct\..+/);
     });
     it("should be random", function(){
-      this.carePlan.directAddress.should.not.equal((new CarePlan()).directAddress);
+      this.carePlan.getDirectAddress.should.not.equal((new CarePlan()).getDirectAddress);
     });
     it("should be unique");
   })

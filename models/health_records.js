@@ -53,7 +53,7 @@ var HealthStore = require("./../lib/ccda_service");
 HealthRecordSchema.static('updatePlan', function(carePlan){
   var self = this;
   if(!carePlan) throw Error("Care plan is required.");
-  var directAddress = carePlan.directAddress;
+  var directAddress = carePlan.getDirectAddress;
   // Erm, we should really deal with multiple health records,
   // and not just pick the most recent.
   var store = new HealthStore({directAddress: directAddress});

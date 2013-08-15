@@ -165,14 +165,18 @@ ScheduleSchema.static('attributesFromMedication', function(medication){
   // if(medication.reason.name){
   //   content += "for " + medication.reason.name + " ";
   // }
-  var frequency = 0;
+  var frequency;
   if(medication.schedule && medication.schedule.period){
     frequency = periodInSeconds(medication.schedule.period);
   }
+
+  if(isNaN(parseInt(frequency))) frequency = 0;
+
   var start = (medication.start || new Date()).valueOf();
   var end = medication.end && medication.end.valueOf();
   // Special case non-repeating tasks
   if(frequency == 0 && !end){ end = start};
+
   return {
     carePlanId: medication.carePlanId,
     name: name,
