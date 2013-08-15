@@ -43,14 +43,15 @@ exports.create = function (req, res, next) {
         userId     : req.user.id,
         event      : 'Patient Invitation Created',
         properties : {
-          sendEmail: true,
-          fromFirstName: req.user.name.first,
-          fromLastName: req.user.name.first,
-          fromEmail: req.user.email,
-          toName: carePlan.patient.name,
-          toEmail: carePlan.patient.email,
-          inviteKey: carePlan.patient.invitePath,
-          inviteUrl: carePlan.invitePatientUrl(AppConfig.url)
+          sendEmail:        true,
+          fromFirstName:    req.user.name.first,
+          fromLastName:     req.user.name.first,
+          fromEmail:        req.user.email,
+          patientName:      carePlan.patient.name,
+          patientFirstName: carePlan.get('patient.name.first'),
+          patientEmail:     carePlan.patient.email,
+          inviteKey:        carePlan.patient.invitePath,
+          inviteUrl:        carePlan.invitePatientUrl(AppConfig.url)
         }
       });
       console.log("Email sent to patient ", req.user.email, "with url", carePlan.invitePatientUrl(AppConfig.url));

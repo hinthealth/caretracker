@@ -31,15 +31,16 @@ exports.create = function (req, res) {
           userId     : req.user.id,
           event      : 'CareTeam Invitation Created',
           properties : {
-            sendEmail: true,
-            fromName: req.user.name.full,
-            fromEmail: req.user.email,
-            patientName: carePlan.patient.name,
-            toEmail: newCareProvider.email,
-            toName: newCareProvider.name,
-            relation: newCareProvider.relation,
-            inviteKey: newCareProvider.inviteKey,
-            inviteUrl: newCareProvider.inviteUrl(AppConfig.url)
+            sendEmail:    true,
+            fromName:     req.user.name.full,
+            fromEmail:    req.user.email,
+            patientName:  carePlan.patient.name,
+            toEmail:      newCareProvider.email,
+            toName:       newCareProvider.name,
+            toFirstName:  newCareProvider.get('name.first'),
+            relation:     newCareProvider.relation,
+            inviteKey:    newCareProvider.inviteKey,
+            inviteUrl:    newCareProvider.inviteUrl(AppConfig.url)
           }
       });
       console.log("Invite sent to ", newCareProvider.email, " with url ", newCareProvider.inviteUrl(AppConfig.url));
