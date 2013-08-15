@@ -33,6 +33,13 @@ var CarePlanSchema = new Schema({
 });
 
 
+CarePlanSchema.virtual('patient.name.first')
+.get(function () {
+  if (this.get('patient.name')){
+    return this.get('patient.name').split(' ')[0];
+  }
+});
+
 // Instance methods cannot be defined on the nested schema tree...
 CarePlanSchema.virtual('patient.invitePath').get(function(){
   return '/join-plan/' + this.patient.inviteKey;

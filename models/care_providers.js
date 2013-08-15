@@ -22,6 +22,13 @@ var CareProviderSchema = new Schema({
     inviteKey: {type: String, default: Util.generateInviteKey}
 });
 
+CareProviderSchema.virtual('name.first')
+.get(function () {
+  if (this.get('name')){
+    return this.get('name').split(' ')[0];
+  }
+}); 
+
 CareProviderSchema.virtual('invitePath').get(function(){
   return '/join-team/' + this.inviteKey;
 });

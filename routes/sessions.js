@@ -1,4 +1,5 @@
-var passport = require('passport');
+var passport  = require('passport');
+var analytics = require('./../middlewares/analytics');
 
 
 exports.create = function(req, res, next){
@@ -10,6 +11,18 @@ exports.create = function(req, res, next){
     }
     req.logIn(user, function(err) {
       if (err) { return next(err); }
+      analytics.track({
+        userId     : req.user.id,
+        event      : 'Signed In',
+        properties : {
+          sendEmail: false
+        },
+        context: {
+          userAgent: req.headers['user-agent'],
+          ip: req.ip
+        }
+      });
+
       if(req.session.returnTo){
         res.redirect(req.session.returnTo);
         req.session.returnTo = null;

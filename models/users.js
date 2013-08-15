@@ -10,7 +10,8 @@ var UserSchema = new Schema({
   name: { first: String, last: String},
   email: { type: String, required: true, unique: true },
   passwordHash: { type: String, required: true },
-  carePlanId: { type: ObjectId }
+  carePlanId: { type: ObjectId },
+  createdAt: {type: Date, default: Date.now }
 });
 
 UserSchema.virtual('name.full')

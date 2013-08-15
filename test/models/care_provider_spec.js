@@ -30,5 +30,23 @@ describe("CareProvider", function(){
         done();
       });
     });
-  })
+  });
+  describe('Care Provider #name.first', function(){
+    it("should return the first name", function(){
+      careProvider = new CareProvider({name: 'Some name'});
+      should.exist(careProvider.get('name.first'));
+      careProvider.get('name.first').should.equal('Some');
+    });
+
+    it("should not throw exception if null", function(){
+      careProvider = new CareProvider({});
+      should.not.exist(careProvider.get('name.first'));
+    });
+
+    it("should be ok with only a first name", function(){
+      careProvider = new CareProvider({name: "Zak"});
+      should.exist(careProvider.get('name.first'));
+      careProvider.get('name.first').should.equal('Zak');
+    });
+  });
 });
