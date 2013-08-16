@@ -1,6 +1,6 @@
 {
   "name": "caretracker",
-  "version": "0.3.0-3",
+  "version": "0.3.0-4",
   "scripts": {
     "start": "node app.js",
     "test": "make test"

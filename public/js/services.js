@@ -17,18 +17,20 @@ angular.module('caretracker.services', [], function($provide){
   $provide.factory('carePlansService', ['$http', '$rootScope', function($http, $rootScope){
     // Private functions
     var dirty = true;
+    var loaded = false;
     var doRefresh = function(done){
       $http.get('/api/care_plans').
       success(function(data, status, headers, config) {
         $rootScope.myCarePlan = data.myCarePlan;
         $rootScope.carePlans = data.carePlans;
         dirty = false;
+        loaded = true;
         done();
       });
     }
 
     var reload = function(done){
-      if(dirty){
+      if(!loaded || dirty){
         return doRefresh(function(){
           reload(done);
         });
@@ -81,7 +83,7 @@ angular.module('caretracker.services', [], function($provide){
     pub.refresh = function(){
       dirty = true;
     }
-
+    reload();
     return pub;
   }]);
 }).
