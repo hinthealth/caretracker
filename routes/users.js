@@ -51,8 +51,9 @@ exports.create = function (req, res, next) {
 
       // TODO: Redirect to initial route
       if(req.session.returnTo){
-        res.redirect(req.session.returnTo);
+        var redirect = req.session.returnTo;
         req.session.returnTo = null;
+        res.redirect(redirect);
       } else {
         return res.redirect('/care_plans?welcome');
       }
