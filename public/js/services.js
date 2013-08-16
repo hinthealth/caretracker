@@ -15,33 +15,57 @@ angular.module('caretracker.services', [], function($provide){
    * Setting "current" carePlan effects default back button behavior.
    */
   $provide.factory('carePlansService', ['$http', '$rootScope', function($http, $rootScope){
-    var current = function(id){
-      if(!id){
-        return $rootScope.carePlan = null;
+    // Private functions
+    var reload = function(done){
+      if(!$rootScope.carePlanId){
+        $rootScope.carePlan = null;
+        $rootScope.patientNamePossesive = "Nobody's";
+      }else{
+        if($rootScope.myCarePlan &&
+           $rootScope.myCarePlan._id == $rootScope.carePlanId){
+          $rootScope.carePlan = $rootScope.myCarePlan;
+          $rootScope.patientNamePossesive = 'Your';
+        }else if($rootScope.carePlans){
+          $rootScope.carePlan = $rootScope.carePlans.filter(function(carePlan){
+            return carePlan._id == id;
+          })[0];
+          $rootScope.patientNamePossesive = $rootScope.carePlan.patient.name + "'s";
+        }
       }
-      if($rootScope.myCarePlan && $rootScope.myCarePlan._id == id){
-        $rootScope.carePlan = $rootScope.myCarePlan;
-        $rootScope.patientNamePossesive = 'Your';
-      }else if($rootScope.carePlans){
-        $rootScope.carePlan = $rootScope.carePlans.filter(function(carePlan){
-          return carePlan._id == id;
-        })[0];
-        $rootScope.patientNamePossesive = $rootScope.carePlan.patient.name + "'s";
+      if(done){
+        done(null, $rootScope.carePlan)
       }
-      return $rootScope.carePlan;
-    };
-    var refresh = function(){
+    }
+
+    // Public functions
+    var pub = {}; // public is protected keyword?
+    pub.clearCurrent = function(){
+      if($rootScope.carePlanId != null){
+        $rootScope.carePlanId = null;
+        reload();
+      }
+    }
+    pub.setCurrent = function(id, done){
+      if($rootScope.carePlanId != id){
+        $rootScope.carePlanId = id;
+        reload(function(error){
+          done(error, $rootScope.myCarePlan);
+        });
+      }
+    }
+    pub.refresh = function(){
       $http.get('/api/care_plans').
         success(function(data, status, headers, config) {
           $rootScope.myCarePlan = data.myCarePlan;
           $rootScope.carePlans = data.carePlans;
+          reload();
         });
-    };
-    refresh()
-    return {
-      current: current,
-      refresh: refresh
-    };
+    }
+
+    // Initialization
+    pub.refresh();
+
+    return pub;
   }]);
 }).
   value('version', '0.1');

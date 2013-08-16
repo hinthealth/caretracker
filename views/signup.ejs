@@ -45,6 +45,9 @@
     <script>
       $('.main form').validate({
         rules: {
+        password: {
+            minlength: 6
+        },
           passwordConfirmation: {
             equalTo: '[name="password"]'
           }

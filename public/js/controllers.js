@@ -9,7 +9,7 @@ angular.module('caretracker.controllers', []).
   controller('IndexCarePlansCtrl', ['$rootScope', '$scope', '$http', '$routeParams', 'carePlansService', function($rootScope, $scope, $http, $routeParams, carePlansService) {
     $rootScope.title = 'Your patients';
     $scope.showWelcomeMessage = 'welcome' in $routeParams;
-    carePlansService.current();
+    carePlansService.clearCurrent();
   }]).
   controller('AddCarePlanCtrl', ['$rootScope', '$scope', '$http', '$location', 'carePlansService', function($rootScope, $scope, $http, $location, carePlansService) {
     $rootScope.title = 'Add a patient';
@@ -36,8 +36,9 @@ angular.module('caretracker.controllers', []).
   }]).
   controller('ShowCarePlanCtrl', ['$rootScope', '$scope', '$http', '$routeParams', 'carePlansService', function($rootScope, $scope, $http, $routeParams, carePlansService) {
     // Set current care plan
-    var carePlan = carePlansService.current($routeParams.id);
-    $rootScope.title = carePlan.patient.name;
+    carePlansService.setCurrent($routeParams.id, function(error, carePlan){
+      $rootScope.title = carePlan.patient.name;
+    });
     // By default, get today's tasks.
     var current = moment();
     var start = moment(current).startOf('day');
@@ -161,9 +162,10 @@ angular.module('caretracker.controllers', []).
      });
 
     }
-    var carePlan = carePlansService.current($routeParams.id);
-    $scope.form.patient = carePlan.patient;
-    $scope.invalidEmail = !carePlan.patient.email;
+    carePlansService.setCurrent($routeParams.id, function(error, carePlan){
+      $scope.form.patient = carePlan.patient;
+      $scope.invalidEmail = !carePlan.patient.email;
+    });
   }]).
     // Tasks Controllers
   controller('EditTasksCtrl', ['$scope', '$http', '$location', '$routeParams', function($scope, $http, $location, $routeParams){
