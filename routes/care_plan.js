@@ -27,7 +27,10 @@ exports.addPatient = function(req, res, next){
   var self = this;
   CarePlan.findOne({"patient.inviteKey": key}, function(error, carePlan){
     if(error) return next(error);
-    if(!carePlan) return next(Error("This link has already been used"));
+    if(!carePlan){
+      req.flash('error', 'This invitation has already been used.');
+      return res.redirect('/');
+    }
     // TODO: Check if the user already has a careplan
     carePlan.setPatient(req.user);
     carePlan.save(function(error, result){
