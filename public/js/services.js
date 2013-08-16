@@ -44,7 +44,7 @@ angular.module('caretracker.services', [], function($provide){
           $rootScope.patientNamePossesive = 'Your';
         }else if($rootScope.carePlans){
           $rootScope.carePlan = $rootScope.carePlans.filter(function(carePlan){
-            return carePlan._id == id;
+            return carePlan._id == $rootScope.carePlanId;
           })[0];
           if($rootScope.carePlan){
             $rootScope.patientNamePossesive = $rootScope.carePlan.patient.name + "'s";
