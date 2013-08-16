@@ -49,7 +49,9 @@ angular.module('caretracker.services', [], function($provide){
       if($rootScope.carePlanId != id){
         $rootScope.carePlanId = id;
         reload(function(error){
-          done(error, $rootScope.myCarePlan);
+          if(done){
+            done(error, $rootScope.myCarePlan);
+          }
         });
       }
     }
