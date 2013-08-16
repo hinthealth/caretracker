@@ -57,7 +57,7 @@ HealthRecordSchema.static('updatePlan', function(carePlan, done){
   // Erm, we should really deal with multiple health records,
   // and not just pick the most recent.
   var store = new HealthStore({directAddress: directAddress});
-  store.retrieveAll(function(error, attributes, ccdaXml){
+  store.retrieveAll(function(error, attributes, ccdaXml, recordDone){
     if(error) return console.log("Unable to retrieve health record", error);
     self.findOne({direct_address: directAddress, key: attributes.key})
         .exec(function(error, found){
@@ -76,11 +76,13 @@ HealthRecordSchema.static('updatePlan', function(carePlan, done){
         record.data.xml = ccdaXml;
       }
       record.save(function(error){
-        if(error) return console.log("Error saving health record", error);
-        console.log("Health Records updated for "+ directAddress);
+        if(error) return recordDone(error);
         if(updatePlan){
           carePlan.import(record, function(err, result){
+            recordDone(err);
           });
+        }else{
+          recordDone(null);
         };
       });
     });
