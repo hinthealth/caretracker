@@ -125,6 +125,7 @@ app.put('/api/care_plans/:care_plan_id/schedules/:schedule_id/tasks/:taskStart/t
 
 app.get('/api/care_plans/:care_plan_id/health_record', api.health_record.show)
 
+app.put('/api/care_plans/:care_plan_id/sync', api.health_record.sync)
 
 
 

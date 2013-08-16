@@ -12,5 +12,8 @@
       <li>Enter your Direct address (above).
     </ol>
     <p>Once you've entered your Direct address, your provider will send your health record to this application.
+    <p><a class='button' ng-click="sync()" ng-disabled="loading">Check for new data</a></p>
+    <div class='loading' ng-show="loading">Loading...</div>
+    <div class='synced' ng-show="numRecordsSynced && !loading">{{numRecordsSynced}} synced.</div>
   </section>
 </div>

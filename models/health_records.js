@@ -50,7 +50,7 @@ HealthRecordSchema.virtual('data.json')
 });
 
 var HealthStore = require("./../lib/ccda_service");
-HealthRecordSchema.static('updatePlan', function(carePlan){
+HealthRecordSchema.static('updatePlan', function(carePlan, done){
   var self = this;
   if(!carePlan) throw Error("Care plan is required.");
   var directAddress = carePlan.getDirectAddress;
@@ -84,7 +84,7 @@ HealthRecordSchema.static('updatePlan', function(carePlan){
         };
       });
     });
-  });
+  }, done);
 });
 
 

@@ -33,7 +33,11 @@
       <div ng:switch-when="true">
         <li ng-repeat="medication in medications">
           {{medication.dose_quantity.value}} {{medication.dose_quantity.unit}} {{medication.product.name}}
-          <dl>
+          <dl class='timeframe'>
+            <dt class="start">Taken from</dt>
+            <dd>{{medication.start | date:'fullDate'}}</dd>
+            <dt class="end">to</dt>
+            <dd>{{medication.start | date:'fullDate' || 'N/A' }}</dd>
             <dt>Every</dt>
             <dd>{{medication.schedule.period.value || 'Not specified'}} {{medication.schedule.period.unit}}</dd>
           </dl>

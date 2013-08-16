@@ -71,8 +71,19 @@ angular.module('caretracker.controllers', []).
   controller('ShowCarePlanDataImportCtrl', ['$rootScope', '$scope', '$http', '$routeParams', 'carePlansService', function($rootScope, $scope, $http, $routeParams, carePlansService) {
     carePlansService.setCurrent($routeParams.id);
     $rootScope.title = 'Import health data';
+    $scope.sync = function(){
+      $scope.loading = true;
+      $http.put('/api/care_plans/' + $routeParams.id + '/sync' ).
+        success(function(data, status, headers, config) {
+          $scope.loading = false;
+          $scope.numRecordsSynced = data.records.length == 1 ? data.records.length + " record" : data.records.length + " records";
+        });
+    };
   }]).
-
+  controller('ShowCarePlanDataSyncCtrl', ['$rootScope', '$scope', '$http', '$routeParams', 'carePlansService', function($rootScope, $scope, $http, $routeParams, carePlansService) {
+    carePlansService.setCurrent($routeParams.id);
+    $rootScope.title = 'Import health data';
+  }]).
   // CareProviders Controllers
   controller('IndexCareProvidersCtrl', ['$rootScope', '$scope', '$http', '$routeParams', function($rootScope, $scope, $http, $routeParams) {
     $http.get('/api/care_plans/' + $routeParams.id + '/care_providers' ).
