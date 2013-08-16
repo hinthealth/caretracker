@@ -16,7 +16,23 @@ angular.module('caretracker.services', [], function($provide){
    */
   $provide.factory('carePlansService', ['$http', '$rootScope', function($http, $rootScope){
     // Private functions
+    var dirty = true;
+    var doRefresh = function(done){
+      $http.get('/api/care_plans').
+      success(function(data, status, headers, config) {
+        $rootScope.myCarePlan = data.myCarePlan;
+        $rootScope.carePlans = data.carePlans;
+        dirty = false;
+        done();
+      });
+    }
+
     var reload = function(done){
+      if(dirty){
+        return doRefresh(function(){
+          reload(done);
+        });
+      }
       var error;
       if(!$rootScope.carePlanId){
         $rootScope.carePlan = null;
@@ -63,16 +79,8 @@ angular.module('caretracker.services', [], function($provide){
       }
     }
     pub.refresh = function(){
-      $http.get('/api/care_plans').
-        success(function(data, status, headers, config) {
-          $rootScope.myCarePlan = data.myCarePlan;
-          $rootScope.carePlans = data.carePlans;
-          reload();
-        });
+      dirty = true;
     }
-
-    // Initialization
-    pub.refresh();
 
     return pub;
   }]);
