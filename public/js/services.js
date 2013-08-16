@@ -17,6 +17,7 @@ angular.module('caretracker.services', [], function($provide){
   $provide.factory('carePlansService', ['$http', '$rootScope', function($http, $rootScope){
     // Private functions
     var reload = function(done){
+      var error;
       if(!$rootScope.carePlanId){
         $rootScope.carePlan = null;
         $rootScope.patientNamePossesive = "Nobody's";
@@ -29,11 +30,17 @@ angular.module('caretracker.services', [], function($provide){
           $rootScope.carePlan = $rootScope.carePlans.filter(function(carePlan){
             return carePlan._id == id;
           })[0];
-          $rootScope.patientNamePossesive = $rootScope.carePlan.patient.name + "'s";
+          if($rootScope.carePlan){
+            $rootScope.patientNamePossesive = $rootScope.carePlan.patient.name + "'s";
+          }else{
+            error = Error("Unable to find carePlan with ID",$rootScope.carePlanId);
+          }
         }
       }
       if(done){
-        done(null, $rootScope.carePlan)
+        done(error, $rootScope.carePlan)
+      }else if(error){
+        console.log(error.message);
       }
     }
 
