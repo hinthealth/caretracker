@@ -157,7 +157,7 @@ CarePlan.find( { directAddress: {$exists : true }, directKey : { $exists : false
             plan.directKey = plan.directAddress.replace(/@.*$/,'');
             plan.directAddress = null;
             plan.save(function(error){
-              if(error) return console.log("Failed to save", plan);
+              if(error) return console.log("Failed to save", plan, error);
               console.log("Direct Key updated for",plan.id);
             });
           });
