@@ -1,6 +1,6 @@
 {
   "name": "caretracker",
-  "version": "0.3.0-6",
+  "version": "0.3.0-7",
   "scripts": {
     "start": "node app.js",
     "test": "make test"
@@ -30,6 +30,6 @@
   },
   "subdomain": "caretracker-test",
   "engines": {
-    "node": "0.8.x"
+    "node": "0.10.x"
   }
 }
