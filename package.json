@@ -28,6 +28,7 @@
     "supervisor": "~0.5.3",
     "zombie": "~2.0.0"
   },
+  "domains": ["caretracker.hint.com"],
   "subdomain": "caretracker-test",
   "engines": {
     "node": "0.10.x"
