@@ -4,7 +4,7 @@ to manage the daily schedule of multiple patients.
 
 ## Application setup
 1. Install NPM (follow instructions on their website)
-2. clone this repository ```git clone git@github.com:healthio/caretracker.git```
+2. clone this repository ```git clone git@github.com:hinthealth/caretracker.git```
 3. Install the npm packages (npm install)
 4. Run tests to make sure you're setup: ```npm test```
 5. Run the server! ```npm start```
@@ -76,7 +76,6 @@ Right now, authentication / authorization are handled directly from the express 
 Once logged in/authenticated, the express app renders views/main.ejs, which serves
 the angular app.
 
-## Deploying to production
-### *TBD*
-
+# License
+This application is provided to the Open Source community through the MIT license.
 
