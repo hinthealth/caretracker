@@ -26,6 +26,11 @@ app.use(express.cookieParser());
 app.use(express.bodyParser());
 app.use(express.methodOverride());
 
+app.configure('production', function() {
+  console.log('requiring https');
+  app.use(middlewares.https.required);
+});
+
 
 // use express.session before passport, so that passport session will work
 app.use(express.cookieSession({
@@ -139,7 +144,6 @@ app.configure('development', function() {
 });
 
 app.configure('production', function() {
-  app.use(middlewares.https.required);
   app.use(express.errorHandler());
 });
 

@@ -1,6 +1,6 @@
 {
   "name": "caretracker",
-  "version": "0.3.0-8",
+  "version": "0.3.1",
   "scripts": {
     "start": "node app.js",
     "test": "make test"
@@ -28,7 +28,10 @@
     "supervisor": "~0.5.3",
     "zombie": "~2.0.0"
   },
-  "domains": ["caretracker.hint.com"],
+  "domains": [
+    "caretracker.hint.com",
+    "caretracker-test.hint.com"
+  ],
   "subdomain": "caretracker-test",
   "engines": {
     "node": "0.10.x"
