@@ -2,7 +2,7 @@
 Caretracker is the best way for care providers to collaborate on patient care, and
 to manage the daily schedule of multiple patients.
 
-See a [running demo of the caretracker app](caretracker-test.jit.su)
+See a [running demo of the caretracker app](https://caretracker-test.jit.su)
 
 ## Application setup
 1. Install NPM (follow instructions on their website)
