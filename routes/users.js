@@ -36,18 +36,18 @@ exports.create = function (req, res, next) {
     req.login(user, function(error){
       if(error) return next(error);
       // Identify user when they create an account
-    //analytics.identify(user);
-    //analytics.track({
-    //  userId     : req.user.id,
-    //  event      : 'Account Created',
-    //  properties : {
-    //    sendEmail: true
-    //  },
-    //  context: {
-    //    userAgent: req.headers['user-agent'],
-    //    ip: req.ip
-    //  }
-    //});
+      analytics.identify(user);
+      analytics.track({
+        userId     : req.user.id,
+        event      : 'Account Created',
+        properties : {
+          sendEmail: true
+        },
+        context: {
+          userAgent: req.headers['user-agent'],
+          ip: req.ip
+        }
+      });
 
       // TODO: Redirect to initial route
       if(req.session.returnTo){
