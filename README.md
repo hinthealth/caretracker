@@ -2,6 +2,8 @@
 Caretracker is the best way for care providers to collaborate on patient care, and
 to manage the daily schedule of multiple patients.
 
+See a [running demo of the caretracker app](caretracker-test.jit.su)
+
 ## Application setup
 1. Install NPM (follow instructions on their website)
 2. clone this repository ```git clone git@github.com:hinthealth/caretracker.git```
@@ -36,12 +38,12 @@ grunt dbdrop
 
 
 ## Contributing code
-0. Create a new branch for your code ```git checkout master && git pull && git checkout -b 'feature/my_feature_name'```
+0. Fork the caretracker app
 1. Write a new feature test in ./test/acceptance, or write a test for a bug in ./test/models or ./test/routes
 2. Run the test with ```npm test``` (or ```make test```)
 3. See it fail
 4. Code till it passes
-5. Push your code up (```git push origin feature/my_feature_name```), then login to github and create a pull request.
+5. Pull request your addition/fix!
 
 
 ## Architectural Overview
