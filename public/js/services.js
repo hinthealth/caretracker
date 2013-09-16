@@ -75,7 +75,7 @@ angular.module('caretracker.services', [], function($provide){
         $rootScope.carePlanId = id;
         reload(function(error){
           if(done){
-            done(error, $rootScope.myCarePlan);
+            done(error, $rootScope.carePlan);
           }
         });
       }
