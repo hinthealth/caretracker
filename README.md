@@ -8,9 +8,10 @@ See a [running demo of the caretracker app](https://caretracker-test.jit.su)
 1. Install NPM (follow instructions on their website)
 2. clone this repository ```git clone git@github.com:hinthealth/caretracker.git```
 3. Install the npm packages (npm install)
-4. Run tests to make sure you're setup: ```npm test```
-5. Run the server! ```npm start```
-6. Visit your new server at localhost:3000
+4. Start your db with ```mongod``` in a different terminal or a backround process.
+5. Run tests to make sure you're setup: ```npm test```
+6. Run the server! ```npm start```
+7. Visit your new server at localhost:3000
 
 ## Database setup
 _This was part of the original setup, not sure if it still works_
