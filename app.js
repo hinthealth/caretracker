@@ -20,7 +20,11 @@ var app = express();
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.use(express.logger());
+
+if ( 'test' !== app.get('env') ) {
+  app.use(express.logger());
+}
+
 app.use(express.responseTime());
 app.use(express.cookieParser());
 app.use(express.bodyParser());
